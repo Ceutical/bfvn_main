@@ -4,6 +4,7 @@
 
 define m = Character("Mama")
 define p = Character("[name]") #Name of Player Character -- P = Protagonist
+define n = Character(name=None, what_italic=True) #Narrator
 define a = Character("Anja")
 define e = Character("Evelynn")
 define o = Character("Octavia")
@@ -45,11 +46,48 @@ label start:
 
     
     ##### Szene 1 - Prolog #####
+    python:
+        name = renpy.input("Gib dem Kind einen Namen.")
+        name= name.strip() or "P"
+        
+        
+    menu:
+        "Wird das Kind Junge oder als Mädchen gesehen?"
+        "Als Junge":
+            $ gender = "male"
+            
+        "Als Mädchen":
+            $ gender = "female"
+            
+            
     
+    if gender == "male":
+        python:
+            pro = "sein"
+            pro2 = "er"
+            pro3 = "ihm"
+            pro4 = "Sohn"
+            pro5 = "ihn"
+            suf = "en"
+    else:
+        python:
+            pro = "ihr"
+            pro2 = "sie"
+            pro3 = "ihr"
+            pro4 = "Tochter"
+            pro5 = "sie"
+            suf = "e"
+    "{b}ANMERKUNG!{/b}"
+    "{b}Wir stellen 3 verschiedene Erzählstile vor.{/b}"
+    "{b}Kindlicher Erzähler, Erwachsener Erzähler in Retrospektive, Neutraler Erzähler.{/b}"
+    "{b}Es folgt nun eine Szene in dreifacher Ausführung. Jeweils mit einem Erzähler als Beispiel.{/b}"
+    "{b}Danach geht das Spiel in einfacher Ausführung mit dem Erzähler weiter, den wir uns ausgesucht haben.{/b}"
+    "{b}Wir wollen nur der Vollständigkeit halber die anderen Überlegungen auch einmal gezeigt haben.{/b}" 
     ##### WOCHE 1 BEGINN #####
     ##### TAG 1 BEGINN #####
-    ##### Szene 2 #####
-    "???" "Hey Kleiner! Aufwachen! Du willst doch nicht zu spät kommen!"
+    ##### Szene 2 CHILD #####
+    "{b}Start: Kindlicher Erzähler{/b}"
+    "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
     "{i}Diese warme Stimme gehört Mama. Jeden Tag weckt sie mich und ist immer für mich da.{/i}"
     "{i}Aber heut is Morgen! Ich komm in den neuen Kindergarten!{/i}"
     "{i}Da treff ich bestimmt...{/i}"
@@ -59,9 +97,11 @@ label start:
     "{i}Alles ist furchtbar hell... Aber dann sehe ich auch schon meine Mama.{/i}"
     show mum talk with moveinright
     m "Guten Morgen mein kleiner Spatz!"
-    m "Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
+    p "Guten Morgen Mama ..."
+    p "Ich will aber noch nicht aufstehen!"
+    m "Ach jetzt stell dich nicht so an. Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
     m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
-    "Pfannenkuchen! Ohh Mama ich hab dich lieb!"
+    "Pfannkuchen! Jaa! Mama ich hab dich lieb!"
     show bg kitchen with dissolve
     "{i}Ich drück Mama ganz doll, kletter aus meinem Bett und lauf mit ihr in die Küche.{/i}"
     m "Freust du dich schon deine neuen Freunde kennenzulernen?"
@@ -69,21 +109,124 @@ label start:
         "Jaaaaaa!":
             "{i}Ich strahle Mama regelrecht an als ich ihr antworte.{/i}"
             m "Das ist schön. Du kommst bestimmt in eine Gruppe mit ganz tollen anderen Kindern."
-            jump choice1_done
+            jump childsend
      
         "Ja...":
             "{i}Ich will Mama nicht traurig machen und versuche sie anzulächeln.{/i}"
             m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
             "{i}Ich schaue traurig auf mein Frühstück runter.{/i}"
-            m "Kopf hoch, das wird ganz toll. Du kommst in eine Gruppe mit ganz tollen anderen Kindern!"
+            m "Du kommst heute bestimmt ein eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
             "{i}Als Mama mir durch die Haare wuschelt wird meine Laune wieder besser. Mama ist die Beste!{/i}"
-            jump choice1_done
+            jump childsend
     
         
-label choice1_done:
+label childsend:
+    "{b}Ende: Kindlicher Erzähler{/b}"
     hide mum
     
+    ##### Szene 2 - ADULT #####
+    hide bg kitchen
+    "{b}Start: Erwachsener Erzähler in Retrospektive.{/b}"
+    n "Hah. Wo soll ich anfangen?"
+    n "Ich bin jetzt 23 Jahre alt."
+    n "Und heute bat man mich tatsächlich darum aus meiner Kindergartenzeit zu erzählen."
+    n "Wie das eben so ist."
+    n "Eins führte zum Anderen und schwupps waren wir beim Thema."
+    n "Ehrlich gesagt ... \"meine Kindergartenzeit\" als Ganzes war nichts besonderes."
+    n "Nur die Zeit nach meinem ... unserem Umzug."
+    n "Mama und ich waren jetzt alleine."
+    n "Für mich war alles neu. Und verwirrend. Gott ich war erst 6."
+    n "Rückblickend ein absolutes Wunder, dass Mama mich noch irgendwo unterbringen konnte."
+    n "Es waren nur wenige Monate bis es in die Schule gehen sollte."
+    n "Aber das hat gereicht."
+    n "Gereicht für eine ganz besondere Zeit."
+    n "Der Weg ist das Ziel, richtig?"
+    n "Und mein neuer Weg begann an einem Montag Morgen."    
+    "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
+    n "Das war meine Mama die mich da weckte. Immer für mich da schmiss sie mich auch jeden Morgen pünktlich aus dem Bett."
+    n "Ich hatte damals diese furchtbare Angewohnheit mich dann unter meine Decke zu verstecken und so zu tun als würde ich schlafen."
+    show bg bedroom with dissolve
+    n "Und sie hatte diese noch viel furchtbarere Angewohnheit mir die Decke einfach wegzureißen..."
+    show mum talk with moveinright
+    m "Guten Morgen mein kleiner Spatz!"
+    p "Guten Morgen Mama ..."
+    p "Ich will aber noch nicht aufstehen!"
+    m "Ach jetzt stell dich nicht so an. Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
+    m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
+    p "Pfannkuchen! Jaaa! Mama ich hab dich lieb!"
+    show bg kitchen with dissolve
+    n "Wir gingen dann zusammen in die Küche. Sie war zweckmäßig eingerichtet aber für uns hat es gereicht."
+    n "Außerdem war Mamas Essen sowieso das Wichtigste."
+    m "Freust du dich schon deine neuen Freunde kennenzulernen?"
+    menu:
+        "Jaaaaaa!":
+            n "Ich wollte endlich wieder mit anderen Kindern spielen. Durch den Umzug und die lange Wartezeit hatte ich viel Zeit allein mit Mama, ohne andere Kinder verbracht."
+            m "Das ist schön. Du kommst bestimmt in eine Gruppe mit ganz tollen anderen Kindern."
+            jump adultsend
+            
+        "Ja...":
+            n "Natürlich nicht. Ich wollte zurück zu meinen Freunden. Zu meinen alten Freunden. Heute erinner ich mich kaum noch an sie aber damals war ich sehr traurig."
+            n "Ich wollte nur auch Mama nicht traurig machen. Doch Mamas merken alles."
+            m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
+            m "Hey, schau mich an, nicht dein Essen. Alles wird gut, okay? Komm her, lass dich mal knuddeln."
+            m "Siehst du? Alles garnicht mehr so wild."
+            m "Du kommst heute bestimmt ein eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
+            n "Mama wusste immer wie man andere aufmuntert."
+            jump adultsend
+    
+label adultsend:
+    "{b}Ende: Erwachsener Erzähler{/b}"
+    hide mum
+    
+    ##### Szene 2 - NEUTRAL #####
+    hide bg kitchen
+    "{b}Start: Neutraler Erzähler{/b}"
+    "{b}Der Neutrale Erzähler ist der Grund warum es am Anfang eine Genderabfrage gibt.{/b}"
+    "{b}Warum? Weil es allein bei Formulierungen wie \"Das Kind und seine/ihre Mutter leben zusammen.\" schwierig wird wirklich Genderneutral zu schreiben{/b}"
+    "{b}Durch die Genderabfrage werden alle Texte des Neutralen Erzählers direkt auf die Wahl des passenden Pronomens angepasst.{/b}"
+    n "Dies ist die Geschichte von [name]."
+    n "[name] ist ein sechsjähriges Kindergartenkind, dass seit der Scheidung [pro]er Eltern alleine mit [pro]er Mutter zusammen lebt."
+    n "Sie sind umgezogen, daher muss [name] jetzt auch auf einen neuen Kindergarten gehen."
+    n "Dort kennt [pro2] natürlich noch niemanden."
+    n "Jetzt gilt es, neue Freunde zu machen und mit ihnen tolle Abenteuer zu erleben."
+    n "[name]'s erster Schritt in die richtige Richtung begann an einem Montag Morgen."    
+    "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
+    n "[name]'s Mutter schmiss [pro5] jeden Morgen pünktlich aus dem Bett."
+    n "Sie arbeitete hart um beide durchzubringen, doch ihr Kind stand immer an erster Stelle."
+    n "Und damit dieses den ersten Tag im neuen Kindergarten nicht verpasste, riss sie [pro3] jetzt auch die Decke weg."
+    show bg bedroom with dissolve
+    show mum talk with moveinright
+    m "Guten Morgen mein kleiner Spatz!"
+    n "[name] war noch völlig verschlafen."
+    p "Guten Morgen Mama ..."
+    p "Ich will aber noch nicht aufstehen!"
+    m "Ach jetzt stell dich nicht so an. Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
+    m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
+    p "Pfannkuchen! Jaaa! Mama ich hab dich lieb!"
+    n "Besänftigt und plötzlich ganz wach, sprang [name] aus [pro]em Bett und folgte [pro]er Mutter in die Küche."
+    show bg kitchen with dissolve
+    n "Dort angekommen wurde aufgetischt und sich hingesetzt."
+    m "Freust du dich schon deine neuen Freunde kennenzulernen?"
+    menu:
+        "Jaaaaaa!":
+            n "[name] trommelte mit kleinen Fäustchen auf den Tisch, zappelte mit den Beinen und freute sich ganz offensichtlich riesig."
+            m "Das ist schön. Du kommst bestimmt in eine Gruppe mit ganz tollen anderen Kindern."
+            jump neutralsend
+        
+        "Ja...":
+            n "[name] sah nur auf [pro]en Teller herunter während [pro2] die Antwort murmelte. Alles war besser als Mama mit der Wahrheit zu verletzen."
+            n "Doch Mütter bemerken bekanntlich alles."
+            m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
+            m "Hey, schau mich an, nicht dein Essen. Alles wird gut, okay? Komm her, lass dich mal knuddeln."
+            n "Sie nahm ihr[suf] [pro4] kräftig in den Arm und wuschelte [pro3] durch die Haare."
+            n "[name] schien das zu gefallen, denn [pro2] strahlte plötzlich bis zu den Ohren."
+            m "Siehst du? Alles garnicht mehr so wild."
+            m "Du kommst heute bestimmt in eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
+            n "Als sie mit dem Frühstück fertig waren, wurde [name] fertig für den Kindergarten angezogen und beide machten sich auf den Weg."
+            jump neutralsend            
+    
     ##### Szene 3 #####
+label neutralsend:
     m "Blabla auf zum KiGa bla."
     "{i}Blabla deepe Kindergedanken auf dem Weg zum KiGa bla.{/i}"
     "Ankunft Kindergarten. Beschreibung Hof / Gebäude."
@@ -94,18 +237,12 @@ label choice1_done:
     "Vorstellungsmöglichkeit für den Spieler"
     menu:
         "Selbst vorstellen.":
-            python:
-                name = renpy.input("Wie lautet dein Name?")
-                name = name.strip() or "P"
             "{i}Ich heiße [name].{/i}"
             "Mutter+Heide reden weiter, Karin kommt und bringt ihr Kind zum Gruppenraum."
             jump choice2_done
         
         "Mutter hilfesuchend ansehen.":
-            python:
-                name = renpy.input("Wie lautet dein Name?")
-                name = name.strip() or "P"
-            m "Er heißt [name]."
+            m "[pro2] heißt [name]."
             "Mutter ist besorgt, lässt sich von Heide sagen wo sie hin muss und bringt ihr Kind zum Gruppenraum."
             jump choice2_done
         
