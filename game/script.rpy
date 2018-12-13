@@ -10,7 +10,7 @@ define e = Character("Evelynn")
 define o = Character("Octavia")
 define O = Character("Octa")
 define h = Character("Frau Heidenau")
-define k = Character("Katrin")
+define k = Character("Karin")
 define L = Character("Louis")
 define r = Character("Randy")
 define emum = Character("Evelynn's Mutter")
@@ -46,7 +46,10 @@ label start:
 
     
     ##### Szene 1 - Prolog #####
-    show bg grura
+label scene1:
+    scene bg grura with dissolve
+    show obike wheelie at left
+    
     
     python:
         name = renpy.input("Gib dem Kind einen Namen.")
@@ -99,7 +102,7 @@ label start:
             $ seenscene = True
             jump neutral
         "Ich habe alle gesehen.":
-            jump optionsend
+            jump scene3
             
     ##### WOCHE 1 BEGINN #####
     ##### TAG 1 BEGINN #####
@@ -250,7 +253,7 @@ label neutral:
     show bg grura
     jump narrationoptions
     ##### Szene 3 #####
-label optionsend:
+label scene3:
     show bg street
     if seenscene == False:
         menu:
@@ -290,11 +293,11 @@ label optionsend:
             h "Papperlapapp!"
             hide mum with moveoutleft
             show heide talk
-            h "Ihr Kind ist bei uns bestens aufgehoben. So \"[name]\", deine Gruppe ist die Käfergruppe, die Katrin kümmert sich um dich."
+            h "Ihr Kind ist bei uns bestens aufgehoben. So \"[name]\", deine Gruppe ist die Käfergruppe, die Karin kümmert sich um dich."
             h "Mitkommen!"
             n "Frau Heidenau hatte mich dann in Richtung des Gruppenraumes gezogen, während meine Mutter besorgt hinterherlief."
             n "Sie schien mich noch nicht mit dieser Frau allein lassen zu wollen."
-            h "Hier Katrin. Ein Neuer. Ich muss jetzt weitermachen. Ich erwarte nachher deinen Bericht."
+            h "Hier Karin. Ein Neuer. Ich muss jetzt weitermachen. Ich erwarte nachher deinen Bericht."
         
         "Mutter hilfesuchend ansehen.":
             show heide n at slightright with move
@@ -311,19 +314,19 @@ label optionsend:
             h "Papperlapapp!"
             show mum n
             show heide talk
-            h "Ihr Kind ist in der Käfergruppe. Die Gruppenleitung heißt Katrin, das ist die Dicke in dem Raum da hinten."
+            h "Ihr Kind ist in der Käfergruppe. Die Gruppenleitung heißt Karin, das ist die Dicke in dem Raum da hinten."
             h "Wenn es schon nicht reden kann bringen Sie es am Besten selbst. Vielleicht hilft das."
             h "Guten Tag!!"
             hide heide
             show mum at center with move
-            n "Nachdem meine Mutter diese Abfertigung verwunden hatte, brachte sie mich zum Gruppenraum. Dort angekommen lernte ich dann auch Katrin kennen."
+            n "Nachdem meine Mutter diese Abfertigung verwunden hatte, brachte sie mich zum Gruppenraum. Dort angekommen lernte ich dann auch Karin kennen."
 
         
     
     hide heide
     hide mum
     show katrin n
-    n "Katrin machte nie den Eindruck als ob sie an ihrer Arbeit Spaß hatte. Vielleicht ist ihr das bei ihrer Chefin aber auch nicht zu verübeln gewesen."
+    n "Karin machte nie den Eindruck als ob sie an ihrer Arbeit Spaß hatte. Vielleicht ist ihr das bei ihrer Chefin aber auch nicht zu verübeln gewesen."
     k "Ahh, hallo sie beide. Danke, dass Sie ihr Kind gebracht habe. Sie können unbesorgt sein, wir kümmern uns ganz wunderprächtig um ihn."
     k "Also willkommen dann, in der Käfergruppe!"
     show katrin go
@@ -335,7 +338,7 @@ label optionsend:
     show louis really at slightright behind octa
     show randy happy at slightleft behind octa
     with moveinbottom
-    k "Das sind deine neue Freunde! Stell dich uns allen doch mal vor, wir wissen ja noch garnicht wie du heißt."
+    k "Das sind deine neuen Freunde! Stell dich uns allen doch mal vor, wir wissen ja noch garnicht wie du heißt."
     
     menu:
         "Vorstellen.":
@@ -347,10 +350,10 @@ label optionsend:
         "Schweigen.":
             $ menu_choice3 = "no"
             p "..."
-            n "Während ich kein Wort rausbrachte und mich alle anstarrten hörte ich hinter mir Katrin und meine Mutter reden."
+            n "Während ich kein Wort rausbrachte und mich alle anstarrten hörte ich hinter mir Karin und meine Mutter reden."
             m "Ohh, entschuldigen Sie Frau ..."
-            k "Einfach Katrin reicht."
-            m "Ohh, in Ordnung. Entschuldigen Sie Katrin, [name] ist noch etwas schüchtern und ..."
+            k "Einfach Karin reicht."
+            m "Ohh, in Ordnung. Entschuldigen Sie Karin, [name] ist noch etwas schüchtern und ..."
             k "Alles gut. Also Kinder, das hier ist [name], ich hoffe ihr alle könnt Freunde werden."
         
         "Stammeln.":
@@ -364,6 +367,7 @@ label optionsend:
             
     
     ##### Szene 4 #####
+label scene4:
     hide octa
     hide anja
     hide eve
@@ -380,7 +384,7 @@ label optionsend:
     show katrin at center with move
     k "Dann fangen wir doch jetzt auch gleich mal an."
     k "Wir machen jetzt Morgenkreis. Stell dich einfach da hin und warte ab. Brav sein!"
-    n "Der Morgenkreis war ein Ritual zu dem Katrin uns jeden Tag zusammenrief. Wir spielten, sangen, musizierten oder lernten zusammen."
+    n "Der Morgenkreis war ein Ritual zu dem Karin uns jeden Tag zusammenrief. Wir spielten, sangen, musizierten oder lernten zusammen."
     k "Sind alle da?"
     hide katrin
     show anja what at left with moveinleft
@@ -447,26 +451,49 @@ label optionsend:
     k "Aber jetzt ist genug, auf zum Frühstück mit euch. Husch husch, wir haben ja nicht den ganzen Tag Zeit."
     
     ##### Szene 5 #####
-    
+label scene5:
     hide katrin
-    show bg kitchen with fade
-    "Frühstück. Da [name] sonst keinen kennt setzt er sich neben Anja."
-    show anja eat at center with moveinbottom
-    "Anja labert ihn zu, lästert vor allem über andere."
-    "Anja spricht dich auf deine Vorstellung an."
+    show bg food with fade
+    show anja eat at center
+    n "Damals kannte ich noch niemanden und war mir unsicher wo ich mich hinsetzen sollte, schließlich kannte ich ja noch niemanden."
+    n "Als dann sowieso nur noch wenige Plätze frei waren setzte ich mich einfach auf den erstbesten Stuhl, der mir ins Auge fiel."
+    n "Neben mir saß ein Mädchen und es entwickelte sich schnell eine recht einseitige Unterhaltung..."
+    a "Hey, wie findest du die Frau Heidenau?"
+    p "Also, ich-..."
+    a "Ich find die blöd… Die anderen Erzieherinnen sind eigentlich echt nett."
+    p "Ja, die ist gru-..."
+    a "Aber wenn die Frau Heidenau auf uns aufpasst macht es keinen Spaß. Mama sagt das is ne Greiterhex, keiner mag die."
+    p "Was ist eine Grei-..."
+    a "Und kennst du schon Evelyn? Die sitzt immer nur da und malt, find ich voll langweilig."
+    p "Nein die-..."
+    a "Boah und die Octavia, die will immer in allem \"die Beste\" sein."
+    p "Die kenn ich scho-..:"
+    
     if menu_choice3 == "yes":
-        "Anja fragt ob man gerne klettert und erzählt."
+        a "Du heißt [name] oder? Ich bin Anja!"
         
     elif menu_choice3 == "no":
-        "Anja fragt dich wer du bist und stellt sich vor. Sie redet aber sofort selbst weiter."
+        a "Du bist neu, oder? Wie heißt du überhaupt?"
+        p "Ich hei-..."
+        a "Ach Karin hat [name] gesagt. Mein Name ist Anja!"
         
     else:
-        "Anja macht sich über dich lustig."
+        a "Wieso hast du dich denn beim Morgenkreis so komisch vorgestellt?"
+        p "Ich..."
+        a "Das fand ich voll lustig wie du so komisch geredet hast. Du bist *Name* oder? Ich bin Anja."
         
-    "[name] fühlt sich unwohl und flieht zum Frühstücksende vor Anja."
+    a "Kletterst du? Bestimmt."
+    a "Wir können auch mal zusammen klettern wenn du willst. Ich kletter immer wenn wir auf den Hof dürfen auf meinen Kletterbaum."
+    a "Also du kannst ja klettern. Wenn nicht bring ich's dir bei. Mama und ich gehen auch immer zusammen in den Kletterwald."
+    a "Da hat Mama auch mal die Greiterhex gesehen. Ich nicht. Aber Mama."
+    a "Naja, einmal wäre ich fast vom Kletterbaum gefallen weil ich nicht aufgepasst hab’, aber dann hab’ ich mich doch noch festgehalten, das war voll knapp!"
+    a "Klettern ist nämlich gefährlich, weißt du? Meine Mama sagt mir auch immer, dass ich vorsichtig sein soll, aber ich bin noch nie irgendwo runtergefallen, und du?"
+    n "Das war Anja. Man kam eigentlich nie zu Wort. Wäre das Frühstück nicht irgendwann zu Ende gewesen, so hätte ich wohl bald all ihre Klettergeschichten gekannt."
+    n "So aber floh ich bei der erstbesten Gelegenheit. Anja war einfach zu viel für mich an meinem ersten Tag."
     hide anja
     
     ##### Szene 6 #####
+label scene6:
     show bg grura
     n "Ich floh also in den einzig anderen Raum der mir bekannt vorkam und sah dann am Tisch ein einzelnes Mädchen sitzen, dass in aller Seelenruhe am Malen war.."
     show eve draw at center with moveinbottom
@@ -478,12 +505,16 @@ label optionsend:
     p "Was machst du da?"
     e "Malen."
     p "Aber was denn?"
-    e "Das hier."
     show eve paper
+    e "Das hier."
+    hide eve
+    show leuchtturm
+    
     menu:
         n "Wie findest du das Bild?"
         
         "Das sieht toll aus!":
+            hide leuchtturm
             show eve shy2
             e "Dankeschön!"
             show eve happy2
@@ -499,6 +530,7 @@ label optionsend:
             e "Mal doch einfach was, dann lernst du das."
             
         "Was ist das?":
+            hide leuchtturm
             show eve mad
             e "Weißt du denn garnicht was ein Leuchtturm ist?"
             menu:
@@ -525,6 +557,7 @@ label optionsend:
                     
             
         "Das kann ich aber besser.":
+            hide leuchtturm
             show eve mad
             e "Angeber."
             e "Geh weg."
@@ -535,67 +568,99 @@ label optionsend:
     n "Evelynn sollte mich zukünftig noch häufiger dazu motivieren selbst kreativ zu sein."
     n "Aber an dem Tag ließ ich sie erstmal in Frieden, sie war ohnehin fast sofort wieder in ihrer eigenen Welt versunken."
     n "Und damit war mein erster Tag auch vorbei. Ich hatte so viele neue Kinder kennengelernt und einige von ihnen sollten einen großen Einfluss auf mich haben."
-    show mum talk at center with moveinleft
+    show mum happy at center with moveinleft
     m "Hallo Püpschen!"
     m "Komm lass dich drücken! Hattest du heute viel Spaß?"
-    p "Jaaa! Ich hab gemalt und gesungen und gespielt und Klangholz gespielt und ..."
+    p "Jaaa! Ich hab gemalt und gespielt und Klangholz gespielt und ..."
     m "Haha, so viel also! Komm, erzähl mir den Rest auf dem Weg nach Hause."
     p "Okay Mami."
     hide mum
     show bg street with dissolve
+    p "Also, da waren die Octavia, die Anja und die Evelynn ... ... ..."
     ##### TAG 1 ENDE #####
 
     ##### TAG 2 BEGINN #####
     ##### Szene 7 #####
-    show bg grura with dissolve
+label scene7:
+    scene bg grura with dissolve
     show katrin music at center
-    "Beim Morgenkreis wurde gesungen."
-    hide katrin
+    n "Der zweite Tag verlief viel weniger chaotisch. Ich hatte mich schnell eingelebt, wie das als Kind nunmal so ist."
+    n "Ich weiß noch, dass wir singen mussten ... Karin war sehr übereifrig dabei und wir hatten alle keine Lust."
+    
     
     ##### Szene 8 #####
-    show eve foodplay at center with fade
-    "P sieht E allein am Tisch und setzt sich dazu. E spielt mit ihrem Essen, sie scheint damit zu malen."
+label scene8:
+    n "Als dann zum Essen aufgerufen wurde, war ich schneller als sonst. Diesmal wollte ich mir nicht das Ohr abkauen lassen, deshalb setzte ich mich zu Evelynn, welche ganz allein saß..." 
+    scene bg food with fade
+    show eve foodplay at center
+    p "Hallo du!"
+    show eve foodask
+    e "Hallo..."
+    p "Was machst du da?"
+    show eve foodplay
+    e "Malen..."
+    
     menu:
         
         "Interesse zeigen.":
-            show eve shy2
-            "Evelynn freut sich."
-            jump choice5_done
+            show eve foodplay
+            p "Warte du ..."
+            p "Ohh toll! Du malst ja wirklich!"
+            p "Das kannst du mit deinem Essen machen?"
+            e "Ja natürlich! Man kann mit allem malen, wenn man nur möchte. Mit den Nudeln hier sogar  \"ganz hervorragend\"."
+            p "Ganz was?"
+            e "Sagt Papa immer so."
+            p "Ach so. Ich ess dann jetzt mal."
+            show eve foodmad
+            e "Warte!"
+            p "Was... was ist?"
+
             
         "Geekelt sein.":
-            "Du zeigst Evelynn wie sehr du dich ekelst."
-            show eve mad
-            "E erklärt dir, dass man mit Essen ganz toll malen kann und das auch Spaß macht."
-            jump choice5_done
+            p "Aber warum denn mit deinem Essen... Das ist doch ekelig."
+            show eve foodmad
+            e "Garnicht wahr. Das ist schön, guck doch mal."
+            p "Jetzt hast du alles an den Fingern kleben."
+            p "Malen macht man mit Stiften, nicht mit Essen."
+            show eve foodplay
+            e "Mir macht das aber Spaß."
+            p "Aber das kann man doch nicht mehr essen!"
+            show eve foodmad
+            e "Darum geht es doch auch garnicht!"
             
         "Geschockt reagieren.":
-            "Mama sagt, dass man nicht mit Essen spielt!"
-            show eve talk2
-            "E meine auch. Aber die ist jetzt auch nicht hier."
-            jump choice5_done
+            p "Ihhh! Mama sagt man spielt nicht mit Essen!"
+            show eve foodmad
+            e "Meine auch. Aber ich spiele ja auch garnicht. Ich male."
+            show eve foodplay
+            e "Außerdem ist meine Mama gerade nicht hier. Und deine auch nicht."
+            p "Hmm... Das sieht eigentlich ganz lustig aus."
             
+            
+    show eve foodask
     
-    
-label choice5_done:
+
     menu:
-        "Evelynn fragt, ob du nicht auch Lust hättest mit dem Essen zu spielen."
+        e "Versuch es doch einfach auch mal."
         
         "Au ja!":
-            "P entscheided sich zusammen mit Evelynn zu spielen."
-            "Er baut mit ihrer Hilfe einen Leuchtturm aus seinem Essen."
-            jump choice6_done
+            scene cg foodplay with dissolve
+            e "Nicht schlecht. Man kann fast erkennen, dass du ein Haus bauen wolltest."
+            p "Das soll doch aber eine Burg sein!"
+            e "Ohh! Ja stimmt, wenn man es weiß. Du musst aber wirklich noch üben."
+            jump scene9
             
         "Nein, sicher nicht.":
-            "P wehrt sich gegen die Vorstellung in seinem Essen rumzumatschen."
-            "E findet das blöd."
-            jump choice6_done
-    hide eve
+            scene cg food with dissolve
+            p "Nein ... nein ich esse lieber ganz normal. Ich will mich nicht schmutzig machen."
+            e "Dann nicht ..."
+            jump scene9
     ##### TAG 2 ENDE #####
     
     ##### TAG 3 BEGINN #####
     ##### Szene 9 #####
-label choice6_done:
-    show bg bedroom
+label scene9:
+    scene bg bedroom
     "???" "{b}KICKERIKI! KICKERIKI! KICKERIKI!{/b}"
     p "Waaah!"
     p "Hilfe! Was ist das?! Mama!!!"
@@ -622,7 +687,7 @@ label choice6_done:
     show randy mad at left with moveinleft
     r "Wir haben doch gestern schon gesungen!"
     o "Genau, wir haben keine Lust!"
-    n "Und plötzlich verschwor sich der gesamte Raum gegen die arme Katrin. Das passierte recht oft. Und wir haben immer gewonnen."
+    n "Und plötzlich verschwor sich der gesamte Raum gegen die arme Karin. Das passierte recht oft. Und wir haben immer gewonnen."
     show katrin mad
     k "Aber jetzt hab ich doch extra den Recorder für euch mitgebra..."
     r "Aber singen ist blöd."
@@ -643,8 +708,9 @@ label choice6_done:
     hide katrin with moveoutleft
     
     ##### Szene 10 #####
-    show bg kitchen
-    n "Nachdem Katrin uns dann endlich wieder alle eingangen hatte war es Zeit zum Essen."
+label scene10:
+    show bg food
+    n "Nachdem Karin uns dann endlich wieder alle eingangen hatte war es Zeit zum Essen."
     n "Ich hatte mich an den nächstbesten Tisch gesetzt und wollte die Apfelstücke essen die meine Mama mir gemacht hatte, als plötzlich ..."
     show louis smug
     "???" "Hey, was isst du da?"
@@ -728,6 +794,7 @@ label choice6_done:
     
 
     ##### Szene 11 #####
+label scene11:    
     show katrin happy at center
     $ gone = False
     k "Kinder, schaut mal an wie schön es draußen ist! Wenn ihr fertig gegessen habt, dann zieht euch an und geht auf den Hof zum spielen."
@@ -823,7 +890,7 @@ label choice6_done:
                     show anja madb
                     a "NA TOLL! Dann geh doch!"
                     n "Ich wusste damals noch nicht wie sehr ich Anja damit verletzt hatte. Ich wollte nur wirklich einfach nicht mit ihr spielen und hatte riesige Angst auf diesen Baum zu klettern."
-                    jump snackend
+                    jump scene12
                     
                 "Na gut.":
                     p "Okay aber wenn mir was passiert bist du schuld!"
@@ -858,7 +925,7 @@ label choice6_done:
             show anja vmadb
             a "NA TOLL! Dann geh doch!"
             n "Ich wusste damals noch nicht wie sehr ich Anja damit verletzt hatte. Ich wollte nur wirklich einfach nicht mit ihr spielen."
-            jump snackend
+            jump scene12
             
         "Ich kann klettern.":
             p "Okay, ich komm zu dir hoch."
@@ -921,10 +988,12 @@ label treetalk:
     n "So verliefen die meisten meiner Gespräche mit Anja. Ich kam nicht zu Wort und sie redete ohne Unterlass."
     show mum talk at right with moveinright
     n "Wenn mich meine Mutter nicht irgendwann abgeholt hätte, säßen wir wohl noch heute in dem Baum und ich wüsste mittlerweile alles über jeden."
-label snackend:
-    hide anja with moveoutleft
+    
+    ##### Szene 12 #####
+label scene12:
+    scene bg bedroom with fade
     show mum at center with move
-    show bg bedroom with fade
+    
     m "Und wie hat es dir heute gefallen?"
     p "Gut, wir hatten ganz viel Spaß. "
     
@@ -957,40 +1026,112 @@ label snackend:
                 
             "Mama nichts von den Knappers erzählen.":
                 $ hasknappers = False
-                jump day4
+                jump scene13
     else:
-        jump day4
+        jump scene13
         ##### TAG 3 ENDE #####
         
         ##### TAG 4 BEGINN #####
         ##### Szene 13 #####
-label day4:
-    "Ankunft am KiGa."
-    "P sieht wie O von Eltern zum KiGa gebracht wird."
-    "Eltern weg --> O wirft Schutzmontur weg und fährt irrsinning auf dem Fahrrad."
-    "O will P überzeugen auch zu zeigen was er kann."
+label scene13:
+    scene bg street with dissolve
+    show mum happy at center
+    m "Hey Püpschen, Mama muss heute ganz schnell los. Schaffst du das alleine rein? Ich lass dich gleich am Hof raus."
+    p "Mama ich bin doch schon groß!"
+    m "Haha, ja mein Schatz, das bist du."
+    p "Sag ich doch immer!"
+    m "Tust du! So, da sind wir. Wir sehen uns nachher! Benimm dich und ich hab dich lieb!"
+    scene bg court
+    p "Tschüss Mama, hab dich auch lieb!"
+    play sound Autotür2.ogg
+    e "Heute sollte ich Octavia von einer anderen Seite kennenlernen. Ich weiß noch, ich war fast schon im Kindergarten, als hinter mir noch ein Auto auf den Hof fuhr."
+    e "Octavia, in volle Schutzmontur gekleidet, stieg aus dem Wagen. Danach ihre Eltern, die ihr Fahrrad aus dem Kofferraum luden. Bisher hatte ich immer gedacht sie würde damit alleine zum Kindergarten fahren."
+    show octa talk
+    o "Danke Pap, du bist der Beste!"
+    show octa at slightleft with move
+    show edad n at slightright with moveinright
+    edad "Ich bin mir immer noch nicht so sicher, willst du wirklich nicht, dass wir dich abholen?"
+    edad "Ich mein jetzt wo hier keine Stützräder mehr dran sind kannst du dich wirklich verletzen."
+    o "Ihr müsst doch zum Arzt, ich schaff es schon alleine Heim, ihr habt mir ja den Weg gezeigt."
+    show octa at center with move
+    show edad at right with move
+    show emum at left with moveinleft
+    emum "Ja schon, aber sag mir erst wo genau du hinfahren musst."
+    o "Von hier bis zu Oma, dann den Berg runter, links zur Kirche, an der Bushaltestelle vorbei, dann kommt der BIDL, die Gartenanlage und dahinter ist doch dann schon unser Haus."
+    emum "Gut... Und du bist dir wirklich sicher?"
+    o "Bitte, vertraut mir doch ein bisschen, ihr seid doch gute Eltern."
+    edad "Hmmmh, na gut Schätzchen. Aber erst zeig ich dir noch einmal wie man das Schloss anschließt."
+    o "Danke Papi!"
+    o "Ihr könnt jetzt auch wirklich gehen, ich komme zurecht. Bis später! Ich hab euch lieb."
+    emum "Wir dich auch Schatz. Bis heute Nachmittag!"
+    edad "Und mach das Fahrrad nicht kaputt!"
+    o "Ach Papa, ich doch nicht."
+    hide emum with moveoutleft
+    hide edad with moveoutright
+    show octa at center with move
+    play sound Autotür1.ogg
+    play sound Autotür2.ogg
+    o "Tschüss!"
+    o "Und jetzt weg mich dem Zeug."
+    show octa mine
+    o "Wieso musst du mich eigentlich ausspannen?"
+    p "Auswas?"
+    show octa mad
+    o "Warum beobachtest du mich?!"
+    p "Wegen deinem Fahrrad..."
+    show octa smug
+    o "Bist du neidisch oder was?"
+    p "Ich darf noch kein Fahrrad ohne Stützräder fahren."
+    o "Oooh, da kann man aber erst richtig coole Dinge machen. Ich geb dir mal ein Beispiel!"
+    show octa happy
+    o "Ist ohne die blöde \"Schutzausrüstung\" auch viel leichter."
+    e "Und dann zeigte sie mir wie sie nur auf dem Hinterrad fahren konnte. Für ein Kind in dem Alter wirklich beeindruckend. Ich war damals jedenfalls völlig beeindruckt."
+    p "Wow!"
+    show octa smug
+    o "Siehste, ganz einfach. Jetzt du!"
+    p "Was? Ich darf doch nicht."
+    o "Ist doch egal, probiers mal aus, bist doch kein Weichei und wenn du fällst ists ja nicht so schlimm. Hier kannst auch meinen Helm haben."
+    
+    
     $ bikepoints = 0
     menu:
-        "Aufs Fahrrad steigen?"
+        o "Bawk, Bawk Bawk! Komm schon, du bist doch kein Angsthase, oder?"
         
-        "Ja.":
-            jump bikescene
+        "Auf das Fahrrad steigen.":
+            p "Ist ja gut, ich mach ja schon."
+            
             
         "Nein.":
             $ bikepoints += 1
+            p "Ich... Ich will wirklich nicht!"
             o "Ohh, du bist wohl ein Angsthase."
-            o "Gib doch zu, dass du es einfach nicht kannst."
+            show octa mad
+            o "Jetzt mach oder ich erzähl allen, dass du mich vom Rad geschubst hast!"
             menu:
                 "Doch aufs Rad steigen.":
-                    jump bikescene
+                    p "Schon gut! Ich fahre ja. Zufrieden?"
+                    
                     
                 "Sich weiterhin weigern.":
                     $ bikepoints += 1
-                    "O droht P"
-                    "P steigt jetzt doch lieber auf's Fahrrad."
-                    jump bikescene
+                    p "Mama sagt immer lügen tun nur dumme Kinder!"
+                    p "Dann macht doch, dann sag ich allen dass du lügst, es hat ja keiner gesehen, dass ich dich geschubst hab!"
+                    show octa vmad
+                    o "Du Idiot!"
+                    p "Selber!"
+                    show octa at slightleft with move
+                    show heide mad at slighright with moveinright
+                    h "WAS ist hier los?"
+                    show octa shock
+                    o "Also der da..."
+                    h "Ihr kommt jetzt beide sofort rein! Aber zack zack! Und hört mit dem GEBRÜLLE auf!"
+                    hide heide with moveoutright
+                    show octa mad at center with move
+                    o "Mit dir rede ich nicht mehr ..."
+                    hide octa with moveoutright
+                    jump scene15
                  ##### Szene 14 #####   
-label bikescene:
+label scene14:
     "O drängt P zu einem Trick."
     "Er gelingt."
     "E's Eltern tauchen um die Ecke auf. P erschrickt, fällt und verletzt sich"
@@ -999,13 +1140,13 @@ label bikescene:
         
         "Weinen.":
             $ crying = True
-            jump bikescene2
+            jump scene142
             
         "Stark bleiben.":
             $ crying = False
-            jump bikescene2
+            jump scene142
             
-label bikescene2:
+label scene142:
     "E will helfen, darf aber nicht."
     emum "NEIN! Evelynn, was am Boden liegt, darf man nicht aufheben!"
     "E wird in den KiGa geschleppt."
@@ -1063,16 +1204,16 @@ label bikescene2:
                 
             else:
                 "P bleibt und spielt den Rest des Tages mit O."
-            jump day5 
+            jump scene15 
                 
         "Gehen.":
             "P's Mutter wird angerufen, P wird abgeholt und bleibt den Rest des Tages zu Hause."
-            jump day5
+            jump scene15
             ##### TAG 4 ENDE #####
             
             ##### TAG 5 BEGINN #####
             ##### Szene 15 #####
-label day5:
+label scene15:
     "P wird überraschend zum Gebu eingeladen."
     if randyname == True:
         "P erkennt Randy."
@@ -1088,6 +1229,7 @@ label day5:
     "P sagt zu."
     
     ##### Szene 16 #####
+label scene16:
     "Mutter holt P ab. P erzählt von der Einladung."
     "Es wird ein Kostüm eingekauft."
     menu:
@@ -1096,20 +1238,21 @@ label day5:
         "Anjakostüm":
             $ costume = "anja"
             "Sie kaufen ein Anjakostüm."
-            jump partyday
+            jump scene17
             
         "Evekostüm":
             $ costume = "eve"
             "Sie kaufen ein Evekostüm."
-            jump partyday
+            jump scene17
             
         "Octakostüm":
             $ costume = "octa"
             "Sie kaufen ein Octakostüm."
-            jump partyday
+            jump scene17
             
-label partyday:
-    ##### Szene 17 #####
+##### Szene 17 #####
+label scene17:
+    
     if snackersdeal == True:
         "P wird von Louis aufgehalten."
         L "Du schuldest mir noch was."
@@ -1136,6 +1279,7 @@ label partyday:
                     "Louis ist sauer und erzählt allen was für ein schlechter Mensch du bist."
                     
                     ##### Szene 18 #####
+label scene18:
     "Die Party beginnt. Kurze Beschreibung."
     "Blabla mit Randy."
     ##### Szene 19 #####
@@ -1151,6 +1295,7 @@ label partyday:
         "Cooler Octavia Storypfad."
         
         ##### Szene 22 #####
+label scene22:
     "Ende der Party, cooler Ausklang, cooles Gruppenfoto. Nicenstein."    
     "Prototyp Ende"
     
