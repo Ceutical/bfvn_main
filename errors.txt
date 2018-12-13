@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 65: expected statement.
-    [pro] = "sein"
-          ^
-
-File "game/script.rpy", line 67: expected statement.
-    [pro] = "ihr"
-          ^
+File "game/script.rpy", line 545: end of line expected.
+    show bg grura show with dissolve
+                  ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Wed Dec 12 09:18:35 2018
+Thu Dec 13 02:47:44 2018

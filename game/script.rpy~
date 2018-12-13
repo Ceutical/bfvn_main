@@ -154,6 +154,7 @@ label childsend:
     m "Ach jetzt stell dich nicht so an. Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
     m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
     p "Pfannkuchen! Jaaa! Mama ich hab dich lieb!"
+    show bg kitchen with dissolve
     n "Wir gingen dann zusammen in die Küche. Sie war zweckmäßig eingerichtet aber für uns hat es gereicht."
     n "Außerdem war Mamas Essen sowieso das Wichtigste."
     m "Freust du dich schon deine neuen Freunde kennenzulernen?"
@@ -190,9 +191,9 @@ label adultsend:
     n "Jetzt gilt es, neue Freunde zu machen und mit ihnen tolle Abenteuer zu erleben."
     n "[name]'s erster Schritt in die richtige Richtung begann an einem Montag Morgen."    
     "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
-    n "[name]'s Mutter schmiss  jeden Morgen pünktlich aus dem Bett."
+    n "[name]'s Mutter schmiss [pro5] jeden Morgen pünktlich aus dem Bett."
     n "Sie arbeitete hart um beide durchzubringen, doch ihr Kind stand immer an erster Stelle."
-    n "Und damit dieses seinen ersten Tag im neuen Kindergarten nicht verpasste, riss sie [pro] jetzt auch die Decke weg."
+    n "Und damit dieses den ersten Tag im neuen Kindergarten nicht verpasste, riss sie [pro3] jetzt auch die Decke weg."
     show bg bedroom with dissolve
     show mum talk with moveinright
     m "Guten Morgen mein kleiner Spatz!"
@@ -203,7 +204,8 @@ label adultsend:
     m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
     p "Pfannkuchen! Jaaa! Mama ich hab dich lieb!"
     n "Besänftigt und plötzlich ganz wach, sprang [name] aus [pro]em Bett und folgte [pro]er Mutter in die Küche."
-    n "Dort angekommen wurde aufgetischt, sich hingesetzt."
+    show bg kitchen with dissolve
+    n "Dort angekommen wurde aufgetischt und sich hingesetzt."
     m "Freust du dich schon deine neuen Freunde kennenzulernen?"
     menu:
         "Jaaaaaa!":
@@ -219,7 +221,7 @@ label adultsend:
             n "Sie nahm ihr[suf] [pro4] kräftig in den Arm und wuschelte [pro3] durch die Haare."
             n "[name] schien das zu gefallen, denn [pro2] strahlte plötzlich bis zu den Ohren."
             m "Siehst du? Alles garnicht mehr so wild."
-            m "Du kommst heute bestimmt ein eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
+            m "Du kommst heute bestimmt in eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
             n "Als sie mit dem Frühstück fertig waren, wurde [name] fertig für den Kindergarten angezogen und beide machten sich auf den Weg."
             jump neutralsend            
     
@@ -279,9 +281,30 @@ label choice3_done:
     hide louis
     hide randy
     show katrin n
-    "Katrin stellt sich vor und beginnt den Morgenkreis."
-    show katrin music at right with move
-    show octa music at left with moveinleft
+    "???" "Kinder! Kommt mal alle zu mir, der Morgenkreis fängt gleich an!"
+    k "Ahh, du bist [name], oder? Ich bin Katrin, willkommen in der Käfergruppe."
+    k "Wir machen jetzt Morgenkreis. Stell dich einfach da hin und warte ab. Brav sein!"
+    n "Der Morgenkreis war ein Ritual zu dem Katrin uns jeden Tag zusammenrief. Wir spielten, sangen, musizierten oder lernten zusammen."
+    k "Sind alle da?"
+    k "Gut, dann legen wir mal los... Wir spielen wieder das Käfergruppenlied! Holt doch alle schonmal eure Instrumente aus der Kiste."
+    hide katrin
+    n "Natürlich wussten alle was gemeint war. Außer mir. Ich kam mir damals ziemlich hilflos vor, da drückte mir plötzlich ein Mädchen ein paar Klanghölzer in die Hand."
+    show octa music at center
+    o "Hallo! Du bist neu, oder? Ich bin Octavia. Das sind Klanghölzer, weißt du oder? Das kannst du doch, oder?"
+    menu:
+        "Ja! Die sind voll lustig!":
+            $ boomstick = True
+            o "Find ich auch! Und voll einfach. Ich kann das hier am Besten, sagt meine Mama mir auch immer."
+            
+        "Ähm, nein ... Noch nie ...":
+            $ boomstick = false
+            o "Was, du kannst das garnicht?"
+            o "Die anderen sagen das ist voll schwer. Find ich nicht. Ich bin die Beste damit!"
+    
+    n "So war sie immer, so ehrgeizig. Sie musste jederzeit jedem beweisen, dass sie besser war als alle anderen."
+    show octa music at left with move
+    show katrin music at right with moveinright
+    k "Also Kinder, alle bereit? Dann 1 und 2 und 3 und ..."
     "Minigame geht los. Takt halten."
     "Minigame steht noch nicht, von daher Choice:"
     menu:
@@ -290,18 +313,29 @@ label choice3_done:
         "Gewonnen.":
             hide katrin
             show octa mine at center with move
-            "Octa beleidigt dich zwar, findet es aber gut."
-            jump choicemini_done
+            o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
+            if boomstick == True:
+                o "Ich dachte du kannst das? Irgendwie war ich trotzdem viel besser als du."
+            else:
+                o "Du hast doch gesagt du kannst das nicht? Egal. Ich war ja auch viel besser als du."
             
         "Verloren...":
             hide katrin
             show octa mine at center with move
-            "Octa macht sich über dich lustig."
-            jump choicemini_done
+            o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
+            if boomstick == True:
+                o "Du hast alles falsch gemacht! Du hast doch gesagt du kannst das. Ich war viel, viel besser als du."
+            else:
+                o "Du warst nicht gut ... Ich hab zugeschaut, weißt du?"
             
+    n "Der Morgenkreis ging musikalisch weiter, alle waren voll dabei, ganz egal wie musikalisch oder unmusikalisch sie waren."
+    n "Die Zeit damals scheint mir so simpel gewesen zu sein. Uns allen ging es um den Spaß zusammen, nicht ums besser sein."
+    n "Naja, uns allen. Außer Octavia."
+    k "Das habt ihr gut gemacht Kinder!"
+    k "Aber jetzt ist genug, auf zum Frühstück mit euch. Husch husch, wir haben ja nicht den ganzen Tag Zeit."
     
     ##### Szene 5 #####
-label choicemini_done:
+    
     hide octa
     show bg kitchen with fade
     "Frühstück. Da [name] sonst keinen kennt setzt er sich neben Anja."

@@ -1,22 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 120, in script
-    return
-Exception: Could not find return label (u"C:\\Users\\Kilian\\Desktop\\RenPy\\renpy-7.1.1-sdk\\Games\\Baby's First Visual Novel/game/script.rpy", 1544604396, 26).
+  File "game/script.rpy", line 40, in script
+    $ randyname = true
+  File "game/script.rpy", line 40, in <module>
+    $ randyname = true
+NameError: name 'true' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 120, in script
-    return
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1468, in execute
-    next_node(renpy.game.context().lookup_return(pop=True))
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\execution.py", line 664, in lookup_return
-    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
-Exception: Could not find return label (u"C:\\Users\\Kilian\\Desktop\\RenPy\\renpy-7.1.1-sdk\\Games\\Baby's First Visual Novel/game/script.rpy", 1544604396, 26).
+  File "game/script.rpy", line 40, in script
+    $ randyname = true
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 882, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1913, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 40, in <module>
+    $ randyname = true
+NameError: name 'true' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 BFVN 1.0
-Wed Dec 12 09:56:24 2018
+Thu Dec 13 04:33:56 2018
