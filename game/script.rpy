@@ -13,10 +13,24 @@ define h = Character("Frau Heidenau")
 define k = Character("Karin")
 define L = Character("Louis")
 define r = Character("Randy")
-define omum = Character("Evelynn's Mutter")
-define odad = Character("Evelynn's Vater")
+define emum = Character("Evelynn's Mutter")
+define edad = Character("Evelynn's Vater")
+define omum = Character("Octavia's Mutter")
+define odad = Character("Octavia's Vater")
+define nvln = Character(name=None, kind=nvl)
 
-##### CHARACTER DEFINITIONS END #####
+######################################
+
+##### MUSIC DEFINITIONS #####
+
+define audio.introtheme = "music/soundtracks/introtheme.mp3"
+define audio.anjatheme = "music/soundtracks/anjatheme.mp3"
+define audio.evetheme = "music/soundtracks/evetheme.mp3"
+define audio.octatheme = "music/soundtracks/octatheme.mp3"
+define audio.maintheme = "music/soundtracks/maintheme.mp3"
+define audio.treefall = "music/sfx/treefall.ogg"
+define audio.cardoor1 = "music/sfx/Autotür1.ogg"
+define audio.cardoor2 = "music/sfx/Autotür2.ogg"
 
 ######################################
 
@@ -28,13 +42,22 @@ transform slightleft:
 transform slightright:
     xalign .68
     yalign 1.0
+transform leftish:
+    xalign .26
+    yalign 1.0
+transform rightish:
+    xalign .76
+    yalign 1.0
+transform chicken:
+    xalign .68
+    yalign .5
     
-##### TRANSFORM DEFINITIONS END #####
 
 ######################################
 
 
 label start:
+    play music introtheme
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ randyname = True
@@ -87,7 +110,9 @@ label scene1:
     "{b}Danach geht das Spiel in einfacher Ausführung mit dem Erzähler weiter, den wir uns ausgesucht haben.{/b}"
     "{b}Wir wollen nur der Vollständigkeit halber die anderen Überlegungen auch einmal gezeigt haben.{/b}"
     $ seenscene = False
-    menu narrationoptions:
+label narrationoptions:
+    scene bg grura with fade
+    menu:
         "Welches Szenenbeispiel möchtest du dir ansehen?"
         
         "Den Kindlichen.":
@@ -106,7 +131,7 @@ label scene1:
     ##### TAG 1 BEGINN #####
     ##### Szene 2 CHILD #####
 label childlike:
-    hide bg
+    scene bg black with fade
     "{b}Start: Kindlicher Erzähler{/b}"
     "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
     "{i}Diese warme Stimme gehört Mama. Jeden Tag weckt sie mich und ist immer für mich da.{/i}"
@@ -128,10 +153,12 @@ label childlike:
     m "Freust du dich schon deine neuen Freunde kennenzulernen?"
     menu:
         "Jaaaaaa!":
+            $ happytogo = True
             "{i}Ich strahle Mama regelrecht an als ich ihr antworte.{/i}"
             m "Das ist schön. Du kommst bestimmt in eine Gruppe mit ganz tollen anderen Kindern."
      
         "Ja...":
+            $ happytogo = False
             "{i}Ich will Mama nicht traurig machen und versuche sie anzulächeln.{/i}"
             m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
             "{i}Ich schaue traurig auf mein Frühstück runter.{/i}"
@@ -140,13 +167,11 @@ label childlike:
     
         
     "{b}Ende: Kindlicher Erzähler{/b}"
-    hide mum
-    show bg grura
     jump narrationoptions
     
     ##### Szene 2 - ADULT #####
 label retro:
-    hide bg
+    scene bg black with fade
     "{b}Start: Erwachsener Erzähler in Retrospektive.{/b}"
     n "Hah. Wo soll ich anfangen?"
     n "Ich bin jetzt 23 Jahre alt."
@@ -181,10 +206,12 @@ label retro:
     m "Freust du dich schon deine neuen Freunde kennenzulernen?"
     menu:
         "Jaaaaaa!":
+            $ happytogo = True
             n "Ich wollte endlich wieder mit anderen Kindern spielen. Durch den Umzug und die lange Wartezeit hatte ich viel Zeit allein mit Mama, ohne andere Kinder verbracht."
             m "Das ist schön. Du kommst bestimmt in eine Gruppe mit ganz tollen anderen Kindern."
             
         "Ja...":
+            $ happytogo = False
             n "Natürlich nicht. Ich wollte zurück zu meinen Freunden. Zu meinen alten Freunden. Heute erinner ich mich kaum noch an sie aber damals war ich sehr traurig."
             n "Ich wollte nur auch Mama nicht traurig machen. Doch Mamas merken alles."
             m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
@@ -194,13 +221,11 @@ label retro:
             n "Mama wusste immer wie man andere aufmuntert."
     
     "{b}Ende: Erwachsener Erzähler{/b}"
-    hide mum
-    show bg grura
     jump narrationoptions
     
     ##### Szene 2 - NEUTRAL #####
 label neutral:
-    hide bg
+    scene bg black with fade
     "{b}Start: Neutraler Erzähler{/b}"
     "{b}Der Neutrale Erzähler ist der Grund warum es am Anfang eine Genderabfrage gibt.{/b}"
     "{b}Warum? Weil es allein bei Formulierungen wie \"Das Kind und seine/ihre Mutter leben zusammen.\" schwierig wird wirklich Genderneutral zu schreiben{/b}"
@@ -247,12 +272,10 @@ label neutral:
              
     n "Als sie mit dem Frühstück fertig waren, wurde [name] fertig für den Kindergarten angezogen und beide machten sich auf den Weg."       
     "{b}Ende: Erwachsener Erzähler{/b}"
-    hide mum
-    show bg grura
     jump narrationoptions
     ##### Szene 3 #####
 label scene3:
-    show bg street
+    scene bg street with dissolve
     if seenscene == False:
         menu:
             "Freut sich das Kind auf den Kindergarten?"
@@ -263,6 +286,7 @@ label scene3:
                 $ happytogo = False
         
     show mum talk at center
+    play music maintheme
     if happytogo == True:
         n "Ich weiß noch wie aufgeregt ich damals war. Ich hatte mich gefragt wie die anderen Kinder wohl auf mich reagieren würden."
         n "Ich hatte gehofft schnell neue Freunde zu finden und war obwohl ich mich auf den Tag gefreut hatte, froh meine Mama an meiner Seite zu haben."
@@ -272,7 +296,7 @@ label scene3:
         n "Ich war nur so froh, dass meine Mama bei mir war."
         m "Gleich sind wir da. Keine Angst, das wird schon! Du wirst bestimmt viele neue Freunde finden."
     n "Mein neuer Kindergarten war ein Gemäuer mit alten Fenstern und Backsteinwänden, welches einen sehr einschüchternden Eindruck auf mich hatte."
-    show bg grura with dissolve
+    scene bg grura with dissolve
     show mum n at slightleft with moveinleft
     show heide n at slightright with moveinright
     n "An meinem ersten Tag wurden Mama und ich dann auch noch von einer verbitterten, alten Frau begrüßt."
@@ -321,9 +345,9 @@ label scene3:
 
         
     
-    hide heide
-    hide mum
-    show karin n
+    hide heide with moveoutleft
+    hide mum with moveoutleft
+    show karin n with moveinright
     n "Karin machte nie den Eindruck als ob sie an ihrer Arbeit Spaß hatte. Vielleicht ist ihr das bei ihrer Chefin aber auch nicht zu verübeln gewesen."
     k "Ahh, hallo sie beide. Danke, dass Sie ihr Kind gebracht habe. Sie können unbesorgt sein, wir kümmern uns ganz wunderprächtig um ihn."
     k "Also willkommen dann, in der Käfergruppe!"
@@ -366,11 +390,10 @@ label scene3:
     
     ##### Szene 4 #####
 label scene4:
-    hide octa
-    hide anja
-    hide eve
-    hide louis
-    hide randy
+    stop music fadeout 1.0
+    pause 0.5
+    play music octatheme fadein 1.0
+    scene bg grura with dissolve
     show karin talk at slightright with moveinright
     show mum talk at slightleft with moveinleft
     k "Sie können Ihr Kind dann jetzt auch bei uns lassen. Wir kümmern uns bis sie zum Abholen vorbeikommen."
@@ -394,9 +417,12 @@ label scene4:
     k "Gut, dann legen wir mal los... Wir spielen wieder das Käfergruppenlied! Holt doch alle schonmal eure Instrumente aus der Kiste."
     n "Natürlich wussten alle was gemeint war. Außer mir. Ich kam mir damals ziemlich hilflos vor, da drückte mir plötzlich ein Mädchen ein paar Klanghölzer in die Hand."
     hide anja
+    hide randy
+    with moveoutleft
     hide eve
     hide louis
-    hide randy
+    with moveoutright
+    
     show octa music at center
     o "Hallo! Du bist neu, oder? Ich bin Octavia. Das sind Klanghölzer, weißt du oder? Das kannst du doch, oder?"
     menu:
@@ -443,16 +469,20 @@ label scene4:
     n "Der Morgenkreis ging musikalisch weiter, alle waren voll dabei, ganz egal wie musikalisch oder unmusikalisch sie waren."
     n "Die Zeit damals scheint mir so simpel gewesen zu sein. Uns allen ging es um den Spaß zusammen, nicht ums besser sein."
     n "Naja, uns allen. Außer Octavia."
-    hide octa
-    show karin go at center
+    hide octa with dissolve
+    show karin go at center with dissolve
+    
     k "Das habt ihr gut gemacht Kinder!"
     k "Aber jetzt ist genug, auf zum Frühstück mit euch. Husch husch, wir haben ja nicht den ganzen Tag Zeit."
     
     ##### Szene 5 #####
 label scene5:
-    hide karin
-    show bg food with fade
+    stop music fadeout 1.0
+    pause 0.75
+    play music anjatheme fadein 1.0
+    scene bg food
     show anja eat at center
+    with fade
     n "Damals kannte ich noch niemanden und war mir unsicher wo ich mich hinsetzen sollte, schließlich kannte ich ja noch niemanden."
     n "Als dann sowieso nur noch wenige Plätze frei waren setzte ich mich einfach auf den erstbesten Stuhl, der mir ins Auge fiel."
     n "Neben mir saß ein Mädchen und es entwickelte sich schnell eine recht einseitige Unterhaltung..."
@@ -465,7 +495,7 @@ label scene5:
     a "Und kennst du schon Evelyn? Die sitzt immer nur da und malt, find ich voll langweilig."
     p "Nein die-..."
     a "Boah und die Octavia, die will immer in allem \"die Beste\" sein."
-    p "Die kenn ich scho-..:"
+    p "Die kenn ich scho-..."
     
     if menu_choice3 == "yes":
         a "Du heißt [name] oder? Ich bin Anja!"
@@ -478,7 +508,7 @@ label scene5:
     else:
         a "Wieso hast du dich denn beim Morgenkreis so komisch vorgestellt?"
         p "Ich..."
-        a "Das fand ich voll lustig wie du so komisch geredet hast. Du bist *Name* oder? Ich bin Anja."
+        a "Das fand ich voll lustig wie du so komisch geredet hast. Du bist [name] oder? Ich bin Anja."
         
     a "Kletterst du? Bestimmt."
     a "Wir können auch mal zusammen klettern wenn du willst. Ich kletter immer wenn wir auf den Hof dürfen auf meinen Kletterbaum."
@@ -488,11 +518,13 @@ label scene5:
     a "Klettern ist nämlich gefährlich, weißt du? Meine Mama sagt mir auch immer, dass ich vorsichtig sein soll, aber ich bin noch nie irgendwo runtergefallen, und du?"
     n "Das war Anja. Man kam eigentlich nie zu Wort. Wäre das Frühstück nicht irgendwann zu Ende gewesen, so hätte ich wohl bald all ihre Klettergeschichten gekannt."
     n "So aber floh ich bei der erstbesten Gelegenheit. Anja war einfach zu viel für mich an meinem ersten Tag."
-    hide anja
     
     ##### Szene 6 #####
 label scene6:
-    show bg grura
+    scene bg grura with dissolve
+    stop music fadeout 1.0
+    pause 0.5
+    play music evetheme fadein 1.0
     n "Ich floh also in den einzig anderen Raum der mir bekannt vorkam und sah dann am Tisch ein einzelnes Mädchen sitzen, dass in aller Seelenruhe am Malen war.."
     show eve draw at center with moveinbottom
     n "Das war Evelynn. Sie war etwas zurückhalten aber sehr talentiert und dass sie bei unserer ersten Begegnung zeichnete war nur allzu passend für sie."    
@@ -506,14 +538,17 @@ label scene6:
     show eve paper
     e "Das hier."
     hide eve
-    show leuchtturm
+    show dis leuchtturm
+    with dissolve
+    e "Schau, hier. Das hab ich gemalt."
     
     menu:
         n "Wie findest du das Bild?"
         
         "Das sieht toll aus!":
-            hide leuchtturm
+            hide dis leuchtturm
             show eve shy2
+            with dissolve
             e "Dankeschön!"
             show eve happy2
             e "Wir haben zu Hause ein Buch mit ganz vielen Bildern und da ist auch so ein Leuchtturm drin."
@@ -528,8 +563,9 @@ label scene6:
             e "Mal doch einfach was, dann lernst du das."
             
         "Was ist das?":
-            hide leuchtturm
+            hide dis leuchtturm
             show eve mad
+            with dissolve
             e "Weißt du denn garnicht was ein Leuchtturm ist?"
             menu:
                 "Nein...":
@@ -555,14 +591,18 @@ label scene6:
                     
             
         "Das kann ich aber besser.":
-            hide leuchtturm
+            hide dis leuchtturm
             show eve mad
+            with dissolve
             e "Angeber."
             e "Geh weg."
             show eve draw
 
     
     hide eve
+    stop music fadeout 1.0
+    pause 0.75
+    play music maintheme fadein 1.0
     n "Evelynn sollte mich zukünftig noch häufiger dazu motivieren selbst kreativ zu sein."
     n "Aber an dem Tag ließ ich sie erstmal in Frieden, sie war ohnehin fast sofort wieder in ihrer eigenen Welt versunken."
     n "Und damit war mein erster Tag auch vorbei. Ich hatte so viele neue Kinder kennengelernt und einige von ihnen sollten einen großen Einfluss auf mich haben."
@@ -580,17 +620,22 @@ label scene6:
     ##### TAG 2 BEGINN #####
     ##### Szene 7 #####
 label scene7:
-    scene bg grura with dissolve
+    scene bg grura
     show karin music at center
+    with dissolve
     n "Der zweite Tag verlief viel weniger chaotisch. Ich hatte mich schnell eingelebt, wie das als Kind nunmal so ist."
     n "Ich weiß noch, dass wir singen mussten ... Karin war sehr übereifrig dabei und wir hatten alle keine Lust."
     
     
     ##### Szene 8 #####
 label scene8:
-    n "Als dann zum Essen aufgerufen wurde, war ich schneller als sonst. Diesmal wollte ich mir nicht das Ohr abkauen lassen, deshalb setzte ich mich zu Evelynn, welche ganz allein saß..." 
-    scene bg food with fade
+    n "Als dann zum Essen aufgerufen wurde, war ich schneller als sonst. Diesmal wollte ich mir nicht das Ohr abkauen lassen, deshalb setzte ich mich zu Evelynn, welche ganz allein saß..."
+    scene bg food
     show eve foodplay at center
+    with dissolve
+    stop music fadeout 1.0
+    pause 0.5
+    play music evetheme fadein 1.0
     p "Hallo du!"
     show eve foodask
     e "Hallo..."
@@ -614,7 +659,7 @@ label scene8:
             p "Was... was ist?"
 
             
-        "Geekelt sein.":
+        "Igitt....":
             p "Aber warum denn mit deinem Essen... Das ist doch ekelig."
             show eve foodmad
             e "Garnicht wahr. Das ist schön, guck doch mal."
@@ -626,7 +671,7 @@ label scene8:
             show eve foodmad
             e "Darum geht es doch auch garnicht!"
             
-        "Geschockt reagieren.":
+        "WAS tust du?!.":
             p "Ihhh! Mama sagt man spielt nicht mit Essen!"
             show eve foodmad
             e "Meine auch. Aber ich spiele ja auch garnicht. Ich male."
@@ -646,36 +691,38 @@ label scene8:
             e "Nicht schlecht. Man kann fast erkennen, dass du ein Haus bauen wolltest."
             p "Das soll doch aber eine Burg sein!"
             e "Ohh! Ja stimmt, wenn man es weiß. Du musst aber wirklich noch üben."
-            jump scene9
             
         "Nein, sicher nicht.":
             scene cg food with dissolve
             p "Nein ... nein ich esse lieber ganz normal. Ich will mich nicht schmutzig machen."
             e "Dann nicht ..."
-            jump scene9
     ##### TAG 2 ENDE #####
     
     ##### TAG 3 BEGINN #####
     ##### Szene 9 #####
 label scene9:
-    scene bg bedroom
+    stop music fadeout 1.0
+    pause 0.75
+    play music maintheme fadein 1.0
+    scene bg bedroom with dissolve
     "???" "{b}KICKERIKI! KICKERIKI! KICKERIKI!{/b}"
     p "Waaah!"
     p "Hilfe! Was ist das?! Mama!!!"
     "???" "{b}KICKERIKI! KICKERIKI! KI...{/b}"
-    show mum talk
+    show mum talk at center with moveinright
     m "Guten Morgen Püpschen!"
     m "Ich hab dir was mitgebracht!"
-    n "An dieser Stelle sehen Sie einen Wecker der aussieht wie ein Hahn."
+    show mum at slightleft with move
+    show dis hahn at chicken with dissolve
     p "Eine Ente!"
-    m "Fast! Aber mit diesen Wecker kommst du sicherlich aus den Federn."
-    hide mum
-    show bg street
+    m "Fast! Aber mit dem hier kommst du bestimmt leichter aus den Federn."
+    scene bg street with dissolve
     n "Auf dem Weg zum Kindergarten erklärte sie mir dann, dass mein Wecker ein Hahn sei, keine Ente und was die Unterschiede sind."
     n "Ich sollte nun täglich von diesem Hahn geweckt werden, zusammen mit meiner Mutter die sich darüber köstlich amüsieren konnte."
     n "Den Wecker hab ich nie weggeschmissen."
-    show bg grura
+    scene bg grura
     show karin talk
+    with dissolve
     k "Also Kinder, ich hab euch heute etwas mitgebracht."
     show karin happy
     k "Das ist ein Radio, mit Mikrofon! Damit können wir singen und uns anhören was wir gesungen haben."
@@ -708,9 +755,10 @@ label scene9:
     ##### Szene 10 #####
 label scene10:
     show bg food
-    n "Nachdem Karin uns dann endlich wieder alle eingangen hatte war es Zeit zum Essen."
+    with dissolve
+    n "Nachdem Karin uns dann endlich wieder alle einfangen hatte war es Zeit zum Essen."
     n "Ich hatte mich an den nächstbesten Tisch gesetzt und wollte die Apfelstücke essen die meine Mama mir gemacht hatte, als plötzlich ..."
-    show louis smug
+    show louis smug at center with moveinright
     "???" "Hey, was isst du da?"
     n "Vor mir stand ein Junge in Lederjacke mit Sonnenbrille und gegelten Haaren. Das war ein Junge den ich bisher nur beiläufig gesehen hatte."
     n "E musste ein Jahr länger im Kindergarten bleiben, also war er älter als wir anderen und seine Freunde waren fast alle schon in der Schule, daher gab er sich nur mit wenigen von uns ab."
@@ -734,12 +782,15 @@ label scene10:
     p "Außerdem hab ich kein Geld."
     L "Du bist neu hier."
     p "Ja. Wieso?"
-    show louis talk
+    show louis talk at slightleft with move
+    show dis snackers3 at chicken with dissolve
     L "Ich mag eigentlich einfach keine Erdnüsse aber ich hab hier 3 Snackers."
     L "Du kannst die haben wenn du mir bis Freitags zwei Knappers mitbringst."
     p "Aber das ist doch unfair. Oder?"
-    L "Knappers sind wirklich etwas größer. OK. Weil du neu bist, musst du mir nur 1 mitbringen. Ich mag keine Snackers, also hab ich gerade nichts."
-    show louis n
+    L "Knappers sind wirklich etwas besser..." 
+    L "Okay, weil du neu bist, musst du mir nur ein Knappers mitbringen."
+    hide dis snackers3 with dissolve
+    show louis n at center with move
     menu:
         L "Also, was sagst du?"
         
@@ -786,24 +837,27 @@ label scene10:
             L "Aber hey, ich kann dank meinen Freunden in der Schule eigentlich fast alle Süßigkeiten besorgen."
             L "Wenn du es dir mal anders überlegst komm zu mir mit 2 Knappers."
             L "Ich muss jetzt weg. Irgendwer tauscht schon. Dein Pech!"
-            hide louis with moveoutbottom
+            hide louis with moveoutright
             p "... Was für ein komischer Kerl."
             p "Jetzt zurück zu meinem Apfel... Hey! Da fehlt ja die Hälfte. Louis hat doch nicht ...?"
     
 
     ##### Szene 11 #####
 label scene11:    
-    show karin happy at center
+    show karin happy at center with moveinright
     $ gone = False
     k "Kinder, schaut mal an wie schön es draußen ist! Wenn ihr fertig gegessen habt, dann zieht euch an und geht auf den Hof zum spielen."
-    show bg court with fade
-    hide karin
+    scene bg court with fade
+    stop music fadeout 1.0
+    pause 0.5
+    play music anjatheme fadein 1.0
     n "Ich weiß noch, dass ich eigentlich vorhatte mich einfach nur ins Gras zu legen, weil ich keine Lust zum spielen hatte."
-    n "Aber meine neuen Freunde hatten scheinbar andere Pläne mit mir, denn in der Ferne hörte ich lautes Gezanke und ich war schon als Kind sehr neugierig.."
+    n "Aber meine neuen Freunde hatten scheinbar andere Pläne mit mir."
+    n "Bereits aus der Ferne hatte ich lautes Gezanke gehört und ich war schon als Kind sehr neugierig.."
     n "Ich sah Anja auf einem Baum sitzen, die sich mit einem anderen Kind am Boden lautstark stritt."
-    show anja vmadb at right with moveinright
+    show anja vmadb at right with dissolve
     a "Is doch a völligs Gschmarre wos du dou verzüllst."
-    show randy vmad at left with moveinleft
+    show randy vmad at left with dissolve
     "???" "Gibt doch viel besseres was man damit machen kann. Also wieso Eis!?"
     
     menu:
@@ -854,7 +908,7 @@ label scene11:
             "{color=#0099ff}???:{/color} Belauscht du uns einfach? Was soll das?\n{color=#0099ff}Anja:{/color} Misch dich nicht ein!"
             p "Aber ich wollte doch nur ..."
             show randy shock
-            show anja happb
+            show anja happyb
             a "Oooh, ähm da haben wir wohl eine gleiche Meinung."
             show randy mad
             "???" "Sieht wohl so aus, ich will aber nicht weitere belauscht werden."
@@ -895,7 +949,7 @@ label scene11:
                     a "Jeder kann klettern, ist nur eine Frage der Technik!"
                     p "Ich hoffe ... "
                     a "Warte ich komm erstmal runter ..."
-                    play sound "autotür2.ogg"
+                    play sound cardoor2
                     show anja hihi
                     a "So. Schau erst a mal mir zou."
                     show anja talk
@@ -905,10 +959,10 @@ label scene11:
                     p "Wow! Das ging ja schnell. Das sieht so einfach aus."
                     p "Okay also die Hände ..."
                     p "... und die Beine ..."
+                    play sound treefall
                     p "... ughh ... dann ... waaahhh!"
-                    play sound "autotür2.ogg"
                     p "Aua ..."
-                    a "A: Sah doch gut aus, jetzt noch ein bisschen mehr Kraft in den Beinen und du bist oben oder wir machen Räuberleiter."
+                    a "Sah doch gut aus, jetzt noch ein bisschen mehr Kraft in den Beinen und du bist oben oder wir machen Räuberleiter."
                     p "Okay ... ich versuchs ..."
                     p "Also Hände ... Beine und ..."
                     p "ICH BIN OBEN!"
@@ -952,7 +1006,7 @@ label scene11:
             "Willst du deine Snackers mit Anja teilen um sie zu beruhigen?"
             
             "Ja.":
-                p "Ich hab ein paar Snackers wenn du Schokolade willst, kann ich dir eins abgeben."
+                p "Ich hab ein paar Snackers. Wenn du Schokolade willst, kann ich dir eins abgeben."
                 show anja happyb
                 a "Bist wohl einer mit Geschmack!"
                 p "Ich ... weiß nicht wie ich schmecke ..."
@@ -963,14 +1017,14 @@ label scene11:
                 jump treetalk
                 
 label treetalk:
-    p "Also das war jetzt .. .Randy? Wie ist der so? Ist der nett?"
+    p "Also das war jetzt ... Randy? Wie ist der so? Ist der nett?"
     show anja madb
     a "Ganz komischer Kauz."
     show anja happyb
     a "Er ist ein echt netter Kerl und ich bin auf seinen Geburtstag am Freitag eingeladen."
     a "Er ist einer meiner besten Freunde, aber er ist eben so unglaublich Normal, dass treibt mich manchmal echt an die Decke."
     p "Und ihr ... "
-    a "Außerdem sind wir sooft anderer Meinung und du hasts ja gesehen."
+    a "Außerdem sind wir so oft anderer Meinung und du hasts ja gesehen."
     show anja madb
     a "Er hat immer den gleichen Standpunkt und wenn er darüber redet ist er sooo laaangweilig, ich weiß nicht was das soll."
     p "Ist das denn so schlecht?"
@@ -989,8 +1043,11 @@ label treetalk:
     
     ##### Szene 12 #####
 label scene12:
-    scene bg bedroom with fade
-    show mum at center with move
+    stop music fadeout 1.0
+    scene bg bedroom
+    show mum happy at center
+    with dissolve
+    play music maintheme fadein 1.0
     
     m "Und wie hat es dir heute gefallen?"
     p "Gut, wir hatten ganz viel Spaß. "
@@ -1020,45 +1077,47 @@ label scene12:
                 p "Was denn?"
                 m "Du hilft mir morgen in der Küche, dann bekommst du ein Knappers."
                 p "Mach ich Mama!"
-                jump day4
                 
             "Mama nichts von den Knappers erzählen.":
                 $ hasknappers = False
-                jump scene13
-    else:
-        jump scene13
         ##### TAG 3 ENDE #####
         
         ##### TAG 4 BEGINN #####
         ##### Szene 13 #####
 label scene13:
-    scene bg street with dissolve
+    stop music fadeout 1.0
+    scene bg street
     show mum happy at center
+    with dissolve
+    play music octatheme fadein 1.0
     m "Hey Püpschen, Mama muss heute ganz schnell los. Schaffst du das alleine rein? Ich lass dich gleich am Hof raus."
     p "Mama ich bin doch schon groß!"
     m "Haha, ja mein Schatz, das bist du."
     p "Sag ich doch immer!"
     m "Tust du! So, da sind wir. Wir sehen uns nachher! Benimm dich und ich hab dich lieb!"
-    scene bg court
+    scene bg court with dissolve
     p "Tschüss Mama, hab dich auch lieb!"
-    play sound Autotür2.ogg
-    e "Heute sollte ich Octavia von einer anderen Seite kennenlernen. Ich weiß noch, ich war fast schon im Kindergarten, als hinter mir noch ein Auto auf den Hof fuhr."
-    e "Octavia, in volle Schutzmontur gekleidet, stieg aus dem Wagen. Danach ihre Eltern, die ihr Fahrrad aus dem Kofferraum luden. Bisher hatte ich immer gedacht sie würde damit alleine zum Kindergarten fahren."
-    show oschutz talk
+    play sound cardoor2
+    n "Heute sollte ich Octavia von einer anderen Seite kennenlernen. Ich weiß noch, ich war fast schon im Kindergarten, als hinter mir noch ein Auto auf den Hof fuhr."
+    n "Octavia, in volle Schutzmontur gekleidet, stieg aus dem Wagen. Danach ihre Eltern, die ihr Fahrrad aus dem Kofferraum luden. Bisher hatte ich immer gedacht sie würde damit alleine zum Kindergarten fahren."
+    show oschutz talk with dissolve
     o "Danke Papi, du bist der Beste!"
     show oschutz happy at slightleft with move
-    show odad n at slightright with moveinright
-    odad "Ich bin mir immer noch nicht so sicher, willst du wirklich nicht, dass wir dich abholen?"
-    odad "Ich mein jetzt wo hier keine Stützräder mehr dran sind kannst du dich wirklich verletzen."
+    show odad talk at slightright with moveinright
+    odad "Ich bin mir immer noch nicht so sicher."
+    odad "Willst du wirklich nicht, dass wir dich abholen?"
+    odad "Jetzt wo hier keine Stützräder mehr dran sind kannst du dich wirklich verletzen."
     o "Ihr müsst doch zum Arzt, ich schaff es schon alleine Heim, ihr habt mir ja den Weg gezeigt."
-    show oschutz at center with move
-    show odad at right with move
-    show omum at left with moveinleft
+    show odad at right
+    show oschutz at center
+    with move
+    show omum talk at left with moveinleft
     omum "Ja schon, aber sag mir erst wo genau du hinfahren musst."
     show oschutz talk
     o "Von hier bis zu Oma, dann den Berg runter, links zur Kirche, an der Bushaltestelle vorbei, dann kommt der BIDL, die Gartenanlage und dahinter ist doch dann schon unser Haus."
     omum "Gut... Und du bist dir wirklich sicher?"
-    o "Bitte, vertraut mir doch ein bisschen, ihr seid doch gute Eltern."
+    o "Bitte, vertraut mir doch ein bisschen."
+    o "Ihr seid doch gute Eltern und habt mir alles beigebracht.."
     odad "Hmmmh, na gut Schätzchen. Aber erst zeig ich dir noch einmal wie man das Schloss anschließt."
     o "Danke Papi!"
     o "Ihr könnt jetzt auch wirklich gehen, ich komme zurecht. Bis später! Ich hab euch lieb."
@@ -1068,13 +1127,17 @@ label scene13:
     hide omum with moveoutleft
     hide odad with moveoutright
     show oschutz happy at center with move
-    play sound Autotür1.ogg
-    play sound Autotür2.ogg
+    play sound cardoor1
+    pause 1.0
+    play sound cardoor2
     o "Tschüss!"
-    o "Und jetzt weg mich dem Zeug."
+    o "Und jetzt weg mit dem Zeug."
     hide oschutz
     show octa mine
-    o "Wieso musst du mich eigentlich ausspannen?"
+    with dissolve
+    o "Und wiieso musst du mich eigentlich ausspannen?"
+    o "Glaub bloß nicht, ich hätte dich nicht gesehen."
+    o "Ich hab nämlich auch die besten Augen!"
     p "Auswas?"
     show octa mad
     o "Warum beobachtest du mich?!"
@@ -1085,11 +1148,23 @@ label scene13:
     o "Oooh, da kann man aber erst richtig coole Dinge machen. Ich geb dir mal ein Beispiel!"
     hide octa
     show obike n
+    with dissolve
     o "Ist ohne die blöde \"Schutzausrüstung\" auch viel leichter."
-    show obike wheelie
+    show obike wheelie with dissolve
     o "Schau her, so geht das!"
-    p "Wow!"
+    show obike at right with move
+    pause 0.2
+    show obike wheelier with dissolve
+    pause 0.2
+    show obike at center with move
+    show obike at left with move
+    pause 0.2
+    show obike wheelie with dissolve
+    pause 0.2
+    show obike at center with move
+    pause 0.2
     show obike n
+    p "Wow!"
     o "Siehste, ganz einfach. Jetzt du!"
     hide obike
     show octa smug at center
@@ -1124,7 +1199,7 @@ label scene13:
                     o "Du Idiot!"
                     p "Selber!"
                     show octa at slightleft with move
-                    show heide mad at slighright with moveinright
+                    show heide mad at slightright with moveinright
                     h "WAS ist hier los?"
                     show octa shock
                     o "Also der da..."
@@ -1179,7 +1254,7 @@ label scene14:
     scene bg court with fade    
     if crying == True:
         show octa shock at center
-        show heide mad at left with moveinleft
+        show heide mad at right with moveinright
         h "Großer Gott! Was ist denn das hier für ein Tumult!"
         h "Was ist denn hier passiert?"
         h "[name] jetzt hör auf zu weinen. Kannst du laufen?"
@@ -1189,16 +1264,13 @@ label scene14:
         o "J... ja Frau Heidenau!"
         h "Warum liegt [name] hier weinend am Boden?!"
         o "Also ich ..."
-        h "Wir reden später. [name] du kommst mit. Wir verarzten dein Bein. Trab trab!"
+        h "Wir reden später. Ihr beiden kommt jetzt mit. [name] wir verarzten dein Bein. Trab trab!"
         p "Aber das tut weh!"
-        hide octa with moveoutleft
         h "Gleich nicht mehr. Jetzt stell dich nicht so an und komm mit."
-        "O rennt los, holt Erzieherin und wirkt besorgt."
-        "O kommt mit Karin zurück. Karin klebt P ein Pflaster auf."
-        "O steht Schuldbewusst daneben."
+
     else:
         show octa shock at slightleft with moveinright
-        show karin shock at slighright with moveinright
+        show karin shock at slightright with moveinright
         k "Was ist denn hier passiert?"
         p "Ich hab mir das Knie aufgeschlagen."
         k "Ohh je. Tut es doll weh?"
@@ -1210,10 +1282,11 @@ label scene14:
         p "Ja, ich denke schon."
         k "Ich stütze dich, komm, wir gehen ins Sanitätszimmer."
     
-    scene bg health with fade
+    scene bg health
     show heide talk at slightleft
     show karin n at slightright
     show octa shock at right behind karin
+    with fade
     h "So, jetzt zeig mal her dein Knie."
     h "Und Octavia, du kommst auch her. Vielleicht lernst du ja was dazu."
     o "O... okay Frau Heidenau."
@@ -1262,7 +1335,7 @@ label scene14:
             h "Gut. Karin, bring [name] bitte zurück in den Gruppenraum."
             show karin talk
             k "In Ordnung Frau Heidenau."
-            hide karin with moveoutleft
+            hide karin with moveoutright
             h "Und du Octavia, bleibst bitte nochmal kurz hier."
             show octa shock
             o "Bitte nicht zu Hause anrufen..."
@@ -1274,9 +1347,9 @@ label scene14:
             show heide n
             h "Katze?"
             p "Ich bin wegen einer Katze gestolpert!"
-            p "Ich hab Sie nicht gesehen und bin gegen Sie getreten und gestolper und dann auf die Steinkante gefallen!"
+            p "Ich hab Sie nicht gesehen und bin gegen Sie getreten und gestolpert und dann auf die Steinkante gefallen!"
             o "Wieso bist du eigentlich gerannt?"
-            show katrin mad
+            show karin mad
             p "Gerannt? Ach, ich bin gerannt ..."
             show heide talk
             h "Du bist also gerannt?"
@@ -1285,18 +1358,22 @@ label scene14:
             p "Ja! Ja das Fahrrad ansehen."
             show heide n
             h "So ist das also."
-            show katrin n
+            show karin n
             show octa happy
             h "Also ein Unfall. Kann ja mal passieren."
+            h "Und es geht dir wieder besser?"
+            show heide talk
             o "Ja, uns geht's gut!"
             p "Was? Ohh. Ja. Gut. Uns geht's gut."
             o "Dürfen wir dann jetzt wieder mit Karin in den Gruppenraum?"
+            show heide n
             h "[name] ist ja jetzt verarztet. Also ja, ab mit euch."
             h "Bringst du sie Karin?"
             k "In Ordnung Frau Heidenau."
-            hide karin with moveoutleft
-            hide octa with moveoutleft
-            show heide laugh at center
+            hide karin
+            hide octa
+            with moveoutright
+            show heide laugh at center with move
             h "Hmm... Gelogen haben sie. Aber wenigstens zusammengehalten. Vielleicht sind ja nicht alle Kinder furchtbar."
             
     if octahome == True:
@@ -1309,8 +1386,9 @@ label scene14:
         n "Da sagt man doch nicht nein."
         
     else:
-        scene bg grura with dissolve
+        scene bg grura
         show octa vhappy
+        with dissolve
         o "Danke."
         p "Was? Warum?"
         o "Dass du keine Petze warst, darum."
@@ -1321,9 +1399,27 @@ label scene14:
             
             ##### TAG 5 BEGINN #####
             ##### Szene 15 #####
+    n "Hier endet unser Reviewprototyp.."
+    n "Es kommen noch ein paar Szenen in skeletaler Form."
+    n "Quasi eine reine Techdemo dessen was noch geplant ist."
+    n "Allerdings zeigen wir auch einiges an Art die wir bisher nicht gezeigt haben."
+    n "Leider hat für die Umsetzung die Zeit gefehlt, da es kurzfristig noch einige Änderungen gab, die eine Gruppenbesprechung erforderlich machen."
+    
+    menu:
+        "Credits anschauen":
+            jump credits
+            
+        "Skeletale Szenen noch ansehen":
+            jump scene15
+            
+    
 label scene15:
+    stop music fadeout 1.0
     scene bg grura
-    "P wird überraschend zum Gebu eingeladen."
+    show randy happy at center
+    with dissolve
+    play music maintheme fadein 1.0
+    "P wird zu Randy's Gebu eingeladen."
     if randyname == True:
         "P erkennt Randy."
         "Randy wundert sich. P erklärt, dass er den Namen beim Streit gehört hat."
@@ -1361,7 +1457,9 @@ label scene16:
             
 ##### Szene 17 #####
 label scene17:
-    
+    scene bg party
+    show lparty smug at center
+    with dissolve
     if snackersdeal == True:
         "P wird von Louis aufgehalten."
         L "Du schuldest mir noch was."
@@ -1389,6 +1487,13 @@ label scene17:
                     
                     ##### Szene 18 #####
 label scene18:
+    scene bg party
+    show aparty jabber at left
+    show eparty vhappy2 at right
+    show oparty vhappy at center
+    show rparty talk at leftish behind oparty
+    show lparty smug at rightish behind oparty
+    with fade
     "Die Party beginnt. Kurze Beschreibung."
     "Blabla mit Randy."
     ##### Szene 19 #####
@@ -1409,7 +1514,22 @@ label scene22:
     "Prototyp Ende"
     
                 
-
+label credits:
+    scene bg bedroom with dissolve
+    nvln "Coding - VN\nKilian Petry"
+    nvln "Coding - Minigame\nFrederik Haas"
+    nvln "Art - Lead\nNatalie Kuhrt"
+    nvln "Art - Support\nFlorian Menzel"
+    nvln "Writing\nFrederik Haas, Florian Menzel, Sascha Fuchs\nFabian Pfannmüller, Kilian Petry"
+    nvln "Sounddesign\nLuca Pfeiffermann"
+    nvl clear
+    nvln "Vielen Dank für's Spielen!"
+    stop music fadeout 2.0
+    nvln "Euer Team von Baby's First Visual Novel"
+    "diojasppjdaps"
+    "diuashdsaoi"
+    "daosijdaos"
+    
     
     #"Testtest."
         

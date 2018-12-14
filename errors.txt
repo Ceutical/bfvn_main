@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1060: expected statement.
-    schow oschutz talk
-                      ^
-
-File "game/script.rpy", line 1242: expected statement.
-    how octa shock
-                  ^
+File "game/script.rpy", line 1518: expected statement.
+    nvl " "
+       ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Fri Dec 14 02:04:40 2018
+Fri Dec 14 04:36:54 2018
