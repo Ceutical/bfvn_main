@@ -13,8 +13,8 @@ define h = Character("Frau Heidenau")
 define k = Character("Karin")
 define L = Character("Louis")
 define r = Character("Randy")
-define emum = Character("Evelynn's Mutter")
-define edad = Character("Evelynn's Vater")
+define omum = Character("Evelynn's Mutter")
+define odad = Character("Evelynn's Vater")
 
 ##### CHARACTER DEFINITIONS END #####
 
@@ -47,9 +47,7 @@ label start:
     
     ##### Szene 1 - Prolog #####
 label scene1:
-    scene bg grura with dissolve
-    show obike wheelie at left
-    
+    scene bg grura with dissolve    
     
     python:
         name = renpy.input("Gib dem Kind einen Namen.")
@@ -325,13 +323,13 @@ label scene3:
     
     hide heide
     hide mum
-    show katrin n
+    show karin n
     n "Karin machte nie den Eindruck als ob sie an ihrer Arbeit Spaß hatte. Vielleicht ist ihr das bei ihrer Chefin aber auch nicht zu verübeln gewesen."
     k "Ahh, hallo sie beide. Danke, dass Sie ihr Kind gebracht habe. Sie können unbesorgt sein, wir kümmern uns ganz wunderprächtig um ihn."
     k "Also willkommen dann, in der Käfergruppe!"
-    show katrin go
+    show karin go
     k "Kinder, kommt mal alle zusammen, wir haben Neuzugang bekommen!"
-    hide katrin
+    hide karin
     show anja what at left with moveinleft
     show eve happy2 at right with moveinright
     show octa happy at center
@@ -373,7 +371,7 @@ label scene4:
     hide eve
     hide louis
     hide randy
-    show katrin talk at slightright with moveinright
+    show karin talk at slightright with moveinright
     show mum talk at slightleft with moveinleft
     k "Sie können Ihr Kind dann jetzt auch bei uns lassen. Wir kümmern uns bis sie zum Abholen vorbeikommen."
     m "Rufen Sie mich einfach sofort an falls irgendwas sein sollte."
@@ -381,12 +379,12 @@ label scene4:
     m "Na dann [name]. Viel Spaß an deinem großen Tag. Und jetzt lass dich noch mal knuddeln!"
     p "Tschüss Mama, ich hab dich lieb!"
     hide mum with moveoutleft
-    show katrin at center with move
+    show karin at center with move
     k "Dann fangen wir doch jetzt auch gleich mal an."
     k "Wir machen jetzt Morgenkreis. Stell dich einfach da hin und warte ab. Brav sein!"
     n "Der Morgenkreis war ein Ritual zu dem Karin uns jeden Tag zusammenrief. Wir spielten, sangen, musizierten oder lernten zusammen."
     k "Sind alle da?"
-    hide katrin
+    hide karin
     show anja what at left with moveinleft
     show eve happy2 at right with moveinright
     show octa happy at center
@@ -413,7 +411,7 @@ label scene4:
     
     n "So war sie immer, so ehrgeizig. Sie musste jederzeit jedem beweisen, dass sie besser war als alle anderen."
     show octa music at left with move
-    show katrin music at right with moveinright
+    show karin music at right with moveinright
     k "Also Kinder, alle bereit? Dann 1 und 2 und 3 und ..."
     "Minigame geht los. Takt halten."
     "Minigame steht noch nicht, von daher Choice:"
@@ -421,7 +419,7 @@ label scene4:
         "Hast du das Minispiel gewonnen oder verloren?"
         
         "Gewonnen.":
-            hide katrin
+            hide karin
             show octa mine at center with move
             o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
             if boomstick == True:
@@ -432,7 +430,7 @@ label scene4:
                 o "Du hast doch gesagt du kannst das nicht? Egal. Ich war ja auch viel besser als du."
             
         "Verloren...":
-            hide katrin
+            hide karin
             show octa mine at center with move
             o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
             if boomstick == True:
@@ -446,13 +444,13 @@ label scene4:
     n "Die Zeit damals scheint mir so simpel gewesen zu sein. Uns allen ging es um den Spaß zusammen, nicht ums besser sein."
     n "Naja, uns allen. Außer Octavia."
     hide octa
-    show katrin go at center
+    show karin go at center
     k "Das habt ihr gut gemacht Kinder!"
     k "Aber jetzt ist genug, auf zum Frühstück mit euch. Husch husch, wir haben ja nicht den ganzen Tag Zeit."
     
     ##### Szene 5 #####
 label scene5:
-    hide katrin
+    hide karin
     show bg food with fade
     show anja eat at center
     n "Damals kannte ich noch niemanden und war mir unsicher wo ich mich hinsetzen sollte, schließlich kannte ich ja noch niemanden."
@@ -583,7 +581,7 @@ label scene6:
     ##### Szene 7 #####
 label scene7:
     scene bg grura with dissolve
-    show katrin music at center
+    show karin music at center
     n "Der zweite Tag verlief viel weniger chaotisch. Ich hatte mich schnell eingelebt, wie das als Kind nunmal so ist."
     n "Ich weiß noch, dass wir singen mussten ... Karin war sehr übereifrig dabei und wir hatten alle keine Lust."
     
@@ -677,21 +675,21 @@ label scene9:
     n "Ich sollte nun täglich von diesem Hahn geweckt werden, zusammen mit meiner Mutter die sich darüber köstlich amüsieren konnte."
     n "Den Wecker hab ich nie weggeschmissen."
     show bg grura
-    show katrin talk
+    show karin talk
     k "Also Kinder, ich hab euch heute etwas mitgebracht."
-    show katrin happy
+    show karin happy
     k "Das ist ein Radio, mit Mikrofon! Damit können wir singen und uns anhören was wir gesungen haben."
-    show katrin shock at slightright with move
+    show karin shock at slightright with move
     show octa mad at slightleft with moveinleft
     o "Öhhhh!"
     show randy mad at left with moveinleft
     r "Wir haben doch gestern schon gesungen!"
     o "Genau, wir haben keine Lust!"
     n "Und plötzlich verschwor sich der gesamte Raum gegen die arme Karin. Das passierte recht oft. Und wir haben immer gewonnen."
-    show katrin mad
+    show karin mad
     k "Aber jetzt hab ich doch extra den Recorder für euch mitgebra..."
     r "Aber singen ist blöd."
-    show katrin n
+    show karin n
     k "In Ordnung ... Und was wollt ihr dann machen?"
     show octa smug
     o "Du bist!"
@@ -699,13 +697,13 @@ label scene9:
     o "Los! Rennt!"
     hide randy with moveoutleft
     hide octa with moveoutleft
-    show katrin shock at center with move
+    show karin shock at center with move
     k "Aber ... Hey! Halt! Kinder, kommt gefälligst zurück!"
-    show katrin mad
+    show karin mad
     k "Benehmt euch! Ich ... ach was solls."
-    show katrin go
+    show karin go
     k "Vorsicht, jetzt komm ich!" 
-    hide katrin with moveoutleft
+    hide karin with moveoutleft
     
     ##### Szene 10 #####
 label scene10:
@@ -795,11 +793,11 @@ label scene10:
 
     ##### Szene 11 #####
 label scene11:    
-    show katrin happy at center
+    show karin happy at center
     $ gone = False
     k "Kinder, schaut mal an wie schön es draußen ist! Wenn ihr fertig gegessen habt, dann zieht euch an und geht auf den Hof zum spielen."
     show bg court with fade
-    hide katrin
+    hide karin
     n "Ich weiß noch, dass ich eigentlich vorhatte mich einfach nur ins Gras zu legen, weil ich keine Lust zum spielen hatte."
     n "Aber meine neuen Freunde hatten scheinbar andere Pläne mit mir, denn in der Ferne hörte ich lautes Gezanke und ich war schon als Kind sehr neugierig.."
     n "Ich sah Anja auf einem Baum sitzen, die sich mit einem anderen Kind am Boden lautstark stritt."
@@ -1046,33 +1044,35 @@ label scene13:
     play sound Autotür2.ogg
     e "Heute sollte ich Octavia von einer anderen Seite kennenlernen. Ich weiß noch, ich war fast schon im Kindergarten, als hinter mir noch ein Auto auf den Hof fuhr."
     e "Octavia, in volle Schutzmontur gekleidet, stieg aus dem Wagen. Danach ihre Eltern, die ihr Fahrrad aus dem Kofferraum luden. Bisher hatte ich immer gedacht sie würde damit alleine zum Kindergarten fahren."
-    show octa talk
-    o "Danke Pap, du bist der Beste!"
-    show octa at slightleft with move
-    show edad n at slightright with moveinright
-    edad "Ich bin mir immer noch nicht so sicher, willst du wirklich nicht, dass wir dich abholen?"
-    edad "Ich mein jetzt wo hier keine Stützräder mehr dran sind kannst du dich wirklich verletzen."
+    show oschutz talk
+    o "Danke Papi, du bist der Beste!"
+    show oschutz happy at slightleft with move
+    show odad n at slightright with moveinright
+    odad "Ich bin mir immer noch nicht so sicher, willst du wirklich nicht, dass wir dich abholen?"
+    odad "Ich mein jetzt wo hier keine Stützräder mehr dran sind kannst du dich wirklich verletzen."
     o "Ihr müsst doch zum Arzt, ich schaff es schon alleine Heim, ihr habt mir ja den Weg gezeigt."
-    show octa at center with move
-    show edad at right with move
-    show emum at left with moveinleft
-    emum "Ja schon, aber sag mir erst wo genau du hinfahren musst."
+    show oschutz at center with move
+    show odad at right with move
+    show omum at left with moveinleft
+    omum "Ja schon, aber sag mir erst wo genau du hinfahren musst."
+    show oschutz talk
     o "Von hier bis zu Oma, dann den Berg runter, links zur Kirche, an der Bushaltestelle vorbei, dann kommt der BIDL, die Gartenanlage und dahinter ist doch dann schon unser Haus."
-    emum "Gut... Und du bist dir wirklich sicher?"
+    omum "Gut... Und du bist dir wirklich sicher?"
     o "Bitte, vertraut mir doch ein bisschen, ihr seid doch gute Eltern."
-    edad "Hmmmh, na gut Schätzchen. Aber erst zeig ich dir noch einmal wie man das Schloss anschließt."
+    odad "Hmmmh, na gut Schätzchen. Aber erst zeig ich dir noch einmal wie man das Schloss anschließt."
     o "Danke Papi!"
     o "Ihr könnt jetzt auch wirklich gehen, ich komme zurecht. Bis später! Ich hab euch lieb."
-    emum "Wir dich auch Schatz. Bis heute Nachmittag!"
-    edad "Und mach das Fahrrad nicht kaputt!"
+    omum "Wir dich auch Schatz. Bis heute Nachmittag!"
+    odad "Und mach das Fahrrad nicht kaputt!"
     o "Ach Papa, ich doch nicht."
-    hide emum with moveoutleft
-    hide edad with moveoutright
-    show octa at center with move
+    hide omum with moveoutleft
+    hide odad with moveoutright
+    show oschutz happy at center with move
     play sound Autotür1.ogg
     play sound Autotür2.ogg
     o "Tschüss!"
     o "Und jetzt weg mich dem Zeug."
+    hide oschutz
     show octa mine
     o "Wieso musst du mich eigentlich ausspannen?"
     p "Auswas?"
@@ -1083,12 +1083,16 @@ label scene13:
     o "Bist du neidisch oder was?"
     p "Ich darf noch kein Fahrrad ohne Stützräder fahren."
     o "Oooh, da kann man aber erst richtig coole Dinge machen. Ich geb dir mal ein Beispiel!"
-    show octa happy
+    hide octa
+    show obike n
     o "Ist ohne die blöde \"Schutzausrüstung\" auch viel leichter."
-    e "Und dann zeigte sie mir wie sie nur auf dem Hinterrad fahren konnte. Für ein Kind in dem Alter wirklich beeindruckend. Ich war damals jedenfalls völlig beeindruckt."
+    show obike wheelie
+    o "Schau her, so geht das!"
     p "Wow!"
-    show octa smug
+    show obike n
     o "Siehste, ganz einfach. Jetzt du!"
+    hide obike
+    show octa smug at center
     p "Was? Ich darf doch nicht."
     o "Ist doch egal, probiers mal aus, bist doch kein Weichei und wenn du fällst ists ja nicht so schlimm. Hier kannst auch meinen Helm haben."
     
@@ -1109,7 +1113,7 @@ label scene13:
             o "Jetzt mach oder ich erzähl allen, dass du mich vom Rad geschubst hast!"
             menu:
                 "Doch aufs Rad steigen.":
-                    p "Schon gut! Ich fahre ja. Zufrieden?"
+                    p "Schon gut! Ich fahre ja."
                     
                     
                 "Sich weiterhin weigern.":
@@ -1132,88 +1136,193 @@ label scene13:
                     jump scene15
                  ##### Szene 14 #####   
 label scene14:
-    "O drängt P zu einem Trick."
-    "Er gelingt."
-    "E's Eltern tauchen um die Ecke auf. P erschrickt, fällt und verletzt sich"
+    scene cg biking with fade
+    p "Ooookay und jetzt?"
+    o "Und jetzt auf einem Rad! Los! Los!"
+    o "Das Hinterrad, komm schon! Komm schon! Komm schon!"
+    p "Okay ... also ... SO! Octa guck! Ich kann es! ich kann es!"
+    o "[name] pass auf! KATZE!"
+    scene cg bikecat with fade
+    p "Ohh ... WOAH! Katze vorsicht!"
+    scene cg bikefall with fade
+    p "Aua ..."
+    
     menu:
-        "Wie reagiert P?"
+        p "Das hat weh getan ..."
         
         "Weinen.":
             $ crying = True
-            jump scene142
+            p "Wahhhh! Wahhhh!"
+            p "Mein Knie!!"
+            p "Waaahhh!"
+            o "Ohh Gott ist mit dir alles in Ordnung?"
+            p "Ich hab mir mein Knie aufgeschürft!"
+            o "Nicht du, die Katze!"
+            "Katze" "{i}schnurr{/i}"
+            o "Dir geht's gut, dann werd ich mich wohl besser aus dem Staub machen."
+            o "Ich will keinen Ärger hörst du?"
+            p "WAAAHHHH!"
+
             
         "Stark bleiben.":
             $ crying = False
-            jump scene142
+            p "Ich brauch ein Pflaster..."
+            o "Was ist passiert?"
+            p "Hab mir das Knie aufgeschürft. Aber der Katze geht's gut!"
+            "Katze" "{i}schnurr{/i}"
+            o "Ich hab keine Pflaster. Ich geh rein und hol welche."
+            p "Dann hol gleich Karin."
+            o "Aber, dann bekommen wir beide doch Ärger!"
+            p "Ich blute ganz doll, guck doch mal."
+            o "Ja... Ja ist ja gut... Ich... Ich hol einen Erwachsenen."
             
-label scene142:
-    "E will helfen, darf aber nicht."
-    emum "NEIN! Evelynn, was am Boden liegt, darf man nicht aufheben!"
-    "E wird in den KiGa geschleppt."
-    "O rennt zu P and macht sich Sorgen."
-    o "Ist dir was passiert?"
+    scene bg court with fade    
     if crying == True:
-        "P heult rum."
-        o "Ich rede nicht mit dir, sondern mit meinem Fahrrad!"
+        show octa shock at center
+        show heide mad at left with moveinleft
+        h "Großer Gott! Was ist denn das hier für ein Tumult!"
+        h "Was ist denn hier passiert?"
+        h "[name] jetzt hör auf zu weinen. Kannst du laufen?"
+        p "Also ich ... {i}schnüff{/i}... ich glaube schon."
+        show octa shock at left with move
+        h "{b}OCTAVIA SIEGLINDE!{/b}"
+        o "J... ja Frau Heidenau!"
+        h "Warum liegt [name] hier weinend am Boden?!"
+        o "Also ich ..."
+        h "Wir reden später. [name] du kommst mit. Wir verarzten dein Bein. Trab trab!"
+        p "Aber das tut weh!"
+        hide octa with moveoutleft
+        h "Gleich nicht mehr. Jetzt stell dich nicht so an und komm mit."
         "O rennt los, holt Erzieherin und wirkt besorgt."
         "O kommt mit Karin zurück. Karin klebt P ein Pflaster auf."
         "O steht Schuldbewusst daneben."
     else:
-        "P sagt er braucht ein Pflaster."
-        o "Ich rede nicht mit dir, sondern mit meinem Fahrrad!"
-        "O schaut sich die Situation an, stellt ihr Rad an die Seite und geht Hilfe holen."
-        "O kommt mit Karin zurück."
-        "P will Pflaster haben aber O weist ihn ab und klebt ihm das Pflaster selbst auf."
+        show octa shock at slightleft with moveinright
+        show karin shock at slighright with moveinright
+        k "Was ist denn hier passiert?"
+        p "Ich hab mir das Knie aufgeschlagen."
+        k "Ohh je. Tut es doll weh?"
+        p "Es geht so. Mama sagt echte Indianer kennen keinen Schmerz."
+        k "Wir lassen trotzdem mal die Frau Heidenau draufschauen."
+        p "Frau Heidenau?!"
+        k "Ja, sie ist die beste Ersthelferin die wir haben. Schon fast magisch wie sie Wunden versorgt."
+        k "Kannst du laufen?"
+        p "Ja, ich denke schon."
+        k "Ich stütze dich, komm, wir gehen ins Sanitätszimmer."
     
-    "Karin will wissen was passiert ist."
+    scene bg health with fade
+    show heide talk at slightleft
+    show karin n at slightright
+    show octa shock at right behind karin
+    h "So, jetzt zeig mal her dein Knie."
+    h "Und Octavia, du kommst auch her. Vielleicht lernst du ja was dazu."
+    o "O... okay Frau Heidenau."
+    show octa at slightright
+    show karin at right behind octa
+    with move
+    show heide n
+    h "Also ich muss das erst reinigen. Das stinkt jetzt etwas und es wird kurz brennen."
+    p "Autsch!"
+    h "Papperlapapp, so schlimm kann das garnicht sein."
+    p "Aber..."
+    show heide talk
+    h "Shh jetzt!"
+    show heide n
+    h "Octavia, warum muss ich das machen?"
+    show octa smug
+    o "Ohh, damit die Wunde sauber ist und richtig heilt, ich bin in Erster Hilfe doch die-..."
+    h "Die Beste. Jaja. Wie du meinst. Aber es stimmt. Also halt still [name]."
+    show octa happy
+    h "Jetzt noch ein Pflaster drauf ... und gut. Besser?"
+    p "Ja, besser."
+    h "Und jetzt will ich wissen..."
+    show heide talk
+    show octa shock
+    h "Was da draußen passiert ist!"
+    o "Also ... ähm ..."
+    
     menu:
-        "Was wirst du Karin sagen?"
+        "Wie erklärst du die Situation?"
         
-        "Karin alles erzählen.":
-            "P erzählt alles."
+        "Die Wahrheit sagen":
             $ octahome = True
-            if bikepoints == 2:
-                "Octa verabscheut dich."
-            elif bikepoints == 1:
-                "Octa hasst dich."
-            else:
-                "Octa mag dich nicht."
-                
-            "Karin schimpft mit O, ruft ihre Eltern an und lässt sie abholen."
-            jump gohom
+            p "Ich bin mit Octavias Fahrrad gefahren."
+            show karin shock
+            p "Und dann wollte sie, dass ich einen Trick mache und dann bin ich hingefallen."
+            show octa mad
+            o "STIMMT DOCH GARNICHT!"
+            p "Du hast gesagt ich soll fahren oder ich bin ein Angsthase!"
+            show octa vmad
+            o "Das war doch nur ein Witz. Außerdem bist du nicht wegen den Trick gefallen!"
+            o "Sondern weil du fast eine Katze umgefahren hättest, weil du keine Augen im Kopf hast!"
+            show heide n
+            h "Ich hab genug gehört."
+            h "[name], soll ich deine Mama anrufen lassen damit du nach Hause kannst oder soll Karin dich zurück in den Gruppenraum bringen?"
+            p "Mama ist unterwegs, ich bleibe hier, das geht schon."
+            h "Gut. Karin, bring [name] bitte zurück in den Gruppenraum."
+            show karin talk
+            k "In Ordnung Frau Heidenau."
+            hide karin with moveoutleft
+            h "Und du Octavia, bleibst bitte nochmal kurz hier."
+            show octa shock
+            o "Bitte nicht zu Hause anrufen..."
             
-        "Karin nichts sagen.":
+        "Lügen.":
             $ octahome = False
-            "P deckt O, erzählt von einem Unfall und O's Mithilfe."
-            if bikepoints == 2:
-                "Octa vergöttert dich."
-            elif bikepoints == 1:
-                "Octa bewundert dich."
-            else:
-                "Octa ist dir dankbar."
-                
-            "Karin lobt Octa."
-            jump gohom
+            p "Katze!"
+            show octa happy
+            show heide n
+            h "Katze?"
+            p "Ich bin wegen einer Katze gestolpert!"
+            p "Ich hab Sie nicht gesehen und bin gegen Sie getreten und gestolper und dann auf die Steinkante gefallen!"
+            o "Wieso bist du eigentlich gerannt?"
+            show katrin mad
+            p "Gerannt? Ach, ich bin gerannt ..."
+            show heide talk
+            h "Du bist also gerannt?"
+            show octa smug
+            o "Du wolltest dir nur mein Fahrrad ansehen oder?"
+            p "Ja! Ja das Fahrrad ansehen."
+            show heide n
+            h "So ist das also."
+            show katrin n
+            show octa happy
+            h "Also ein Unfall. Kann ja mal passieren."
+            o "Ja, uns geht's gut!"
+            p "Was? Ohh. Ja. Gut. Uns geht's gut."
+            o "Dürfen wir dann jetzt wieder mit Karin in den Gruppenraum?"
+            h "[name] ist ja jetzt verarztet. Also ja, ab mit euch."
+            h "Bringst du sie Karin?"
+            k "In Ordnung Frau Heidenau."
+            hide karin with moveoutleft
+            hide octa with moveoutleft
+            show heide laugh at center
+            h "Hmm... Gelogen haben sie. Aber wenigstens zusammengehalten. Vielleicht sind ja nicht alle Kinder furchtbar."
             
-    menu gohom:
-        k "Möchtest du lieber nach Hause oder im KiGa bleiben?"
+    if octahome == True:
+        scene cg marble with fade
+        n "Damit bin ich damals zur Petze geworden. Octavia hatte mir das sehr übel genommen."
+        n "Den Blick den sie mir zugeworfen hat als sie von ihren Eltern abgeholt wurde werde ich niemals vergessen."
+        n "Bittere Enttäuschung..."
+        n "Natürlich hatten die anderen Kinder schnell für Ablenkung gesorgt."
+        n "Erst hatten sie alle wissen wollen woher das Pflaster kam und mich dann zum Murmeln spielen aufgefordert."
+        n "Da sagt man doch nicht nein."
         
-        "Bleiben.":
-            if octahome == True:
-                "P bleibt und verbringt den Tag mit anderen Kindern."
-                
-            else:
-                "P bleibt und spielt den Rest des Tages mit O."
-            jump scene15 
-                
-        "Gehen.":
-            "P's Mutter wird angerufen, P wird abgeholt und bleibt den Rest des Tages zu Hause."
-            jump scene15
+    else:
+        scene bg grura with dissolve
+        show octa vhappy
+        o "Danke."
+        p "Was? Warum?"
+        o "Dass du keine Petze warst, darum."
+        p "Jetzt muss ich das nurnoch Mama erklären."
+        show octa smug
+        o "Ich hab da schon eine Idee..."
             ##### TAG 4 ENDE #####
             
             ##### TAG 5 BEGINN #####
             ##### Szene 15 #####
 label scene15:
+    scene bg grura
     "P wird überraschend zum Gebu eingeladen."
     if randyname == True:
         "P erkennt Randy."

@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 545: end of line expected.
-    show bg grura show with dissolve
+File "game/script.rpy", line 1060: expected statement.
+    schow oschutz talk
+                      ^
+
+File "game/script.rpy", line 1242: expected statement.
+    how octa shock
                   ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Thu Dec 13 02:47:44 2018
+Fri Dec 14 02:04:40 2018
