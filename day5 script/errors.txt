@@ -1,0 +1,14 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 884: expected 'image_name_component' not found.
+    show scene bgpartyocta
+        ^
+
+File "game/script.rpy", line 936: expected 'image_name_component' not found.
+    show scene bg party
+        ^
+
+Ren'Py Version: Ren'Py 7.1.1.929
+Thu Jan 10 02:41:49 2019
