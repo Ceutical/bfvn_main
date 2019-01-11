@@ -3,6 +3,7 @@
 ##### CHARACTER DEFINITIONS #####
 
 define m = Character("Mama")
+define v = Character("Papa")
 define p = Character("[name]") #Name of Player Character -- P = Protagonist
 define n = Character(name=None, what_italic=True) #Narrator
 define a = Character("Anja")
@@ -17,6 +18,8 @@ define emum = Character("Evelynn's Mutter")
 define edad = Character("Evelynn's Vater")
 define omum = Character("Octavia's Mutter")
 define odad = Character("Octavia's Vater")
+define rmum = Character("Randy's Mutter")
+define rdad = Character("Randy's Vater")
 define nvln = Character(name=None, kind=nvl)
 
 ######################################
@@ -51,7 +54,15 @@ transform rightish:
 transform chicken:
     xalign .68
     yalign .5
-    
+transform topright:
+    xalign 1.0
+    yalign 0.0
+transform topishleft:
+    xalign 0.0
+    yalign 0.5
+transform rotation:
+    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
+    rotate 10
 
 ######################################
 
@@ -60,7 +71,6 @@ label start:
     play music introtheme
 
     ##### AFFINITY SYSTEM INITIATE #####
-    $ randyname = True
     $ octa_points = 0
     $ eve_points = 0
     $ anja_points = 0
@@ -95,6 +105,10 @@ label scene1:
             pro4 = "Sohn"
             pro5 = "ihn"
             suf = "en"
+            suf2 = "er"
+            suf3 = " "
+            ddd = "der"
+            pre = "mein"
     else:
         python:
             pro = "ihr"
@@ -103,205 +117,69 @@ label scene1:
             pro4 = "Tochter"
             pro5 = "sie"
             suf = "e"
-    "{b}ANMERKUNG!{/b}"
-    "{b}Wir stellen 3 verschiedene Erzählstile vor.{/b}"
-    "{b}Kindlicher Erzähler, Erwachsener Erzähler in Retrospektive, Neutraler Erzähler.{/b}"
-    "{b}Es folgt nun eine Szene in dreifacher Ausführung. Jeweils mit einem Erzähler als Beispiel.{/b}"
-    "{b}Danach geht das Spiel in einfacher Ausführung mit dem Erzähler weiter, den wir uns ausgesucht haben.{/b}"
-    "{b}Wir wollen nur der Vollständigkeit halber die anderen Überlegungen auch einmal gezeigt haben.{/b}"
-    $ seenscene = False
-label narrationoptions:
-    scene bg grura with fade
-    menu:
-        "Welches Szenenbeispiel möchtest du dir ansehen?"
-        
-        "Den Kindlichen.":
-            $ seenscene = True
-            jump childlike
-        "Den Retrospektiven.":
-            $ seenscene = True
-            jump retro
-        "Den neutralen Bucherzähler.":
-            $ seenscene = True
-            jump neutral
-        "Ich habe alle gesehen.":
-            jump scene3
-            
-    ##### WOCHE 1 BEGINN #####
-    ##### TAG 1 BEGINN #####
+            suf2 = "e"
+            suf3 = "in"
+            ddd = "die"
+            pre = "meine"
+
     ##### Szene 2 CHILD #####
 label childlike:
     scene bg black with fade
     "{b}Start: Kindlicher Erzähler{/b}"
     "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
-    "{i}Diese warme Stimme gehört Mama. Jeden Tag weckt sie mich und ist immer für mich da.{/i}"
-    "{i}Aber heut is Morgen! Ich komm in den neuen Kindergarten!{/i}"
-    "{i}Da treff ich bestimmt...{/i}"
+    n "Oh man. Ich bin so müde."
+    n "Aber moment! Heute geht's in den neuen Kindergarten."
+    n "Da treff ich bestimmt..."
     m "Raus aus den Federn jetzt. Es gibt Frühstück!"
     show bg bedroom with fade
-    "{i}Jetzt nimmt sie mir die Decke weg...{/i}"
-    "{i}Alles ist furchtbar hell... Aber dann sehe ich auch schon meine Mama.{/i}"
+    n "Nein… nicht die warme Decke…"
+    n "Mann, muss alles so hell sein…"
     show mum talk with moveinright
     m "Guten Morgen mein kleiner Spatz!"
-    p "Guten Morgen Mama ..."
+    p "Morgen Mama ..."
     p "Ich will aber noch nicht aufstehen!"
     m "Ach jetzt stell dich nicht so an. Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
     m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
-    "Pfannkuchen! Jaa! Mama ich hab dich lieb!"
+    p "Pfannkuchen! Jaa! Mama ich hab dich lieb!"
     show bg kitchen with dissolve
-    "{i}Ich drück Mama ganz doll, kletter aus meinem Bett und lauf mit ihr in die Küche.{/i}"
+    n "Mamas Umarmungen sind die besten."
     m "Freust du dich schon deine neuen Freunde kennenzulernen?"
     menu:
         "Jaaaaaa!":
             $ happytogo = True
-            "{i}Ich strahle Mama regelrecht an als ich ihr antworte.{/i}"
+            n "Das wird bestimmt super."
             m "Das ist schön. Du kommst bestimmt in eine Gruppe mit ganz tollen anderen Kindern."
      
         "Ja...":
             $ happytogo = False
-            "{i}Ich will Mama nicht traurig machen und versuche sie anzulächeln.{/i}"
+            n "So wirklich Lust habe ich nicht."
             m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
-            "{i}Ich schaue traurig auf mein Frühstück runter.{/i}"
+            n "Ja, das ist echt blöd."
             m "Du kommst heute bestimmt ein eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
-            "{i}Als Mama mir durch die Haare wuschelt wird meine Laune wieder besser. Mama ist die Beste!{/i}"
+            n "Wenn sie mir so durch die Haare wuschelt fühle ich mich schon wieder besser."
     
         
-    "{b}Ende: Kindlicher Erzähler{/b}"
-    jump narrationoptions
-    
-    ##### Szene 2 - ADULT #####
-label retro:
-    scene bg black with fade
-    "{b}Start: Erwachsener Erzähler in Retrospektive.{/b}"
-    n "Hah. Wo soll ich anfangen?"
-    n "Ich bin jetzt 23 Jahre alt."
-    n "Und heute bat man mich tatsächlich darum aus meiner Kindergartenzeit zu erzählen."
-    n "Wie das eben so ist."
-    n "Eins führte zum Anderen und schwupps waren wir beim Thema."
-    n "Ehrlich gesagt ... \"meine Kindergartenzeit\" als Ganzes war nichts besonderes."
-    n "Nur die Zeit nach meinem ... unserem Umzug."
-    n "Mama und ich waren jetzt alleine."
-    n "Für mich war alles neu. Und verwirrend. Gott ich war erst 6."
-    n "Rückblickend ein absolutes Wunder, dass Mama mich noch irgendwo unterbringen konnte."
-    n "Es waren nur wenige Monate bis es in die Schule gehen sollte."
-    n "Aber das hat gereicht."
-    n "Gereicht für eine ganz besondere Zeit."
-    n "Der Weg ist das Ziel, richtig?"
-    n "Und mein neuer Weg begann an einem Montag Morgen."    
-    "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
-    n "Das war meine Mama die mich da weckte. Immer für mich da schmiss sie mich auch jeden Morgen pünktlich aus dem Bett."
-    n "Ich hatte damals diese furchtbare Angewohnheit mich dann unter meine Decke zu verstecken und so zu tun als würde ich schlafen."
-    show bg bedroom with dissolve
-    n "Und sie hatte diese noch viel furchtbarere Angewohnheit mir die Decke einfach wegzureißen..."
-    show mum talk with moveinright
-    m "Guten Morgen mein kleiner Spatz!"
-    p "Guten Morgen Mama ..."
-    p "Ich will aber noch nicht aufstehen!"
-    m "Ach jetzt stell dich nicht so an. Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
-    m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
-    p "Pfannkuchen! Jaaa! Mama ich hab dich lieb!"
-    show bg kitchen with dissolve
-    n "Wir gingen dann zusammen in die Küche. Sie war zweckmäßig eingerichtet aber für uns hat es gereicht."
-    n "Außerdem war Mamas Essen sowieso das Wichtigste."
-    m "Freust du dich schon deine neuen Freunde kennenzulernen?"
-    menu:
-        "Jaaaaaa!":
-            $ happytogo = True
-            n "Ich wollte endlich wieder mit anderen Kindern spielen. Durch den Umzug und die lange Wartezeit hatte ich viel Zeit allein mit Mama, ohne andere Kinder verbracht."
-            m "Das ist schön. Du kommst bestimmt in eine Gruppe mit ganz tollen anderen Kindern."
-            
-        "Ja...":
-            $ happytogo = False
-            n "Natürlich nicht. Ich wollte zurück zu meinen Freunden. Zu meinen alten Freunden. Heute erinner ich mich kaum noch an sie aber damals war ich sehr traurig."
-            n "Ich wollte nur auch Mama nicht traurig machen. Doch Mamas merken alles."
-            m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
-            m "Hey, schau mich an, nicht dein Essen. Alles wird gut, okay? Komm her, lass dich mal knuddeln."
-            m "Siehst du? Alles garnicht mehr so wild."
-            m "Du kommst heute bestimmt ein eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
-            n "Mama wusste immer wie man andere aufmuntert."
-    
-    "{b}Ende: Erwachsener Erzähler{/b}"
-    jump narrationoptions
-    
-    ##### Szene 2 - NEUTRAL #####
-label neutral:
-    scene bg black with fade
-    "{b}Start: Neutraler Erzähler{/b}"
-    "{b}Der Neutrale Erzähler ist der Grund warum es am Anfang eine Genderabfrage gibt.{/b}"
-    "{b}Warum? Weil es allein bei Formulierungen wie \"Das Kind und seine/ihre Mutter leben zusammen.\" schwierig wird wirklich Genderneutral zu schreiben{/b}"
-    "{b}Durch die Genderabfrage werden alle Texte des Neutralen Erzählers direkt auf die Wahl des passenden Pronomens angepasst.{/b}"
-    n "Dies ist die Geschichte von [name]."
-    n "[name] ist ein sechsjähriges Kindergartenkind, dass seit der Scheidung [pro]er Eltern alleine mit [pro]er Mutter zusammen lebt."
-    n "Sie sind umgezogen, daher muss [name] jetzt auch auf einen neuen Kindergarten gehen."
-    n "Dort kennt [pro2] natürlich noch niemanden."
-    n "Jetzt gilt es, neue Freunde zu machen und mit ihnen tolle Abenteuer zu erleben."
-    n "[name]'s erster Schritt in die richtige Richtung begann an einem Montag Morgen."    
-    "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
-    n "[name]'s Mutter schmiss [pro5] jeden Morgen pünktlich aus dem Bett."
-    n "Sie arbeitete hart um beide durchzubringen, doch ihr Kind stand immer an erster Stelle."
-    n "Und damit dieses den ersten Tag im neuen Kindergarten nicht verpasste, riss sie [pro3] jetzt auch die Decke weg."
-    show bg bedroom with dissolve
-    show mum talk with moveinright
-    m "Guten Morgen mein kleiner Spatz!"
-    n "[name] war noch völlig verschlafen."
-    p "Guten Morgen Mama ..."
-    p "Ich will aber noch nicht aufstehen!"
-    m "Ach jetzt stell dich nicht so an. Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
-    m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
-    p "Pfannkuchen! Jaaa! Mama ich hab dich lieb!"
-    n "Besänftigt und plötzlich ganz wach, sprang [name] aus [pro]em Bett und folgte [pro]er Mutter in die Küche."
-    show bg kitchen with dissolve
-    n "Dort angekommen wurde aufgetischt und sich hingesetzt."
-    m "Freust du dich schon deine neuen Freunde kennenzulernen?"
-    menu:
-        "Jaaaaaa!":
-            $ happytogo = True
-            n "[name] trommelte mit kleinen Fäustchen auf den Tisch, zappelte mit den Beinen und freute sich ganz offensichtlich riesig."
-            m "Das ist schön. Du kommst bestimmt in eine Gruppe mit ganz tollen anderen Kindern."
-        
-        "Ja...":
-            $ happytogo = False
-            n "[name] sah nur auf [pro]en Teller herunter während [pro2] die Antwort murmelte. Alles war besser als Mama mit der Wahrheit zu verletzen."
-            n "Doch Mütter bemerken bekanntlich alles."
-            m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
-            m "Hey, schau mich an, nicht dein Essen. Alles wird gut, okay? Komm her, lass dich mal knuddeln."
-            n "Sie nahm ihr[suf] [pro4] kräftig in den Arm und wuschelte [pro3] durch die Haare."
-            n "[name] schien das zu gefallen, denn [pro2] strahlte plötzlich bis zu den Ohren."
-            m "Siehst du? Alles garnicht mehr so wild."
-            m "Du kommst heute bestimmt in eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
-             
-    n "Als sie mit dem Frühstück fertig waren, wurde [name] fertig für den Kindergarten angezogen und beide machten sich auf den Weg."       
-    "{b}Ende: Erwachsener Erzähler{/b}"
-    jump narrationoptions
+
     ##### Szene 3 #####
 label scene3:
     scene bg street with dissolve
-    if seenscene == False:
-        menu:
-            "Freut sich das Kind auf den Kindergarten?"
-            "Ja.":
-                $ happytogo = True
-                
-            "Nein.":
-                $ happytogo = False
-        
     show mum talk at center
     play music maintheme
     if happytogo == True:
-        n "Ich weiß noch wie aufgeregt ich damals war. Ich hatte mich gefragt wie die anderen Kinder wohl auf mich reagieren würden."
-        n "Ich hatte gehofft schnell neue Freunde zu finden und war obwohl ich mich auf den Tag gefreut hatte, froh meine Mama an meiner Seite zu haben."
+        n "Ich bin total aufgeregt. Eigentlich ist das doch nur ein Kindergartentag wie sonst auch.."
+        n "Aber irgendwie auch nicht. Vielleicht finde ich da ja neue noch bessere Freunde als in meinem alten Kindergarten. "
         m "Das wird ein ganz toller Tag, glaub mir!"
     else:
-        n "Ich weiß noch wie viel Angst ich damals hatte. Alles war so neu und ich war unsicher ob ich schnell neue Freunde finden würde."
-        n "Ich war nur so froh, dass meine Mama bei mir war."
+        n "Verdammt ich möchte das nicht. Muss das sein. Mein alter Kindergarten war doch super. Warum muss ich jetzt hier hin."
+        n "Naja, wenigstens ist Mama da."
         m "Gleich sind wir da. Keine Angst, das wird schon! Du wirst bestimmt viele neue Freunde finden."
-    n "Mein neuer Kindergarten war ein Gemäuer mit alten Fenstern und Backsteinwänden, welches einen sehr einschüchternden Eindruck auf mich hatte."
+        n "Mein alter Kindergarten ist definitiv schöner als das hässliche Haus da."
     scene bg grura with dissolve
     show mum n at slightleft with moveinleft
     show heide n at slightright with moveinright
-    n "An meinem ersten Tag wurden Mama und ich dann auch noch von einer verbitterten, alten Frau begrüßt."
-    n "Frau Heidenau. Wir allen hatten Angst vor ihr. Und bis heute noch denke ich nicht gerne an sie."
-    n "Ich weiß noch wie ich mich während Frau Heidenau und meine Mutter sich unterhielten zwanghaft versuchte unsichtbar zu machen, was auch klappte! Also zumindest bis man mich direkt ansprach."
+    n "Was für ne gruselige Frau ist da vorne denn?"
+    n "Die sieht überhaupt nicht nett aus."
+    n "Und warum ist die so weiß? Wie ein Geist..."
     hide mum
     show heide talk at center with move
     h "Ah. Der Neuzugang. Ich bin Frau Heidenau. Wie ist dein Name Junge?"
@@ -317,8 +195,8 @@ label scene3:
             show heide talk
             h "Ihr Kind ist bei uns bestens aufgehoben. So \"[name]\", deine Gruppe ist die Käfergruppe, die Karin kümmert sich um dich."
             h "Mitkommen!"
-            n "Frau Heidenau hatte mich dann in Richtung des Gruppenraumes gezogen, während meine Mutter besorgt hinterherlief."
-            n "Sie schien mich noch nicht mit dieser Frau allein lassen zu wollen."
+            n "Warum zieht sie mich am Ärmel. Ich will das nicht."
+            n "Ich wäre auch so mit gekommen. Warum ist diese komische alte Frau so grob. Meine Oma ist auch alt, aber die würde sowas nie machen."
             h "Hier Karin. Ein Neuer. Ich muss jetzt weitermachen. Ich erwarte nachher deinen Bericht."
         
         "Mutter hilfesuchend ansehen.":
@@ -341,14 +219,14 @@ label scene3:
             h "Guten Tag!!"
             hide heide
             show mum at center with move
-            n "Nachdem meine Mutter diese Abfertigung verwunden hatte, brachte sie mich zum Gruppenraum. Dort angekommen lernte ich dann auch Karin kennen."
+            n "Puh, endlich ist diese gruselige Frau weg."
 
         
     
     hide heide with moveoutleft
     hide mum with moveoutleft
     show karin n with moveinright
-    n "Karin machte nie den Eindruck als ob sie an ihrer Arbeit Spaß hatte. Vielleicht ist ihr das bei ihrer Chefin aber auch nicht zu verübeln gewesen."
+    n "Wer ist die Frau? Ist das diese Karin von der die Alte erzählt hat?"
     k "Ahh, hallo sie beide. Danke, dass Sie ihr Kind gebracht habe. Sie können unbesorgt sein, wir kümmern uns ganz wunderprächtig um ihn."
     k "Also willkommen dann, in der Käfergruppe!"
     show karin go
@@ -372,7 +250,7 @@ label scene3:
         "Schweigen.":
             $ menu_choice3 = "no"
             p "..."
-            n "Während ich kein Wort rausbrachte und mich alle anstarrten hörte ich hinter mir Karin und meine Mutter reden."
+            n "Ich will mich nicht vorstellen. Am Ende versprech’ ich mich noch und die anderen machen sich über mich lustig."
             m "Ohh, entschuldigen Sie Frau ..."
             k "Einfach Karin reicht."
             m "Ohh, in Ordnung. Entschuldigen Sie Karin, [name] ist noch etwas schüchtern und ..."
@@ -402,10 +280,10 @@ label scene4:
     m "Na dann [name]. Viel Spaß an deinem großen Tag. Und jetzt lass dich noch mal knuddeln!"
     p "Tschüss Mama, ich hab dich lieb!"
     hide mum with moveoutleft
-    show karin at center with move
+    show karin mtalk at center with move
     k "Dann fangen wir doch jetzt auch gleich mal an."
     k "Wir machen jetzt Morgenkreis. Stell dich einfach da hin und warte ab. Brav sein!"
-    n "Der Morgenkreis war ein Ritual zu dem Karin uns jeden Tag zusammenrief. Wir spielten, sangen, musizierten oder lernten zusammen."
+    n "Ah… Morgenkreis. Wie im alten Kindergarten. Ob wir hier auch nur singen?"
     k "Sind alle da?"
     hide karin
     show anja what at left with moveinleft
@@ -415,7 +293,7 @@ label scene4:
     show randy happy at slightleft behind octa
     with moveinbottom
     k "Gut, dann legen wir mal los... Wir spielen wieder das Käfergruppenlied! Holt doch alle schonmal eure Instrumente aus der Kiste."
-    n "Natürlich wussten alle was gemeint war. Außer mir. Ich kam mir damals ziemlich hilflos vor, da drückte mir plötzlich ein Mädchen ein paar Klanghölzer in die Hand."
+    n "Hä? Was sollen wir machen? Warum gibt mir das Mädchen ein Stück Holz?"
     hide anja
     hide randy
     with moveoutleft
@@ -435,9 +313,9 @@ label scene4:
             o "Was, du kannst das garnicht?"
             o "Die anderen sagen das ist voll schwer. Find ich nicht. Ich bin die Beste damit!"
     
-    n "So war sie immer, so ehrgeizig. Sie musste jederzeit jedem beweisen, dass sie besser war als alle anderen."
+    n "Sie nimmt das aber Ernst. Ist doch nur der Morgenkreis. Kann man da überhaupt die Beste drin sein?"
     show octa music at left with move
-    show karin music at right with moveinright
+    show karin mhappy at right with moveinright
     k "Also Kinder, alle bereit? Dann 1 und 2 und 3 und ..."
     "Minigame geht los. Takt halten."
     "Minigame steht noch nicht, von daher Choice:"
@@ -446,7 +324,7 @@ label scene4:
         
         "Gewonnen.":
             hide karin
-            show octa mine at center with move
+            show octa talk at center with move
             o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
             if boomstick == True:
                 show octa smug
@@ -457,7 +335,7 @@ label scene4:
             
         "Verloren...":
             hide karin
-            show octa mine at center with move
+            show octa talk at center with move
             o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
             if boomstick == True:
                 show octa smug
@@ -466,11 +344,11 @@ label scene4:
                 show octa smug
                 o "Du warst nicht gut ... Ich hab zugeschaut, weißt du?"
             
-    n "Der Morgenkreis ging musikalisch weiter, alle waren voll dabei, ganz egal wie musikalisch oder unmusikalisch sie waren."
-    n "Die Zeit damals scheint mir so simpel gewesen zu sein. Uns allen ging es um den Spaß zusammen, nicht ums besser sein."
-    n "Naja, uns allen. Außer Octavia."
+    n "Der Morgenkreis hier ist auf jeden Fall lustiger als der in meinem alten Kindergarten."
+    n "Irgendwie geben sich alle zumindest Mühe."
+    n "Aber dieses Mädchen steigert sich da echt rein. Sie heißt Octavia, oder? Was ein komischer Name."
     hide octa with dissolve
-    show karin go at center with dissolve
+    show karin mhappy at center with dissolve
     
     k "Das habt ihr gut gemacht Kinder!"
     k "Aber jetzt ist genug, auf zum Frühstück mit euch. Husch husch, wir haben ja nicht den ganzen Tag Zeit."
@@ -483,9 +361,9 @@ label scene5:
     scene bg food
     show anja eat at center
     with fade
-    n "Damals kannte ich noch niemanden und war mir unsicher wo ich mich hinsetzen sollte, schließlich kannte ich ja noch niemanden."
-    n "Als dann sowieso nur noch wenige Plätze frei waren setzte ich mich einfach auf den erstbesten Stuhl, der mir ins Auge fiel."
-    n "Neben mir saß ein Mädchen und es entwickelte sich schnell eine recht einseitige Unterhaltung..."
+    n "Hmm… Wo soll ich mich bloß hinsetzen. Ich kenn doch noch niemanden."
+    n "Ah… da ist noch ein Stuhl frei!"
+    n "Vielleicht sollte ich mal hallo sa… "
     a "Hey, wie findest du die Frau Heidenau?"
     p "Also, ich-..."
     a "Ich find die blöd… Die anderen Erzieherinnen sind eigentlich echt nett."
@@ -516,8 +394,11 @@ label scene5:
     a "Da hat Mama auch mal die Greiterhex gesehen. Ich nicht. Aber Mama."
     a "Naja, einmal wäre ich fast vom Kletterbaum gefallen weil ich nicht aufgepasst hab’, aber dann hab’ ich mich doch noch festgehalten, das war voll knapp!"
     a "Klettern ist nämlich gefährlich, weißt du? Meine Mama sagt mir auch immer, dass ich vorsichtig sein soll, aber ich bin noch nie irgendwo runtergefallen, und du?"
-    n "Das war Anja. Man kam eigentlich nie zu Wort. Wäre das Frühstück nicht irgendwann zu Ende gewesen, so hätte ich wohl bald all ihre Klettergeschichten gekannt."
-    n "So aber floh ich bei der erstbesten Gelegenheit. Anja war einfach zu viel für mich an meinem ersten Tag."
+    n "Man sie redet ja ohne Punkt und Komma. Ihre Geschichten sind zwar echt interessant…"
+    n "Aber so langsam könnte sie auch mal wieder aufhören."
+    a "..."
+    n "Ah jetzt hat sie aufgehört."
+    p "Du, ich muss mal kurz wo hin..."
     
     ##### Szene 6 #####
 label scene6:
@@ -525,9 +406,10 @@ label scene6:
     stop music fadeout 1.0
     pause 0.5
     play music evetheme fadein 1.0
-    n "Ich floh also in den einzig anderen Raum der mir bekannt vorkam und sah dann am Tisch ein einzelnes Mädchen sitzen, dass in aller Seelenruhe am Malen war.."
+    n "Puh… ein Glück dass das Gespräch erstmal vorbei ist."
+    n "So viel Labern hält ja keiner aus."
     show eve draw at center with moveinbottom
-    n "Das war Evelynn. Sie war etwas zurückhalten aber sehr talentiert und dass sie bei unserer ersten Begegnung zeichnete war nur allzu passend für sie."    
+    n "Die da sieht ruhiger aus. Was macht sie da am Tisch? Am besten ich stell mich mal vor. Vielleicht will sie ja meine Freundin sein."
     p "Hallo du da. Ich bin [name] und wer bist du?"
     e "Evelynn."
     p "Hallo Evelynn! Wollen wir Freunde sein?"
@@ -543,7 +425,7 @@ label scene6:
     e "Schau, hier. Das hab ich gemalt."
     
     menu:
-        n "Wie findest du das Bild?"
+        e "Wie findest du das Bild?"
         
         "Das sieht toll aus!":
             hide dis leuchtturm
@@ -597,15 +479,18 @@ label scene6:
             e "Angeber."
             e "Geh weg."
             show eve draw
+            jump meantoeve
 
     
     hide eve
     stop music fadeout 1.0
     pause 0.75
     play music maintheme fadein 1.0
-    n "Evelynn sollte mich zukünftig noch häufiger dazu motivieren selbst kreativ zu sein."
-    n "Aber an dem Tag ließ ich sie erstmal in Frieden, sie war ohnehin fast sofort wieder in ihrer eigenen Welt versunken."
-    n "Und damit war mein erster Tag auch vorbei. Ich hatte so viele neue Kinder kennengelernt und einige von ihnen sollten einen großen Einfluss auf mich haben."
+    n "Wow… die kann mega toll malen. Ich will das auch können."
+    n "Vielleicht kann sie mir ja morgen zeigen wie ich auch so gut werde."
+label meantoeve:
+    n "Oh… da ist ja Mama? Ist es schon Nachmittag? Aber es war doch gerade noch Morgenkreis und jetzt ist schon wieder Schluss?"
+    n "Das ging ja echt schnell."
     show mum happy at center with moveinleft
     m "Hallo Püpschen!"
     m "Komm lass dich drücken! Hattest du heute viel Spaß?"
@@ -621,15 +506,17 @@ label scene6:
     ##### Szene 7 #####
 label scene7:
     scene bg grura
-    show karin music at center
+    show karin mhappy at center
     with dissolve
-    n "Der zweite Tag verlief viel weniger chaotisch. Ich hatte mich schnell eingelebt, wie das als Kind nunmal so ist."
-    n "Ich weiß noch, dass wir singen mussten ... Karin war sehr übereifrig dabei und wir hatten alle keine Lust."
+    n "Man… heute ist der Morgenkreis echt langweilig."
+    n "Singen ist doof. Außerdem singt Karin so laut, da hört man uns eh nicht."
     
     
     ##### Szene 8 #####
 label scene8:
-    n "Als dann zum Essen aufgerufen wurde, war ich schneller als sonst. Diesmal wollte ich mir nicht das Ohr abkauen lassen, deshalb setzte ich mich zu Evelynn, welche ganz allein saß..."
+    n "Endlich essen! Wenn ich mich wieder zu Anja setze dann labert die mich wieder voll."
+    n "Da hab ich echt keinen Bock drauf!"
+    n "Aber vielleicht kann ich mich ja zu Evelynn setzen."
     scene bg food
     show eve foodplay at center
     with dissolve
@@ -717,9 +604,9 @@ label scene9:
     p "Eine Ente!"
     m "Fast! Aber mit dem hier kommst du bestimmt leichter aus den Federn."
     scene bg street with dissolve
-    n "Auf dem Weg zum Kindergarten erklärte sie mir dann, dass mein Wecker ein Hahn sei, keine Ente und was die Unterschiede sind."
-    n "Ich sollte nun täglich von diesem Hahn geweckt werden, zusammen mit meiner Mutter die sich darüber köstlich amüsieren konnte."
-    n "Den Wecker hab ich nie weggeschmissen."
+    n "Dieser Hahn wie Mama die Ente nennt, ist echt nervig. Wie soll mir das denn beim aufstehen helfen?"
+    n "Ich glaube Mama will sich nur über mich lustig machen."
+    n "Aber, eigentlich sieht die Ente ja ganz lustig aus. Naja, auf zum Morgenkreis."
     scene bg grura
     show karin talk
     with dissolve
@@ -732,7 +619,7 @@ label scene9:
     show randy mad at left with moveinleft
     r "Wir haben doch gestern schon gesungen!"
     o "Genau, wir haben keine Lust!"
-    n "Und plötzlich verschwor sich der gesamte Raum gegen die arme Karin. Das passierte recht oft. Und wir haben immer gewonnen."
+    p "Schon wieder singen. Mega doof!"
     show karin mad
     k "Aber jetzt hab ich doch extra den Recorder für euch mitgebra..."
     r "Aber singen ist blöd."
@@ -756,12 +643,14 @@ label scene9:
 label scene10:
     show bg food
     with dissolve
-    n "Nachdem Karin uns dann endlich wieder alle einfangen hatte war es Zeit zum Essen."
-    n "Ich hatte mich an den nächstbesten Tisch gesetzt und wollte die Apfelstücke essen die meine Mama mir gemacht hatte, als plötzlich ..."
+    n "Karin muss echt noch etwas üben, was das Fangen angeht. So lang dauert der Morgenkreis sonst nicht."
+    n "Jetzt hab ich Hunger. Fangen macht echt hungrig."
     show louis smug at center with moveinright
     "???" "Hey, was isst du da?"
-    n "Vor mir stand ein Junge in Lederjacke mit Sonnenbrille und gegelten Haaren. Das war ein Junge den ich bisher nur beiläufig gesehen hatte."
-    n "E musste ein Jahr länger im Kindergarten bleiben, also war er älter als wir anderen und seine Freunde waren fast alle schon in der Schule, daher gab er sich nur mit wenigen von uns ab."
+    n "Wie sieht der denn aus?"
+    n "Was ist denn mit seinen Haaren? Die kleben ja."
+    n "Und die Jacke… Aus was ist die denn?"
+    n "Und warum trägt er ne Sonnenbrille? Wir sind doch drinnen?"
     p "Apfel! Glaub ich ... Hat meine Mama mir gemacht!"
     p "Warte mal, wer bist du eigentlich?"
     show louis talk
@@ -851,11 +740,11 @@ label scene11:
     stop music fadeout 1.0
     pause 0.5
     play music anjatheme fadein 1.0
-    n "Ich weiß noch, dass ich eigentlich vorhatte mich einfach nur ins Gras zu legen, weil ich keine Lust zum spielen hatte."
-    n "Aber meine neuen Freunde hatten scheinbar andere Pläne mit mir."
-    n "Bereits aus der Ferne hatte ich lautes Gezanke gehört und ich war schon als Kind sehr neugierig.."
-    n "Ich sah Anja auf einem Baum sitzen, die sich mit einem anderen Kind am Boden lautstark stritt."
-    show anja vmadb at right with dissolve
+    n "Eigentlich will ich mich nur hinlegen und etwas in der Sonne dösen. Da auf der Wiese siehts gut aus"
+    n "Wer schreit denn da?"
+    n "Ich guck besser mal nach. Nicht das ich was verpasse."
+    n "Sitzt da Anja im Baum? Wer ist den der Junge da?"
+    show anja vmadb at topright with dissolve
     a "Is doch a völligs Gschmarre wos du dou verzüllst."
     show randy vmad at left with dissolve
     "???" "Gibt doch viel besseres was man damit machen kann. Also wieso Eis!?"
@@ -882,7 +771,6 @@ label scene11:
                     r "Ist doch egal, wenns Geschmackssache ist. Jetzt machts aber eh keinen Sinn mehr da noch zu reden."
                     r "Ich geh jetzt, macht das was ihr wollt ..."
                     hide randy with moveoutleft
-                    show anja at center with move
                     p "Warum habt ihr euch denn jetzt eigentlich gezankt?"
                     a "Ich wollte nur etwas sticheln, dann wurde ich wirklich wütend."
                     a "Du, komm mal mit hoch."
@@ -914,7 +802,7 @@ label scene11:
             "???" "Sieht wohl so aus, ich will aber nicht weitere belauscht werden."
             "???" "Ich gehe. Macht doch was ihr wollt."
             hide randy with moveoutleft
-            show anja madb at center with move
+            show anja madb
             a "Hast du ja toll gemacht [name]."
             p "Warte mal, worum ging es eigentlich?"
             show anja happyb
@@ -941,7 +829,7 @@ label scene11:
                     p "Nein! Nein, nein! Ich ... ich guck mal wo dein Freund ist."
                     show anja madb
                     a "NA TOLL! Dann geh doch!"
-                    n "Ich wusste damals noch nicht wie sehr ich Anja damit verletzt hatte. Ich wollte nur wirklich einfach nicht mit ihr spielen und hatte riesige Angst auf diesen Baum zu klettern."
+                    n "Verdammt jetzt ist sie sauer… Ich will doch bloß nicht auf diesen Baum. Da Fall ich bestimmt nur runter."
                     jump scene12
                     
                 "Na gut.":
@@ -950,11 +838,11 @@ label scene11:
                     p "Ich hoffe ... "
                     a "Warte ich komm erstmal runter ..."
                     play sound cardoor2
-                    show anja hihi
+                    show anja hihi at right with move
                     a "So. Schau erst a mal mir zou."
                     show anja talk
                     a "Nimmst erst as rechte Ba und hebsts an, dann suchst dir mit den Händen nen halt und dann…"
-                    show anja happyb
+                    show anja happyb at topright
                     a "Bist du auch schon oben. Jetzt du!"
                     p "Wow! Das ging ja schnell. Das sieht so einfach aus."
                     p "Okay also die Hände ..."
@@ -976,7 +864,7 @@ label scene11:
             a "Hey! Was soll das? Wo willst du hin?"
             show anja vmadb
             a "NA TOLL! Dann geh doch!"
-            n "Ich wusste damals noch nicht wie sehr ich Anja damit verletzt hatte. Ich wollte nur wirklich einfach nicht mit ihr spielen."
+            n "Verdammt jetzt ist sie sauer… Ich will doch bloß jetzt grad nicht mit ihr spielen."
             jump scene12
             
         "Ich kann klettern.":
@@ -1006,6 +894,7 @@ label scene11:
             "Willst du deine Snackers mit Anja teilen um sie zu beruhigen?"
             
             "Ja.":
+                $ anjatreat = True
                 p "Ich hab ein paar Snackers. Wenn du Schokolade willst, kann ich dir eins abgeben."
                 show anja happyb
                 a "Bist wohl einer mit Geschmack!"
@@ -1036,10 +925,10 @@ label treetalk:
     p "Was für Fil-..."
     a "Die Gozok Reihe, Omegas und so weiter."
     a "Kannst du ja vielleicht kennenlernen, ich kann ja mal mit Randy reden ob du auch am Freitagauch auf seinen Geburtstag kommen kannst…"
-    show anja talk at slightleft with move
-    n "So verliefen die meisten meiner Gespräche mit Anja. Ich kam nicht zu Wort und sie redete ohne Unterlass."
-    show mum talk at right with moveinright
-    n "Wenn mich meine Mutter nicht irgendwann abgeholt hätte, säßen wir wohl noch heute in dem Baum und ich wüsste mittlerweile alles über jeden."
+    show anja happyb
+    n "Jetzt redet sie wieder. Irgendwann will ich auch mal so viel am Stück reden können."
+    show mum n at left with moveinleft
+    n "Oh… Mama ist da! Ist wohl Zeit nach Hause zu gehen."
     
     ##### Szene 12 #####
 label scene12:
@@ -1098,8 +987,8 @@ label scene13:
     scene bg court with dissolve
     p "Tschüss Mama, hab dich auch lieb!"
     play sound cardoor2
-    n "Heute sollte ich Octavia von einer anderen Seite kennenlernen. Ich weiß noch, ich war fast schon im Kindergarten, als hinter mir noch ein Auto auf den Hof fuhr."
-    n "Octavia, in volle Schutzmontur gekleidet, stieg aus dem Wagen. Danach ihre Eltern, die ihr Fahrrad aus dem Kofferraum luden. Bisher hatte ich immer gedacht sie würde damit alleine zum Kindergarten fahren."
+    n "Warum fragt sie immer? Sie weiß doch das ich schon groß bin. Mit 6 kann man eigentlich alles allein!"
+    n "Da drüben. Ist das Octavia? Ja. Die ist aber komisch angezogen."
     show oschutz talk with dissolve
     o "Danke Papi, du bist der Beste!"
     show oschutz happy at slightleft with move
@@ -1133,7 +1022,7 @@ label scene13:
     o "Tschüss!"
     o "Und jetzt weg mit dem Zeug."
     hide oschutz
-    show octa mine
+    show octa smug
     with dissolve
     o "Und wiieso musst du mich eigentlich ausspannen?"
     o "Glaub bloß nicht, ich hätte dich nicht gesehen."
@@ -1315,7 +1204,7 @@ label scene14:
     o "Also ... ähm ..."
     
     menu:
-        "Wie erklärst du die Situation?"
+        n "Wie erklär ich das jetzt?"
         
         "Die Wahrheit sagen":
             $ octahome = True
@@ -1378,12 +1267,9 @@ label scene14:
             
     if octahome == True:
         scene cg marble with fade
-        n "Damit bin ich damals zur Petze geworden. Octavia hatte mir das sehr übel genommen."
-        n "Den Blick den sie mir zugeworfen hat als sie von ihren Eltern abgeholt wurde werde ich niemals vergessen."
-        n "Bittere Enttäuschung..."
-        n "Natürlich hatten die anderen Kinder schnell für Ablenkung gesorgt."
-        n "Erst hatten sie alle wissen wollen woher das Pflaster kam und mich dann zum Murmeln spielen aufgefordert."
-        n "Da sagt man doch nicht nein."
+        n "Na und dann bin ich halt ne Petze. Ist mir doch egal!"
+        n "Und bloß weil Octavia mich blöd anschaut muss ich nicht traurig sein."
+        n "Ich spiel eh viel lieber mit Murmeln als mit ihrem blöden Fahrrad!"
         
     else:
         scene bg grura
@@ -1399,119 +1285,1315 @@ label scene14:
             
             ##### TAG 5 BEGINN #####
             ##### Szene 15 #####
-    n "Hier endet unser Reviewprototyp.."
-    n "Es kommen noch ein paar Szenen in skeletaler Form."
-    n "Quasi eine reine Techdemo dessen was noch geplant ist."
-    n "Allerdings zeigen wir auch einiges an Art die wir bisher nicht gezeigt haben."
-    n "Leider hat für die Umsetzung die Zeit gefehlt, da es kurzfristig noch einige Änderungen gab, die eine Gruppenbesprechung erforderlich machen."
-    
-    menu:
-        "Credits anschauen":
-            jump credits
-            
-        "Skeletale Szenen noch ansehen":
-            jump scene15
-            
-    
+
 label scene15:
     stop music fadeout 1.0
     scene bg grura
-    show randy happy at center
     with dissolve
     play music maintheme fadein 1.0
-    "P wird zu Randy's Gebu eingeladen."
-    if randyname == True:
-        "P erkennt Randy."
-        "Randy wundert sich. P erklärt, dass er den Namen beim Streit gehört hat."
-        "Randy geht zurück zum Thema."
-        
-    else:
-        "Randy stellt sich vor."
+       
+    n "Es ist Freitag. Also praktisch Wochenende. Da bin ich immer bei Papa. Vielleicht bekomme ich ja wieder Eis und Schokolade als Abendessen?"
+    n "Hoffentlich!"
+    n "Außerdem muss ich Papa unbedingt meine Bilder zeigen."
+    n "So schön wie die von Evelynn sind sie leider nicht, aber fast!"
+    n "Wo ist Evelynn eigentlich?"
+    n "Vielleicht weiß Karin ja wo sie ist."
+    show karin talk at center
+    p "Du... Karin..."
+    k "Ja [name]?"
+    p "Kann ich dich was fragen?"
+    show karin happy
+    k "Gerne. Was willst du denn fragen?"
+    p "Wo ist denn Evelynn? Ich find die nicht."
+    show karin talk
+    k "Du musst die Evelynn nicht suchen. Die ist heute zu Hause geblieben."
+    k "Ihre Mutter muss angeblich etwas einkaufen und braucht dafür Evelynn. Mehr kann ich dir nicht sagen."
     
+    p "Mhhh. Man."
+    p "Ist ja voll doof, wollte was mit ihr malen."
+    show karin vhappy
+    k "Ich kann ja mit dir malen."
+    p "Ne, das macht dann keinen Spaß!"
+    show karin mad
+    k "Also gut..."
+    p "Dann halt was anderes."
+    hide karin with dissolve
 
-    "P fragt wann."
-    "R sagt heute und es ist eine Kostümparty."
-    "P sagt zu."
+    n "Scheibenkleister!"
+    n "Na gut. Dann muss ich eben mit Anja den Tag verbringen."
+    n "Die hat sicherlich wieder viel zu erzählen, außerdem muss man die nicht suchen. Anja hört man immer!"
     
-    ##### Szene 16 #####
-label scene16:
-    "Mutter holt P ab. P erzählt von der Einladung."
-    "Es wird ein Kostüm eingekauft."
-    menu:
-        "Was für ein Kostüm?"
+    a "Gar nicht wahr!"
+    stop music fadeout 1.0
+    play music anjatheme fadein 1.0
+    n "Ich hör sie sogar jetzt."
+    a "Mit den Hula Hoop Reifen bin ich viel besser als du!"
+    n "Was is da los? Ich sollte mal nachschauen."
+    show anja mad at rightish
+    show octa mad at leftish
+    with moveinbottom
+    o "Ich kann ihn bis zu 32 mal drehen bis er umfällt."
+    a "Stimmt doch gar nicht. So schnell kann man nicht mal zählen!"
+    show octa smug
+    o "Für dich wohl. Ich kann das aber schon!"
+    a "Lügnerin!"
+    show octa vmad
+    o "Nenn mich nicht so, wenn ich keine bin!"
+    a "Aber du kannst das nicht!"
+    o "Kann ich wohl!"
+    n "Irgendwie blick ich nicht durch, aber Hula Hoop hört sich lustig an"
+    p "Darf ich vielleicht den Reifen haben?"
+    "{color=#0099ff}Octavia:{/color} Du erst recht nicht! \n{color=#0099ff}Anja:{/color} Gerade nicht!"
+    n "Wie es aussieht bin ich hier nicht erwünscht. Ich sollte wohl einfach gehen."
+    hide octa with dissolve
+    hide anja with dissolve
+    stop music fadeout 1.0
+    play music maintheme fadein 1.0
+    n "Och man, was soll ich dann machen... Murmelbahn vielleicht? Auch langweilig..."
+    n "Hmmh..."
+    n "Was solls, auf zur Murmelbahn!"
+    scene cg marble with fade
+    p "Dann kommt das noch hier hin und dann..."
+    p "LAAANGWEILIG!"
+    
+    scene bg grura
+    show randy happy at center
+    with fade
+    r "Da, [name]"
+    p "Hmmh?"
+    n "Die Stimme kommt von hinten. Ich drehe mich um und sehe Randy."
+    n "Er steht mit einer Karte in der Hand vor mir, die er mir entgegenhält."
+    r "Du bist zu meiner Monster Party eingeladen!"
+    p "Was ist das?"
+    show randy vhappy
+    r "Wir verkleiden uns als Monster! Das wird voll cool!"
+    p "Moment, warum?"
+    r "Ich hab dich zu meinen Geburtstag eingeladen und ich möchte, dass wir uns alle verkleiden können."
+    n "Ich nehme die Einladung an und schaue auf die Karte und versuche vorzulesen. Das kann ich schon ein bisschen."
+    p "Ein..laadung zum Kinder... Kindergeb...burtstag von Randy!"
+    show randy talk
+    r "Genau!"
+    r "Aber... tut mir leid, dass ich dir das nicht früher gesagt habe."
+    p "Wieso?"
+    r "Es ist heute, aber wir kannten uns ja nicht und Anja hat gesagt, dass du mitmachen willst."
+    show randy happy
+    r "Ich hoffe du kannst trotzdem kommen... Wie heißt du eigentlich genau?"
+    p "[name]."
+    r "Frag einfach deine Mama, die wird bestimmt nichts dagegen haben. Musst du sowieso fragen, sonst sagt meine Mama du darfst nicht kommen."
+    p "Mach ich. Anja hat mir erzählt, dass du Monsterfilme anschauen darfst."
+    show randy talk
+    r "Stimmt, die sind super. Mein Bruder hat da ganz viele!"
+    r "Was hat denn Anja noch so über mich gesagt?"
+    p "Schoko ist besser als Vanille."
+    show randy mad
+    r "Die hört damit auch nie auf, oder?"
+    r "Naja, schön dich kennengelernt zu haben."
+    p "WARTE!"
+    show randy talk
+    r "Hmm?"
+    p "Mir ist langweilig, willst du was spielen?"
+    r "Nagut, danach sind wir dann auch Freunde!"
+    scene cg marble with dissolve
+    n "Ich hoffe nur, dass meine Mutter mich dann auch zur Feier fährt."
+
         
-        "Anjakostüm":
-            $ costume = "anja"
-            "Sie kaufen ein Anjakostüm."
-            jump scene17
+label scene16:
+    scene bg grura
+    n "Nach einiger Zeit spielen tippt mir jemand von hinten auf die Schulter."
+    p "Huh?"
+    show karin n at rightish
+    show mum n at leftish
+    k "Hey, [name]. Deine Mutter ist etwas früher gekommen um dich abzuholen."
+    m "Hallo Klein[suf2]. Ich muss noch etwas in der Stadt erledigen und wollte, dass du mitkommst."
+    p "In Ordnung."
+    n "Ich packe also meine Sachen und gehe mit Mama zum Auto."
+    scene bg street with dissolve
+    n "Auf der Straße fällt mir wieder etwas ein."
+    show mum n at rightish
+    p "Mama!"
+    m "Ja?"
+    p "Ich wurde auf einen Geburtstag eingeladen. Darf ich da hingehen? Darf ich? Darf ich?"
+    show mum happy at rightish
+    m "Schön, dass du schon Freunde gefunden hast. Meinetwegen gerne. Wann genau ist denn der Geburtstag?"
+    n "Ich geb ihr meine Einladung."
+    p "Da!"
+    m "Hmmmh..."
+    show mum mad at rightish
+    m "15 UHR!"
+    m "Wieso bekomme ich das erst jetzt?"
+    p "Ich hab die Einladung aber doch grad erst bekommen."
+    show mum talk at rightish
+    m "Na gut. Ich muss dann aber noch deinem Vater sagen, dass er dich von der Feier abholen soll."
+    p "Wir sollen uns außerdem verkleiden!"
+    show mum mad at rightish
+    m "Mmmmmhhhhh."
+    m "Verdaaaaa..."
+    show mum happy at rightish
+    m "Ähhhm. Klar. Wir sind ja eh in der Stadt. Da können wir ja mal kurz in den Kostümladen schauen."
+    p "YAAAY!"
+    play sound cardoor1
+    play music introtheme
+    scene bg shop
+    n "Man, hier haben Sie ja wirklich alles! Von typischen Monsterkostümen wie eine Riesenmotte mit bunten Flügeln, bis hin zu... huh"
+    n "Ein Tier... Tier... Hasensäbelzahnelchwolf?"
+    n "Rehhundkatzenkanninchen?"
+    p "Mama! Was ist denn das? Das sieht ja komisch aus."
+    show mum talk
+    m "Hmmmh..."
+    m "Ich glaube ein Wolpertinger!"
+    p "Ein Wolterdinger?"
+    show mum happy
+    m "Wolpertinger. Ein Fabelwesen, welches aus ganz vielen Tieren besteht. Das Wesen kommt aus Bayern."
+    p "Cool."
+    show mum talk
+    m  "Aber schau mal her dieser Orca ist ja nett."
+    p "WOAH! EIN KILLERWAL!"
+    m "Oder ein Killerwal, wenn dir das besser gefällt."
+    m "Wir haben aber leider nicht ewig Zeit. Hast du dich schon für was entschieden?"
+    
+    menu:
+        "Killerwal":
+            $ costume = "wal"
+            p "KILLERWAL!"
+            m "Woah. Also dann, alles klar."
+            m "Viel Enthusiasmus hier."
+            p "Wieso?"
+            m "Weil du dich auf das Kostüm freust. Gefällt dir doch, oder?"
+            n "Ich nicke"
+            show mum happy
+        
+        "Motte":
+            $ costume = "moth"
+            p "Mofpa!"
+            m "Die sieht ja scheußlich aus."
+            p "Die ist aus‘nem ganz coolen Film! Bitteeeee!"
+            m "Wenn du meinst, ich überlass dir heute ja die Entscheidung."
+            p "Ja, ich will das Kostüm."
             
-        "Evekostüm":
-            $ costume = "eve"
-            "Sie kaufen ein Evekostüm."
-            jump scene17
-            
-        "Octakostüm":
-            $ costume = "octa"
-            "Sie kaufen ein Octakostüm."
-            jump scene17
-            
-##### Szene 17 #####
+        "Wolper...dings":
+            $ costume = "wolp"
+            p "Wolterdimper. Der ist voll cool!"
+            show mum happy 
+            m "Gerne kauf ich dir den Wol-Per-Ting-Er, wenn du ihn richtig aussprichst."
+            p "Wieso?"
+            m "Weil ich‘s süß finde."
+            p "Ok... Wol-Per-Ting-Er... Wolperdinger."
+            show mum vhappy
+    
+    m "Na dann. Ab zur Kasse"
+    hide mum vhappy with dissolve
+    show bg black with dissolve
+    
+    n "Jetzt, wo ich mein tolles Kostüm habe, kann ich auf den Geburtstag gehen!"
+    n "Das wird sicher Super!"
+    n "Aber erstmal noch mit Mama einkaufen gehen... ob ich wohl trotzdem rechtzeitig komme?"
+
 label scene17:
-    scene bg party
-    show lparty smug at center
-    with dissolve
+    
+    play sound cardoor1
+    stop music fadeout 1.0
+    pause 0.75
+    play music maintheme fadein 1.0
+    show mum talk at rightish
+    scene bg street
+    m "So, wir sind da."
+    n "Ich steige vollkostümiert aus dem Auto aus und bin schon ganz gespannt was die anderen an haben werden!"
+    n "Mama nimmt mich an die Hand und führt mich zur Tür."
+    p "Darf ich klingeln?"
+    show mum happy at rightish
+    m "Der Knopf da oben ist der Richtige."
+    show mum talk at rightish
+    n "Kurz darauf geht die Tür auf."
+    m "So, geh mal zu deinen Freunden. Ich rede noch kurz mit Randys mama und bin dann gleich weg. Vergiss nicht, dein Papa holt dich heut Abend ab."
+    p "OK. Tschüss Mama."
+    hide mum talk with moveoutright
+    show bg party with dissolve
+    n "Ich komme kaum ins Zimmer, da kommt Louis mir schon entgegen."
+    show lparty n 
+    L "Hey,[name]."
+    p "Hey, Louis."
+    
     if snackersdeal == True:
-        "P wird von Louis aufgehalten."
-        L "Du schuldest mir noch was."
+        L "Und, hast du drann gedacht?"
+        p "An?"
+        L "Ja, ans Knappers!"
         if hasknappers == True:
             menu:
-                "Louis das Knappers geben?"
+                "Knappers geben":
+                    $ trade = True
+                    p "Einen Moment... Hier!"
+                    show lparty happy
+                    L "Gut, dass auf dich Verlass ist."
+                    p "Jetzt, sind wir quitt, oder?"
+                    L "Ja klar. Wenn du noch einmal was willst, komm wieder zu mir."
+                    n "Du bist doch zu mir gekommen..."
+                    L "Wollte mich für unser erstes Treffen Entschuldigen. War nicht OK."
+                    p "Warum?"
+                    L "Hab zu dick aufgetragen."
+                    p "Wenn... wenn du meinst."
+
+                    p "Sag mal, was bist du für ein Monster?"
+                    show lparty smug
+                    L "Dr. Acula! Der weltbekannte Arzt."
+                    L "Kennst du den wohl nicht?"
+                    p "Natürlich!"
+                    n "Wenn er weltbekannt ist, dann muss ich ihn ja kennen."
+
                 
-                "Ja.":
-                    $ dealcomplete = True
-                    "Louis ist zufrieden und erzählt nurnoch gutes über dich."
-                    
-                "Nein.":
-                    $ dealcomplete = False
-                    "Louis ist sauer und erzählt allen was für ein schlechter Mensch du bist."
+                "Kein Knappers geben":
+                    $ trade = False
+                    p "Ich hab leider keins dabei. Nächste Woche vielleicht?"
+                    show lparty mad
+                    L "Blödmann!"
+                    L "Du hast es mir versprochen, du bekommst nichts mehr von mir!"
+                    p "Wieso bist du so wütend?"
+                    L "Versprechen werden nicht gebrochen!"
+                    n "Irgendwie ist mir das unangenehm..."
+                    p "Was bist du denn eigentlich für ein Monster?"
+                    L "Sag ich nicht!"
+                    n "Wie komm ich aus dieser Situation raus?"
+
         else:
             menu:
-                "Louis das Knappers geben?"
-                
-                "{s}Louis das Knappers geben.{/s} (disabled)":
-                    "This should not be visible. Like ever."
-                    
-                "Ich habe kein Knappers dabei.":
-                    $ dealcomplete = False
-                    "Louis ist sauer und erzählt allen was für ein schlechter Mensch du bist."
-                    
-                    ##### Szene 18 #####
-label scene18:
-    scene bg party
-    show aparty jabber at left
-    show eparty vhappy2 at right
-    show oparty vhappy at center
-    show rparty talk at leftish behind oparty
-    show lparty smug at rightish behind oparty
-    with fade
-    "Die Party beginnt. Kurze Beschreibung."
-    "Blabla mit Randy."
-    ##### Szene 19 #####
-    if costume == "anja":
-        "Cooler Anja Storypfad."
-        
-        ##### Szene 20 #####
-    elif costume == "eve":
-        "Cooler Evelynn Storypfad."
-        
-        ##### Szene 21 #####
+                "Kein Knappers geben":
+                    $ trade = False
+                    p "Ich hab leider keins dabei. Nächste Woche vielleicht?"
+                    show lparty mad
+                    L "Blödmann!"
+                    L "Du hast es mir versprochen, du bekommst nichts mehr von mir!"
+                    p "Wieso bist du so wütend?"
+                    L "Versprechen werden nicht gebrochen!"
+                    "Irgendwie ist mir das unangenehm..."
+                    p "Was bist du denn eigentlich für ein Monster?"
+                    L "Sag ich nicht!"
+                    "Wie komm ich aus dieser Situation raus?"
+
     else:
-        "Cooler Octavia Storypfad."
+        L "Wollte mich für unser erstes Treffen Entschuldigen. War nicht OK."
+        p "Warum?"
+        L "Hab zu dick aufgetragen."
+        p "Wenn... wenn du meinst."
         
-        ##### Szene 22 #####
+        p "Sag mal, was bist du für ein Monster?"
+        show lparty smug
+        L "Dr. Acula! Der weltbekannte Arzt."
+        L "Kennst du den wohl nicht?"
+        p "Natürlich!"
+        "Wenn er weltbekannt ist, dann muss ich ihn ja kennen."
+    
+    show lparty really
+    "???" "Hallo Kinder"
+    n "Eine große Frau kommt in den Raum."
+    show lparty really at leftish
+    show rmum talk at rightish
+    "???" "Hallo Louis und du da musst das neue Kind sein, von den mir mein Sohn erzählt hat."
+    rmum "Ich bin Erika, also Randys Mama Erika. Schön euch zu sehen."
+    rmum "Die Anderen sind grad in Randys Zimmer, kommen aber gleich wieder."
+    rmum "Niedliche Kostüme übrigens."
+    p "Danke."
+    n "Och man. Ich wollte doch gruselig sein, ich bin doch ein Monster!"
+    hide lparty really with moveoutleft
+    hide rmum talk with moveoutright
+
+label scene18:
+    n "Es scheinen schon einige Leute da zu sein. Ich kann sogar schon Anja plappern hören! Und Auf dem Fernseher läuft ein Film: Radzilla vs. Mofpa!"
+    n "Randy kommt zuerst wieder in das Zimmer gerannt."
+    r "Hey [name], konntest ja doch kommen."
+    if costume == "moth":
+        show rparty happy
+        r "MOFPA!"
+        n "Randy strahlt mich an und er ist... natürlich Radzilla."
+        r "Mein größter Feind... Irgendwie."
+        p "Naja, nicht immer."
+        r "Toll, dass du gekommen bist."
+        
+    else:
+        show rparty talk
+    show geschenk at topishleft with dissolve
+    p "Hier Randy, dein Geschenk."
+    p "Cooles Kostüm."
+    n "Irgendwie ist er wohl von etwas abgelenkt."
+    r "Danke, mach ich später auf. Leg es bitte auf den Tisch, OK?"
+    hide geschenk with dissolve
+    p "Gerne."
+    n "Ich lege das Geschenk auf den Tisch und dreh mich um. Ich sehe nichts Besonderes, auf was hat Randy geschaut?"
+    hide rparty happy
+    if costume == "moth":
+        jump scene19
+    elif costume == "wolp":
+        jump scene20
+    else:
+        jump scene21
+    
+label scene19:
+    
+    n "Na dann, auf zum Tisch und Kuchen essen."
+    a "Nimm das Mofpa!"
+    n "Jemand sticht mir in meine Seiten."
+    stop music fadeout 1.0
+    pause 0.75
+    play music anjatheme fadein 1.0
+    show aparty mad
+    p "Hey, lass das!"
+    a "Aber du bist doch Böse!"
+    p "Tut trotzdem weh."
+
+    if trade == True:
+        show aparty n
+        a "Hehe, Louis hat gesagt du hast Knappers dabei?"
+        p "Hatte ich. Louis gab mir auch drei Snackers dafür und ich hab sie ihm gegeben."
+        a "Gut, dass man sich auf dich verlassen kann!"
+        
+        if anjatreat == True:
+            a "Waren das die, die du mir gegeben hast? Ahhhw. Ist ja Süß."
+            p "Ja Snackers sind süß."
+            show aparty jabber
+            a "Oh man. Finde es trotzdem toll, dass du extra Snackers für mich besorgt hast."
+            n "Was redet die denn?"
+            a "Hmmmh?"
+            jump scene19f
+        
+        else:
+            a "Abgeben konntest mir aber nichts?"
+            p "Hab nicht daran gedacht."
+            a "Na gut Partner..."
+            show aparty mad
+            a "Hände Hoch, dass ist ein Überfall."
+            p "Aber ich hab doch keine mehr dabei!"
+            show aparty jabber
+            a "War nur ein Jucks."
+            a "hmmmh?"
+            jump scene19f
+
+    if trade == "false":
+        a "Und doof bist du auch!"
+        show aparty mad
+        p "Was?"
+        a "Louis hat‘s mir gesagt. Du versprichst ihm Knappers und bringst sie ihm dann nicht mit!"
+        p "Ich konnte noch keine..."
+        a "Mach so etwas NIE WIEDER!"
+        a "Versprechen bricht man nicht und die Anderen finden das auch dumm."
+
+        if anjatreat == "True":
+            p "Aber, du hattest doch auch nichts dagegen, als ich sie mit dir geteilt hab!"
+            show aparty shock
+            a "Was?"
+            show aparty mad
+            a "DU VOLLIDIOT HAST EINEM SHERIFF GESTOHLENES ESSEN GEGEBEN?!"
+            a "Ich dachte das wäre deins gewesen du Lügner!"
+            n "Irgendwie kommt es mir so vor, als würde mich jeder anschauen."
+            hide aparty mad
+            n "Ich hab es aber auch irgendwie verdient."
+            n "Irgendwie fühl ich mich nicht gut, ich versuch aber trotzdem zu feiern."
+            "..."
+            "..."
+            "Einige Zeit vergeht und wie es aussieht nehmen mir die anderen es nicht so übel."
+            rmum "Kommt mal alle zusammen ihr kleinen Monsterlein!"
+            rmum "Gruppenfoto!"
+            "Wenigstens darf ich auch noch auf das Foto."
+            rmum "Sagt Käsekuchen"
+            scene cg selfiemoth with dissolve
+            "Alle" "Käsekuchen"
+        
+            scene bg street with Dissolve
+            jump scene22
+        
+        else:
+            p "Tut mir Leid, ich würde es auch gerne zurückgeben."
+            p "Ich traute mich einfach nicht meine Mutter zu Fragen."
+            show aparty n
+            a "Ist... Verstehe, trotzdem. Nie.."
+            p "Nie wieder!"
+            a "Nie wieder!"
+            jump scene19f
+
+    else:
+        show aparty jabber
+        a "Hmmmmh?"
+
+label scene19f:
+    n "Was ist denn mit Anja los?"
+    n "Wieso schaut sie mich so an?"
+    a "Ich hab eine Idee!"
+    p "?"
+    a "Siehst du diese Stadt?"
+    p "Die Pappkartons?"
+    a "Wenn du schon so angezogen bist, dann mach es wie in den Radzilla Filmen!"
+    p "Kämpfen?"
+    a "Ja klar. Du bist doch Mofpa. Die Riesenmotte. Und Randy ist Radzilla!"
+    p "Ja schon, aber... Ich weiß nicht."
+    n "Anja zieht an meinen linken Flügel. Die ist stark."
+    a "RANDY!"
+    show aparty talk at rightish
+    show rparty talk at leftish
+    r "Ja."
+    a "Radzilla, hier, Mofpa da."
+    a "LOS!"
+    n "Jetzt wird auch noch Randy herumkommandiert."
+    show rparty happy at leftish
+    r "Ich verstehe."
+    p "Ich nicht!"
+    r "Also in Radzilla gegen Prince Ape, kämpft er gegen Prince Ape und in..."
+    a "Er kämpft gegen Mofpa."
+    r "In einen Film, eigentlich sind sie..."
+    a "EGAL! LOS!"
+    r "Bereit für einen Monsterkampf in der Stadt?"
+    menu:
+        "Bereit.":
+            n "Es ist sein Geburtstag, muss ja sein..."
+            p "Bereit!"
+            
+        "Bereiterer.":
+            n "An seinem Geburtstag doch immer."
+            p "Na klar!"
+            
+        "Am Bereitesten.":
+            n "Das müssen sie noch fragen?"
+            p "Ich bin bereit! Ich bin bereit! Ich bin bereit!"
+    
+    a "3"
+    a "2"
+    a "1"
+    a "Los!"
+    r "WAAAAH!"
+    n "Wir kämpfen eine Weile... ein Tackle hier, etwas ringen, ein Laserstrahl."
+    n "Blocken, parrieren."
+    n "Es machte wirklich Spaß..."
+    n "...Doch nicht für die Stadt, die Pappkartons sind wohl nicht mehr zu gebrauchen."
+    n "Natürlich gibt es im Anschluss noch Kuchen!"
+    p "Ooof... Fertig"
+    hide aparty
+    hide rparty
+    show rmum talk at center
+    with dissolve
+    rmum "Keine Müdigkeit vortäuschen."
+    rmum "Kommt mal alle zusammen für ein Gruppenfoto."
+    "Auch noch so was. Na gut."
+    rmum "Los alle. Käsekuchen!"
+    scene cg selfiemoth with dissolve
+    "Alle" "Käsekuchen!"
+    n "... Nett."
+    jump scene22
+    
+
+label scene20:
+    n "Aber da drüben seh ich Evelynn. Ich sollte mal Hallo sagen."
+    show eparty talk2
+    stop music fadeout 1.0
+    pause 0.75
+    play music evetheme fadein 1.0
+    p "Hi, Evelynn."
+    e "Wow! Du siehst ja wild aus [name]."
+    e "Komm mal mit mir mit."
+    p "Wohin denn?"
+    show eparty happy2
+    n "Sie packt mich an meinem Arm und zeigt auf jemanden der sich komisch bewegt, während andere..."
+    p "Oh nein!" 
+    p "Scharade."
+    e "Genau."
+    show eparty happy2 at rightish with move
+    show rparty talk at leftish with dissolve
+    "Ich bin doch schlecht in Scharade"
+    r "Hey ihr zwei, spielt doch mal was vor."
+    e "Gleich zu Anfang an?"
+    e "Ich wollte doch erst raten."
+    p "Genau! Können wir uns nicht erst hinsetzen?"
+    show rparty vhappy
+    r "Nein. Ihr seid die Neuen, ihr dürft gleich starten."
+    menu:
+        "Ich möchte anfangen.":
+            p "Gut, dann fang ich eben an. Aber Evelynn, du kommst danach dran."
+            e "Danke trotzdem."
+            n "Randy gibt mir einen Zettel auf dem steht... natürlich."
+            hide rparty vhappy
+            n "Radzilla..."
+            show eparty happy2 at rightish
+            show oparty happy at center
+            show aparty n at leftish
+            with dissolve
+            
+            menu:
+                "Dinosauriergebrüll":
+                    p "Roooaaaar"
+                    show oparty mad
+                    show eparty mad
+                    e "Keine Geräusche. Kein Schummeln."
+                    r "Richtig"
+                    o "Tss... tss... tsss..."
+
+                "Umherstampfen":
+                    show aparty mad
+                    show eparty talk2
+                    show oparty talk
+                    e "Ein Monster!"
+                    o "Vielleicht ein Minotaurus?"
+                    a "Ich als Cowboy? Nicht lustig."
+                
+                "Rumstehen":
+                    show eparty talk2
+                    show oparty mad
+                    e "Los, mach was."
+                    e "Trau dich."
+                    o "Voll lahm."
+                    n "Lampenfieber. OK ich schaff das schon..."
+            
+            n "Ich sollte wohl noch mehr machen."
+            menu:
+                "Stampf über die Kartonstadt.":
+                    show eparty happy2
+                    show oparty happy
+                    show aparty jabber
+                    e "Das Monster das gerade im Fernsehen läuft!"
+                    a "Radzilla! Du bist Radzilla!"
+                    o "Nicht schlecht."
+
+                "Gib auf!":
+                    p "Tut mir Leid, fühl mich unwohl."
+                    show oparty buh                    
+                    show eparty talk2
+                    show aparty n
+                    e "Wirklich, du gibst auf?"
+                    o "Typisch."
+                    p "Entschuldigung."
+                    
+                "Floppe auf dem Boden herrum.":
+                    show oparty happy
+                    show eparty mad
+                    show aparty shock
+                    e "Ähm. Fisch auf dem Trockenen?"
+                    a "Trauriger Wal?"
+                    r "Radzilla?"
+                    p "Richtig!"
+                    r "Also, so toll hast du den jetzt nicht gespielt. Aber du wolltest wohl etwas kaputt machen."
+                    p "Ääääähhhm... Richtig, das wollte ich."
+                    n "Falsch."
+            
+            hide oparty
+            hide aparty
+            show eparty talk2 at rightish with move
+            show rparty vhappy at leftish with moveinleft
+            r "So,jetzt bist du dran Evelynn."
+            e "Jetzt schon?"
+            r "Ihr seid die Neuen, also ja."
+            e "O... OK."
+            n "Evelyn will gerade loslegen als Randy's Mama um die Ecke schaut."
+            show rmum talk at left with moveinleft
+            rmum "Kommt Kinder! Es gibt Kuchen!"
+            r "Ohh Junge! Ist der mit Kuchengeschmack?"
+            n "Natürlich rennen wir sofort alle an den Esstisch."
+            jump foto
+            
+            
+        "Evelynn darf anfangen.":
+            p "Komm Evelynn, du fängst an."
+            show eparty mad at rightish
+            e "Was? Wieso?"
+            p "Wir müssen eh beide spielen und du hast mich hier her gebracht."
+            show eparty talk2 at rightish
+            e "Na gut."
+            r "Evelynn, dein Wort ist..."
+            "Randy gibt ihr einen Zettel."
+            hide rparty talk with dissolve
+            show eparty talk2 at center with move
+            r "Bereit?"
+            e "Ja."
+            r "Los."
+            show eparty mad at rotation
+            n "Was macht die da?"
+            
+            menu:
+                "Jemand der seitlich steht":
+                    p "Ein umfallender Mensch."
+                
+                "Skateboarder":
+                    p "Skateboardfahrer!"
+                
+                "Keine Ahnung!":
+                    p "Ääähm, was bitte?"
+            
+            r "Radzilla? Der steht auch viel rum."
+            a "Sumo-Ringer?"
+            a "Ganz sicher."
+            o "Der Turm von Pisa!"
+            
+            n "Evelynn nimmt einen Karton und stellt sich darauf, ich glaube es könnte..."
+            menu:
+                "...ein Surfer...":
+                    "...sein."
+                    p "Surfer!"
+                    show eparty happy2 at center
+                    e "Richtig!"
+                    "Wieso staren die mich an?"
+                    a "Sauber!"
+                    a "Hab nicht an so etwas gedacht."
+                    show eparty mad at rotation
+                    e "Wooosh"
+                    "Alle" "Aaaaaah!"
+                    r "Jetzt siehst du auch wie eine Surferin aus."
+                    "Evelynn schaut mich weiterhin an."
+                    menu:
+                        "Schauspiel loben.":
+                            p "Evelynn ist doch eine gute Schauspielerin. War doch nicht so schwer."
+                            show eparty happy2 at center
+                            o "Angeber."
+                            r "Jetzt bist du dran [name]. Los!"
+                            "Randy reicht mir einen Zettel..."
+                            n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
+                            show rmum talk at left with moveinleft
+                            rmum "Kommt Kinder! Es gibt Kuchen!"
+                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
+                            n "Natürlich rennen wir sofort alle an den Esstisch."
+                            jump foto
+                            
+                        "Nichts sagen.":
+                            p "..."
+                            show eparty mad at center
+                            "Evelynn schaut mich einfach weiter an."
+                            e "Du bist dran!"
+                            r "Stimmt, hier dein Zettel!"
+                            n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
+                            show rmum talk at left with moveinleft
+                            rmum "Kommt Kinder! Es gibt Kuchen!"
+                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
+                            n "Natürlich rennen wir sofort alle an den Esstisch."
+                            jump foto
+
+                "...garnichts...":
+                    "...sein."
+                    r "Prince Ape? Der klettert auf Bäume."
+                    a "Ein Affe? Das kann stimmen."
+                    o "Ääähm. Breitbeiniger Specht?"
+                    e "Wooosh."
+                    r "Keine Geräusche!"
+                    show eparty mad at center
+                    e "Tut mir Leid, ich kann das nicht..."
+                    a "Los, was bist du?"
+                    e "Surferin."
+                    show eparty mad at rotation
+                    e "Wooosh"
+                    "Alle" "Hmmmmh."
+                    "Evelynn schaut mich an."
+                    menu:
+                        "Schauspiel loben":
+                            p "Ist auch kein leichtes Wort, schlecht hast du nicht gespielt."
+                            show eparty happy2 at center
+                            o "Ähm was?"
+                            r "Jetzt bist du dran [name]. Los!"
+                            "Randy reicht mir einen Zettel..."
+                            n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
+                            show rmum talk at left with moveinleft
+                            rmum "Kommt Kinder! Es gibt Kuchen!"
+                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
+                            n "Natürlich rennen wir sofort alle an den Esstisch."
+                            jump foto
+
+                        "Mit dem Rest schweigen":
+                            "..."
+                            show eparty talk2 at center
+                            e "Du bist dran!"
+                            r "Stimmt, hier dein Zettel!"
+                            n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
+                            show rmum talk at left with moveinleft
+                            rmum "Kommt Kinder! Es gibt Kuchen!"
+                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
+                            n "Natürlich rennen wir sofort alle an den Esstisch."
+                            jump foto
+                            
+                    
+                "...ein Baumkletterer...":
+                    "...sein."
+                    p "Kletterer?"
+                    r "Prince Ape? Der klettert auf Bäume."
+                    a "Ein Affe? Das kann stimmen."
+                    o "Ääähm. Breitbeiniger Specht?"
+                    e "Wooosh."
+                    r "Keine Geräusche!"
+                    show eparty mad at center
+                    e "Tut mir Leid, ich kann das nicht..."
+                    a "Los, was bist du?"
+                    e "Surferin."
+                    show eparty mad at rotation
+                    e "Wooosh"
+                    "Alle" "Hmmmmh."
+                    "Evelynn schaut mich an."
+                    menu:
+                        "Schauspiel loben":
+                            p "Ist auch kein leichtes Wort, schlecht hast du nicht gespielt."
+                            show eparty happy2 at center
+                            o "Ähm was?"
+                            r "Jetzt bist du dran [name]. Los!"
+                            "Randy reicht mir einen Zettel..."
+                            n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
+                            show rmum talk at left with moveinleft
+                            rmum "Kommt Kinder! Es gibt Kuchen!"
+                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
+                            n "Natürlich rennen wir sofort alle an den Esstisch."
+                            jump foto
+
+                        "Mit dem Rest schweigen":
+                            "..."
+                            show eparty talk2 at center
+                            e "Du bist dran!"
+                            r "Stimmt, hier dein Zettel!"
+                            n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
+                            show rmum talk at left with moveinleft
+                            rmum "Kommt Kinder! Es gibt Kuchen!"
+                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
+                            n "Natürlich rennen wir sofort alle an den Esstisch."
+                            jump foto
+    
+label foto:
+    rmum "Kommt mal alle zusammen für ein Gruppenfoto."
+    "Auch noch so was. Na gut."
+    rmum "Los alle. Käsekuchen!"
+    scene cg selfiefriendo
+    "Alle" "Käsekuchen!"
+    "... Nett."
+    jump scene22
+    
+    
+label scene21:
+    n "Na dann, auf zum Tisch."
+    show oparty buh at rightish
+    play music octatheme
+    o "BOOOH"
+    o "Haha."
+    show oparty happy
+    p "Octavia."
+    o "Cooles Kostüm, [name]"
+    o "Sieht sogar mal gut aus."
+    show oparty talk
+    p "Danke? Seh ich wohl sonst nicht gut aus?"
+    o "Ja, aber du scheinst ja doch was zu können."
+    p "Du siehst auch gut aus."
+    show oparty happy
+    o "Ich bin die Medusa aus der griechischen Antike."
+    p "Die Schlangen Haare sehen mega gruselig aus."
+    o "Sag mal."
+    p "?"
+    o "Willst du mir bei was helfen?"
+    p "Was willst du denn genau machen?"
+    show oparty talk
+    o "Anja erschrecken, so wie dich."
+    o "Die ist zwar etwas zäh, aber ich glaub ich kann das schaffen."
+    o "Es ist eine Monsterparty. Sie wird es uns nicht übel nehmen."
+    p "Mmmh... Na gut und wie willst du sie erschrecken?"
+    o "Schau mal. Die Bäume da hinten, ich duck mich dahinter und bin dann versteckt."
+    o "Du lockst Anja dort hin und dann..."
+    p "Und dann?"
+    show oparty buh
+    n "Die hat echtes Talent für sowas."
+    show oparty talk
+    o "Ich hoffe Sie erschreckt sich so, das Sie zu Stein erstarrt."
+    p "Zu Stein?"
+    o "Jeder der die Schlangen der Medusa anschaut wird zu Stein laut Legende, aber ich hab ja nur ein Kostüm."
+    o "Bereit?"
+    p "In Ordnung."
+    n "Zu Stein erstarren? Das will ich sehen!"
+    n "Aber Octavia hat auch recht, Anja ist Zäh."
+    hide oparty talk
+    scene bg partyocta
+    n "So, wo ist Anja."
+    show aparty n
+    p "Hey Anja!"
+    show aparty jabber
+    a "Hi [name], was bist du denn?"
+    p "Ein KILLERwal!"
+    p "Und du bist der Sheriff dieser Stadt."
+    p "Aber Cowboys sind doch keine Monster?"
+    show aparty talk
+    a "Mein Papa sagt, sie sind wie riesige Monster gewesen, zumindest gegen die Einheimischen."
+    p "Wer sind die Einheimischen?"
+    show aparty n
+    a "Keine Ahnung."
+    a "ABER! Ich kann auch ein MonsterJÄGER sein."
+    p "Macht wenig Sinn."
+    a "Aber ein Killerwal?"
+    n "Guter Punkt!"
+    p "Willst du vielleicht bei den Bäumen spielen?"
+    a "Aber das sind doch gar keine echten Bäume?"
+    p "Ja und? Ist doch egal."
+    show aparty mad
+    a "Wale können nicht klettern."
+    n "Mmmh, irgendwie will sie nicht. Hab ich was Falsches gesagt?"
+    n "Egal. Ich kann sie überzeugen."
+    menu:
+        "WALDKILLERwal":
+            n "Dann bin ich eben der erste WALDKILLERwal und du wirst berühmt für deine Entdeckung!"
+            show aparty jabber
+            a "So richtig glaub ich dir das nicht."
+            a "Aber egal, lass uns spielen!"
+        
+        "In Panama gibt es Dschungel-Wale":
+            p "Ich hab mal gehört, in Panama gibt es Wale die im Dschungel sind. Auf so großen Wassern."
+            show aparty shock
+            a "So etwas kann es geben?"
+            a "Wow."
+            show aparty talk
+            a "Na gut,lass uns klettern."
+        
+        "Klettern ist klettern":
+            p "Klettern ist klettern. Macht doch trotzdem Spaß."
+            show aparty mad
+            a "Recht haste ja."
+            "..."
+            show aparty talk
+            a "Na gut, wenn du es willst."
+            n "Irgendwie hat‘s ja doch geklappt."
+            
+    show aparty n
+    a "Die Bäume sind echt klein, aber eventuell wenn wir..."
+    scene bg party
+    show oparty buh at rightish
+    show aparty shock at leftish
+    o "HSSSSSS!"
+    "{color=#0099ff}[name]:{/color} AAAAH! \n{color=#0099ff}Anja:{/color} AAAH! HIMMEL HERRGOTT SACKERER!"
+    n "Jetzt hab sogar ich mich erschreckt!"
+    show oparty vhappy 
+    o "Ihr beide hattet ja echt mega Angst."
+    o "Ihr seid ja wirklich erstarrt!"
+    show aparty mad
+    a "Wieso machst du sowas!"
+    o "Ruhig, ist doch eine Monsterparty"
+    a "Manchmal bist du echt doof!"
+    show oparty mad
+    o "Aber niemals so doof wie du."
+    a "Du hast gerade bewiesen, dass es dümmer geht als ich."
+    o "Also gibst du zu, dass du dumm bist?"
+    a "AAAAH!"
+    n "Oh man, wieder ein Streit. Aber diesmal gibt es einen Ausweg!"
+    p "LEUTE! LEUTE! RUHIG!"
+    show oparty n
+    show aparty n
+    "...."
+    p "Kuchen!"
+    show oparty talk
+    o "Wie bitte?"
+    a "Ich versteh‘s auch nicht."
+    p "Wir sind hier auf einer Party, wollen wir nicht mal etwas Kuchen essen?"
+    o "Ich mein... Eigentlich schon."
+    show oparty n
+    show aparty talk
+    a "Kuchen hört sich gut an."
+    p "Dann auf zum Kuchen Mampfen." 
+    p "Sag mal, was hast du da vorhin eigentlich gesagt Anja." 
+    a "Das sagt mein Papa auch immer."
+    show oparty talk
+    o "Ach sooo! Hab mich das auch schon gefragt."
+    p "???"
+    o "Mist, versprochen."
+    n "Wir reden noch ein bisschen und spielen im Wald, es ist wohl doch wieder alles gut."
+    
+    p "ooof... Fertig"
+    show rmum nerv
+    rmum "Keine Müdigkeit vortäuschen."
+    show rmum talk
+    rmum "Kommt mal alle zusammen für ein Gruppenfoto."
+    n "Auch noch so was. Na gut."
+    rmum "Los alle. Käsekuchen!"
+    scene cg selfieorca
+    "alle" "Käääääseeeeekuuuuucheeeeen!"
+    n "... Nett."
+
+
+    jump scene22
+    
 label scene22:
-    "Ende der Party, cooler Ausklang, cooles Gruppenfoto. Nicenstein."    
-    "Prototyp Ende"
+    stop music fadeout 1.0
+    play music maintheme    
+    "Papa:" "Hi, [name]! Lang nicht mehr gesehen."
+    p " PAPA!"
+    "Papa:" "Na, wie war die Feier? Cool, dass du schon neue Freunde gefunden hast."
+    p "Ich weiß nicht."
+    "Papa:" "Hmmmh, naja das wird schon. Im Kindergarten gibt es öfters mal was. Ich kann mich noch daran erinnern wie wir immer..."
+    n "Papa erzählt gerne Geschichten von früher. Das ist meistens auch ganz spannend. Auf jeden Fall wird das keine langweilige Heimfahrt."
+    play sound cardoor2
+    
+    
+label scenew2_0:
+    scene bg street
+    show dad n at center
+    with fade
+    n "Man, das Wochenende bei Papa war echt toll."
+    n "Irgendwie ist es komisch ihn nur noch am Wochenende zu sehen."
+    n "Immerhin machen wir jetzt mehr zusammen. Und das extra große Banana Split bei Waluigi’s war echt lecker."
+    n "Außerdem hab' ich jetzt ein Vega PlayGear und ich darf es sogar mit in den Kindergarten nehmen."
+    n "Oh ich glaub wir sind schon da. Das ging ja schnell. Mit Mama dauert die Fahrt irgendwie länger." 
+    show dad talk
+    v "Na? Hat das Wochenende Spaß gemacht?"
+    menu:
+        "Es war super!":
+            p "JA! Das war voll cool! Der Mega Playgear macht voll viel Spaß!"
+            v "Na das wusste ich doch dass deer dir gefallen wird [pre] Klein[suf2]."
+            v "Du hast dir denn doch schon so lange gewünscht. Wenn du mal was anderes möchtest, dann sag’s mir einfach, okay?"
+            p "Mach ich!"
+            
+        "War ganz gut.":
+            p "Ja, danke Papa! Eigentlich bin ich lieber bei Mama, aber diesmal war es echt cool!"
+            v "Das freut mich, ich weiß ja dass du lieber bei deiner Mama bist. Aber dein alter Herr ist doch auch ganz cool, oder?"            
+    
+    show dad n
+    n "So, wie Papa jetzt ist, mag ich ihn fast lieber als früher. Sein Auto ist auch viel cooler."
+    n "Trotzdem wäre es schöner wenn er wieder bei uns einziehen könnte..."
+    
+    scene bg court
+    show dad talk at center
+    with fade
+    v "Da wären wir, das ist also dein neuer Kindergarten… Du hast bestimmt viel Spaß, oder? Hast du denn schon neue Freunde gefunden?"
+    menu:
+        "Ja!":
+            p  "Ja, ich mag die anderen, wir spielen ganz viel zusammen!"
+            v "Das freut mich! Dann mal ab mit dir in den Kindergarten, viel Spaß mein Kleiner!"
+            
+        "Ein paar.":
+            p "Ähm… ein paar schon, ja…"
+            v "Das wird schon, keine Sorge. Du bist ja erst eine Woche da."
+            
+        "Nicht wirklich...":
+            p "Bis jetzt noch nicht so viele, nein…"
+            v "Naja, du kennst die anderen Kinder ja wahrscheinlich auch noch nich so gut, ihr werdet euch bestimmt bald anfreunden."
+            
+    n "Papas Bart kratzt in letzter Zeit immer wenn er mir auf die Stirn küsst. Das nervt!"
+    n "Und weg ist er auch schon wieder. Ich freue mich irgendwie schon, Mama später wieder zu sehen."
+    
+    
+label scenew2_1:
+    stop music fadeout 1.0
+    pause 0.75
+    play music anjatheme fadein 1.0
+    scene bg flur
+    show anja hihi at center
+    with fade
+    a "Sag mal, deine Haare sind ja nass! Hattest du keine Zeit sie zu trocknen?"
+    p "Nein, ich…"
+    a "Also ich werde gar nicht erst mit nassen Haaren aus dem Haus gelassen. Meine Eltern meinen, ich könnte mich erkälten, dabei ist es ja bloß der Weg zum Auto."
+    p "Ich hatte keine Zeit…"
+    a "Apropos Auto, dein Papa hat ja voll die coole Karre. Ich habe euch gesehen, als ihr hier angekommen seid. Der scheint ja mega viel zu verdienen!"
+    p "Ja, er…"
+    a "Mein Papa verdient nicht so viel, aber trotzdem kauft er mir immer wieder schöne Geschenke, wie neulich, da hat er mir…"
+    n "Mit Anja zu reden macht manchmal wirklich keinen Spaß. Randy sitzt da drüben so alleine. Vielleicht hat er was Spannenderes zu erzählen."
+    n "Heute reden wir im Morgenkreis über Bauernhoftiere, wie z.B. Kühe, Schweine und Schafe."
+    n "Nur warum können wir nicht lieber über coole Tiere wie Dinosaurier reden? Wen interessiert denn schon, dass eine Kuh \"muh\" macht? Ich will wissen was ein T-Rex für ein Geräusch macht: Bestimmt \"rawr\" oder sowas."
+    
+label scenew2_2:
+    
+    scene bg grura
+    play music maintheme
+    n "Der Morgenkreis ist endlich vorbei!"
+    n "Ich will endlich Fightë Møn weiter spielen! Ich mach die Arenen heute fertig!"
+    n "Eigentlich will ich mir aber auch noch Maltipps von Eveylnn holen."
+    n "Ich kann ja auch zu Hause weiter spielen."
+    n "Hmmmh"
+    menu:
+        "Konsole spielen":
+            n "Malen kann ich ja immer noch wan anders lernen."
+            n "Erst sollte ich alle Arenen erledigen, wenn ich schon damit angefangen habe!"
+            n "Außerdem hör ich eh schon die Musik..."
+            n "Moment, die ist ja sogar da hinten wo Octavia sitzt."
+            play music octatheme
+            show octa happy
+            n "Sie hat einen Blattsilbernen limitierten PlayGear!"
+            n "Ich zeig ihr mal meinen!"
+            p "Hey Octavia!"
+            show cg gameboy with dissolve
+            p "Guck mal was ich auch habe!"
+            o "Fightë Møn?"
+            p "Ja."
+            o "Weißt du..."
+            p "Ja?"
+            o "Es gibt schon Fightë Møn 2" 
+            p "Doch ich möchte [ddd] beste Ausbilder[suf3] der Welt werden! Genau wie im Fernsehen."
+            o "Ich brauch nur noch eine handvoll an Monstern, dann bin ich das zuerst!"
+            p "Du bist doch nicht deswegen besser!"
+            o "Ich beweis es dir! LOS LAS KÄMPFEN!"
+            n "Ich kann es kaum sehen, aber Octavia steckt ein Kabel in mein Gerät und an ihres. Wie es aussieht muss ich wohl kämpfen."
+            o "LOS!"
+            menu:
+                "win":
+                    $ mon = "win"
+                    "PLACEHOLDER FÜR DEN KAMPF" #####
+                    
+                "loss":
+                    $ mon = "loss"
+                    "PLACEHOLDER FÜR DEN KAMPF" #####
+            
+            if mon == "win":
+                show bg grura
+                show octa shock
+                o "Wie? Ich hab doch fast alle."
+                o "Nein!"
+                n "Was ist denn jetzt los?"
+                show octa mad
+                o "Das Spiel ist  eh mist!"
+                o "Bei allem anderen würde ich dich haushoch besiegen!"
+                p "Dann schlag doch was vor."
+                show octa smug
+                o "Na gut. Also wir machen immer so Wettrennen im Hof und da bin ich die Beste. Einige sind gut, sicher. Andere sogar sehr gut, aber niemand hat mich bis jetzt besiegen können und das wirst du auch nicht schaffen! Das kannst du mir aber glauben."
+                p "Ich bin auch ziemlich schnell."
+                o "Ich warne dich vor. Ich bin viel schneller. Versuchen brauchst du es eigentlich gar nicht!"
+                p "Ich hab bereits die Herausforderung angenommen!"
+                show octa talk
+                o "Alles klar."
+                o "Aber erst einmal, wollen wir vielleicht ein paar unserer Fightë Møn tauschen?"
+                o " Du hast noch nicht so viel und ich kann eines von dir gebrauchen!"
+                n "Irgendwie vertrau ich ihr da nicht so ganz."
+                p "Nein, ich muss mich auf unseren Wettkampf vorbereiten!"
+                jump scenew2_3
+    
+    
+            else:        
+                show bg grura
+                show octa smug
+                o "Hab ichs dir doch gesagt."
+                o "Bin eben viel besser als du, dachte du hast eigentlich mehr drauf. Aber ein echter Gegner bist du wohl nicht."
+                o "Lern erst einmal zu spielen!"
+                n "Octa ist gerade echt gemein..."
+                p "Hey!"
+                show octa talk
+                o "Was denn Verlierer?"
+                p "Ach ich geh!"
+                show octa smug
+                o "Alles klar, viel Spaß noch!"
+                
+        "Mit Evelynn malen":
+            n "Ich kann ja auch noch Nachmittag daheim spielen, erst einmal zu Evelynn!"
+            n "Der Maltisch ist wohl heute wirklich voll. Randy hat sich wohl alle Brettspiele geschnappt."
+            scene bg grura2
+            show eve draw
+            n "Was malt die denn da?"
+            show mantikoreve with fade
+            hide mantikoreve with fade
+            n "Ich kann gar nichts sehen. Die anderen standen im Weg!"
+            n "Aber es sah interessant aus, vielleicht kann ich es ja nachzeichnen!"
+            n "Ich probier es mal."
+            n "Erst einmal der Hintergrund!"
+            scene memory bg
+            play music evetheme
+            scene memory bg
+            
+            n "Sooo, doch welche Farbe hatte das Tier?"
+            
+            menu:
+                "Rot":
+                    $ colo = "r"
+                    show rot
+                    n "Es war aggressiv! Also Rot!"
+                
+                "Orange":
+                    $ colo = "o"
+                    show orange
+                    n "Es sah aus wie ein echtes Tier. Viele sind Orange!"
+                
+                "Lila":
+                    $ colo = "l"
+                    show lila
+                    n "Evelynn mag viele Farben, also wohl Lila!"
+            
+            n "Moment, was war es überhaupt für ein Tier?"
+               
+            menu:
+                "Echse":
+                    $ body = "e"
+                    show echse
+                    "Genau, groß und lang wie eine Echse!"
+                "Löwe":
+                    $ body = "l"
+                    show loewe
+                    "Es war stark, so wie ein Löwe!"
+                "Hase":
+                    $ body = "h"
+                    show hase
+                    "Es sah irgendwie niedlich aus, wie ein Hase!"
+            
+            
+            n "Hatte es eienen Schwanz?"
+            n "So einen habe ich glaub ich schon einmal im Fernsehen gesehen, doch nur wo?"
+            n "Welcher Schwanz hat das Tier?"
+            menu:
+                "Skorpion":
+                    $ schwanz = "s"
+                    show sschwanz
+                    n "Bei einem Skorpion, die sind super giftig!"
+                "Drache":
+                    $ schwanz = "d"
+                    show dschwanz
+                    n "Evelynn mag Fantasiebücher, Drachen kommen häufig vor!"
+                "Löwe":
+                    $ schwanz = "l"
+                    show lschwanz
+                    n "Löwe ist aufjedenfall mit drinnen, so viel weiß ich!"
+            
+            n "Irgendwas fehlt noch. Doch was?"
+            n "Flügel?"
+            n "Egal, Flügel!"
+            menu:
+                "Fledermaus":
+                    $ flug = "f"
+                    show fwings
+                    n "Das waren eindeutig Fledermausflügel!"
+                "Drache":
+                    $ flug = "d"
+                    show dwings
+                    n "Es waren dunkle starke Flügel!"
+                "Vogel":
+                    $ flug = "v"
+                    show bwings
+                    n "Vögel sind die besten was fliegen an geht, also muss es wohl das sein!"
+            
+            n "So!"
+            n "Meisterwerk vollendet!"
+            scene bg grura2
+            show eve draw
+            p "Schau mal Evelynn!"
+
+            if colo == "o" and body == "l" and schwanz == "s" and flug == "d":
+                show edraw talk
+                e "Aaa... Also.."
+                show edraw mad
+                n "Nanu?"
+                e "Ein komisches Monster hast du da ja, ich weiß ja nicht."
+                show edraw talk
+                e "Ich mein ja, woher hast du so eine Idee?"
+                e "Was kann es denn? Wieso hast du dich für diese Farben entschieden?"
+                hide eve
+                show eve draw
+                n "Evelynn will echt viel Wissen, dafür dass es so ein komisches Monster ist."
+                n "Außerdem wieso verhält Sie sich so komisch?"
+                hide eve
+                show edraw mad
+                n "Ich sollte ihr nicht sagen, dass ich das Bild versucht habe von ihr abzumalen."
+                n "Nanu? Wer tippt mich da an?"
+                hide eve
+                jump scenew2_3
+            
+            else:
+                show edraw mad
+                e "Hmmmh!"
+                n "Was schaut Sie denn so kritisch?"
+                e "Das sieht ja schon mal ganz gut aus, aber du solltest schauen besser auszumalen, außerdem kann man ganz leicht licht hinzufügen. Farbwahle ist auch..."
+                n "Evelynn kann ganz gut meckern, aber es stimmt was Sie sagt. Bin ich nicht deswegen hergekommen?"
+                n "Moment, bin ich das?"
+                show edraw talk
+                e "Es ist aber trotzdem hübsch, viele tolle Ideen."
+                p "Danke!"
+                n "nanu? Wer tippt mich da an?"
+                jump scenew2_3
+                hide eve
+    
+label scenew2_3:
+    stop music fadeout 1.0
+    pause 0.75
+    play music maintheme fadein 1.0
+    scene bg grura
+    show randy talk at rightish
+    r "[name]"
+    n "Was will denn Randy von mir?"
+    r "Lust auf eine Runde Oligopoly? Wir brauchen noch jemanden um zwei gegen zwei zu spielen!"
+    n "Oligopoly ist super."
+    p "Auja, da bin ich dabei! Bin nur noch nicht wirklich gut."
+    show randy happy
+    r "Dann bist du eben in meinen Team, ich kenne die Tricks."
+    show bg grura2
+    r "Das sind wieder 200!"
+    p "Randy und ich sind wohl ein echt gutes Team, noch ein bisschen und wir haben das in der Tasche."
+    show mum talk at leftish
+    m "Hallo mein Schatz!"
+    p "Och nööö."
+    n "Wir haben doch nocht gar nicht so lange gespielt!"
+    m "Nööö was?"
+    show mum mad
+    p "Ich war nur gerade am gewinnen und jetzt bist du da."
+    show mum talk
+    m "Ach so, aber dann hats dir doch Spaß gemacht. Und wie war dein Wochenende beim Papa?"
+    n "Ich zeig ihr einfach was Papa mir geschenkt hat."
+    show cg gameboy with dissolve
+    show mum vmad
+    m "DAS KANN NICHT SEIN ERNST SEIN!"
+    hide cg gameboy with dissolve
+    n "Was hat Mama denn?"
+    m "Die Dinger kosten doch ein Vermögen. Und das einfach so, der will doch sicherlich nur..."
+    m "Schau aber ja nicht zu lange in diese Dinger, sonst werden deine Augen noch rechteckig."
+    p "So viele Spiele hab ich auch nicht."
+    n "Mama gefällt wohl mein Geschenk nicht. Wenn man so alt wird spielt man mit so etwas auch nicht mehr hat mir mal jemand gesagt."
+    m "Egal, jetzt gehts erst mal Heim!"
+    scene bg black with dissolve
+    play sound cardoor1
+    n "..."
+    n "Vielleicht kann ich ja morgen fertig spielen..."
+    
+    
+label scenew2_4:
+    stop music fadeout 1.0
+    pause 0.75
+    play music introtheme fadein 1.0
+    scene bg grura
+    n "...oder auch nicht. Wieso wurde alles aufgeräumt?"
+    show karin go
+    k "Kinder! Alle herkommen! Der Morgenkreis fängt an!"
+    show karin talk
+    k "Diesen Morgen wollen wir uns erst einmal alle ein bisschen aufwärmen."
+    k "Ich zeige euch etwas und ihr versucht mir das dann nachzumachen, okay?"
+    "Alle" "Ja, machen wir Karin!"
+    show karin vhappy
+    k "Denn wenn wir heute fertig sind mit unserem Morgenkreis gehen wir gemeinsam nach draußen."
+    k "Dieses tolle Wetter müssen wir ausnutzen!"
+    p "Wenn man keine Wolken sieht, dann bleibt das Wetter schön, sagt meine Mama immer."
+    k "Genau."
+    hide karin with moveoutbottom
+    n "Moment..."
+    n "Was macht Karin da jetzt auf den Boden?"
+    k "Das nennt man Yoga! Puuh."
+    show karin go with moveinbottom
+    k "Alle gesehen? Da könnt ihr euch richtig austoben!"
+    n "Na gut, dann linker Fuß nach hinten..."
+    scene bg black with dissolve
+    k "So, die dritte Übung ist folgende..."
+    k "..."
+    k "Genau, so wie bei Octavia!"
+    O "ist auch voll leicht."
+    k "Nun, weiter..."
+    n "..."
+    stop music fadeout 1.0
+    pause 0.75
+    play music maintheme fadein 1.0
+    scene bg court with dissolve
+    n "Endlich ist das vorbei."
+    n "Das wurde ja echt anstregend.."
+    n "Und diesen ... Hund? Den hab ich echt nicht mehr verstanden."
+    n "Naja, wenigstens darf ich mich jetzt ausruhen."
+    show octa vhappy at left with moveinright
+    show anja jabber at rightish with moveinright
+    a "Dich krieg ich noch."
+    o "Vielleicht in 100 Jahren!"
+    hide octa with moveoutleft
+    hide anja with moveoutleft
+    n "Moment. Wieso rennt jeder rum."
+    n "Ich kann ja trotzdem zu..."
+    show karin shock at rightish
+    show eve talk2 at leftish
+    with moveinbottom
+    k "Evelynn, tut mir Leid. Dass ist die letzte Kreide."
+    e "Danke Karin."
+    hide karin
+    hide eve
+    with moveoutbottom
+    n "Dann muss ich wohl anderswo mitmachen, aber wo?"
+
+    menu:
+        "Sandkasten":
+            scene bg sand
+            n "Im Sandkasten ist es wohl wenigstens immer noch entspannt, dann auf zu dem!"
+
+        "Ball spielen":
+            scene bg ball
+            n "Wenn jeder spielt, dann muss ich wohl auch mitmachen."
+            
+label scenew2_5:
+    scene bg castle
+    "Hier ist das Ende der Demo und im Hintergrund ein kleiner Teaser!"
+
+label scenew2_6:
+    "Hier ist das Ende der Demo! Aber mit mehr Text!"
     
                 
 label credits:
