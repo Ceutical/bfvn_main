@@ -137,9 +137,10 @@ label childlike:
     n "Aber Moment! Heute geht's in den neuen Kindergarten."
     n "Da treff ich bestimmt..."
     m "Raus aus den Federn jetzt. Es gibt Frühstück!"
-    show bg bedroom with fade
+    show bg bedroom2 with fade
     n "Nein… nicht die warme Decke…"
     n "Mann, muss alles so hell sein…"
+    show bg bedroom with dissolve
     show mum talk with moveinright
     m "Guten Morgen mein kleiner Spatz!"
     p "Morgen Mama ..."
@@ -2311,7 +2312,7 @@ label scenew2_2:
     n "Hmmmh"
     menu:
         "Konsole spielen":
-            n "Malen kann ich ja immer noch wan anders lernen."
+            n "Malen kann ich ja immer noch wann anders lernen."
             n "Erst sollte ich alle Arenen erledigen, wenn ich schon damit angefangen habe!"
             n "Außerdem hör ich eh schon die Musik..."
             n "Moment, die ist ja sogar da hinten wo Octavia sitzt."
@@ -2330,7 +2331,7 @@ label scenew2_2:
             p "Doch ich möchte [ddd] beste Ausbilder[suf3] der Welt werden! Genau wie im Fernsehen."
             o "Ich brauch nur noch eine handvoll an Monstern, dann bin ich das zuerst!"
             p "Du bist doch nicht deswegen besser!"
-            o "Ich beweis es dir! LOS LAS KÄMPFEN!"
+            o "Ich beweis es dir! LOS, LASS KÄMPFEN!"
             n "Ich kann es kaum sehen, aber Octavia steckt ein Kabel in mein Gerät und an ihres. Wie es aussieht muss ich wohl kämpfen."
             o "LOS!"
             menu:
@@ -2369,8 +2370,8 @@ label scenew2_2:
             else:        
                 show bg grura
                 show octa smug
-                o "Hab ichs dir doch gesagt."
-                o "Bin eben viel besser als du, dachte du hast eigentlich mehr drauf. Aber ein echter Gegner bist du wohl nicht."
+                o "Hab ich's dir doch gesagt."
+                o "Bin eben viel besser als du. Dachte du hast eigentlich mehr drauf, aber ein echter Gegner bist du wohl nicht."
                 o "Lern erst einmal zu spielen!"
                 n "Octa ist gerade echt gemein..."
                 p "Hey!"
@@ -2388,7 +2389,7 @@ label scenew2_2:
             n "Was malt die denn da?"
             show mantikoreve with fade
             hide mantikoreve with fade
-            n "Ich kann gar nichts sehen. Die anderen standen im Weg!"
+            n "Ich kann gar nichts sehen. Die Anderen standen im Weg!"
             n "Aber es sah interessant aus, vielleicht kann ich es ja nachzeichnen!"
             n "Ich probier es mal."
             n "Erst einmal der Hintergrund!"
@@ -2495,13 +2496,13 @@ label scenew2_2:
                 show edraw mad
                 e "Hmmmh!"
                 n "Was schaut Sie denn so kritisch?"
-                e "Das sieht ja schon mal ganz gut aus, aber du solltest schauen besser auszumalen, außerdem kann man ganz leicht licht hinzufügen. Farbwahle ist auch..."
-                n "Evelynn kann ganz gut meckern, aber es stimmt was Sie sagt. Bin ich nicht deswegen hergekommen?"
+                e "Das sieht ja schon mal ganz gut aus, aber du solltest schauen besser auszumalen, außerdem kann man ganz leicht Licht hinzufügen. Farbwahl ist auch..."
+                n "Evelynn kann ganz gut meckern, aber es stimmt was sie sagt. Bin ich nicht deswegen hergekommen?"
                 n "Moment, bin ich das?"
                 show edraw talk
                 e "Es ist aber trotzdem hübsch, viele tolle Ideen."
                 p "Danke!"
-                n "nanu? Wer tippt mich da an?"
+                n "Nanu? Wer tippt mich da an?"
                 jump scenew2_3
                 hide eve
     
@@ -2511,9 +2512,9 @@ label scenew2_3:
     play music maintheme fadein 1.0
     scene bg grura
     show randy talk at rightish
-    r "[name]"
+    r "[name]!"
     n "Was will denn Randy von mir?"
-    r "Lust auf eine Runde Oligopoly? Wir brauchen noch jemanden um zwei gegen zwei zu spielen!"
+    r "Lust auf eine Runde Oligopoly? Wir brauchen noch jemanden um Zwei gegen Zwei zu spielen!"
     n "Oligopoly ist super."
     p "Auja, da bin ich dabei! Bin nur noch nicht wirklich gut."
     show randy happy
@@ -2522,14 +2523,14 @@ label scenew2_3:
     r "Das sind wieder 200!"
     p "Randy und ich sind wohl ein echt gutes Team, noch ein bisschen und wir haben das in der Tasche."
     show mum talk at leftish
-    m "Hallo mein Schatz!"
+    m "Hallo, mein Schatz!"
     p "Och nööö."
-    n "Wir haben doch nocht gar nicht so lange gespielt!"
+    n "Wir haben doch nicht gar nicht so lange gespielt!"
     m "Nööö was?"
     show mum mad
     p "Ich war nur gerade am gewinnen und jetzt bist du da."
     show mum talk
-    m "Ach so, aber dann hats dir doch Spaß gemacht. Und wie war dein Wochenende beim Papa?"
+    m "Ach so, aber dann hat's dir doch Spaß gemacht. Und wie war dein Wochenende beim Papa?"
     n "Ich zeig ihr einfach was Papa mir geschenkt hat."
     show cg gameboy with dissolve
     show mum vmad
@@ -2539,7 +2540,7 @@ label scenew2_3:
     m "Die Dinger kosten doch ein Vermögen. Und das einfach so, der will doch sicherlich nur..."
     m "Schau aber ja nicht zu lange in diese Dinger, sonst werden deine Augen noch rechteckig."
     p "So viele Spiele hab ich auch nicht."
-    n "Mama gefällt wohl mein Geschenk nicht. Wenn man so alt wird spielt man mit so etwas auch nicht mehr hat mir mal jemand gesagt."
+    n "Mama gefällt wohl mein Geschenk nicht. Wenn man so alt wird, spielt man mit so etwas auch nicht mehr hat mir mal jemand gesagt."
     m "Egal, jetzt gehts erst mal Heim!"
     scene bg black with dissolve
     play sound cardoor1
@@ -2560,7 +2561,7 @@ label scenew2_4:
     k "Ich zeige euch etwas und ihr versucht mir das dann nachzumachen, okay?"
     "Alle" "Ja, machen wir Karin!"
     show karin vhappy
-    k "Denn wenn wir heute fertig sind mit unserem Morgenkreis gehen wir gemeinsam nach draußen."
+    k "Denn wenn wir heute fertig sind mit unserem Morgenkreis, gehen wir gemeinsam nach draußen."
     k "Dieses tolle Wetter müssen wir ausnutzen!"
     p "Wenn man keine Wolken sieht, dann bleibt das Wetter schön, sagt meine Mama immer."
     k "Genau."
@@ -2592,12 +2593,12 @@ label scenew2_4:
     o "Vielleicht in 100 Jahren!"
     hide octa with moveoutleft
     hide anja with moveoutleft
-    n "Moment. Wieso rennt jeder rum."
+    n "Moment. Wieso rennt jeder rum?"
     n "Ich kann ja trotzdem zu..."
     show karin shock at rightish
     show eve talk2 at leftish
     with moveinbottom
-    k "Evelynn, tut mir Leid. Dass ist die letzte Kreide."
+    k "Evelynn, tut mir Leid. Das ist die letzte Kreide."
     e "Danke Karin."
     hide karin
     hide eve
