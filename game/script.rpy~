@@ -137,9 +137,10 @@ label childlike:
     n "Aber Moment! Heute geht's in den neuen Kindergarten."
     n "Da treff ich bestimmt..."
     m "Raus aus den Federn jetzt. Es gibt Frühstück!"
-    show bg bedroom with fade
+    show bg bedroom2 with fade
     n "Nein… nicht die warme Decke…"
     n "Mann, muss alles so hell sein…"
+    show bg bedroom with dissolve
     show mum talk with moveinright
     m "Guten Morgen mein kleiner Spatz!"
     p "Morgen Mama ..."

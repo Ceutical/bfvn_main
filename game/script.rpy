@@ -567,7 +567,7 @@ label scene8:
             show eve foodmad
             e "Darum geht es doch auch gar nicht!"
             
-        "WAS tust du?!.":
+        "WAS tust du?!":
             p "Ihhh! Mama sagt man spielt nicht mit Essen!"
             show eve foodmad
             e "Meine auch. Aber ich spiele ja auch garnicht. Ich male."
@@ -1939,6 +1939,8 @@ label scene20:
                 "...ein Surfer...":
                     "...sein."
                     p "Surfer!"
+                    hide epantobaum 
+                    hide epanto
                     show eparty happy2 at center
                     e "Richtig!"
                     n "Wieso starren die mich an?"
@@ -1983,6 +1985,8 @@ label scene20:
                     o "Ääähm. Breitbeiniger Specht?"
                     e "Wooosh."
                     r "Keine Geräusche!"
+                    hide epantobaum
+                    hide epanto
                     show eparty mad at center
                     e "Tut mir Leid, ich kann das nicht..."
                     a "Los, was bist du?"
@@ -2026,17 +2030,20 @@ label scene20:
                     o "Ääähm. Breitbeiniger Specht?"
                     e "Wooosh."
                     r "Keine Geräusche!"
+                    hide epantobaum
+                    hide epanto
                     show eparty mad at center
                     e "Tut mir Leid, ich kann das nicht..."
                     a "Los, was bist du?"
                     e "Surferin."
-                    show eparty mad at rotation
+                    show epanto
                     e "Wooosh"
                     "Alle" "Hmmmmh."
                     "Evelynn schaut mich an."
                     menu:
                         "Schauspiel loben":
                             p "Ist auch kein leichtes Wort, schlecht hast du nicht gespielt."
+                            hide epanto
                             show eparty happy2 at center
                             o "Ähm was?"
                             r "Jetzt bist du dran [name]. Los!"
@@ -2050,6 +2057,7 @@ label scene20:
 
                         "Mit dem Rest schweigen":
                             "..."
+                            hide epanto
                             show eparty talk2 at center
                             e "Du bist dran!"
                             r "Stimmt, hier dein Zettel!"
