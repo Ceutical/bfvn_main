@@ -128,7 +128,6 @@ label scene1:
     ##### Szene 2 CHILD #####
 label childlike:
     scene bg black with fade
-    "{b}Start: Kindlicher Erzähler{/b}"
     "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
     n "Oh man. Ich bin so müde."
     n "Aber moment! Heute geht's in den neuen Kindergarten."
