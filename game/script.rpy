@@ -54,6 +54,9 @@ transform rightish:
 transform chicken:
     xalign .68
     yalign .5
+transform mic:
+    xalign .93
+    yalign .4
 transform topright:
     xalign 1.0
     yalign 0.0
@@ -608,12 +611,12 @@ label scene9:
     n "Ich glaube Mama will sich nur über mich lustig machen."
     n "Aber, eigentlich sieht die Ente ja ganz lustig aus. Naja, auf zum Morgenkreis."
     scene bg grura
-    show karin talk
+    show karin talk at slightright
+    show dis mikro at mic
     with dissolve
     k "Also Kinder, ich hab euch heute etwas mitgebracht."
     show karin happy
     k "Das ist ein Radio, mit Mikrofon! Damit können wir singen und uns anhören was wir gesungen haben."
-    show karin shock at slightright with move
     show octa mad at slightleft with moveinleft
     o "Öhhhh!"
     show randy mad at left with moveinleft
@@ -631,6 +634,7 @@ label scene9:
     o "Los! Rennt!"
     hide randy with moveoutleft
     hide octa with moveoutleft
+    hide dis with dissolve
     show karin shock at center with move
     k "Aber ... Hey! Halt! Kinder, kommt gefälligst zurück!"
     show karin mad
