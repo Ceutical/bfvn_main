@@ -1519,7 +1519,7 @@ label scene17:
     m "Der Knopf da oben ist der Richtige."
     show mum talk at rightish
     n "Kurz darauf geht die Tür auf."
-    m "So, geh mal zu deinen Freunden. Ich rede noch kurz mit Randys mama und bin dann gleich weg. Vergiss nicht, dein Papa holt dich heut Abend ab."
+    m "So, geh mal zu deinen Freunden. Ich rede noch kurz mit Randys Mama und bin dann gleich weg. Vergiss nicht, dein Papa holt dich heut Abend ab."
     p "OK. Tschüss Mama."
     hide mum talk with moveoutright
     show bg party with dissolve
@@ -2440,7 +2440,7 @@ label scenew2_2:
                     "Es sah irgendwie niedlich aus, wie ein Hase!"
             
             
-            n "Hatte es eienen Schwanz?"
+            n "Hatte es einen Schwanz?"
             n "So einen habe ich glaub ich schon einmal im Fernsehen gesehen, doch nur wo?"
             n "Welcher Schwanz hat das Tier?"
             menu:
