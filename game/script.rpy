@@ -34,6 +34,27 @@ define audio.maintheme = "music/soundtracks/maintheme.mp3"
 define audio.treefall = "music/sfx/treefall.ogg"
 define audio.cardoor1 = "music/sfx/Autotür1.ogg"
 define audio.cardoor2 = "music/sfx/Autotür2.ogg"
+define audio.decke = "music/sfx/Decke.ogg"
+define audio.grassbump = "music/sfx/Aufprall_Rasen.ogg"
+define audio.ball = "music/sfx/Ball.ogg"
+define audio.ball2 = "music/sfx/Ball1.ogg"
+define audio.bal3l = "music/sfx/Ball2.ogg"
+define audio.ball4 = "music/sfx/Ball3.ogg"
+define audio.ball5 = "music/sfx/Ball4.ogg"
+define audio.ballhit1 = "music/sfx/Ball_Getroffen1.ogg"
+define audio.ballhit2 = "music/sfx/Ball_Getroffen2.ogg"
+define audio.ballhit3 = "music/sfx/Ball_Getroffen3.ogg"
+define audio.bell = "music/sfx/bell.ogg"
+define audio.child1 = "music/sfx/Kindergeräusche1.ogg"
+define audio.child2 = "music/sfx/Kindergeräusche2.ogg"
+define audio.kg = "music/sfx/Kinderklasse.ogg"
+define audio.pbutton1 = "music/sfx/KnöpfeDrücken1.ogg"
+define audio.pbutton2 = "music/sfx/KnöpfeDrücken2.ogg"
+define audio.pbutton3 = "music/sfx/KnöpfeDrücken3.ogg"
+define audio.draw = "music/sfx/Malgeräusche.ogg"
+define audio.foodplay = "music/sfx/Mit Essen Spielen.ogg"
+define audio.snackers = "music/sfx/snackers.ogg"
+define audio.street = "music/sfx/street.ogg"
 
 ######################################
 
@@ -137,6 +158,7 @@ label childlike:
     n "Aber Moment! Heute geht's in den neuen Kindergarten."
     n "Da treff ich bestimmt..."
     m "Raus aus den Federn jetzt. Es gibt Frühstück!"
+    play sound decke
     show bg bedroom2 with fade
     n "Nein… nicht die warme Decke…"
     n "Mann, muss alles so hell sein…"
@@ -177,11 +199,12 @@ label scene3:
         n "Aber irgendwie auch nicht. Vielleicht finde ich da ja neue noch bessere Freunde als in meinem alten Kindergarten. "
         m "Das wird ein ganz toller Tag, glaub mir!"
     else:
-        n "Verdammt ich möchte das nicht. Muss das sein? Mein alter Kindergarten war doch super. Warum muss ich jetzt hier hin?."
+        n "Verdammt ich möchte das nicht. Muss das sein? Mein alter Kindergarten war doch super. Warum muss ich jetzt hier hin?"
         n "Naja, wenigstens ist Mama da."
         m "Gleich sind wir da. Keine Angst, das wird schon! Du wirst bestimmt viele neue Freunde finden."
         n "Mein alter Kindergarten ist definitiv schöner als das hässliche Haus da."
     scene bg flur with dissolve
+    play sound child1
     show mum n at slightleft with moveinleft
     show heide n at slightright with moveinright
     n "Was für ne gruselige Frau ist da vorne denn?"
@@ -1052,6 +1075,7 @@ label scene13:
     o "Ist ohne die blöde \"Schutzausrüstung\" auch viel leichter."
     show obike wheelie with dissolve
     o "Schau her, so geht das!"
+    play sound bell
     show obike at right with move
     pause 0.2
     show obike wheelier with dissolve
@@ -1117,8 +1141,10 @@ label scene14:
     o "Das Hinterrad, komm schon! Komm schon! Komm schon!"
     p "Okay ... also ... SO! Octa guck! Ich kann es! ich kann es!"
     o "[name] pass auf! KATZE!"
+    play sound bell
     scene cg bikecat with fade
     p "Ohh ... WOAH! Katze vorsicht!"
+    play sound grassbump
     scene cg bikefall with fade
     p "Aua ..."
     
