@@ -152,6 +152,8 @@ label scene1:
 
     ##### Szene 2 CHILD #####
 label childlike:
+    scene mnd with fade
+    pause 1.5
     scene bg black with fade
     "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
     n "Oh man. Ich mag Montage nicht. Ich bin noch so müde."
@@ -541,6 +543,10 @@ label meantoeve:
     ##### TAG 2 BEGINN #####
     ##### Szene 7 #####
 label scene7:
+    scene bg black with fade
+    show tue with fade
+    pause 1.5
+    hide tue with fade
     scene bg grura
     play sound child1
     show karin mhappy at center
@@ -631,6 +637,10 @@ label scene9:
     stop music fadeout 1.0
     pause 0.75
     play music maintheme fadein 1.0
+    scene bg black with fade
+    show wed with fade
+    pause 1.5
+    hide wed with fade
     scene bg bedroom with dissolve
     "???" "{b}KICKERIKI! KICKERIKI! KICKERIKI!{/b}"
     p "Waaah!"
@@ -1018,6 +1028,10 @@ label scene12:
         ##### Szene 13 #####
 label scene13:
     stop music fadeout 1.0
+    scene bg black with fade
+    show thr with fade
+    pause 1.5
+    hide thr with fade
     scene bg street
     show mum happy at center
     with dissolve
@@ -1334,6 +1348,10 @@ label scene14:
 
 label scene15:
     stop music fadeout 1.0
+    scene bg black with fade
+    show fri with fade
+    pause 1.5
+    hide fri with fade
     scene bg grura
     with dissolve
     play music maintheme fadein 1.0
@@ -2273,16 +2291,25 @@ label scene22:
     "Papa:" "Hmmmh, naja das wird schon. Im Kindergarten gibt es öfters mal was. Ich kann mich noch daran erinnern wie wir immer..."
     n "Papa erzählt gerne Geschichten von früher. Das ist meistens auch ganz spannend. Auf jeden Fall wird das keine langweilige Heimfahrt."
     play sound cardoor2
-    
+  
+   ##### TAG 5 ENDE #####
+            
+  ##### TAG 6 BEGINN #####
     
 label scenew2_0:
+    scene bg black with fade
+    show mnd with fade
+    pause 1.5
+    hide mnd with fade
     scene bg street
     show car at rightish
     show dad n at center
     with fade
     n "Man, das Wochenende bei Papa war echt toll."
     n "Irgendwie ist es komisch ihn nur noch am Wochenende zu sehen."
+    show bananasplit at center with dissolve
     n "Immerhin machen wir jetzt mehr zusammen. Und das extra große Banana Split bei Waluigi’s war echt lecker."
+    hide bananasplit
     show cg gameboy with dissolve
     n "Außerdem hab' ich jetzt ein Vega PlayGear und ich darf es sogar mit in den Kindergarten nehmen."
     hide cg gameboy with dissolve
@@ -2341,7 +2368,10 @@ label scenew2_1:
     a "Mein Papa verdient nicht so viel, aber trotzdem kauft er mir immer wieder schöne Geschenke, wie neulich, da hat er mir…"
     n "Mit Anja zu reden macht manchmal wirklich keinen Spaß. Randy sitzt da drüben so alleine. Vielleicht hat er was Spannenderes zu erzählen."
     n "Heute reden wir im Morgenkreis über Bauernhoftiere, wie z.B. Kühe, Schweine und Schafe."
-    n "Nur warum können wir nicht lieber über coole Tiere wie Dinosaurier reden? Wen interessiert denn schon, dass eine Kuh \"muh\" macht? Ich will wissen was ein T-Rex für ein Geräusch macht: Bestimmt \"rawr\" oder sowas."
+    n "Nur warum können wir nicht lieber über coole Tiere wie Dinosaurier reden? Wen interessiert denn schon, dass eine Kuh \"muh\" macht"
+    show dino at center with dissolve
+    n "Ich will wissen was ein T-Rex für ein Geräusch macht: Bestimmt \"rawr\" oder sowas."
+    hide dino with fadeout
     
 label scenew2_2:
     
