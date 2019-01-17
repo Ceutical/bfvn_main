@@ -387,10 +387,12 @@ label scene4:
     
     ##### Szene 5 #####
 label scene5:
+    stop sound fadeout 1.0
     stop music fadeout 1.0
     pause 0.75
     play music anjatheme fadein 1.0
     scene bg food
+    play sound child2
     show anja eat at center
     with fade
     n "Hmm… Wo soll ich mich bloß hinsetzen. Ich kenn doch noch niemanden."
@@ -431,6 +433,7 @@ label scene5:
     a "..."
     n "Ah jetzt hat sie aufgehört."
     p "Du, ich muss mal kurz wo hin..."
+    stop sound fadeout 1.0
     
     ##### Szene 6 #####
 label scene6:
@@ -441,6 +444,7 @@ label scene6:
     n "Puh… ein Glück dass das Gespräch erstmal vorbei ist."
     n "So viel Labern hält ja keiner aus."
     show eve draw at center with moveinbottom
+    play sound draw
     n "Die da sieht ruhiger aus. Was macht sie da am Tisch? Am besten ich stell mich mal vor. Vielleicht will sie ja meine Freundin sein."
     p "Hallo du da. Ich bin [name] und wer bist du?"
     e "Evelynn."
@@ -538,6 +542,7 @@ label meantoeve:
     ##### Szene 7 #####
 label scene7:
     scene bg grura
+    play sound child1
     show karin mhappy at center
     with dissolve
     n "Man… heute ist der Morgenkreis echt langweilig."
@@ -607,6 +612,7 @@ label scene8:
         
         "Au ja!":
             scene cg foodplay with dissolve
+            play sound foodplay
             e "Nicht schlecht. Man kann fast erkennen, dass du ein Haus bauen wolltest."
             p "Das soll doch aber eine Burg sein!"
             e "Ohh! Ja stimmt, wenn man es weiß. Du musst aber wirklich noch üben."
@@ -615,6 +621,8 @@ label scene8:
             scene cg food with dissolve
             p "Nein ... nein ich esse lieber ganz normal. Ich will mich nicht schmutzig machen."
             e "Dann nicht ..."
+
+stop sound fadeout 1.0
     ##### TAG 2 ENDE #####
     
     ##### TAG 3 BEGINN #####
@@ -934,6 +942,7 @@ label scene11:
                 a "Bist wohl Ein[suf2] mit Geschmack!"
                 p "Ich ... weiß nicht wie ich schmecke ..."
                 a "Hahaha!"
+                play sound snackers
                 a "Aaahh, Super. Jetzt gehts mir besser."
                 
             "Nein":
@@ -1144,8 +1153,8 @@ label scene14:
     play sound bell
     scene cg bikecat with fade
     p "Ohh ... WOAH! Katze vorsicht!"
-    play sound grassbump
     scene cg bikefall with fade
+    play sound grassbump
     p "Aua ..."
     
     menu:
@@ -1960,6 +1969,7 @@ label scene20:
             o "Der Turm von Pisa!"
             
             show epantobaum
+            hide epanto
             n "Evelynn nimmt einen Karton und stellt sich darauf, ich glaube es könnte..."
             menu:
                 "...ein Surfer...":
@@ -2062,14 +2072,13 @@ label scene20:
                     e "Tut mir Leid, ich kann das nicht..."
                     a "Los, was bist du?"
                     e "Surferin."
-                    show epanto
+                    show eparty mad at rotation
                     e "Wooosh"
                     "Alle" "Hmmmmh."
                     "Evelynn schaut mich an."
                     menu:
                         "Schauspiel loben":
                             p "Ist auch kein leichtes Wort, schlecht hast du nicht gespielt."
-                            hide epanto
                             show eparty happy2 at center
                             o "Ähm was?"
                             r "Jetzt bist du dran [name]. Los!"
@@ -2083,7 +2092,6 @@ label scene20:
 
                         "Mit dem Rest schweigen":
                             "..."
-                            hide epanto
                             show eparty talk2 at center
                             e "Du bist dran!"
                             r "Stimmt, hier dein Zettel!"
@@ -2419,7 +2427,7 @@ label scenew2_2:
             n "Ich kann ja auch noch Nachmittag daheim spielen, erst einmal zu Evelynn!"
             n "Der Maltisch ist wohl heute wirklich voll. Randy hat sich wohl alle Brettspiele geschnappt."
             scene bg grura2
-            show eve draw
+            show eve draw 
             n "Was malt die denn da?"
             show mantikoreve with fade
             hide mantikoreve with fade
@@ -2437,16 +2445,19 @@ label scenew2_2:
                 "Rot":
                     $ colo = "r"
                     show rot
+                    play sound draw
                     n "Es war aggressiv! Also Rot!"
                 
                 "Orange":
                     $ colo = "o"
                     show orange
+                    play sound draw
                     n "Es sah aus wie ein echtes Tier. Viele sind Orange!"
                 
                 "Lila":
                     $ colo = "l"
                     show lila
+                    play sound draw
                     n "Evelynn mag viele Farben, also wohl Lila!"
             
             n "Moment, was war es überhaupt für ein Tier?"
@@ -2455,14 +2466,17 @@ label scenew2_2:
                 "Echse":
                     $ body = "e"
                     show echse
+                    play sound draw
                     "Genau, groß und lang wie eine Echse!"
                 "Löwe":
                     $ body = "l"
                     show loewe
+                    play sound draw
                     "Es war stark, so wie ein Löwe!"
                 "Hase":
                     $ body = "h"
                     show hase
+                    play sound draw
                     "Es sah irgendwie niedlich aus, wie ein Hase!"
             
             
@@ -2473,14 +2487,17 @@ label scenew2_2:
                 "Skorpion":
                     $ schwanz = "s"
                     show sschwanz
+                    play sound draw
                     n "Bei einem Skorpion, die sind super giftig!"
                 "Drache":
                     $ schwanz = "d"
                     show dschwanz
+                    play sound draw
                     n "Evelynn mag Fantasiebücher, Drachen kommen häufig vor!"
                 "Löwe":
                     $ schwanz = "l"
                     show lschwanz
+                    play sound draw
                     n "Löwe ist aufjedenfall mit drinnen, so viel weiß ich!"
             
             n "Irgendwas fehlt noch. Doch was?"
@@ -2490,14 +2507,17 @@ label scenew2_2:
                 "Fledermaus":
                     $ flug = "f"
                     show fwings
+                    play sound draw
                     n "Das waren eindeutig Fledermausflügel!"
                 "Drache":
                     $ flug = "d"
                     show dwings
+                    play sound draw
                     n "Es waren dunkle starke Flügel!"
                 "Vogel":
                     $ flug = "v"
                     show bwings
+                    play sound draw
                     n "Vögel sind die besten was fliegen an geht, also muss es wohl das sein!"
             
             n "So!"
