@@ -172,8 +172,12 @@ label childlike:
     m "Ach jetzt stell dich nicht so an. Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
     m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
     p "Pfannkuchen! Jaa! Mama ich hab dich lieb!"
-    show bg kitchen with dissolve
-    n "Mamas Umarmungen sind die Besten."
+    scene bg kitchen with dissolve
+    show pancakes with dissolve
+    n "Am liebsten würde ich jeden Tag Pfannkuchen essen."
+    show mum talk
+    hide pancakes with dissolve
+    
     m "Freust du dich schon deine neuen Freunde kennenzulernen?"
     menu:
         "Jaaaaaa!":
@@ -211,8 +215,10 @@ label scene3:
     show heide n at slightright with moveinright
     n "Was für ne gruselige Frau ist da vorne denn?"
     n "Die sieht überhaupt nicht nett aus."
+    show ghost with dissolve
     n "Und warum ist die so weiß? Wie ein Geist..."
     hide mum
+    hide ghost with dissolve
     show heide talk at center with move
     h "Ah. Der Neuzugang. Ich bin Frau Heidenau. Wie ist dein Name [pro6]?"
     menu:
@@ -259,9 +265,9 @@ label scene3:
     
     hide heide with moveoutleft
     show karin n with moveinright
+    hide mum with moveoutleft
     n "Wer ist die Frau? Ist das diese Karin von der die Alte erzählt hat?"
     k "Ahh, hallo sie Beide. Danke, dass Sie ihr Kind gebracht habe. Sie können unbesorgt sein, wir kümmern uns ganz wunderprächtig um [pro5]."
-    hide mum with moveoutleft
     k "Also willkommen dann, in der Käfergruppe!"
     show karin go
     k "Kinder, kommt mal alle zusammen, wir haben Neuzugang bekommen!"
@@ -558,8 +564,11 @@ label scene7:
     
     ##### Szene 8 #####
 label scene8:
-    n "Endlich essen! Wenn ich mich wieder zu Anja setze dann labert die mich wieder voll."
+    n "Endlich essen!"
+    show talking with dissolve
+    n "Wenn ich mich wieder zu Anja setze dann labert die mich wieder voll."
     n "Da hab ich echt keinen Bock drauf!"
+    hide talking with dissolve
     n "Aber vielleicht kann ich mich ja zu Evelynn setzen."
     scene bg food
     show eve foodplay at center
@@ -1405,8 +1414,11 @@ label scene15:
     a "Lügnerin!"
     show octa vmad
     o "Nenn mich nicht so, wenn ich keine bin!"
+    show fight with dissolve
+    n "Mama würde jetzt sagen, die Beiden sehen aus wie Zankhähne. Ich selber hab noch nie zankende Hühner gesehen."
     a "Aber du kannst das nicht!"
     o "Kann ich wohl!"
+    hide fight with dissolve
     n "Irgendwie blick ich nicht durch, aber Hula Hoop hört sich lustig an"
     p "Darf ich vielleicht den Reifen haben?"
     "{color=#0099ff}Octavia:{/color} Du erst recht nicht! \n{color=#0099ff}Anja:{/color} Gerade nicht!"
@@ -2291,7 +2303,7 @@ label scene22:
     p "Ich weiß nicht."
     "Papa:" "Hmmmh, naja das wird schon. Im Kindergarten gibt es öfters mal was. Ich kann mich noch daran erinnern wie wir immer..."
     n "Papa erzählt gerne Geschichten von früher. Das ist meistens auch ganz spannend. Auf jeden Fall wird das keine langweilige Heimfahrt."
-    play sound cardoor2
+    
   
    ##### TAG 5 ENDE #####
             
@@ -2303,6 +2315,7 @@ label scenew2_0:
     pause 1.5
     hide mnd with fade
     scene bg street
+    play sound cardoor2
     show car at rightish
     show dad n at center
     with fade
@@ -2368,15 +2381,18 @@ label scenew2_1:
     p "Ja, er…"
     a "Mein Papa verdient nicht so viel, aber trotzdem kauft er mir immer wieder schöne Geschenke, wie neulich, da hat er mir…"
     n "Mit Anja zu reden macht manchmal wirklich keinen Spaß. Randy sitzt da drüben so alleine. Vielleicht hat er was Spannenderes zu erzählen."
+    hide anja
+    scene bg grura
+    show karin go at center with dissolve
     n "Heute reden wir im Morgenkreis über Bauernhoftiere, wie z.B. Kühe, Schweine und Schafe."
-    n "Nur warum können wir nicht lieber über coole Tiere wie Dinosaurier reden? Wen interessiert denn schon, dass eine Kuh \"muh\" macht"
     show dino at center with dissolve
+    n "Nur warum können wir nicht lieber über coole Tiere wie Dinosaurier reden? Wen interessiert denn schon, dass eine Kuh \"muh\" macht"
     n "Ich will wissen was ein T-Rex für ein Geräusch macht: Bestimmt \"rawr\" oder sowas."
-    hide dino with fadeout
+    hide dino with dissolve
     
 label scenew2_2:
     
-    scene bg grura
+    hide karin
     play music maintheme
     n "Der Morgenkreis ist endlich vorbei!"
     n "Ich will endlich Fightë Møn weiter spielen! Ich mach die Arenen heute fertig!"
