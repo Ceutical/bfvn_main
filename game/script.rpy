@@ -527,6 +527,7 @@ label scene6:
     n "Wow… die kann mega toll malen. Ich will das auch können."
     n "Vielleicht kann sie mir ja morgen zeigen wie ich auch so gut werde."
 label meantoeve:
+    hide eve
     n "Oh… da ist ja Mama? Ist es schon Nachmittag? Aber es war doch gerade noch Morgenkreis und jetzt ist schon wieder Schluss?"
     n "Das ging ja echt schnell."
     show mum happy at center with moveinleft
