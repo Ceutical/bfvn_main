@@ -4,16 +4,28 @@
 
 define m = Character("Mama")
 define v = Character("Papa")
+
 define p = Character("[name]") #Name of Player Character -- P = Protagonist
+define pt = Character("[name]", window_ypos=0.27) #ProtaTOP
+
 define n = Character(name=None, what_italic=True) #Narrator
+define nt = Character(name=None, window_ypos=0.27, what_italic=True) #NarratorTOP
+
 define a = Character("Anja")
+
 define e = Character("Evelynn")
+define et = Character("Evelynn", window_ypos=0.27) #EvelynnTOP
+
 define o = Character("Octavia")
 define O = Character("Octa")
 define h = Character("Frau Heidenau")
 define k = Character("Karin")
+
 define L = Character("Louis")
+define Lt = Character("Louis", window_ypos=0.27) #LouisTOP
+
 define r = Character("Randy")
+define rt = Character("Randy", window_ypos=0.27) #RandyTOP
 define emum = Character("Evelynns Mutter")
 define edad = Character("Evelynns Vater")
 define omum = Character("Octavias Mutter")
@@ -21,6 +33,10 @@ define odad = Character("Octavias Vater")
 define rmum = Character("Randys Mutter")
 define rdad = Character("Randys Vater")
 define nvln = Character(name=None, kind=nvl)
+
+#define test = Character("Test", window_ypos=0.27) #TESTCHAR
+
+
 
 ######################################
 
@@ -163,7 +179,7 @@ label childlike:
     play sound decke
     show bg bedroom2 with fade
     n "Nein… nicht die warme Decke…"
-    n "Mann, muss alles so hell sein…"
+    n "Man, muss alles so hell sein…"
     show bg bedroom with dissolve
     show mum talk with moveinright
     m "Guten Morgen mein kleiner Spatz!"
@@ -2709,16 +2725,82 @@ label scenew2_4:
     menu:
         "Sandkasten":
             scene bg sand
-            n "Im Sandkasten ist es wohl wenigstens immer noch entspannt, dann auf zu dem!"
+            nt "Mal sehen, was Louis da so macht!"
+            jump scenew2_5
 
         "Ball spielen":
             scene bg ball
             n "Wenn jeder spielt, dann muss ich wohl auch mitmachen."
             
 label scenew2_5:
-    scene bg castle
-    "Hier ist das Ende der Demo und im Hintergrund ein kleiner Teaser!"
-
+    scene bg sand
+    show burg
+    show sandauto
+    show sandkuchen
+    show sandpyramide
+    with dissolve
+    pt "Hey, Louis!"
+    Lt "Oh, hi Prota, willst du mitmachen?"
+    pt "Hää… wie mitmachen. Bei was denn?"
+    Lt "Na, wir spielen Geschichten erzählen."
+    pt "Wie spielt man denn etwas zu erzählen?"
+    Lt "Wie, das weißt du nicht?"
+    Lt "Na gut, okay ich erklärs."
+    Lt "Also ich fange einen Satz an und du vervollständigst den dann. Und da wird dann eine Geschichte draus."
+    Lt "Schau ich hab hier zum Beispiel ein Schloss gebaut."
+    nt "Naja, ob das wie ein Schloss aussieht... Wie hat er es überhaupt geschafft, dass das so schief steht."
+    nt "Heißt das, er hat die anderen Sachen gar nicht gebaut? Wer baut denn ein Auto und'ne Pyramide und lässt die dann einfach stehen?"
+    nt "Und ich glaube auch nicht das Randy den Sand essen sollte. Meine Mama sagt zumindest immer, dass man das nicht macht."
+    Lt "…und dann könnte man zum Beispiel…"
+    Lt "Hey Prota, hörst du mir überhaupt zu?"
+    pt "Ääääh… was?"
+    Lt "Oh man, hör halt mal zu! Und Randy hör auf den Sandkuchen zu essen. Den hab ich gestern gebaut. Der ist nicht zum essen."
+    rt "Sorry… er sieht so lecker aus. Und er schmeckt nach Zitrone."
+    Lt "Ach, mach, was du willst."
+    Lt "Also, hörst du mir jetzt zu [name]?"
+    pt "Ja, klar."
+    Lt "Gut, dann los!"
+    Lt "Heute erzählen wir die Geschichte von einem schrecklichen Ort…"
+    nt "Er deutet auf seine Sandburg. Ich glaub er will, dass ich ihr einen Namen gebe…"
+    
+    menu:
+        "Äh...Schloss...äh Sand..gel.":
+            Lt "Naja gut. Wenn du meinst..."
+            Lt "Wir erzählen also die Geschichte von Schloss Sandgel, in dem der schwarze Ritter wohnt."
+            show badboy with dissolve
+            Lt "Der schwarze Ritter ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
+            Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
+            pt "Und wie heißen die?"
+            Lt "Ähhh... das weiß keiner."
+            Lt "Ach ja und um das Schloss betreten zu können müssen die Helden drei Prüfungen bestehen damit ..."
+            Lt "Ähh.. sie drei Teile eines magischen Schlüssels erhalten."
+            
+        "Die Schreckensburg von Zauberer Dunkelbös.":
+            Lt "Oh, ja das klingt gut!"
+            Lt "Wir erzählen also die Geschichte vom bösen Zauberer Dunkelbös der in seiner Schreckensburg lebt."
+            show badboy with dissolve
+            Lt "Wie gesagt der Zauberer ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
+            
+        "Ich weiß nicht. Mir fällt nichts ein... vielleicht ...Fort Knight.":
+            Lt "Man echt?"
+            Lt "Voll der lahme Name. Aber wenn’s sein muss..."
+            Lt "Wir erzählen also die Geschichte von Fort Knight in dem der dunkle Ritter wohnt."
+            show badboy with dissolve
+            Lt "Der schwarze Ritter ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
+            
+            
+    Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
+    show held
+    show knight
+    show wizzard
+    with dissolve
+    pt "Und wie heißen die?"
+    Lt "Ähhh... das weiß keiner."
+    Lt "Ach ja und um das Schloss betreten zu können müssen die Helden drei Prüfungen bestehen damit ..."
+    Lt "Ähh.. sie drei Teile eines magischen Schlüssels erhalten."
+    
+    
+    
 label scenew2_6:
     "Hier ist das Ende der Demo! Aber mit mehr Text!"
     

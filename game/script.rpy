@@ -25,6 +25,7 @@ define L = Character("Louis")
 define Lt = Character("Louis", window_ypos=0.27) #LouisTOP
 
 define r = Character("Randy")
+define rt = Character("Randy", window_ypos=0.27) #RandyTOP
 define emum = Character("Evelynns Mutter")
 define edad = Character("Evelynns Vater")
 define omum = Character("Octavias Mutter")
@@ -178,7 +179,7 @@ label childlike:
     play sound decke
     show bg bedroom2 with fade
     n "Nein… nicht die warme Decke…"
-    n "Mann, muss alles so hell sein…"
+    n "Man, muss alles so hell sein…"
     show bg bedroom with dissolve
     show mum talk with moveinright
     m "Guten Morgen mein kleiner Spatz!"
@@ -2724,16 +2725,104 @@ label scenew2_4:
     menu:
         "Sandkasten":
             scene bg sand
-            n "Im Sandkasten ist es wohl wenigstens immer noch entspannt, dann auf zu dem!"
+            nt "Mal sehen, was Louis da so macht!"
+            jump scenew2_5
 
         "Ball spielen":
             scene bg ball
             n "Wenn jeder spielt, dann muss ich wohl auch mitmachen."
             
 label scenew2_5:
-    scene bg castle
-    "Hier ist das Ende der Demo und im Hintergrund ein kleiner Teaser!"
+    scene bg sand
+    show burg
+    show sandauto
+    show sandkuchen
+    show sandpyramide
+    with dissolve
+    pt "Hey, Louis!"
+    Lt "Oh, hi Prota, willst du mitmachen?"
+    pt "Hää… wie mitmachen. Bei was denn?"
+    Lt "Na, wir spielen Geschichten erzählen."
+    pt "Wie spielt man denn etwas zu erzählen?"
+    Lt "Wie, das weißt du nicht?"
+    Lt "Na gut, okay ich erklärs."
+    Lt "Also ich fange einen Satz an und du vervollständigst den dann. Und da wird dann eine Geschichte draus."
+    Lt "Schau ich hab hier zum Beispiel ein Schloss gebaut."
+    nt "Naja, ob das wie ein Schloss aussieht... Wie hat er es überhaupt geschafft, dass das so schief steht."
+    nt "Heißt das, er hat die anderen Sachen gar nicht gebaut? Wer baut denn ein Auto und'ne Pyramide und lässt die dann einfach stehen?"
+    nt "Und ich glaube auch nicht das Randy den Sand essen sollte. Meine Mama sagt zumindest immer, dass man das nicht macht."
+    Lt "…und dann könnte man zum Beispiel…"
+    Lt "Hey Prota, hörst du mir überhaupt zu?"
+    pt "Ääääh… was?"
+    Lt "Oh man, hör halt mal zu! Und Randy hör auf den Sandkuchen zu essen. Den hab ich gestern gebaut. Der ist nicht zum essen."
+    rt "Sorry… er sieht so lecker aus. Und er schmeckt nach Zitrone."
+    Lt "Ach, mach, was du willst."
+    Lt "Also, hörst du mir jetzt zu [name]?"
+    pt "Ja, klar."
+    Lt "Gut, dann los!"
+    Lt "Heute erzählen wir die Geschichte von einem schrecklichen Ort…"
+    nt "Er deutet auf seine Sandburg. Ich glaub er will, dass ich ihr einen Namen gebe…"
+    
+    menu:
+        "Äh...Schloss...äh Sand..gel.":
+            Lt "Naja gut. Wenn du meinst..."
+            Lt "Wir erzählen also die Geschichte von Schloss Sandgel, in dem der schwarze Ritter wohnt."
+            show badboy with dissolve
+            Lt "Der schwarze Ritter ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
+            Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
+            pt "Und wie heißen die?"
+            Lt "Ähhh... das weiß keiner."
+            Lt "Ach ja und um das Schloss betreten zu können müssen die Helden drei Prüfungen bestehen damit ..."
+            Lt "Ähh.. sie drei Teile eines magischen Schlüssels erhalten."
+            
+        "Die Schreckensburg von Zauberer Dunkelbös.":
+            Lt "Oh, ja das klingt gut!"
+            Lt "Wir erzählen also die Geschichte vom bösen Zauberer Dunkelbös der in seiner Schreckensburg lebt."
+            show badboy with dissolve
+            Lt "Wie gesagt der Zauberer ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
+            
+        "Ich weiß nicht. Mir fällt nichts ein... vielleicht ...Fort Knight.":
+            Lt "Man echt?"
+            Lt "Voll der lahme Name. Aber wenn’s sein muss..."
+            Lt "Wir erzählen also die Geschichte von Fort Knight in dem der dunkle Ritter wohnt."
+            show badboy with dissolve
+            Lt "Der schwarze Ritter ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
+            
+            
+Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
+    show held
+    show knight
+    show wizzard
+    with dissolve
+    pt "Und wie heißen die?"
+    Lt "Ähhh... das weiß keiner."
+    Lt "Ach ja und um das Schloss betreten zu können müssen die Helden drei Prüfungen bestehen damit ..."
+    Lt "Ähh.. sie drei Teile eines magischen Schlüssels erhalten."
+    Lt "Ihre Reise beginnt also. Als Erstes müssen sie..."
 
+    menu:
+        "...auf die Spitze der Pyramide des Verderbens klettern.":
+            show doom with dissolve
+            Lt "Auf ihrem Weg zum Schloss treffen die Drei auf eine riesige Pyramide."
+            Lt "Nach drei harten Tagen haben sie es endlich bis zur Spitze der Pyramide geschafft. In der goldenen Spitze finden sie ein Fach mit einem Teil des Schlüssels."
+
+        "die Ente des Verderbens besiegen.":
+            show duck with dissolve
+            Lt "Eine Ente? Echt?"
+            Lt "Meinst du das Ernst?"
+            pt "Also ja..."
+            Lt "Ach egal."
+            Lt "auf ihrem Weg zum Schloss treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
+            Lt "Nach einem harten Kampf, schaffen die Helden es der Ente das Halsband mit dem Teil des Schlüssels abzunehmen."
+
+        "den gefährlichen Fluss der Unterwelt überqueren.":
+            show island with dissolve
+            Lt "Okay."
+            Lt "Auf dem Weg zum Schloss kommen sie an einem gefährlichen Fluss an. In der Mitte des Stroms ist eine Insel mit einer Schatztruhe."
+            Lt "Leider ist die Brücke, die eigentlich zur Insel führen soll, zerstört."
+            Lt "Die Helden schaffen es aber, ein Floß zu bauen. Sie überwinden den Strom und schnappen sich den ersten Teil des Schlüssels."    
+    
+    
 label scenew2_6:
     "Hier ist das Ende der Demo! Aber mit mehr Text!"
     

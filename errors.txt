@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 37: expected statement.
-    Louis, Evelyn, P, Narrator
-         ^
+File "game/script.rpy", line 2787: end of line expected.
+    Lt "Wir erzählen also die Geschichte von Fort Knight in dem der dunkle Ritter wohnt." show badboy with dissolve
+                                                                                          ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Thu Jan 24 20:22:38 2019
+Thu Jan 24 23:44:34 2019
