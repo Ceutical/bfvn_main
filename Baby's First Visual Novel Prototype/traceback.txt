@@ -1,0 +1,30 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 17, in script
+    "So wuerde ich den Ton beschreiben den unser blauer /"BW Tennis"/ ausstoesst, wenn seine Tueren mit einer Leichtigkeit ins Schloss fallen."
+  File "renpy/common/00library.rpy", line 266, in say
+    who(what, interact=interact, *args, **kwargs)
+Exception: Say has image attributes (u'BW', u'Tennis'), but there's no image tag associated with the speaking character.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 17, in script
+    "So wuerde ich den Ton beschreiben den unser blauer /"BW Tennis"/ ausstoesst, wenn seine Tueren mit einer Leichtigkeit ins Schloss fallen."
+  File "D:\Ren'Py\renpy-7.1.1-sdk\renpy\ast.py", line 678, in execute
+    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
+  File "D:\Ren'Py\renpy-7.1.1-sdk\renpy\exports.py", line 1202, in say
+    renpy.store.say(who, what, *args, **kwargs)
+  File "renpy/common/00library.rpy", line 266, in say
+    who(what, interact=interact, *args, **kwargs)
+  File "D:\Ren'Py\renpy-7.1.1-sdk\renpy\character.py", line 971, in __call__
+    self.resolve_say_attributes(False, wanted=speaking)
+  File "D:\Ren'Py\renpy-7.1.1-sdk\renpy\character.py", line 851, in resolve_say_attributes
+    raise Exception("Say has image attributes %r, but there's no image tag associated with the speaking character." % (attrs,))
+Exception: Say has image attributes (u'BW', u'Tennis'), but there's no image tag associated with the speaking character.
+
+Windows-8-6.2.9200
+Ren'Py 7.1.1.929
+Baby's First Visual Novel Prototype 1.0
+Thu Nov 15 01:54:09 2018
