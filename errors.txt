@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1518: expected statement.
-    nvl " "
-       ^
+File "game/script.rpy", line 37: expected statement.
+    Louis, Evelyn, P, Narrator
+         ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Fri Dec 14 04:36:54 2018
+Thu Jan 24 20:22:38 2019

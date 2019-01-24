@@ -4,15 +4,26 @@
 
 define m = Character("Mama")
 define v = Character("Papa")
+
 define p = Character("[name]") #Name of Player Character -- P = Protagonist
+define pt = Character("[name]", window_ypos=0.27) #ProtaTOP
+
 define n = Character(name=None, what_italic=True) #Narrator
+define nt = Character(name=None, window_ypos=0.27, what_italic=True) #NarratorTOP
+
 define a = Character("Anja")
+
 define e = Character("Evelynn")
+define et = Character("Evelynn", window_ypos=0.27) #EvelynnTOP
+
 define o = Character("Octavia")
 define O = Character("Octa")
 define h = Character("Frau Heidenau")
 define k = Character("Karin")
+
 define L = Character("Louis")
+define Lt = Character("Louis", window_ypos=0.27) #LouisTOP
+
 define r = Character("Randy")
 define emum = Character("Evelynns Mutter")
 define edad = Character("Evelynns Vater")
@@ -21,6 +32,10 @@ define odad = Character("Octavias Vater")
 define rmum = Character("Randys Mutter")
 define rdad = Character("Randys Vater")
 define nvln = Character(name=None, kind=nvl)
+
+#define test = Character("Test", window_ypos=0.27) #TESTCHAR
+
+
 
 ######################################
 

@@ -34,6 +34,27 @@ define audio.maintheme = "music/soundtracks/maintheme.mp3"
 define audio.treefall = "music/sfx/treefall.ogg"
 define audio.cardoor1 = "music/sfx/Autotür1.ogg"
 define audio.cardoor2 = "music/sfx/Autotür2.ogg"
+define audio.decke = "music/sfx/Decke.ogg"
+define audio.grassbump = "music/sfx/Aufprall_Rasen.ogg"
+define audio.ball = "music/sfx/Ball.ogg"
+define audio.ball2 = "music/sfx/Ball1.ogg"
+define audio.bal3l = "music/sfx/Ball2.ogg"
+define audio.ball4 = "music/sfx/Ball3.ogg"
+define audio.ball5 = "music/sfx/Ball4.ogg"
+define audio.ballhit1 = "music/sfx/Ball_Getroffen1.ogg"
+define audio.ballhit2 = "music/sfx/Ball_Getroffen2.ogg"
+define audio.ballhit3 = "music/sfx/Ball_Getroffen3.ogg"
+define audio.bell = "music/sfx/bell.ogg"
+define audio.child1 = "music/sfx/Kindergeräusche1.ogg"
+define audio.child2 = "music/sfx/Kindergeräusche2.ogg"
+define audio.kg = "music/sfx/Kinderklasse.ogg"
+define audio.pbutton1 = "music/sfx/KnöpfeDrücken1.ogg"
+define audio.pbutton2 = "music/sfx/KnöpfeDrücken2.ogg"
+define audio.pbutton3 = "music/sfx/KnöpfeDrücken3.ogg"
+define audio.draw = "music/sfx/Malgeräusche.ogg"
+define audio.foodplay = "music/sfx/Mit Essen Spielen.ogg"
+define audio.snackers = "music/sfx/snackers.ogg"
+define audio.street = "music/sfx/street.ogg"
 
 ######################################
 
@@ -131,12 +152,15 @@ label scene1:
 
     ##### Szene 2 CHILD #####
 label childlike:
+    scene mnd with fade
+    pause 1.5
     scene bg black with fade
     "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
     n "Oh man. Ich mag Montage nicht. Ich bin noch so müde."
     n "Aber Moment! Heute geht's in den neuen Kindergarten."
     n "Da treff ich bestimmt..."
     m "Raus aus den Federn jetzt. Es gibt Frühstück!"
+    play sound decke
     show bg bedroom2 with fade
     n "Nein… nicht die warme Decke…"
     n "Mann, muss alles so hell sein…"
@@ -148,8 +172,12 @@ label childlike:
     m "Ach jetzt stell dich nicht so an. Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
     m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
     p "Pfannkuchen! Jaa! Mama ich hab dich lieb!"
-    show bg kitchen with dissolve
-    n "Mamas Umarmungen sind die Besten."
+    scene bg kitchen with dissolve
+    show pancakes with dissolve
+    n "Am liebsten würde ich jeden Tag Pfannkuchen essen."
+    show mum talk
+    hide pancakes with dissolve
+    
     m "Freust du dich schon deine neuen Freunde kennenzulernen?"
     menu:
         "Jaaaaaa!":
@@ -177,17 +205,20 @@ label scene3:
         n "Aber irgendwie auch nicht. Vielleicht finde ich da ja neue noch bessere Freunde als in meinem alten Kindergarten. "
         m "Das wird ein ganz toller Tag, glaub mir!"
     else:
-        n "Verdammt ich möchte das nicht. Muss das sein? Mein alter Kindergarten war doch super. Warum muss ich jetzt hier hin?."
+        n "Verdammt ich möchte das nicht. Muss das sein? Mein alter Kindergarten war doch super. Warum muss ich jetzt hier hin?"
         n "Naja, wenigstens ist Mama da."
         m "Gleich sind wir da. Keine Angst, das wird schon! Du wirst bestimmt viele neue Freunde finden."
         n "Mein alter Kindergarten ist definitiv schöner als das hässliche Haus da."
     scene bg flur with dissolve
+    play sound child1
     show mum n at slightleft with moveinleft
     show heide n at slightright with moveinright
     n "Was für ne gruselige Frau ist da vorne denn?"
     n "Die sieht überhaupt nicht nett aus."
+    show ghost with dissolve
     n "Und warum ist die so weiß? Wie ein Geist..."
     hide mum
+    hide ghost with dissolve
     show heide talk at center with move
     h "Ah. Der Neuzugang. Ich bin Frau Heidenau. Wie ist dein Name [pro6]?"
     menu:
@@ -234,9 +265,9 @@ label scene3:
     
     hide heide with moveoutleft
     show karin n with moveinright
+    hide mum with moveoutleft
     n "Wer ist die Frau? Ist das diese Karin von der die Alte erzählt hat?"
     k "Ahh, hallo sie Beide. Danke, dass Sie ihr Kind gebracht habe. Sie können unbesorgt sein, wir kümmern uns ganz wunderprächtig um [pro5]."
-    hide mum with moveoutleft
     k "Also willkommen dann, in der Käfergruppe!"
     show karin go
     k "Kinder, kommt mal alle zusammen, wir haben Neuzugang bekommen!"
@@ -364,10 +395,12 @@ label scene4:
     
     ##### Szene 5 #####
 label scene5:
+    stop sound fadeout 1.0
     stop music fadeout 1.0
     pause 0.75
     play music anjatheme fadein 1.0
     scene bg food
+    play sound child2
     show anja eat at center
     with fade
     n "Hmm… Wo soll ich mich bloß hinsetzen. Ich kenn doch noch niemanden."
@@ -408,6 +441,7 @@ label scene5:
     a "..."
     n "Ah jetzt hat sie aufgehört."
     p "Du, ich muss mal kurz wo hin..."
+    stop sound fadeout 1.0
     
     ##### Szene 6 #####
 label scene6:
@@ -418,6 +452,7 @@ label scene6:
     n "Puh… ein Glück dass das Gespräch erstmal vorbei ist."
     n "So viel Labern hält ja keiner aus."
     show eve draw at center with moveinbottom
+    play sound draw
     n "Die da sieht ruhiger aus. Was macht sie da am Tisch? Am besten ich stell mich mal vor. Vielleicht will sie ja meine Freundin sein."
     p "Hallo du da. Ich bin [name] und wer bist du?"
     e "Evelynn."
@@ -498,6 +533,7 @@ label scene6:
     n "Wow… die kann mega toll malen. Ich will das auch können."
     n "Vielleicht kann sie mir ja morgen zeigen wie ich auch so gut werde."
 label meantoeve:
+    hide eve
     n "Oh… da ist ja Mama? Ist es schon Nachmittag? Aber es war doch gerade noch Morgenkreis und jetzt ist schon wieder Schluss?"
     n "Das ging ja echt schnell."
     show mum happy at center with moveinleft
@@ -514,7 +550,12 @@ label meantoeve:
     ##### TAG 2 BEGINN #####
     ##### Szene 7 #####
 label scene7:
+    scene bg black with fade
+    show tue with fade
+    pause 1.5
+    hide tue with fade
     scene bg grura
+    play sound child1
     show karin mhappy at center
     with dissolve
     n "Man… heute ist der Morgenkreis echt langweilig."
@@ -523,8 +564,11 @@ label scene7:
     
     ##### Szene 8 #####
 label scene8:
-    n "Endlich essen! Wenn ich mich wieder zu Anja setze dann labert die mich wieder voll."
+    n "Endlich essen!"
+    show talking with dissolve
+    n "Wenn ich mich wieder zu Anja setze dann labert die mich wieder voll."
     n "Da hab ich echt keinen Bock drauf!"
+    hide talking with dissolve
     n "Aber vielleicht kann ich mich ja zu Evelynn setzen."
     scene bg food
     show eve foodplay at center
@@ -584,6 +628,7 @@ label scene8:
         
         "Au ja!":
             scene cg foodplay with dissolve
+            play sound foodplay
             e "Nicht schlecht. Man kann fast erkennen, dass du ein Haus bauen wolltest."
             p "Das soll doch aber eine Burg sein!"
             e "Ohh! Ja stimmt, wenn man es weiß. Du musst aber wirklich noch üben."
@@ -592,6 +637,8 @@ label scene8:
             scene cg food with dissolve
             p "Nein ... nein ich esse lieber ganz normal. Ich will mich nicht schmutzig machen."
             e "Dann nicht ..."
+
+stop sound fadeout 1.0
     ##### TAG 2 ENDE #####
     
     ##### TAG 3 BEGINN #####
@@ -600,6 +647,10 @@ label scene9:
     stop music fadeout 1.0
     pause 0.75
     play music maintheme fadein 1.0
+    scene bg black with fade
+    show wed with fade
+    pause 1.5
+    hide wed with fade
     scene bg bedroom with dissolve
     "???" "{b}KICKERIKI! KICKERIKI! KICKERIKI!{/b}"
     p "Waaah!"
@@ -911,6 +962,7 @@ label scene11:
                 a "Bist wohl Ein[suf2] mit Geschmack!"
                 p "Ich ... weiß nicht wie ich schmecke ..."
                 a "Hahaha!"
+                play sound snackers
                 a "Aaahh, Super. Jetzt gehts mir besser."
                 
             "Nein":
@@ -986,6 +1038,10 @@ label scene12:
         ##### Szene 13 #####
 label scene13:
     stop music fadeout 1.0
+    scene bg black with fade
+    show thr with fade
+    pause 1.5
+    hide thr with fade
     scene bg street
     show mum happy at center
     with dissolve
@@ -1052,6 +1108,7 @@ label scene13:
     o "Ist ohne die blöde \"Schutzausrüstung\" auch viel leichter."
     show obike wheelie with dissolve
     o "Schau her, so geht das!"
+    play sound bell
     show obike at right with move
     pause 0.2
     show obike wheelier with dissolve
@@ -1117,9 +1174,11 @@ label scene14:
     o "Das Hinterrad, komm schon! Komm schon! Komm schon!"
     p "Okay ... also ... SO! Octa guck! Ich kann es! ich kann es!"
     o "[name] pass auf! KATZE!"
+    play sound bell
     scene cg bikecat with fade
     p "Ohh ... WOAH! Katze vorsicht!"
     scene cg bikefall with fade
+    play sound grassbump
     p "Aua ..."
     
     menu:
@@ -1299,6 +1358,10 @@ label scene14:
 
 label scene15:
     stop music fadeout 1.0
+    scene bg black with fade
+    show fri with fade
+    pause 1.5
+    hide fri with fade
     scene bg grura
     with dissolve
     play music maintheme fadein 1.0
@@ -1351,8 +1414,11 @@ label scene15:
     a "Lügnerin!"
     show octa vmad
     o "Nenn mich nicht so, wenn ich keine bin!"
+    show fight with dissolve
+    n "Mama würde jetzt sagen, die Beiden sehen aus wie Zankhähne. Ich selber hab noch nie zankende Hühner gesehen."
     a "Aber du kannst das nicht!"
     o "Kann ich wohl!"
+    hide fight with dissolve
     n "Irgendwie blick ich nicht durch, aber Hula Hoop hört sich lustig an"
     p "Darf ich vielleicht den Reifen haben?"
     "{color=#0099ff}Octavia:{/color} Du erst recht nicht! \n{color=#0099ff}Anja:{/color} Gerade nicht!"
@@ -1934,6 +2000,7 @@ label scene20:
             o "Der Turm von Pisa!"
             
             show epantobaum
+            hide epanto
             n "Evelynn nimmt einen Karton und stellt sich darauf, ich glaube es könnte..."
             menu:
                 "...ein Surfer...":
@@ -2036,14 +2103,13 @@ label scene20:
                     e "Tut mir Leid, ich kann das nicht..."
                     a "Los, was bist du?"
                     e "Surferin."
-                    show epanto
+                    show eparty mad at rotation
                     e "Wooosh"
                     "Alle" "Hmmmmh."
                     "Evelynn schaut mich an."
                     menu:
                         "Schauspiel loben":
                             p "Ist auch kein leichtes Wort, schlecht hast du nicht gespielt."
-                            hide epanto
                             show eparty happy2 at center
                             o "Ähm was?"
                             r "Jetzt bist du dran [name]. Los!"
@@ -2057,7 +2123,6 @@ label scene20:
 
                         "Mit dem Rest schweigen":
                             "..."
-                            hide epanto
                             show eparty talk2 at center
                             e "Du bist dran!"
                             r "Stimmt, hier dein Zettel!"
@@ -2238,17 +2303,27 @@ label scene22:
     p "Ich weiß nicht."
     "Papa:" "Hmmmh, naja das wird schon. Im Kindergarten gibt es öfters mal was. Ich kann mich noch daran erinnern wie wir immer..."
     n "Papa erzählt gerne Geschichten von früher. Das ist meistens auch ganz spannend. Auf jeden Fall wird das keine langweilige Heimfahrt."
-    play sound cardoor2
     
+  
+   ##### TAG 5 ENDE #####
+            
+  ##### TAG 6 BEGINN #####
     
 label scenew2_0:
+    scene bg black with fade
+    show mnd with fade
+    pause 1.5
+    hide mnd with fade
     scene bg street
+    play sound cardoor2
     show car at rightish
     show dad n at center
     with fade
     n "Man, das Wochenende bei Papa war echt toll."
     n "Irgendwie ist es komisch ihn nur noch am Wochenende zu sehen."
+    show bananasplit at center with dissolve
     n "Immerhin machen wir jetzt mehr zusammen. Und das extra große Banana Split bei Waluigi’s war echt lecker."
+    hide bananasplit
     show cg gameboy with dissolve
     n "Außerdem hab' ich jetzt ein Vega PlayGear und ich darf es sogar mit in den Kindergarten nehmen."
     hide cg gameboy with dissolve
@@ -2306,12 +2381,18 @@ label scenew2_1:
     p "Ja, er…"
     a "Mein Papa verdient nicht so viel, aber trotzdem kauft er mir immer wieder schöne Geschenke, wie neulich, da hat er mir…"
     n "Mit Anja zu reden macht manchmal wirklich keinen Spaß. Randy sitzt da drüben so alleine. Vielleicht hat er was Spannenderes zu erzählen."
+    hide anja
+    scene bg grura
+    show karin go at center with dissolve
     n "Heute reden wir im Morgenkreis über Bauernhoftiere, wie z.B. Kühe, Schweine und Schafe."
-    n "Nur warum können wir nicht lieber über coole Tiere wie Dinosaurier reden? Wen interessiert denn schon, dass eine Kuh \"muh\" macht? Ich will wissen was ein T-Rex für ein Geräusch macht: Bestimmt \"rawr\" oder sowas."
+    show dino at center with dissolve
+    n "Nur warum können wir nicht lieber über coole Tiere wie Dinosaurier reden? Wen interessiert denn schon, dass eine Kuh \"muh\" macht"
+    n "Ich will wissen was ein T-Rex für ein Geräusch macht: Bestimmt \"rawr\" oder sowas."
+    hide dino with dissolve
     
 label scenew2_2:
     
-    scene bg grura
+    hide karin
     play music maintheme
     n "Der Morgenkreis ist endlich vorbei!"
     n "Ich will endlich Fightë Møn weiter spielen! Ich mach die Arenen heute fertig!"
@@ -2393,7 +2474,7 @@ label scenew2_2:
             n "Ich kann ja auch noch Nachmittag daheim spielen, erst einmal zu Evelynn!"
             n "Der Maltisch ist wohl heute wirklich voll. Randy hat sich wohl alle Brettspiele geschnappt."
             scene bg grura2
-            show eve draw
+            show eve draw 
             n "Was malt die denn da?"
             show mantikoreve with fade
             hide mantikoreve with fade
@@ -2411,16 +2492,19 @@ label scenew2_2:
                 "Rot":
                     $ colo = "r"
                     show rot
+                    play sound draw
                     n "Es war aggressiv! Also Rot!"
                 
                 "Orange":
                     $ colo = "o"
                     show orange
+                    play sound draw
                     n "Es sah aus wie ein echtes Tier. Viele sind Orange!"
                 
                 "Lila":
                     $ colo = "l"
                     show lila
+                    play sound draw
                     n "Evelynn mag viele Farben, also wohl Lila!"
             
             n "Moment, was war es überhaupt für ein Tier?"
@@ -2429,14 +2513,17 @@ label scenew2_2:
                 "Echse":
                     $ body = "e"
                     show echse
+                    play sound draw
                     "Genau, groß und lang wie eine Echse!"
                 "Löwe":
                     $ body = "l"
                     show loewe
+                    play sound draw
                     "Es war stark, so wie ein Löwe!"
                 "Hase":
                     $ body = "h"
                     show hase
+                    play sound draw
                     "Es sah irgendwie niedlich aus, wie ein Hase!"
             
             
@@ -2447,14 +2534,17 @@ label scenew2_2:
                 "Skorpion":
                     $ schwanz = "s"
                     show sschwanz
+                    play sound draw
                     n "Bei einem Skorpion, die sind super giftig!"
                 "Drache":
                     $ schwanz = "d"
                     show dschwanz
+                    play sound draw
                     n "Evelynn mag Fantasiebücher, Drachen kommen häufig vor!"
                 "Löwe":
                     $ schwanz = "l"
                     show lschwanz
+                    play sound draw
                     n "Löwe ist aufjedenfall mit drinnen, so viel weiß ich!"
             
             n "Irgendwas fehlt noch. Doch was?"
@@ -2464,14 +2554,17 @@ label scenew2_2:
                 "Fledermaus":
                     $ flug = "f"
                     show fwings
+                    play sound draw
                     n "Das waren eindeutig Fledermausflügel!"
                 "Drache":
                     $ flug = "d"
                     show dwings
+                    play sound draw
                     n "Es waren dunkle starke Flügel!"
                 "Vogel":
                     $ flug = "v"
                     show bwings
+                    play sound draw
                     n "Vögel sind die besten was fliegen an geht, also muss es wohl das sein!"
             
             n "So!"

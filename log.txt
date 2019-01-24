@@ -1,14 +1,14 @@
-Fri Jan 11 03:23:00 2019
+Thu Jan 24 20:25:47 2019
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
  
 
-Bootstrap to the start of init.init took 0.08s
+Bootstrap to the start of init.init took 0.07s
 Early init took 0.00s
-Loader init took 0.03s
-Loading error handling took 0.03s
-Loading script took 0.14s
-Loading save slot metadata. took 0.03s
+Loader init took 0.04s
+Loading error handling took 0.04s
+Loading script took 0.25s
+Loading save slot metadata. took 0.04s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.09s
@@ -20,16 +20,16 @@ Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.02s
 DPI scale factor: 1.000000
-Creating interface object took 0.08s
+Creating interface object took 0.06s
 Cleaning stores took 0.00s
 Init translation took 0.02s
 Build styles took 0.00s
-Load screen analysis took 0.02s
+Load screen analysis took 0.03s
 Analyze screens took 0.00s
 Save screen analysis took 0.00s
-Prepare screens took 0.06s
+Prepare screens took 0.05s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
+Save bytecode. took 0.07s
 Running _start took 0.00s
 Performance test:
 Interface start took 0.03s
@@ -40,8 +40,8 @@ Windowed mode.
 Screen sizes: virtual=(1280, 720) physical=(1739, 978) drawable=(1739, 978)
 Vendor: 'ATI Technologies Inc.'
 Renderer: 'AMD Radeon (TM) R9 390 Series'
-Version: '4.5.13541 Compatibility Profile Context 25.20.14003.1012'
-Display Info: <Info({'blit_sw_CC': False, 'refresh_rate': 60, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680L, 65280L, 255L, 0L), 'current_h': 1080, 'current_w': 1920, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
+Version: '4.6.13544 Compatibility Profile Context 25.20.15011.1004'
+Display Info: <Info({'blit_sw_CC': False, 'refresh_rate': 59, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680L, 65280L, 255L, 0L), 'current_h': 1080, 'current_w': 1920, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
 Fixed-function is blacklisted.
 Extensions:
     GL_AMDX_debug_output
@@ -352,11 +352,12 @@ Texture testing:
 - 512px textures work.
 - 1024px textures work.
 - 2048px textures work.
-Total time until interface ready: 1.14599990845s
+controller: '78696e70757401000000000000000000' 'XInput Controller' 1L
+Total time until interface ready: 1.33899998665s
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.008000 seconds.
-- Frame drawn at 0.024000 seconds.
-- Frame drawn at 0.040000 seconds.
-- Frame drawn at 0.059000 seconds.
-- 0.059000 seconds to render 5 frames.
+- Frame drawn at 0.017000 seconds.
+- Frame drawn at 0.032000 seconds.
+- Frame drawn at 0.048000 seconds.
+- Frame drawn at 0.065000 seconds.
+- 0.065000 seconds to render 5 frames.
