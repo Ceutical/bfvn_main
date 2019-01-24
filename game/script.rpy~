@@ -2789,7 +2789,7 @@ label scenew2_5:
             Lt "Der schwarze Ritter ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
             
             
-    Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
+Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
     show held
     show knight
     show wizzard
@@ -2798,7 +2798,29 @@ label scenew2_5:
     Lt "Ähhh... das weiß keiner."
     Lt "Ach ja und um das Schloss betreten zu können müssen die Helden drei Prüfungen bestehen damit ..."
     Lt "Ähh.. sie drei Teile eines magischen Schlüssels erhalten."
-    
+    Lt "Ihre Reise beginnt also. Als Erstes müssen sie..."
+
+    menu:
+        "...auf die Spitze der Pyramide des Verderbens klettern.":
+            show doom with dissolve
+            Lt "Auf ihrem Weg zum Schloss treffen die Drei auf eine riesige Pyramide."
+            Lt "Nach drei harten Tagen haben sie es endlich bis zur Spitze der Pyramide geschafft. In der goldenen Spitze finden sie ein Fach mit einem Teil des Schlüssels."
+
+        "die Ente des Verderbens besiegen.":
+            show duck with dissolve
+            Lt "Eine Ente? Echt?"
+            Lt "Meinst du das Ernst?"
+            pt "Also ja..."
+            Lt "Ach egal."
+            Lt "auf ihrem Weg zum Schloss treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
+            Lt "Nach einem harten Kampf, schaffen die Helden es der Ente das Halsband mit dem Teil des Schlüssels abzunehmen."
+
+        "den gefährlichen Fluss der Unterwelt überqueren.":
+            show island with dissolve
+            Lt "Okay."
+            Lt "Auf dem Weg zum Schloss kommen sie an einem gefährlichen Fluss an. In der Mitte des Stroms ist eine Insel mit einer Schatztruhe."
+            Lt "Leider ist die Brücke, die eigentlich zur Insel führen soll, zerstört."
+            Lt "Die Helden schaffen es aber, ein Floß zu bauen. Sie überwinden den Strom und schnappen sich den ersten Teil des Schlüssels."    
     
     
 label scenew2_6:
