@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 2787: end of line expected.
-    Lt "Wir erzählen also die Geschichte von Fort Knight in dem der dunkle Ritter wohnt." show badboy with dissolve
-                                                                                          ^
+File "game/script.rpy", line 2793: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    show held
+    ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Thu Jan 24 23:44:34 2019
+Fri Jan 25 01:01:22 2019

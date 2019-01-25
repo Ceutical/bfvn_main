@@ -103,7 +103,123 @@ transform topishleft:
 transform rotation:
     around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
     rotate 10
+    
+######Rennen#####
+transform arun1:
+    xalign 0.0
+    yalign 0.31
+transform prun1:
+    xalign 0.0
+    yalign 0.42
+transform lrun1:
+    xalign 0.0
+    yalign 0.53
+transform rrun1:
+    xalign 0.0
+    yalign 0.64
+transform orun1:
+    xalign 0.0
+    yalign 0.75
+    
+transform arun2:
+    xalign 0.25
+    yalign 0.31
+transform prun2:
+    xalign 0.2
+    yalign 0.42
+transform lrun2:
+    xalign 0.24
+    yalign 0.53
+transform rrun2:
+    xalign 0.27
+    yalign 0.64
+transform orun2:
+    xalign 0.27
+    yalign 0.75
+    
+transform arun3:
+    xalign 0.38
+    yalign 0.15
+transform prun3:
+    xalign 0.34
+    yalign 0.42
+transform lrun3:
+    xalign 0.38
+    yalign 0.53
+transform rrun3:
+    xalign 0.41
+    yalign 0.64
+transform orun3:
+    xalign 0.41
+    yalign 0.75
+    
+transform arun4:
+    xalign 0.5
+    yalign 0.075
+transform prun4:
+    xalign 0.46
+    yalign 0.42
+transform lrun4:
+    xalign 0.48
+    yalign 0.53
+transform rrun4:
+    xalign 0.5
+    yalign 0.64
+transform orun4:
+    xalign 0.5
+    yalign 0.75
 
+transform prun5:
+    xalign 0.68
+    yalign 0.42
+transform lrun5:
+    xalign 0.64
+    yalign 0.53
+transform rrun5:
+    xalign 0.66
+    yalign 0.64
+transform orun5:
+    xalign 0.7
+    yalign 0.64
+
+transform prun6:
+    xalign 0.8
+    yalign 0.42
+transform lrun6:
+    xalign 0.75
+    yalign 0.53
+transform rrun6:
+    xalign 0.73
+    yalign 0.64
+transform orun6:
+    xalign 0.82
+    yalign 0.64
+
+transform prun7a:
+    xalign 1.0
+    yalign 0.42
+transform lrun7a:
+    xalign 0.92
+    yalign 0.53
+transform rrun7a:
+    xalign 0.88
+    yalign 0.64
+transform orun7a:
+    xalign 0.98
+    yalign 0.64
+
+transform prun7b:
+    xalign 0.98
+    yalign 0.42
+transform lrun7b:
+    xalign 0.92
+    yalign 0.53
+transform rrun7b:
+    xalign 0.88
+    yalign 0.64
+transform orun7b:
+    xalign 1.0
+    yalign 0.64
 ######################################
 
 
@@ -2789,7 +2905,8 @@ label scenew2_5:
             Lt "Der schwarze Ritter ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
             
             
-Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
+            
+    Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
     show held
     show knight
     show wizzard
@@ -2843,15 +2960,201 @@ label scenew2_10:
     n "Mh… ich hab mir noch gar nicht überlegt, was ich danach heut eigentlich machen will..."
     scene bg grura
     show randy vhappy at slightleft
-    show louis really at slighright
+    show louis really at slightright
     with fade
     n "Randy spielt schon wieder mit Louis Oligopoly. Das ist langweilig…"
     n "Vielleicht schau ich lieber mal nach, was die Anderen gerade so machen."
-    show bg flur with dissolve
+    scene bg flur with dissolve
     n "Octavia ist vorhin direkt nach draußen gerannt und Anja ist da wahrscheinlich auch irgendwo Klettern. Nur wo Evelynn ist weiß ich gerade nicht, aber die malt bestimmt wieder."
-    
-    
-    
+    ##############################################################
+    menu:
+        "Ich sollte mal nach Octavia schauen.":
+            n "Was ist denn da draußen los im Innenhof?"
+            o "Hey, [name]!"
+            n "Octavia steht natürlich wieder im Mittelpunkt. Die erzählt wahrscheinlich immer noch, wie oft sie vorhin schon wieder gewonnen hat."
+            p "Was macht ihr alle hier?"
+            o "Wir machen ein Wettrennen und du machst mit!"
+            
+            menu:
+                "Okay.":
+                    "Na gut… Ich hab eh nichts zu tun."
+                    label runokay:
+                        o "Bereite dich schon mal auf deine Niederlage vor! Ich gehe regelmäßig mit meinem Papa joggen und da machen wir auch immer Sprintübungen."
+                        a "Ich geh lieber raus und kletter auf Bäume. Einmal hab ich da sogar ein Eichhörnchen gesehen. Aber das ist dann ganz schnell wieder-"
+                        a "Ist doch eh egal. Solange es Spaß macht."
+                        o "Ist es eben nicht! Es ist nicht egal, ob man ein Gewinner oder ein Verlierer ist!"
+                        n "Nicht das schon wieder..."
+                    
+                "Moment mal...":
+                    p "Gar nicht! Nur weil ich jetzt raus gekommen bin, heißt das noch lange nicht, dass ich alles mache, was du sagst."
+                    o "Sei kein Lappen! Sogar Randy und Louis machen später auch mit."
+                    a "Ey, ich auch!"
+                    o "Jaa, und die da auch."
+                    n "Nicht das schon wieder..."
+                    o "Aber du musst auch nicht mitmachen. Ist mir sowieso pupsegal. Ich gewinne sowieso!"
+                    
+                    menu:
+                        "Okay.":
+                            "Na gut… Ich hab eh nichts zu tun."
+                            jump runokay
+                            
+                        "Nö.":
+                            p "Ich mach trotzdem nicht mit. Ich kann euch ja zu schauen."
+                            o "Kommt gar nicht in die Tüte! Ich brauch doch einen richtigen Mitstreiter. Die da zählt nicht!"
+                            a "Ey! Das hab ich voll gehört!"
+                            p "Na gut,, ich mach mit!"
+                            n "...aber nur damit ihr aufhört zu zanken."
+                            o "Bereite dich schon mal auf deine Niederlage vor! Ich gehe regelmäßig mit meinem Papa joggen und da machen wir auch immer Sprintübungen."
+                            a "Ich geh lieber raus und kletter auf Bäume. Einmal hab ich da sogar ein Eichhörnchen gesehen. Aber das ist dann ganz schnell wieder-"
+                            o "Und genau deshalb habt ihr überhaupt keine Chance gegen mich"
+                            a "Ist doch eh egal. Solange es Spaß macht."
+                            o "Ist es eben nicht! Es ist nicht egal, ob man ein Gewinner oder ein Verlierer ist!"
+            
+            a "Jetzt sag doch auch mal was!"
+            menu:
+                "Spaß ist wichtiger.":
+                    $ raceoutcome = "loss"
+                    a "Siehste! Ich hab Recht!"
+                    o "Pff, der sagt das doch nur, weil er selber ein Verlierer ist."
+                    a "Aber ich hab Recht!"
+                    
+                    
+                "Gewinnen ist alles!":
+                    $ raceoutcome = "win"
+                    o "Siehste!"
+                    a "Selber, siehste!"
+                    
+                    
+            p"Wann geht das Rennen denn los?"
+            o "Dann, wenn ich es sage, also jetzt!"
+            
+            n "Es machen noch vier Andere mit. Evelyn nicht, die darf ja nicht mit raus."
+            n "Ganz vorne an der Startlinie natürlich Octavia, überheblich wie immer."
+            n "Dann kommt auch Randy. Der sieht irgendwie aus wie immer. Der ist glaub ich auch nicht soo schnell im Laufen."
+            n "Daneben steht Louis. Das ist das erste Mal, dass ich ihn ohne seine Lieblingsjacke sehe. Aber die Sonnenbrille hat er natürlich trotzdem auf."
+            n "Und dann hockt Anja da. Die guckt sich aber lieber grad einen Marienkäfer an. Ich glaub, die macht wirklich nur aus Spaß mit."
+            n "Und Karin ist wohl der Schiedsrichter."
+            k "Auf die Plätze…."
+            scene bg run
+            show arun at arun1
+            show prun at prun1
+            show lrun at lrun1
+            show rrun at rrun1
+            show orun at orun1
+            with fade
+            k "...Fertig…"
+            k "Looos!"
+            show arun at arun2
+            show prun at prun2
+            show lrun at lrun2
+            show rrun at rrun2
+            show orun at orun2
+            with MoveTransition(2.5)
+            n "Huch, was macht Anja denn da?"
+            show arun at arun3
+            show prun at prun3
+            show lrun at lrun3
+            show rrun at rrun3
+            show orun at orun3
+            with MoveTransition(1.5)
+            a "Guck mal da! Die Katze!"
+            o "Ey, keiner streikt während meinem Wettrennen!"
+            show arun at arun4
+            show prun at prun4
+            show lrun at lrun4
+            show rrun at rrun4
+            show orun at orun4
+            with MoveTransition(1.5)
+            a "Aber die Katze!"
+            scene bg rennen with dissolve
+            $ renpy.pause ()
+            scene bg run
+            show arun at arun4
+            show prun at prun4
+            show lrun at lrun4
+            show rrun at rrun4
+            show orun at orun4
+            with fade
+            o "Verlierer!"
+            o "Aus dem Weg Randy!"
+            r "Hey! HEY! Was soll das?!"
+            show prun at prun5
+            show lrun at lrun5
+            show rrun at rrun5
+            show orun at orun5
+            with MoveTransition(1.5)
+            show prun at prun6
+            show lrun at lrun6
+            show rrun at rrun6
+            show orun at orun6
+            with MoveTransition(1)
+            n "Puuh, fast geschafft!"
+            
+            if raceoutcome == "win":
+                show prun at prun7a
+                show lrun at lrun7a
+                show rrun at rrun7a
+                show orun at orun7a
+                with MoveTransition(1.5)
+                $ renpy.pause ()
+                scene bg rennenende
+                show karin vhappy at center
+                with fade
+                k "Und der Gewinner ist ..."
+                k "[name]!"
+                n "Ha! Das war aber wirklich knapp am Ende. Octavia ist echt schnell!"
+                show karin at slightright with move
+                show osport mad at slightleft with moveinleft
+                o "Eigentlich wär ich ja schneller gewesen, aber mein Schnürsenkel war nicht ganz zu."
+                show asport talk at left with moveinleft
+                a "Du willst doch bloß nicht zugeben, dass du mal was nicht kannst."
+                o "Gar nicht wahr! Nächste Woche gibt es eine Revanche und dann werden wir es ja sehen!"
+                n "Octavia ist echt ganz schön wütend."
+                
+                
+            else:
+                show prun at prun7b
+                show lrun at lrun7b
+                show rrun at rrun7b
+                show orun at orun7b
+                with MoveTransition(1.5)
+                $ renpy.pause ()
+                scene bg rennenende
+                show karin vhappy at center
+                with fade
+                k "Und der Gewinner ist ..."
+                show karin at slightright with move
+                show osport mad at slightleft with moveinleft
+                k "Octavia!"
+                n "Wieso guckt die mich denn so komisch an? Ist sie gar nicht froh, gewonnen zu haben?"
+                show karin shock
+                o " Ich nehme den Preis nicht an! Ich gehöre nicht in die Reihe der Preisgekrönten, wenn gewisse Personen..." 
+                n "Jetzt guckt sie aber wirklich mich an!"
+                o"... das Wettrennen nicht ernst nehmen und mich absichtlich gewinnen lassen!"
+                n "Häh? Wen meint die denn damit?"
+                
+            n "Und jetzt guckt sie mich schon wieder so böse an, dreht sich dann einfach um und geht."
+            a "Wollen wir wieder klettern gehen?"
+            p "Okay."
+            n "Oh da ist ja auch schon wieder Mama."
+            m "Na, Püpschen, wie war dein Tag so?"
+            p "Ich hab Wettrennen gespielt! Jetzt hab ich Hunger… machen wir Pfannkuchen?"
+            m "Die hatten wir doch erst letzte Woche!"
+            p "Eben! Das ist schon wieder eine ganze Ewigkeit her!"
+            m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
+            n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
+            jump credits
+                
+                
+                
+            
+            "Placeholdertext"
+            "Placeholdertext2"
+            
+            
+
+            
+            
                 
 label credits:
     scene bg bedroom with dissolve

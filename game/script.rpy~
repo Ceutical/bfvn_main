@@ -2824,7 +2824,33 @@ Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter
     
     
 label scenew2_6:
-    "Hier ist das Ende der Demo! Aber mit mehr Text!"
+    "Placeholder W2S6"
+label scenew2_7:
+    "Placeholder W2S7"
+label scenew2_8:
+    "Placeholder W2S8"
+label scenew2_9:
+    "Placeholder W2S9"
+    
+label scenew2_10:
+    scene bg grura2
+    show karin talk at slightright
+    show octa smug at slightleft
+    with fade
+    n "Heute ist der Morgenkreis sehr lustig. Wir spielen \"Reise nach Jerusalem\". Das macht Spaß."
+    n "Aber Octavia gewinnt dauernd. Gegen die hat echt keiner eine Chance!"
+    scene bg flur with dissolve
+    n "Mh… ich hab mir noch gar nicht überlegt, was ich danach heut eigentlich machen will..."
+    scene bg grura
+    show randy vhappy at slightleft
+    show louis really at slighright
+    with fade
+    n "Randy spielt schon wieder mit Louis Oligopoly. Das ist langweilig…"
+    n "Vielleicht schau ich lieber mal nach, was die Anderen gerade so machen."
+    show bg flur with dissolve
+    n "Octavia ist vorhin direkt nach draußen gerannt und Anja ist da wahrscheinlich auch irgendwo Klettern. Nur wo Evelynn ist weiß ich gerade nicht, aber die malt bestimmt wieder."
+    
+    
     
                 
 label credits:
