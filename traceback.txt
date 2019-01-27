@@ -1,22 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 120, in script
-    return
-Exception: Could not find return label (u"C:\\Users\\Kilian\\Desktop\\RenPy\\renpy-7.1.1-sdk\\Games\\Baby's First Visual Novel/game/script.rpy", 1548376374, 88).
+  File "game/script.rpy", line 1862, in script
+    p "Ja Snackers sind süß."
+  File "game/script.rpy", line 1862, in <module>
+    p "Ja Snackers sind süß."
+NameError: name 'anjatreat' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 120, in script
-    return
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1468, in execute
-    next_node(renpy.game.context().lookup_return(pop=True))
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\execution.py", line 664, in lookup_return
-    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
-Exception: Could not find return label (u"C:\\Users\\Kilian\\Desktop\\RenPy\\renpy-7.1.1-sdk\\Games\\Baby's First Visual Novel/game/script.rpy", 1548376374, 88).
+  File "game/script.rpy", line 1862, in script
+    p "Ja Snackers sind süß."
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1760, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1944, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1937, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 1862, in <module>
+    p "Ja Snackers sind süß."
+NameError: name 'anjatreat' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 BFVN 1.0
-Fri Jan 25 02:25:31 2019
+Sun Jan 27 23:50:47 2019

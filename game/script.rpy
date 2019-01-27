@@ -1,5 +1,6 @@
 ﻿##### SCRIPT START #####
 
+##### OTHER DEFINITIONS #####
 ##### CHARACTER DEFINITIONS #####
 
 define m = Character("Mama")
@@ -1020,6 +1021,7 @@ label scene11:
             menu:
                 "Lieber nicht...":
                     $ gone = True
+                    $ anjatreat = False
                     p "Nein! Nein, nein! Ich ... ich guck mal wo dein Freund ist."
                     show anja madb
                     a "NA TOLL! Dann geh doch!"
@@ -1054,6 +1056,7 @@ label scene11:
             
         "Wortlos gehen.":
             $ gone = True
+            $ anjatreat = False
             show anja madb
             a "Hey! Was soll das? Wo willst du hin?"
             show anja vmadb
@@ -1098,6 +1101,7 @@ label scene11:
                 a "Aaahh, Super. Jetzt gehts mir besser."
                 
             "Nein":
+                $ anjatreat = False
                 jump treetalk
                 
 label treetalk:
@@ -2841,6 +2845,7 @@ label scenew2_4:
     menu:
         "Sandkasten":
             scene bg sand
+            window hide
             nt "Mal sehen, was Louis da so macht!"
             jump scenew2_5
 
@@ -2939,7 +2944,7 @@ label scenew2_5:
             Lt "Leider ist die Brücke, die eigentlich zur Insel führen soll, zerstört."
             Lt "Die Helden schaffen es aber, ein Floß zu bauen. Sie überwinden den Strom und schnappen sich den ersten Teil des Schlüssels."    
     
-    
+    window auto
 label scenew2_6:
     "Placeholder W2S6"
 label scenew2_7:
@@ -3143,19 +3148,480 @@ label scenew2_10:
             p "Eben! Das ist schon wieder eine ganze Ewigkeit her!"
             m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
             n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
-            jump credits
+            
                 
                 
+        "Ich glaub ich geh mal zu Anja.":
+            n "Heute ist es echt schön warm draußen!"
+            n "Und natürlich hängt Anja wieder im Baum. Wie so einer dieser orangenen Affen. Die hab ich mal im Zoo gesehen."
+            a "[name]! Draußen ist es doch echt am coolsten, oder?"
+            a "Außerdem sagt meine Mama immer, dass frische Luft gesund ist. Nur die Luft auf dem Land soll noch besser sein. Meine Oma und mein Opa zum Beispiel wohnen auf dem Land. Die haben einen ganz eigenen Bauernhof!"
+            
+            menu:
+                "Das ist ja echt cool!":
+                    p "Ich fin-"
                 
+                "Ich finde es in der Stadt besser als auf dem Land.":
+                    p "Ich fin-"
             
-            "Placeholdertext"
-            "Placeholdertext2"
+            a "Aber die Luft finde ich da eigentlich nicht so toll. Vor allem im Schweinestall stinkt es immer voll. Aber das Stroh riecht gut!"
+            p "Das ist natürlich-"
+            a "Meine Oma und mein Opa haben aber auch ganz viele anderen Tiere. Mit denen darf ich auch immer spielen. Aber manchmal ist es alleine trotzdem..."
+            n "Ich finde es immer noch lustig, wie Anja ohne Pause reden kann. Mama würde sagen, sie labert wie ein Wasserfall. Auch wenn Wasserfälle doch eigentlich gar nich reden können."
+            n "Manchmal sagen Erwachsene schon echt komische Sachen..."
+            n "Oh... Anja guckt mich plötzlich so komisch an."
+            p "Was hast du gesagt?"
+            a "Na, ob du mal mitkommen möchtest? Auf den Bauernhof? Dann kann ich dir unsere Hühnerbabies zeigen, die sind erst zwei Wochen alt und voll flauschig. Und eine Katze haben wir auch! Mama kann die bestimmt heut mitnehmen!"
+            p "Äh...ich-"
+            a "Meine Oma und mein Opa wohnen auch schon länger hier als wir. Wir sind deswegen dann auch hierher gezogen, damit wir sie ganz oft besuchen können. Und meine Oma backt dann immer Kirschkuchen mit Sahne."
             
+            menu:
+                "Lecker! Kirschkuchen!":
+                    p "Das klingt-"
+                    
+                "Nichts schmeckt besser als Mamas Kekse!":
+                    p "Das klingt-"
+                    
+            a "Aber die Tiere sind trotzdem das Coolste! Ich will später auch mal irgendwas mit ganz viel Tieren machen. Aber nicht Bauer."
+            a "Lieber Tierarzt oder so. Dann kann ich den ganzen Tieren helfen und dann werden die alle meine Freunde. Aber niemand wird ein besserer Freund als unsere Kuh Elsa. Die ist die Allerbesteste!"
+            a "Was ist denn- Komm auch hoch! Das musst du sehen! Schnell!"
+            menu:
+                "Ich kann da nicht hochklettern.":
+                    a "Jetzt komm schon! Du verpasst es!"
+                
+                "Ich beeil mich.":
+                    a "Jetzt komm schon! Du verpasst es!"
+                    
+            n "Was macht die denn für einen Wirbel? Die tut ja fast schon so, als wäre da oben ein Alien"
+            a "Schneller!"
+            p "Jaa doch..."
+            n "Wie war das nochmal? Erst hier hoch und dann..."
+            n "Uff… das war knapp."
+            a "Siehst du das? Da oben? Die alte Greiterhex!"
+            p "Wo? Meinst du da am Fenster? Da dürfen wir doch eigentlich gar nicht hochgehen. Ich weiß nich ob wir-"
+            a "Du kannst ja auch gerne wieder runterklettern, du Spielverderber! Aber ich sag dir, mit der stimmt was nicht!"
             
+            menu:
+                "Oben bleiben":
+                    n "Der Schatten hinter dem Vorhang sieht wirklich aus wie der von Heidenau. Nur irgendwie gruseliger… Das ist echt unheimlich."
+                    p "Was macht die denn da?"
+                    a "Keine Ahnung! Aber die läuft da schon die ganze Zeit im Kreis und siehst du da den Rauch aus dem Fenster kommen? Die kocht da jetzt bestimmt irgendeinen Zaubertrank!"
+                    n "Das vielleicht nicht unbedingt, aber auf jeden Fall ist das komisch. Und da kommen auch ganz komische Geräusche aus dem Zimmer."
+                    n " Das klingt fast so, als würde jemand einer Eule am Schwanz ziehen. Und dann ist da noch irgendein seltsames Musik-Dingsbums oder so… so was ganz tiefes. Und die Bewegungen der Schatten werden auch immer komischer."
+                    a "Die läuft rum, als wäre sie von einem Dämon besessen, wie in diesen Filmen!"
+                    a "Achtung, sie kommt wieder zum Fenster!"
+                    n "Anja springt schnell runter vom Baum und eh ich mich versehe ist sie um den nächsten Busch geflitzt."
+                    n "Plötzlich starrt mich Heidenau direkt an. Ihre Augen leuchten schon fast rot im dunklen Zimmer."
+                    h "Das ist doch… [name]! Was machen sie da oben auf dem Baum?! Sofort runter da! Und wo ist denn schon wieder diese unzuverlässige..."
+                    n "Heidenau schließt das Fenster wieder. Ich kletter auch lieber schnell runter. Und dann versteck ich mich mit bei Anja, bevor ich noch mehr Ärger bekomme."
+                    
+                "Runter klettern":
+                    p "Lass uns was anderes Spielen. Das ist doof!"
+                    a "Ist ja schon gut, aber ich sag‘s dir! Irgendwann wird sie dich fressen und dann bist du froh, wenn du mich hast!"
+                    p "Das werden wir dann sehen!"
+                    n "Anja kommt jetzt auch runter und schaut mich kurz fragend an. Ich hab mir noch gar nichts überlegt, was wir stattdessen machen können..."
+                    
+            p "Lass uns doch lieber schnell wippen gehen."
+            n "Die Schlangenwippe ist echt lustig. Aber irgendwie ist Anja nicht bei der Sache."
+            a "Weißt du, das da oben war schon echt seltsam. Und meine Mama sagt ja auch immer, dass Heidenau eine Greiterhex ist. Meinst du, die ist wirklich eine echte Hexe? Mit Besen und Allem?"
+            
+            menu:
+                "Ja, das glaube ich auch!":
+                    a "Wir sollten sie auf jeden Fall weiter beobachten!"
+                    
+                "Hexen gibt es doch nicht in echt!":
+                    a "Mmh… ich denke es gibt viel mehr als Erwachsene immer sagen. Auch Dinge wie Geister, die man vielleicht sogar gar nicht sehen kann. Und die klauen dann immer die Socken aus der Maschine!"
+                    
 
+            m "[name]! Na, hattest du einen schönen Vormittag?"
+            n "Oh...schon wieder vorbei? Das ging ja schnell. Aber von Anjas Verdacht erzähl ich Mama lieber nichts. Die lacht mich sonst nur aus."
             
+            menu:
+                "Nichts sagen.":
+                    m "Na, und freust du dich schon auf morgen? Da ist doch euer Wandertag!"
+                    p "Oh jaa! Das wird bestimmt lustig!"
+                    p "Gibt‘s heut eigentlich wieder Pfannkuchen?"
+                    m "Die hatten wir doch erst letzte Woche!"
+                    p "Eben! Das ist schon wieder eine ganze Ewigkeit her!"
+                    m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
+                    n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
+                    
+                "Mama fragen, ob ich mit auf den Bauernhof darf.":
+                    m "Heute noch? Das muss ich dann aber erst mal mit Anjas Eltern besprechen, ob das denn wirklich in Ordnung ist."
+                    a "Meine Oma hat gesagt, ich und meine Freunde sind immer willkommen."
+                    p "Bitteee!"
+                    m "Ist ja schon gut. Aber ich würde trotzdem gerne mit Anjas Eltern sprechen."
+                    n "Erwachsene… immer wollen die nur Reden..."
+                    n "Aber dann darf ich wirklich auf den Bauernhof! Und Anjas Oma und Opa sind echt nett."
+                    n "Und Anja ist total aufgeregt und zeigt mir den ganzen Bauernhof. Elsa ist wirklich eine tolle Kuh! Und die Küken sind auch niedlich."
+                    n "Sogar einen Hahn haben sie, aber der ist ziemlich eingebildet und stolziert immer über den Hof, wie diese Frauen in hohen Schuhen im Fernsehen."
+                    a "Und hier, das Heulager, das ist mein Lieblingsort. Da spiele ich immer verstecken. Nur der Hahn stört manchmal. Der krächzt dann Ewigkeiten als würde er bei einem Gesangswettbewerb mitmachen."
+                    p "Dann ist er ja fast so schlimm wie du!"
+                    a "Na warte! Das wirst du noch bereuen!"
+                    n "Anja schnappt sich jetzt doch tatsächlich ein Büschel Stroh und stopft es mir hinten ins T-Shirt rein."
+                    p "Ahhh, unfair! Du hattest Vorsprung!"
+                    n "Schnell schnappe ich mir auch ein bisschen Stroh und werfe es in Anjas Richtung."
+                    n "Fast alles davon bleibt in Anjas Haaren hängen. Sie sieht fast so aus, wie ein Spaghettimonster."
+                    a "Ey, ich kann gar nicht mehr sehen. Ich bin bliiind!"
+                    n "Ich glaub Anja kann wirklich nichts mehr sehen. So langsam wankt sie Richtung Treppe. Aber sie ist auch schon wieder ordentlich mit Heu bewaffnet."
+                    
+                    menu:
+                        "Anja umlenken.":
+                            p "Vorsicht, da ist eine-"
+                            a "Raaaaacheeee!"
+                            p "Bah, voll ins Gesicht!"
+                            n "Stroh schmeckt echt nicht gut."
+                            n "Wie Tiere das nur den ganzen Tag essen können?"
+                            a "Ahahaa...wie du aussiehst!"
+                            p "Du siehst nicht besser aus!"
+                            a "Ich bin ja auch eine Hexe, wie die Heidenau! Die sollen auch nicht gut aussehen!"
+                            p "Da sieht Heidenau aber noch wesentlich besser aus!"
+                            a "Pass auf, gleich fress ich dich! Hexen lieben Kinder zum Nachtisch!"
+                            n "Ich glaub Anja mag Hexen. In letzter Zeit redet sie echt oft darüber. Aber das Spielen mit ihr macht trotzdem sehr viel Spaß!"
+                            
+                        "Dem Heu ausweichen.":
+                            p "Ha, nicht erwischt!"
+                            a "Irgendwann er-WOAH!"
+                            n "Ohjeh! Jetzt fällt Anja doch noch die Stufe runter! Zum Glück ist ja alles gut mit Heu abgepolstert."
+                            p "Hast du dir weh getan?"
+                            a "Du Blödian! Hättest du mir nicht was sagen können?! Du weißt genau, dass ich nix sehe!"
+                            p "Tut mir Lei-"
+                            a "Ist das das Danke dafür, dass ich dich eingeladen hab?! Ich hätte auch Randy mitnehmen können, der ist sowieso viel coolerer als du! Und der hätte mich bestimmt nicht verraten!"
+                            p "Tut mir wirkl-"
+                            a "Mit dir spiel ich nicht mehr! Und das Stroh ist auch voll doof in den Haaren. Das pikst voll!"
+                            n "Wieso muss die immer gleich so sauer sein? Es tut mir doch leid, aber ich kann mich ja nicht mal entschuldigen, wenn die soviel redet!"
+                            n "Und jetzt steht die auch noch einfach auf und geht. Na super! So hab ich mir das ja nicht vorgestellt..."
             
+                            
+        "Ich schau lieber mal, wo Evelynn ist.":
+             n "Oh, Evelynn ist doch nicht am Maltisch. Komisch!"
+             p "Karin! Hast du die Evelynn gesehen?"
+             k "Ich glaub, die war zuletzt vorne in der Kuschelecke!"
+             p "Oh danke!"
+             n "Da ist sie ja wirklich! Warum ist sie denn so aufgeregt?"
+             e "[name]!"
+             n "Jetzt springt sie sogar auf. So fröhlich hab ich sie noch nie gesehen."
+             p "Hi!"
+             p "Was machst du denn hier?"
+             e "Mama und Papa haben mir heut ausnahmsweise mal erlaubt mein Spielbuch mitzunehmen. Das heißt \"Das blaue Auge\" und ist voll toll! Da kann man sich eigene Geschichten ausdenken!"
+             p "Ah… ach so…"
+             e "Außerdem hat mein Papa jetzt Urlaub, da sind beide dann Zuhause und dann dürfen auch mal Leute mit zu mir zum Spielen kommen."
+             n "Ich war noch nie mit bei Evelynn. Ich frag mich, wie ihr Zimmer aussieht. Bestimmt hat sie ganz viele Zeichnungen rumhängen."
+             p "Darf ich auch kommen?"
+             e "Klar! Ich wollte dich eh grade fragen. Dann können wir das Buch ausprobieren. Du musst dir nur noch vorher ausdenken, wen du spielen willst."
+             p "Hä, was meinst du?"
+             e "Na also guck das ist ganz einfach. Erst suchst du dir aus was für ein Wesen du sein willst."
+             p "Hm…mal sehen was zur Auswahl steht…"
+            
+             menu:
+                "Zwerg":
+                    $ race = "Zwergen"
+                    n "Zwergen sind bestimmt am Stärksten!"
+                    
+                "Elfe":
+                    $ race = "Elfen"
+                    n "Elfen sehen total cool aus!"
+                    
+                "Mensch":
+                    $ race = "Menschen"
+                    n "Ich glaub ich bleibe einfach ein Mensch."
+                    
+             e "…und dann wählst du deine Rolle. Das ist was du gut kannst."
+             n "Was für eine Rolle habe ich?"
+            
+             menu:
+                 "Zauberer":
+                     $ role = "Zauberer"
+                     n "Niemand besiegt mich, wenn ich zaubern kann!"
+                    
+                 "Bogenschießer":
+                     $ role = "Bogenschießer"
+                     n "Ich bin der besteste Pfeilbogenschießer der Welt!"
                 
+                 "Kämpfer":
+                     $ role = "Kämpfer"
+                     n "Mit meinem großen Schwert, hau ich alle um!"
+                    
+             e "Ich hab mir auch schon was ausgedacht. Aber das verrate ich dir noch nicht!"
+             p "Wieso nicht? Du weißt doch auch, was ich bin, also sag schon!"
+             e "Ätschi-Bätsch! Das wirst du sehen, wenn wir spielen!"
+             n "Wenn Evelynn mir nichts verrät dann macht es nur noch spannender."
+             e "Also, los geht's!"
+             e "Es war einmal, vor langer Zeit..."
+             n "Evelynn ist sofort drin im Spiel. Was muss ich eigentlich machen?"
+             e "... in einem Land namens Müramoor."
+             e "Da lebten zwei Helden, die waren auf der Durchreise durch das Land, auf der Suche nach Abenteuern."
+             e "Sie waren gerade gemütlich unterwegs im Wald auf dem Weg in das nächste Dorf, als sie auf dem Weg eine zwieli...zw... eine komische Person mit einem langen Mantel bemerkten."
+             e "Da sagte die mutige Bardin zu ihre[r/m] Freund[in] dem:"
+             e "Was willst du tun? Das könnte ein Bandit sein. Sollen wir uns verstecken?"
+             n "Oh..."
+             n "Ich glaub, ich soll jetzt was sagen."
+            
+             menu:
+                 "Äh...worum geht's?":
+                     n "Ich glaub, das war falsch. Evelynn rollt mit den Augen."
+                     e "\"Dann halt nicht\", sagt die Bardin. Aber lass uns schnell weitergehen, ich hab Hunger."
+                    
+                 "Ja, das wäre das Beste!":
+                     e "Die beiden Helden verstecken sich hinter einem Baum. Leise warten sie da und beobachten die Person."
+                     e " \"Vielleicht war es doch nur ein Händler\", sagte die Bardin. \"Aber sicher ist sicher.\" "
+                     p "Woran erkennst du das?"
+                     e "Sie trägt ganz viele Taschen mit Stoffen drin. Die will sie bestimmt verkaufen."
+                     e "Aber sieh nur, hier in dem Strauch neben den Baum sind lauter Beeren! Sollen wir welche mitnehmen?"
+                    
+                     menu:
+                         "Vielleicht sind die giftig...":
+                             p "Wir sollten sie lieber hier lassen. Mama sagt, man soll nix aus dem Wald in den Mund stecken."
+                             e "Eure Frau Mutter scheint ein schlauer Mensch zu sein."
+                             n "Was will Evelynn denn nur damit sagen?"
+                             e "Die Helden lassen die Beeren also da."
+                            
+                         "Okay.":
+                             $ berry = True
+                             p "Ich hab noch Platz hier in meiner Tasche."
+                             e "Beide Helden stecken sich ein paar der Beeren in die Beutel, essen sie aber nicht, weil sie nicht wissen, ob man das darf."
+                             e "Dann bemerken sie, dass die komische Person nicht mehr zu sehen ist und kriechen wieder aus dem Gebüsch."    
+                            
+                         "Wieso mitnehmen und nicht gleich essen?":
+                             n "Evelynn schaut mich komisch an."
+                             e "Die Bardin sagte ihrem Heldenfreund, dass sie das für keine gute Idee hält."
+                             p "Und der Heldenfreund sagt der Bardin, dass er ein Held ist und vor gar nix Angst hat. Schon gar nicht vor Beeren."
+                             p "Und ich hab Hunger."
+                             e "Der Held hat Bauchschmerzen und kann nicht mehr kämpfen."
+                             p "Hö...was?"
+                             e "Tja, der Held hätte lieber erstmal der Bardin zuhören sollen."
+                             jump pnp1end
+                            
+                 "Vielleicht sollten wir ihr \"Hallo\" sagen?":
+                     e "Du gehst voran!"
+                     p "Äh...hallo?!"
+                     e "Die Person dreht sich um. Nun könnt ihr sie besser sehen."
+                     e "Ihr erkennt, dass sie aussieht, wie ein riesiger Panther. Er trägt viele Taschen mit Tüchern bei sich, die er wahrscheinlich verkaufen will."
+                     e "(mit verstellter Stimme)\"Grüß Somonoa, ihr Reisenden. Kann ich euch helfen?\" "
+                    
+                     menu:
+                         "Wir sind Helden auf der Suche nach Abenteuern!":
+                             e "Der Händler lachte. \"Somonoa, davon gibt es wirklich schon mehr als genug. Wollt ihr euch nicht noch kurz meine Tücher anschauen?\" "
+                             e "\"Das ist sehr nett\", sagte die Bardin.\"Aber wir besitzen momentan kein Geld.\" "
+                             e "\"Zu schade! Dann will ich euch nicht länger stören.\" "
+                             p "Kann er uns nicht einfach was schenken?"
+                             e "\"Der Händler lacht nur und geht weiter."
+                            
+                         "Wir sind eigentlich nur auf dem Weg ins nächste Dorf.":
+                             e "\"Oh...\" Der Händler schaut kurz komisch. \"Dann hab ich vielleicht was, was ihr gebrauchen könntet.\""
+                             e "Er kramt in seiner Tasche und zieht anschließend ein Glas mit einem schwarzen Pulver raus."
+                             e "\"Vertraut mir, ihr werdet es brauchen!\" "
+                             
+                             menu:
+                                 "Oh...danke!":
+                                     $ powder = True
+                                     e "\"Aber wir können das gar nicht bezahlen\", sagte die Bardin."
+                                     e "\"Keine Sorge!\", sagte der Händler. \"Das ist ein Geschenk. Wir Eeisenden müssen zusammen halten.\" Er lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
+                                    
+                                 "Nein, danke!":
+                                     p "Mama sagt, man nimmt nichts von Fremden an."
+                                     e "\"Was mein Freund eigentlich sagen will\", sagte die Bardin,\"ist, dass wir kein Geld haben. Und wir können keine Geschenke annehmen.\""
+                                     e "\"Das ist schade\", sagte der Händler, lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
+                                    
+                         "Wie soll ein Händler Helden helfen?":
+                             n "Evelynn schaut mich böse an."
+                             e "Der Händler ist beleidigt, dreht sich um und geht ohne auch nur ein Wort zu sagen."
+                             e "Die Bardin guckt ihren Freund böse an."
+                             e "Das hätte man besser machen können!"
+                            
+                 "Keine Sorge, mein Fräullein! Ich werde Euch beschützen!":
+                     p "Ich bin ein mutiger Krieger und hab vor niemandem Angst! Kein Bandit kann mich besiegen!"
+                     n "Irgendwie schaut Evelynn mich komisch an."
+                     e "Der Held hat etwas zu laut gesprochen. Die komische Person hat das gehört und ist jetzt beleidigt."
+                     e " \"Ihr wollt es mit mir aufnehmen?\", fragte der Panthermensch wütend. \"Ich bin Händler. Ich begegne oft Leuten wie dir und hab Übung im Kämpfen. Du bist keine Gefahr für mich.\""
+                     p "Der Held hatte es nicht so gemei-"
+                     e "Der Händler zieht sein Schwert, entschlossen seine Sachen vor den beiden Fremden zu schützen."
+                     e "\"Also, das darfst du jetzt alleine auslöffeln\", sagte die Bardin zu ihrem Heldenfreund."
+                    
+                     menu:
+                         "Ich greife an!":
+                             e "Das wird schwer..."
+                             p "Ach ja? Ich nehm einfach mein-"
+                             e "Du musst würfeln!"
+                             n "Das ist ja ein komischer Würfel...fast schon rund. Und ganz viele Zahlen stehen da drauf."
+                             p "Ha! 19! Das ist fast das höchste!"
+                             n "Warum schaut sie mich denn so komisch an?"
+                             p "Tjaa...das hättste nicht ggedacht, was?"
+                             e "Der Held stolpert beim Ziehen seiner Waffe über seine eigenen Füße und fällt in eine Sumpfgrube neben dem Weg. Dabei geht auch noch seine Waffe kaputt und er kann nicht mehr kämpfen."  
+                             p "Was? Wiesooo?! Das ist unfair!"
+                             e "Es ist schlecht hohe zahlen zu würfeln."
+                             jump pnp1bad
+                            
+                         "Ich renne weg!":
+                             n "Warum schaut sie mich denn so komisch an?"
+                             e "Der Held rennt panisch davon. Die Bardin schaut ihm hinterher. \"Man, bist du peinlich...\", sagte sie und ging ihrem Freund dann schnell hinterher."
+                            
+             e "Die Beiden liefen weiter und sahen bald ein Dorf."
+             e "Aber auch das Dorf war komisch. Die Häuser waren alle schwarz und hatten große Löcher."
+             e "Die Bardin sah einen Bauer und sprach ihn darauf an."
+             e "Er erzählte ihr, dass die Leute hier in letzter Zeit oft Besuch von einem bösen Drachen bekommen, der aus Spaß ihre Häuser verbrennt und all ihr Essen wegisst; Vor allem die leckeren Kuchen, die eigentlich für den Geburtstag des Bürgermeisters gedacht waren."
+             e "\"Keine Sorge, mein Freund!\", sagte die Bardin zu ihm. \"Wir werden euch helfen!\" "
+             p "Ach ja?"
+             e "Wir werden mit ihm reden und mit ihm schimpfen! Dann werdet ihr keine Angst mehr vor ihm haben müssen."
+             e "Der Bauer schaut euch dankbar an."
+             p "Und wo sollen wir den Drachen finden?"
+             e "\"Ganz einfach\", sagte die Bardin. \"Wir folgen einfach den großen Füßabdrücken!\""
+             e "Nach gar nicht langer Zeit sahen sie den Drachen. Er lag unter einem Baum und hielt ein Mittagsschlaf, weil er so viel Kuchen gegessen hatte."
+             e "Was sollen wir tun?"
+             $ pnp1winpoints = 0
+            
+            
+             menu:
+                 
+                 "Lass uns einfach angreifen!":
+                     e "Der Held rennt natürlich mal wieder einfach ohne nachzudenken auf den Drachen zu."
+                     e "Der wird von dem Gebrüll natürlich wach und ist gar nicht glücklich, dass ihn jemand beim Schlafen stört."
+                     e "Er steht auf und funkelt den Helden wütend an."
+                     e "Du musst würfeln. Je niedriger, desto besser."
+                     n "Okay, das muss doch..."
+                     p "8!"
+                     e "Glück gehabt!"
+                     e "Der Drache will Feuer nach dir spucken, aber spuckt aus Versehen vorbei."
+                     e "Du tust ihm aber mit deinem Angriff etwas weh."
+                     e "\"Aua!\", sagt der Drache. \"Das ist unfair!\""
+                     e "Aber noch ist der Drache nicht besiegt!"
+                    
+                     if powder = True:
+                         $ pnp1winpoints += 1
+                         jump pnp1powdered
+                        
+                     else:
+                         jump pnp1gethit
+                        
+                 "Wir können ihn austricksen!":
+                     e "Das ist eine gute Idee! Und wie?"
+                     if berry == True:
+                         $ pnp1winpoints += 1
+                         p "Wir könnten ihm heimlich die Beeren geben, die wir gefunden haben. Vielleicht wird ihm dann schlecht."
+                         e "Das können wir probieren."
+                         e "Du musst würfeln!"
+                         e "Du musst würfeln. Je niedriger, desto besser."
+                         n "Okay, das muss doch..."
+                         p "8!"
+                         e "Das ist gut!"
+                         e "Der Held schafft es dem Drachen die Beeren heimlich ins Maul zu stecken."
+                         e "Der Drache wird davon wach, schluckt die Beeren aber trotzdem aus Versehen runter."
+                         e "\"Aua!\", sagt der Drache. \"Mein Bauch! Das ist unfair!\""
+                         e "Aber noch ist der Drache nicht besiegt!"
+                        
+                         if powder == True:
+                             $ pnp1winpoints +=1
+                             jump pnp1powdered
+                            
+                         else:
+                             jump pnp1gethit
+                            
+                     else:
+                         p "Wir könnten uns leise anschleichen! Und dann überraschen wir ihn, mit unserem Angriff!"
+                         e "Das ist eine gute Idee!"
+                         e "Die Helden schleichen sich an. Ganz langsam, um den Drachen nicht zu wecken."
+                         e "Dann holt der Held aus und-"
+                         p "..."
+                         e "..."
+                         e "Du musst würfeln! Je niedriger, desto besser."
+                         n "Okay, das muss doch..."
+                         p "8!"
+                         e "Glück gehabt!"
+                         e "Der Drache wacht auf und will Feuer nach dir spucken, aber spuckt aus Versehen vorbei."
+                         e "Du tust ihm aber mit deinem Angriff etwas weh."
+                         e "\"Aua!\", sagt der Drache. \"Das ist unfair!\""
+                         e "Aber noch ist der Drache nicht besiegt!"
+                        
+                         if powder == True:
+                             $ pnp1winpoints +=1
+                             jump pnp1powdered
+                            
+                         else:
+                             jump pnp1gethit
+                            
+label pnp1gethit:
+    e "\"Wir müssen schnell nochmal angreifen!\" rief die Bardin. \"Wir haben gar keine andere Wahl!\" "
+    e "Du musst würfeln."
+    n "Nur einmal noch..."
+    p "..."
+    e "Eine 15? Oh jeh..."
+    e "Der Drache wird langsam wütend und er kratzt dich einmal mit seiner Kralle am Arm."
+    if pnp1winpoints == 0:
+        jump pnp1lost
+        
+    elif pnp1winpoints == 1:
+        jump pnp1patt
+        
+    else:
+        jump pnp1win
+        
+label pnp1powdered:
+    p "Vielleicht sollte ich mal das komische Pulver ausprobieren. Vielleicht bringt das was."
+    e "Das ist eine gute Idee!"
+    e "Du holst das Glas raus und schüttest alles aus, so dass sich eine große Wolke bildet in die der Drache reintaumelt."
+    e "Ein bisschen was von dem Pulver weht auch zu dir und es fällt dir auf, dass es Pfeffer ist. Du musst sofort niesen."
+    e "Und auch dem Drachen geht es so. Er niest und niest. Ganz knapp nur kannst du seinen Feuerstrahlen ausweichen."
+    e "Aber als er endlich fertig war, konnte er gar kein Feuer mehr benutzen, weil er sich erst mal wieder erholen musste."
+    if pnp1winpoints == 0:
+        jump pnp1lost
+        
+    elif pnp1winpoints == 1:
+        jump pnp1patt
+        
+    else:
+        jump pnp1win
+    
+    
+label pnp1win:
+    e "Der Drache schnaubt vor Wut, aber er sieht ein, dass ihr besser seid."
+    e "Er schnappt sich noch schnell einen Apfel vom Baum und läuft dann schnell nach Hause zu seiner Höhle, wo seine Mami auf ihn wartet."
+    e "Die Dorfbewohner haben alles gesehen und feiern ihre beiden Helden."
+    e "Dafür veranstalten sie ein großes Fest mit viel Musik."
+    e "Aber die Helden können sich nicht lange ausruhen, denn direkt dort auf dem Fest, kommt plötzlich-"
+    jump pnp1good
+    
+label pnp1patt:
+    e "\"Das hat keinen Sinn!\" rief die Bardin. \"Er ist einfach zu mächtig.\""
+    p "Och manno."
+    e "Du hast dir Mühe gegeben, aber wenn du ihn besiegen willst, sollten wir noch etwas trainieren."
+    e "Wir sollten uns besser erstmal verstecken und später wieder kommen."
+    p "Okay."
+    e "Aber das ist nicht schlimm. Bis dahin gibt es auch noch andere Abenteuer. Im anderen Dorf gibt es zum Beispiel-"
+    jump pnp1good
+    
+label pnp1lost:
+    e "Du hast alles versucht, aber der Drache ist einfach zu stark."
+    e "Und jetzt ist er erst recht wütend."
+    e "Er packt dich am Kragen und schnippst dich bis rüber ins Nachbardorf, wo du in einem Misthaufen landest."
+    e "Die Leute da haben alles gesehen und lachen dich aus."
+    p "Ich glaub, mehr muss ich gar nicht wissen..."
+    jump pnp1bad
+    
+label pnp1good:
+    m "Ach, da bist du!"
+    p "Och nö, kann ich nicht noch weiter spielen? Nur noch ein ganz klein bisschen?"
+    m "Wir haben es leider etwas eilig. Wir müssen noch einkaufen gehen. Aber du kannst doch morgen weiterspielen. Das läuft dir schon nicht weg."
+    p "Okaaaay..."
+    n "Immer dann, wenn es am lustigsten wird, muss man aufhören. Das ist unfair. Wenn ich erst einmal groß bin, hör ich erst dann auf, wenn ich will."
+    jump credits
+    
+label pnp1bad:
+    n "Evelynn knallt das Buch zu."
+    e "Du hast verloren."
+    n "Sie sagt das so, wie jemand sagen würde \"Es regnet heute\". Ich bin mir nur nicht sicher, ob sie sauer oder enttäuscht ist."
+    p "Können wir nicht noch weiterspielen?"
+    e "Nein."
+    e "Dafür musst du erst wieder eine neue Figur basteln und darauf hab ich jetzt keine Lust. Ich geh malen."
+    n "Was hat die denn auf einmal? Jetzt stampft sie einfach mit dem Buch davon..."
+    m "Na, mein Püpschen!"
+    m "Wie war der Tag heut so?"
+    p "Mhh..."
+    m "Das klingt ja sehr begeistert. Freust du dich gar nicht auf den Wandertag?"
+    p "Doch."
+    n "Nicht so wirklich. Ich mag es nicht, wenn Evelynn auf mich sauer ist."
+    jump credits
+    
+    
 label credits:
     scene bg bedroom with dissolve
     nvln "Coding - VN\nKilian Petry"
