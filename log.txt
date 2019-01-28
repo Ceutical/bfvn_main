@@ -1,4 +1,4 @@
-Mon Jan 28 22:53:34 2019
+Mon Jan 28 23:50:02 2019
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
  
@@ -6,32 +6,33 @@ Ren'Py 7.1.1.929
 Bootstrap to the start of init.init took 0.08s
 Early init took 0.00s
 Loader init took 0.04s
-Loading error handling took 0.03s
-Loading script took 0.64s
+Loading error handling took 0.04s
+Loading script took 0.29s
 Loading save slot metadata. took 0.04s
 Loading persistent took 0.00s
-
-File "game/script.rpy", line 2924: if statement expects a non-empty block.
-    if burgname == "Burgname1":
-                               ^
-
-File "game/script.rpy", line 2928: if statement expects a non-empty block.
-    if burgname == "Burgname2":
-                               ^
-
-File "game/script.rpy", line 2932: if statement expects a non-empty block.
-    if burgname == "Burgname3":
-                               ^
-
-File "game/script.rpy", line 2936: if statement expects a non-empty block.
-    if enemyname == "Enemy1":
-                             ^
-
-File "game/script.rpy", line 2940: if statement expects a non-empty block.
-    if enemyname == "Enemy2":
-                             ^
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.10s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Dump and make backups. took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.02s
 DPI scale factor: 1.000000
-Interface start took 0.13s
+Creating interface object took 0.06s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.07s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.03s
 
 primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
@@ -351,39 +352,60 @@ Texture testing:
 - 512px textures work.
 - 1024px textures work.
 - 2048px textures work.
-Total time until interface ready: 1.50699996948s
+Total time until interface ready: 1.53800010681s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.011000 seconds.
+- Frame drawn at 0.028000 seconds.
+- Frame drawn at 0.043000 seconds.
+- Frame drawn at 0.061000 seconds.
+- 0.061000 seconds to render 5 frames.
+
+Full traceback:
+  File "game/script.rpy", line 3077, in script
+    LT "Du hast [scastlep] Punkte gesammelt und bekommst wenig Affinitypoints ..."
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 650, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 560, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who.encode("utf-8"))
+Exception: Sayer 'LT' is not defined.
+
+While running game code:
+  File "game/script.rpy", line 3077, in script
+    LT "Du hast [scastlep] Punkte gesammelt und bekommst wenig Affinitypoints ..."
+Exception: Sayer 'LT' is not defined.
 Resetting cache.
-Bootstrap to the start of init.init took 104.70s
+Bootstrap to the start of init.init took 516.82s
 Early init took 0.00s
-Loader init took 0.03s
+Loader init took 0.04s
 Loading error handling took 0.02s
-Loading script took 1.22s
-Loading save slot metadata. took 0.05s
+Loading script took 1.21s
+Loading save slot metadata. took 0.06s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.13s
+Running init code took 0.05s
 Loading analysis data took 0.03s
 Analyze and compile ATL took 0.01s
 Index archives took 0.00s
 Backing up script files to "C:\\Users\\Kilian\\AppData\\Roaming/RenPy/backups\\Baby's First Visual Novel":
-Dump and make backups. took 0.10s
+Dump and make backups. took 0.07s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.04s
 DPI scale factor: 1.000000
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.04s
+Init translation took 0.02s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
-Save screen analysis took 0.11s
-Prepare screens took 0.08s
+Save screen analysis took 0.07s
+Prepare screens took 0.06s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.08s
+Save bytecode. took 0.05s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.04s
+Interface start took 0.03s
 
 primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
@@ -700,14 +722,4 @@ Texture testing:
 - 64px textures work.
 - 128px textures work.
 - 256px textures work.
-- 512px textures work.
-- 1024px textures work.
-- 2048px textures work.
-Total time until interface ready: 106.860000134s
-- Target is 5 frames in 0.333333333333 seconds.
-- Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.014000 seconds.
-- Frame drawn at 0.030000 seconds.
-- Frame drawn at 0.047000 seconds.
-- Frame drawn at 0.065000 seconds.
-- 0.065000 seconds to render 5 frames.
+- 512px textur

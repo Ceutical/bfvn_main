@@ -3074,7 +3074,7 @@ label scenew2_5:
         Lt "Du hast [scastlep] Punkte gesammelt und bekommst viele Affinitypoints!"
         
     else:
-        LT "Du hast [scastlep] Punkte gesammelt und bekommst wenig Affinitypoints ..."
+        Lt "Du hast [scastlep] Punkte gesammelt und bekommst wenig Affinitypoints ..."
             
             
             
