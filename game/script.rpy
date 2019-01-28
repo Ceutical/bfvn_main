@@ -2862,8 +2862,9 @@ label scenew2_5:
     show sandkuchen
     show sandpyramide
     with dissolve
+    $ scastlep = 0
     pt "Hey, Louis!"
-    Lt "Oh, hi Prota, willst du mitmachen?"
+    Lt "Oh, hi [name], willst du mitmachen?"
     pt "Hää… wie mitmachen. Bei was denn?"
     Lt "Na, wir spielen Geschichten erzählen."
     pt "Wie spielt man denn etwas zu erzählen?"
@@ -2872,10 +2873,10 @@ label scenew2_5:
     Lt "Also ich fange einen Satz an und du vervollständigst den dann. Und da wird dann eine Geschichte draus."
     Lt "Schau ich hab hier zum Beispiel ein Schloss gebaut."
     nt "Naja, ob das wie ein Schloss aussieht... Wie hat er es überhaupt geschafft, dass das so schief steht."
-    nt "Heißt das, er hat die anderen Sachen gar nicht gebaut? Wer baut denn ein Auto und'ne Pyramide und lässt die dann einfach stehen?"
-    nt "Und ich glaube auch nicht das Randy den Sand essen sollte. Meine Mama sagt zumindest immer, dass man das nicht macht."
+    nt "Heißt das, er hat die anderen Sachen gar nicht gebaut? Wer baut denn ein Auto und ne Pyramide und lässt die dann einfach stehen?"
+    nt "Und ich glaube auch nicht, dass Randy den Sand essen sollte. Meine Mama sagt zumindest immer, dass man das nicht macht."
     Lt "…und dann könnte man zum Beispiel…"
-    Lt "Hey Prota, hörst du mir überhaupt zu?"
+    Lt "Hey [name], hörst du mir überhaupt zu?"
     pt "Ääääh… was?"
     Lt "Oh man, hör halt mal zu! Und Randy hör auf den Sandkuchen zu essen. Den hab ich gestern gebaut. Der ist nicht zum essen."
     rt "Sorry… er sieht so lecker aus. Und er schmeckt nach Zitrone."
@@ -2890,6 +2891,7 @@ label scenew2_5:
         "Äh...Schloss...äh Sand..gel.":
             $ burgname = "Burgname1"
             $ enemyname = "Enemy1"
+            $ scastlep += 1
             Lt "Naja gut. Wenn du meinst..."
             Lt "Wir erzählen also die Geschichte von Schloss Sandgel, in dem der schwarze Ritter wohnt."
             show badboy with dissolve
@@ -2903,6 +2905,7 @@ label scenew2_5:
         "Die Schreckensburg von Zauberer Dunkelbös.":
             $ burgname = "Burgname2"
             $ enemyname = "Enemy2"
+            $ scastlep += 2
             Lt "Oh, ja das klingt gut!"
             Lt "Wir erzählen also die Geschichte vom bösen Zauberer Dunkelbös der in seiner Schreckensburg lebt."
             show badboy with dissolve
@@ -2919,24 +2922,24 @@ label scenew2_5:
             
             
     if burgname == "Burgname1":
-    python:
-        burg = "Burg Sandgel"
+        python:
+            burg = "Burg Sandgel"
         
     if burgname == "Burgname2":
-    python:
-        burg = "Schreckensburg" 
+        python:
+            burg = "Schreckensburg" 
         
     if burgname == "Burgname3":
-    python:
-        burg = "Burg Fort Knight" 
+        python:
+            burg = "Burg Fort Knight" 
         
     if enemyname == "Enemy1":
-    python:
-        enemy = "Ritter" 
+        python:
+            enemy = "Ritter" 
         
     if enemyname == "Enemy2":
-    python:
-        enemy = "Zauberer" 
+        python:
+            enemy = "Zauberer" 
         
 
             
@@ -2955,6 +2958,7 @@ label scenew2_5:
     menu:
         "...auf die Spitze der Pyramide des Verderbens klettern.":
             show doom with dissolve
+            $ scastlep += 2
             Lt "Auf ihrem Weg zum Schloss treffen die Drei auf eine riesige Pyramide."
             Lt "Nach drei harten Tagen haben sie es endlich bis zur Spitze der Pyramide geschafft. In der goldenen Spitze finden sie ein Fach mit einem Teil des Schlüssels."
 
@@ -2967,8 +2971,9 @@ label scenew2_5:
             Lt "auf ihrem Weg zur [burg] treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
             Lt "Nach einem harten Kampf, schaffen die Helden es der Ente das Halsband mit dem Teil des Schlüssels abzunehmen."
 
-        "den gefährlichen Fluss der Unterwelt überqueren.":
+        "den gefährlichen Fluss des Verderbens überqueren.":
             show island with dissolve
+            $ scastlep += 1
             Lt "Okay."
             Lt "Auf dem Weg zur [burg] kommen sie an einem gefährlichen Fluss an. In der Mitte des Stroms ist eine Insel mit einer Schatztruhe."
             Lt "Leider ist die Brücke, die eigentlich zur Insel führen soll, zerstört."
@@ -2979,6 +2984,7 @@ label scenew2_5:
     menu:
         "...mit dem magischen Aut...äh..pferdelosen Wagen gegen das schnellste Pferd des Landes antreten.":
             show horse with dissolve
+            $ scastlep += 2
             Lt "Der magische Wagen ohne Pferde steht vor den Helden. Bisher hat es keiner geschafft mit ihm zu fahren."
             pt "Aber die Helden sind mega klug!"
             Lt "Ja genau und weil sie so klug sind bringen sie den Wagen zum laufen."
@@ -2994,6 +3000,7 @@ label scenew2_5:
     
         "...dem größten Rätselmeister der Welt stellen.":
             show monc with dissolve
+            $ scastlep += 1
             Lt "In einem einsamen Tempel auf dem höchsten Berg des Landes lebt der Rätselmeister."
             Lt "Er stellt den Helden ein Rätsel das bisher niemand gelöst hat."
             Lt "Ein Rätsel so schwierig, dass nicht mal ich die Antwort weiß."
@@ -3015,16 +3022,18 @@ label scenew2_5:
             
         "… der Troll in der alten Mine hat den letzten Teil des Schlüssels.":
             show cave with dissolve
+            $ scastlep += 1
             Lt "Die Helden werden also in die alte Mine geschickt."
             Lt "Dort wohnt ein fieser Troll der das Schlüsselstück unter seinem Kopfkissen versteckt hat."
             Lt "Zum Glück sind die Helden schlau und können den Troll überlisten und ihm den letzten Teil des Schlüssels klauen."
             
         "“… man braucht einen sehr starken Magen um den schrecklich trockenen Kuchen von Fürst Randolph zu verspeisen.":
+            $ scastlep += 2
             Lt "Wow… Cool!"
             Lt "Die Helden suchen Fürst Randolph auf, weil jeder weiß, dass er einen Teil des Schlüssels besitzt."
             Lt "Randolph will aber ihn aber nicht einfach so hergeben. Er stellt ihnen eine Aufgabe. Wenn sie ein Stück seines unglaublich trockenen Kuchen verspeisen können ohne zu Staub zu zerfallen, dann gibt er ihnen sein Schlüsselstück.."
-           show sandkuchen2 
-           hide sandkuchen with dissolve
+            show sandkuchen2 
+            hide sandkuchen with dissolve
             Lt "Die Helden schaffen es nur zu dritt, in dem sie das Stück genau unter sich aufteilen."
             Lt "Fürst Randolph ist beeindruckt und gibt den letzen Teil des Schlüssels frei."
             
@@ -3035,6 +3044,7 @@ label scenew2_5:
     
     menu:
         "...mit einem Stich ins Herz.":
+            $ scastlep += 1
             Lt "Uh…voll brutal!"
             Lt "Einer der Helden schafft es sein Schwert direkt durch das Herz des Bösewichts zu stechen."
             Lt "Endlich ist der [enemy] besiegt!"
@@ -3049,6 +3059,7 @@ label scenew2_5:
             
         "…mit einem Drachen den sie beschwören.":
             show sanddragon with dissolve
+            $ scastlep += 2
             Lt "Yeah, cool ein Drache!"
             Lt "Ich weiß zwar nicht wo der jetzt plötzlich herkommt… aber egal!"
             Lt "Der Drache verschlingt den Bösewicht in einem Haps!"
@@ -3058,6 +3069,12 @@ label scenew2_5:
     Lt "Die Helden werden überall gefeiert und bekommen goldene Medaillen für ihre Hilfe."
     show preis with dissolve
     Lt "Und wenn sie nicht gestorben sind… und so weiter, und so weiter."
+    
+    if scastlep > 5:
+        Lt "Du hast [scastlep] Punkte gesammelt und bekommst viele Affinitypoints!"
+        
+    else:
+        LT "Du hast [scastlep] Punkte gesammelt und bekommst wenig Affinitypoints ..."
             
             
             
