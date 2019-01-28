@@ -2886,6 +2886,8 @@ label scenew2_5:
     
     menu:
         "Äh...Schloss...äh Sand..gel.":
+            $ burgname = "Burgname1"
+            $ enemyname = "Enemy1"
             Lt "Naja gut. Wenn du meinst..."
             Lt "Wir erzählen also die Geschichte von Schloss Sandgel, in dem der schwarze Ritter wohnt."
             show badboy with dissolve
@@ -2897,12 +2899,16 @@ label scenew2_5:
             Lt "Ähh.. sie drei Teile eines magischen Schlüssels erhalten."
             
         "Die Schreckensburg von Zauberer Dunkelbös.":
+            $ burgname = "Burgname2"
+            $ enemyname = "Enemy2"
             Lt "Oh, ja das klingt gut!"
             Lt "Wir erzählen also die Geschichte vom bösen Zauberer Dunkelbös der in seiner Schreckensburg lebt."
             show badboy with dissolve
             Lt "Wie gesagt der Zauberer ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
             
         "Ich weiß nicht. Mir fällt nichts ein... vielleicht ...Fort Knight.":
+            $ burgname = "Burgname3"
+            $ enemyname = "Enemy1"
             Lt "Man echt?"
             Lt "Voll der lahme Name. Aber wenn’s sein muss..."
             Lt "Wir erzählen also die Geschichte von Fort Knight in dem der dunkle Ritter wohnt."
@@ -2910,15 +2916,37 @@ label scenew2_5:
             Lt "Der schwarze Ritter ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
             
             
+    if burgname == "Burgname1":
+    python:
+        burg = "Burg Sandgel"
+        
+    if burgname == "Burgname2":
+    python:
+        burg = "Schreckensburg" 
+        
+    if burgname == "Burgname3":
+    python:
+        burg = "Burg Fort Knight" 
+        
+    if enemyname == "Enemy1":
+    python:
+        enemy = "Ritter" 
+        
+    if enemyname == "Enemy2":
+    python:
+        enemy = "Zauberer" 
+        
+
             
-    Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
+            
+    Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den [enemy] zu besiegen."
     show held
     show knight
     show wizzard
     with dissolve
     pt "Und wie heißen die?"
     Lt "Ähhh... das weiß keiner."
-    Lt "Ach ja und um das Schloss betreten zu können müssen die Helden drei Prüfungen bestehen damit ..."
+    Lt "Ach ja und um die [burg] betreten zu können müssen die Helden drei Prüfungen bestehen damit ..."
     Lt "Ähh.. sie drei Teile eines magischen Schlüssels erhalten."
     Lt "Ihre Reise beginnt also. Als Erstes müssen sie..."
 
@@ -2934,16 +2962,105 @@ label scenew2_5:
             Lt "Meinst du das Ernst?"
             pt "Also ja..."
             Lt "Ach egal."
-            Lt "auf ihrem Weg zum Schloss treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
+            Lt "auf ihrem Weg zur [burg] treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
             Lt "Nach einem harten Kampf, schaffen die Helden es der Ente das Halsband mit dem Teil des Schlüssels abzunehmen."
 
         "den gefährlichen Fluss der Unterwelt überqueren.":
             show island with dissolve
             Lt "Okay."
-            Lt "Auf dem Weg zum Schloss kommen sie an einem gefährlichen Fluss an. In der Mitte des Stroms ist eine Insel mit einer Schatztruhe."
+            Lt "Auf dem Weg zur [burg] kommen sie an einem gefährlichen Fluss an. In der Mitte des Stroms ist eine Insel mit einer Schatztruhe."
             Lt "Leider ist die Brücke, die eigentlich zur Insel führen soll, zerstört."
-            Lt "Die Helden schaffen es aber, ein Floß zu bauen. Sie überwinden den Strom und schnappen sich den ersten Teil des Schlüssels."    
+            Lt "Die Helden schaffen es aber, ein Floß zu bauen. Sie überwinden den Strom und schnappen sich den ersten Teil des Schlüssels."  
+
+    Lt "Nachdem die Helden die erste Prüfung bestanden haben, müssen sie sich nun..."
     
+    menu:
+        "...mit dem magischen Aut...äh..pferdelosen Wagen gegen das schnellste Pferd des Landes antreten.":
+            show horse with dissolve
+            Lt "Der magische Wagen ohne Pferde steht vor den Helden. Bisher hat es keiner geschafft mit ihm zu fahren."
+            pt "Aber die Helden sind mega klug!"
+            Lt "Ja genau und weil sie so klug sind bringen sie den Wagen zum laufen."
+            Lt "Das Rennen gegen das Pferd ist dann fast einfach, denn nichts ist schneller als ihr Wagen. Der zweite Teil des Schlüssels ist jetzt ihrer."
+            
+        "...durch den Urwald des Verderbens schlagen.":
+            show dschungel with dissolve
+            Lt "Wie schon wieder ‘Verderben’?"
+            Lt "Ist das nicht etwas langweilig?"
+            pt "Nö wieso?"
+            Lt "Na gut."
+            Lt "Die Helden schlagen sich also durch diesen gefährlichen Urwald. In dem Urwald lauern viele Gefahren wie Krokodile und Schlangen. Trotzdem halten die Helden bis zum Schluss durch und finden den zweiten Teil des Schlüssel auf einem Baumstumpf in einer Lichtung."
+    
+        "...dem größten Rätselmeister der Welt stellen.":
+            show monc with dissolve
+            Lt "In einem einsamen Tempel auf dem höchsten Berg des Landes lebt der Rätselmeister."
+            Lt "Er stellt den Helden ein Rätsel das bisher niemand gelöst hat."
+            Lt "Ein Rätsel so schwierig, dass nicht mal ich die Antwort weiß."
+            Lt "Ehrlich gesagt weiß ich nicht mal das Rätsel."
+            Lt "Aber egal. Die klugen Helden schaffen es sogar dieses Rätsel zu lösen und erhalten den zweiten Teil des Schlüssels."
+            
+    Lt "Super! Bis jetzt haben sie alle Prüfungen bestanden. Aber die letzte Prüfung soll auch die härteste sein denn…"
+    
+    menu:
+        "...äh...sie ist mega schwer!":
+            Lt "Ja das hab ich ja grade schon gesagt."
+            Lt "Aber was ist denn jetzt die letzte Prüfung?"
+            Lt "Eigentlich wollte ich ja dass du dir was ausdenkt."
+            Lt "Na gut, wie wärs damit."
+            show barbie with dissolve
+            Lt "Die Helden müssen ein ekliges Mädchen küssen, damit sie ihnen das dritte Schlüsselstück gibt."
+            Lt "Dörte ist mega hässlich also braucht es sehr viel Mut sich zu überwinden."
+            Lt "Die Helden trinken sich mit Cola Mut an und bekommen den letzten Teil des Schlüssels."
+            
+        "… der Troll in der alten Mine hat den letzten Teil des Schlüssels.":
+            show cave with dissolve
+            Lt "Die Helden werden also in die alte Mine geschickt."
+            Lt "Dort wohnt ein fieser Troll der das Schlüsselstück unter seinem Kopfkissen versteckt hat."
+            Lt "Zum Glück sind die Helden schlau und können den Troll überlisten und ihm den letzten Teil des Schlüssels klauen."
+            
+        "“… man braucht einen sehr starken Magen um den schrecklich trockenen Kuchen von Fürst Randolph zu verspeisen.":
+            Lt "Wow… Cool!"
+            Lt "Die Helden suchen Fürst Randolph auf, weil jeder weiß, dass er einen Teil des Schlüssels besitzt."
+            Lt "Randolph will aber ihn aber nicht einfach so hergeben. Er stellt ihnen eine Aufgabe. Wenn sie ein Stück seines unglaublich trockenen Kuchen verspeisen können ohne zu Staub zu zerfallen, dann gibt er ihnen sein Schlüsselstück.."
+           show sandkuchen2 
+           hide sandkuchen with dissolve
+            Lt "Die Helden schaffen es nur zu dritt, in dem sie das Stück genau unter sich aufteilen."
+            Lt "Fürst Randolph ist beeindruckt und gibt den letzen Teil des Schlüssels frei."
+            
+    Lt "Okay, jetzt kommt das große Finale!"
+    Lt "Nach diesen schweren Prüfungen erreichen die Helden endlich die [burg]."
+    Lt "Noch sind die großen schweren Tore verschlossen. Aber mit den drei Schlüsselstücken öffnen sie sich."
+    Lt "Im Innenhof der Festung treffen die Helden nun endlich auf den [enemy]. Ein schwerer Kampf steht bevor. Der [enemy] schafft es fast die Helden zu überwältigen, aber am Ende besiegen sie ihn…"
+    
+    menu:
+        "...mit einem Stich ins Herz.":
+            Lt "Uh…voll brutal!"
+            Lt "Einer der Helden schafft es sein Schwert direkt durch das Herz des Bösewichts zu stechen."
+            Lt "Endlich ist der [enemy] besiegt!"
+            
+        "…mit einer Ente.":
+            Lt "Hä? Wie soll das gehen?"
+            pt "Naja, er könnte ja auf der Ente ausrutschen und sich alle Knochen brechen."
+            Lt "Echt? Wirklich?"
+            Lt "Man man man…"
+            Lt "Der Bösewicht rutscht auf einer Quietscheente aus und stirbt."
+            Lt "Endlich ist der [enemy] besiegt"
+            
+        "…mit einem Drachen den sie beschwören.":
+            show sanddragon with dissolve
+            Lt "Yeah, cool ein Drache!"
+            Lt "Ich weiß zwar nicht wo der jetzt plötzlich herkommt… aber egal!"
+            Lt "Der Drache verschlingt den Bösewicht in einem Haps!"
+            Lt "Endlich ist der [enemy] besiegt!"
+            
+    Lt "Die Welt ist gerettet und die Bewohner des Landes wieder frei."
+    Lt "Die Helden werden überall gefeiert und bekommen goldene Medaillen für ihre Hilfe."
+    show preis with dissolve
+    Lt "Und wenn sie nicht gestorben sind… und so weiter, und so weiter."
+            
+            
+            
+            
+            
     window auto
 label scenew2_6:
     "Placeholder W2S6"
@@ -3446,10 +3563,10 @@ label scenew2_10:
                              n "Das ist ja ein komischer Würfel...fast schon rund. Und ganz viele Zahlen stehen da drauf."
                              p "Ha! 19! Das ist fast das höchste!"
                              n "Warum schaut sie mich denn so komisch an?"
-                             p "Tjaa...das hättste nicht ggedacht, was?"
+                             p "Tjaa...das hättste nicht gedacht, was?"
                              e "Der Held stolpert beim Ziehen seiner Waffe über seine eigenen Füße und fällt in eine Sumpfgrube neben dem Weg. Dabei geht auch noch seine Waffe kaputt und er kann nicht mehr kämpfen."  
                              p "Was? Wiesooo?! Das ist unfair!"
-                             e "Es ist schlecht hohe zahlen zu würfeln."
+                             e "Es ist schlecht Hohe Zahlen zu würfeln."
                              jump pnp1bad
                             
                          "Ich renne weg!":
