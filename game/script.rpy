@@ -1,6 +1,5 @@
 ﻿##### SCRIPT START #####
 
-##### OTHER DEFINITIONS #####
 ##### CHARACTER DEFINITIONS #####
 
 define m = Character("Mama")
@@ -226,6 +225,9 @@ transform orun7b:
 
 label start:
     play music introtheme
+    
+    ##### OTHER DEFINITIONS #####
+    
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -3265,6 +3267,7 @@ label scenew2_10:
             p "Eben! Das ist schon wieder eine ganze Ewigkeit her!"
             m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
             n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
+            jump pnp1done
             
                 
                 
@@ -3362,6 +3365,7 @@ label scenew2_10:
                     p "Eben! Das ist schon wieder eine ganze Ewigkeit her!"
                     m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
                     n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
+                    jump pnp1done
                     
                 "Mama fragen, ob ich mit auf den Bauernhof darf.":
                     m "Heute noch? Das muss ich dann aber erst mal mit Anjas Eltern besprechen, ob das denn wirklich in Ordnung ist."
@@ -3395,6 +3399,7 @@ label scenew2_10:
                             p "Da sieht Heidenau aber noch wesentlich besser aus!"
                             a "Pass auf, gleich fress ich dich! Hexen lieben Kinder zum Nachtisch!"
                             n "Ich glaub Anja mag Hexen. In letzter Zeit redet sie echt oft darüber. Aber das Spielen mit ihr macht trotzdem sehr viel Spaß!"
+                            jump pnp1done
                             
                         "Dem Heu ausweichen.":
                             p "Ha, nicht erwischt!"
@@ -3408,6 +3413,7 @@ label scenew2_10:
                             a "Mit dir spiel ich nicht mehr! Und das Stroh ist auch voll doof in den Haaren. Das pikst voll!"
                             n "Wieso muss die immer gleich so sauer sein? Es tut mir doch leid, aber ich kann mich ja nicht mal entschuldigen, wenn die soviel redet!"
                             n "Und jetzt steht die auch noch einfach auf und geht. Na super! So hab ich mir das ja nicht vorgestellt..."
+                            jump pnp1done
             
                             
         "Ich schau lieber mal, wo Evelynn ist.":
@@ -3429,6 +3435,10 @@ label scenew2_10:
              p "Hä, was meinst du?"
              e "Na also guck das ist ganz einfach. Erst suchst du dir aus was für ein Wesen du sein willst."
              p "Hm…mal sehen was zur Auswahl steht…"
+             $ berry = False
+             $ powder = False
+             $ pnp1winpoints = 0
+             
             
              menu:
                 "Zwerg":
@@ -3585,7 +3595,7 @@ label scenew2_10:
              e "\"Ganz einfach\", sagte die Bardin. \"Wir folgen einfach den großen Füßabdrücken!\""
              e "Nach gar nicht langer Zeit sahen sie den Drachen. Er lag unter einem Baum und hielt ein Mittagsschlaf, weil er so viel Kuchen gegessen hatte."
              e "Was sollen wir tun?"
-             $ pnp1winpoints = 0
+             
             
             
              menu:
@@ -3720,7 +3730,7 @@ label pnp1good:
     m "Wir haben es leider etwas eilig. Wir müssen noch einkaufen gehen. Aber du kannst doch morgen weiterspielen. Das läuft dir schon nicht weg."
     p "Okaaaay..."
     n "Immer dann, wenn es am lustigsten wird, muss man aufhören. Das ist unfair. Wenn ich erst einmal groß bin, hör ich erst dann auf, wenn ich will."
-    jump credits
+    jump pnp1done
     
 label pnp1bad:
     n "Evelynn knallt das Buch zu."
@@ -3736,8 +3746,11 @@ label pnp1bad:
     m "Das klingt ja sehr begeistert. Freust du dich gar nicht auf den Wandertag?"
     p "Doch."
     n "Nicht so wirklich. Ich mag es nicht, wenn Evelynn auf mich sauer ist."
-    jump credits
+    jump pnp1done
     
+    
+    
+label pnp1done:
     
 label credits:
     scene bg bedroom with dissolve

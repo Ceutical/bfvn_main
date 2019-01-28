@@ -1,5 +1,6 @@
 ﻿##### SCRIPT START #####
 
+##### OTHER DEFINITIONS #####
 ##### CHARACTER DEFINITIONS #####
 
 define m = Character("Mama")
@@ -1020,6 +1021,7 @@ label scene11:
             menu:
                 "Lieber nicht...":
                     $ gone = True
+                    $ anjatreat = False
                     p "Nein! Nein, nein! Ich ... ich guck mal wo dein Freund ist."
                     show anja madb
                     a "NA TOLL! Dann geh doch!"
@@ -1054,6 +1056,7 @@ label scene11:
             
         "Wortlos gehen.":
             $ gone = True
+            $ anjatreat = False
             show anja madb
             a "Hey! Was soll das? Wo willst du hin?"
             show anja vmadb
@@ -1098,6 +1101,7 @@ label scene11:
                 a "Aaahh, Super. Jetzt gehts mir besser."
                 
             "Nein":
+                $ anjatreat = False
                 jump treetalk
                 
 label treetalk:
@@ -2841,6 +2845,7 @@ label scenew2_4:
     menu:
         "Sandkasten":
             scene bg sand
+            window hide
             nt "Mal sehen, was Louis da so macht!"
             jump scenew2_5
 
@@ -2881,6 +2886,8 @@ label scenew2_5:
     
     menu:
         "Äh...Schloss...äh Sand..gel.":
+            $ burgname = "Burgname1"
+            $ enemyname = "Enemy1"
             Lt "Naja gut. Wenn du meinst..."
             Lt "Wir erzählen also die Geschichte von Schloss Sandgel, in dem der schwarze Ritter wohnt."
             show badboy with dissolve
@@ -2892,12 +2899,16 @@ label scenew2_5:
             Lt "Ähh.. sie drei Teile eines magischen Schlüssels erhalten."
             
         "Die Schreckensburg von Zauberer Dunkelbös.":
+            $ burgname = "Burgname2"
+            $ enemyname = "Enemy2"
             Lt "Oh, ja das klingt gut!"
             Lt "Wir erzählen also die Geschichte vom bösen Zauberer Dunkelbös der in seiner Schreckensburg lebt."
             show badboy with dissolve
             Lt "Wie gesagt der Zauberer ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
             
         "Ich weiß nicht. Mir fällt nichts ein... vielleicht ...Fort Knight.":
+            $ burgname = "Burgname3"
+            $ enemyname = "Enemy1"
             Lt "Man echt?"
             Lt "Voll der lahme Name. Aber wenn’s sein muss..."
             Lt "Wir erzählen also die Geschichte von Fort Knight in dem der dunkle Ritter wohnt."
@@ -2905,15 +2916,37 @@ label scenew2_5:
             Lt "Der schwarze Ritter ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
             
             
+    if burgname == "Burgname1":
+    python:
+        burg = "Burg Sandgel"
+        
+    if burgname == "Burgname2":
+    python:
+        burg = "Schreckensburg" 
+        
+    if burgname == "Burgname3":
+    python:
+        burg = "Burg Fort Knight" 
+        
+    if enemyname == "Enemy1":
+    python:
+        enemy = "Ritter" 
+        
+    if enemyname == "Enemy2":
+    python:
+        enemy = "Zauberer" 
+        
+
             
-    Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
+            
+    Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den [enemy] zu besiegen."
     show held
     show knight
     show wizzard
     with dissolve
     pt "Und wie heißen die?"
     Lt "Ähhh... das weiß keiner."
-    Lt "Ach ja und um das Schloss betreten zu können müssen die Helden drei Prüfungen bestehen damit ..."
+    Lt "Ach ja und um die [burg] betreten zu können müssen die Helden drei Prüfungen bestehen damit ..."
     Lt "Ähh.. sie drei Teile eines magischen Schlüssels erhalten."
     Lt "Ihre Reise beginnt also. Als Erstes müssen sie..."
 
@@ -2929,17 +2962,106 @@ label scenew2_5:
             Lt "Meinst du das Ernst?"
             pt "Also ja..."
             Lt "Ach egal."
-            Lt "auf ihrem Weg zum Schloss treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
+            Lt "auf ihrem Weg zur [burg] treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
             Lt "Nach einem harten Kampf, schaffen die Helden es der Ente das Halsband mit dem Teil des Schlüssels abzunehmen."
 
         "den gefährlichen Fluss der Unterwelt überqueren.":
             show island with dissolve
             Lt "Okay."
-            Lt "Auf dem Weg zum Schloss kommen sie an einem gefährlichen Fluss an. In der Mitte des Stroms ist eine Insel mit einer Schatztruhe."
+            Lt "Auf dem Weg zur [burg] kommen sie an einem gefährlichen Fluss an. In der Mitte des Stroms ist eine Insel mit einer Schatztruhe."
             Lt "Leider ist die Brücke, die eigentlich zur Insel führen soll, zerstört."
-            Lt "Die Helden schaffen es aber, ein Floß zu bauen. Sie überwinden den Strom und schnappen sich den ersten Teil des Schlüssels."    
+            Lt "Die Helden schaffen es aber, ein Floß zu bauen. Sie überwinden den Strom und schnappen sich den ersten Teil des Schlüssels."  
+
+    Lt "Nachdem die Helden die erste Prüfung bestanden haben, müssen sie sich nun..."
     
+    menu:
+        "...mit dem magischen Aut...äh..pferdelosen Wagen gegen das schnellste Pferd des Landes antreten.":
+            show horse with dissolve
+            Lt "Der magische Wagen ohne Pferde steht vor den Helden. Bisher hat es keiner geschafft mit ihm zu fahren."
+            pt "Aber die Helden sind mega klug!"
+            Lt "Ja genau und weil sie so klug sind bringen sie den Wagen zum laufen."
+            Lt "Das Rennen gegen das Pferd ist dann fast einfach, denn nichts ist schneller als ihr Wagen. Der zweite Teil des Schlüssels ist jetzt ihrer."
+            
+        "...durch den Urwald des Verderbens schlagen.":
+            show dschungel with dissolve
+            Lt "Wie schon wieder ‘Verderben’?"
+            Lt "Ist das nicht etwas langweilig?"
+            pt "Nö wieso?"
+            Lt "Na gut."
+            Lt "Die Helden schlagen sich also durch diesen gefährlichen Urwald. In dem Urwald lauern viele Gefahren wie Krokodile und Schlangen. Trotzdem halten die Helden bis zum Schluss durch und finden den zweiten Teil des Schlüssel auf einem Baumstumpf in einer Lichtung."
     
+        "...dem größten Rätselmeister der Welt stellen.":
+            show monc with dissolve
+            Lt "In einem einsamen Tempel auf dem höchsten Berg des Landes lebt der Rätselmeister."
+            Lt "Er stellt den Helden ein Rätsel das bisher niemand gelöst hat."
+            Lt "Ein Rätsel so schwierig, dass nicht mal ich die Antwort weiß."
+            Lt "Ehrlich gesagt weiß ich nicht mal das Rätsel."
+            Lt "Aber egal. Die klugen Helden schaffen es sogar dieses Rätsel zu lösen und erhalten den zweiten Teil des Schlüssels."
+            
+    Lt "Super! Bis jetzt haben sie alle Prüfungen bestanden. Aber die letzte Prüfung soll auch die härteste sein denn…"
+    
+    menu:
+        "...äh...sie ist mega schwer!":
+            Lt "Ja das hab ich ja grade schon gesagt."
+            Lt "Aber was ist denn jetzt die letzte Prüfung?"
+            Lt "Eigentlich wollte ich ja dass du dir was ausdenkt."
+            Lt "Na gut, wie wärs damit."
+            show barbie with dissolve
+            Lt "Die Helden müssen ein ekliges Mädchen küssen, damit sie ihnen das dritte Schlüsselstück gibt."
+            Lt "Dörte ist mega hässlich also braucht es sehr viel Mut sich zu überwinden."
+            Lt "Die Helden trinken sich mit Cola Mut an und bekommen den letzten Teil des Schlüssels."
+            
+        "… der Troll in der alten Mine hat den letzten Teil des Schlüssels.":
+            show cave with dissolve
+            Lt "Die Helden werden also in die alte Mine geschickt."
+            Lt "Dort wohnt ein fieser Troll der das Schlüsselstück unter seinem Kopfkissen versteckt hat."
+            Lt "Zum Glück sind die Helden schlau und können den Troll überlisten und ihm den letzten Teil des Schlüssels klauen."
+            
+        "“… man braucht einen sehr starken Magen um den schrecklich trockenen Kuchen von Fürst Randolph zu verspeisen.":
+            Lt "Wow… Cool!"
+            Lt "Die Helden suchen Fürst Randolph auf, weil jeder weiß, dass er einen Teil des Schlüssels besitzt."
+            Lt "Randolph will aber ihn aber nicht einfach so hergeben. Er stellt ihnen eine Aufgabe. Wenn sie ein Stück seines unglaublich trockenen Kuchen verspeisen können ohne zu Staub zu zerfallen, dann gibt er ihnen sein Schlüsselstück.."
+           show sandkuchen2 
+           hide sandkuchen with dissolve
+            Lt "Die Helden schaffen es nur zu dritt, in dem sie das Stück genau unter sich aufteilen."
+            Lt "Fürst Randolph ist beeindruckt und gibt den letzen Teil des Schlüssels frei."
+            
+    Lt "Okay, jetzt kommt das große Finale!"
+    Lt "Nach diesen schweren Prüfungen erreichen die Helden endlich die [burg]."
+    Lt "Noch sind die großen schweren Tore verschlossen. Aber mit den drei Schlüsselstücken öffnen sie sich."
+    Lt "Im Innenhof der Festung treffen die Helden nun endlich auf den [enemy]. Ein schwerer Kampf steht bevor. Der [enemy] schafft es fast die Helden zu überwältigen, aber am Ende besiegen sie ihn…"
+    
+    menu:
+        "...mit einem Stich ins Herz.":
+            Lt "Uh…voll brutal!"
+            Lt "Einer der Helden schafft es sein Schwert direkt durch das Herz des Bösewichts zu stechen."
+            Lt "Endlich ist der [enemy] besiegt!"
+            
+        "…mit einer Ente.":
+            Lt "Hä? Wie soll das gehen?"
+            pt "Naja, er könnte ja auf der Ente ausrutschen und sich alle Knochen brechen."
+            Lt "Echt? Wirklich?"
+            Lt "Man man man…"
+            Lt "Der Bösewicht rutscht auf einer Quietscheente aus und stirbt."
+            Lt "Endlich ist der [enemy] besiegt"
+            
+        "…mit einem Drachen den sie beschwören.":
+            show sanddragon with dissolve
+            Lt "Yeah, cool ein Drache!"
+            Lt "Ich weiß zwar nicht wo der jetzt plötzlich herkommt… aber egal!"
+            Lt "Der Drache verschlingt den Bösewicht in einem Haps!"
+            Lt "Endlich ist der [enemy] besiegt!"
+            
+    Lt "Die Welt ist gerettet und die Bewohner des Landes wieder frei."
+    Lt "Die Helden werden überall gefeiert und bekommen goldene Medaillen für ihre Hilfe."
+    show preis with dissolve
+    Lt "Und wenn sie nicht gestorben sind… und so weiter, und so weiter."
+            
+            
+            
+            
+            
+    window auto
 label scenew2_6:
     "Placeholder W2S6"
 label scenew2_7:
@@ -3321,217 +3443,218 @@ label scenew2_10:
                     $ race = "Menschen"
                     n "Ich glaub ich bleibe einfach ein Mensch."
                     
-            e "…und dann wählst du deine Rolle. Das ist was du gut kannst."
-            n "Was für eine Rolle habe ich?"
+             e "…und dann wählst du deine Rolle. Das ist was du gut kannst."
+             n "Was für eine Rolle habe ich?"
             
-            menu:
-                "Zauberer":
-                    $ role = "Zauberer"
-                    n "Niemand besiegt mich, wenn ich zaubern kann!"
+             menu:
+                 "Zauberer":
+                     $ role = "Zauberer"
+                     n "Niemand besiegt mich, wenn ich zaubern kann!"
                     
-                "Bogenschießer":
-                    $ role = "Bogenschießer"
-                    n "Ich bin der besteste Pfeilbogenschießer der Welt!"
+                 "Bogenschießer":
+                     $ role = "Bogenschießer"
+                     n "Ich bin der besteste Pfeilbogenschießer der Welt!"
                 
-                "Kämpfer":
-                    $ role = "Kämpfer"
-                    n "Mit meinem großen Schwert, hau ich alle um!"
+                 "Kämpfer":
+                     $ role = "Kämpfer"
+                     n "Mit meinem großen Schwert, hau ich alle um!"
                     
-            e "Ich hab mir auch schon was ausgedacht. Aber das verrate ich dir noch nicht!"
-            p "Wieso nicht? Du weißt doch auch, was ich bin, also sag schon!"
-            e "Ätschi-Bätsch! Das wirst du sehen, wenn wir spielen!"
-            n "Wenn Evelynn mir nichts verrät dann macht es nur noch spannender."
-            e "Also, los geht's!"
-            e "Es war einmal, vor langer Zeit..."
-            n "Evelynn ist sofort drin im Spiel. Was muss ich eigentlich machen?"
-            e "... in einem Land namens Müramoor."
-            e "Da lebten zwei Helden, die waren auf der Durchreise durch das Land, auf der Suche nach Abenteuern."
-            e "Sie waren gerade gemütlich unterwegs im Wald auf dem Weg in das nächste Dorf, als sie auf dem Weg eine zwieli...zw... eine komische Person mit einem langen Mantel bemerkten."
-            e "Da sagte die mutige Bardin zu ihre[r/m] Freund[in] dem:"
-            e "Was willst du tun? Das könnte ein Bandit sein. Sollen wir uns verstecken?"
-            n "Oh..."
-            n "Ich glaub, ich soll jetzt was sagen."
+             e "Ich hab mir auch schon was ausgedacht. Aber das verrate ich dir noch nicht!"
+             p "Wieso nicht? Du weißt doch auch, was ich bin, also sag schon!"
+             e "Ätschi-Bätsch! Das wirst du sehen, wenn wir spielen!"
+             n "Wenn Evelynn mir nichts verrät dann macht es nur noch spannender."
+             e "Also, los geht's!"
+             e "Es war einmal, vor langer Zeit..."
+             n "Evelynn ist sofort drin im Spiel. Was muss ich eigentlich machen?"
+             e "... in einem Land namens Müramoor."
+             e "Da lebten zwei Helden, die waren auf der Durchreise durch das Land, auf der Suche nach Abenteuern."
+             e "Sie waren gerade gemütlich unterwegs im Wald auf dem Weg in das nächste Dorf, als sie auf dem Weg eine zwieli...zw... eine komische Person mit einem langen Mantel bemerkten."
+             e "Da sagte die mutige Bardin zu ihre[r/m] Freund[in] dem:"
+             e "Was willst du tun? Das könnte ein Bandit sein. Sollen wir uns verstecken?"
+             n "Oh..."
+             n "Ich glaub, ich soll jetzt was sagen."
             
-            menu:
-                "Äh...worum geht's?":
-                    n "Ich glaub, das war falsch. Evelynn rollt mit den Augen."
-                    e "\"Dann halt nicht\", sagt die Bardin. Aber lass uns schnell weitergehen, ich hab Hunger."
+             menu:
+                 "Äh...worum geht's?":
+                     n "Ich glaub, das war falsch. Evelynn rollt mit den Augen."
+                     e "\"Dann halt nicht\", sagt die Bardin. Aber lass uns schnell weitergehen, ich hab Hunger."
                     
-                "Ja, das wäre das Beste!":
-                    e "Die beiden Helden verstecken sich hinter einem Baum. Leise warten sie da und beobachten die Person."
-                    e " \"Vielleicht war es doch nur ein Händler\", sagte die Bardin. \"Aber sicher ist sicher.\" "
-                    p "Woran erkennst du das?"
-                    e "Sie trägt ganz viele Taschen mit Stoffen drin. Die will sie bestimmt verkaufen."
-                    e "Aber sieh nur, hier in dem Strauch neben den Baum sind lauter Beeren! Sollen wir welche mitnehmen?"
+                 "Ja, das wäre das Beste!":
+                     e "Die beiden Helden verstecken sich hinter einem Baum. Leise warten sie da und beobachten die Person."
+                     e " \"Vielleicht war es doch nur ein Händler\", sagte die Bardin. \"Aber sicher ist sicher.\" "
+                     p "Woran erkennst du das?"
+                     e "Sie trägt ganz viele Taschen mit Stoffen drin. Die will sie bestimmt verkaufen."
+                     e "Aber sieh nur, hier in dem Strauch neben den Baum sind lauter Beeren! Sollen wir welche mitnehmen?"
                     
-                    menu:
-                        "Vielleicht sind die giftig...":
-                            p "Wir sollten sie lieber hier lassen. Mama sagt, man soll nix aus dem Wald in den Mund stecken."
-                            e "Eure Frau Mutter scheint ein schlauer Mensch zu sein."
-                            n "Was will Evelynn denn nur damit sagen?"
-                            e "Die Helden lassen die Beeren also da."
+                     menu:
+                         "Vielleicht sind die giftig...":
+                             p "Wir sollten sie lieber hier lassen. Mama sagt, man soll nix aus dem Wald in den Mund stecken."
+                             e "Eure Frau Mutter scheint ein schlauer Mensch zu sein."
+                             n "Was will Evelynn denn nur damit sagen?"
+                             e "Die Helden lassen die Beeren also da."
                             
-                        "Okay.":
-                            $ berry = True
-                            p "Ich hab noch Platz hier in meiner Tasche."
-                            e "Beide Helden stecken sich ein paar der Beeren in die Beutel, essen sie aber nicht, weil sie nicht wissen, ob man das darf."
-                            e "Dann bemerken sie, dass die komische Person nicht mehr zu sehen ist und kriechen wieder aus dem Gebüsch."    
+                         "Okay.":
+                             $ berry = True
+                             p "Ich hab noch Platz hier in meiner Tasche."
+                             e "Beide Helden stecken sich ein paar der Beeren in die Beutel, essen sie aber nicht, weil sie nicht wissen, ob man das darf."
+                             e "Dann bemerken sie, dass die komische Person nicht mehr zu sehen ist und kriechen wieder aus dem Gebüsch."    
                             
-                        "Wieso mitnehmen und nicht gleich essen?":
-                            n "Evelynn schaut mich komisch an."
-                            e "Die Bardin sagte ihrem Heldenfreund, dass sie das für keine gute Idee hält."
-                            p "Und der Heldenfreund sagt der Bardin, dass er ein Held ist und vor gar nix Angst hat. Schon gar nicht vor Beeren."
-                            p "Und ich hab Hunger."
-                            e "Der Held hat Bauchschmerzen und kann nicht mehr kämpfen."
-                            p "Hö...was?"
-                            e "Tja, der Held hätte lieber erstmal der Bardin zuhören sollen."
-                            jump pnp1end
+                         "Wieso mitnehmen und nicht gleich essen?":
+                             n "Evelynn schaut mich komisch an."
+                             e "Die Bardin sagte ihrem Heldenfreund, dass sie das für keine gute Idee hält."
+                             p "Und der Heldenfreund sagt der Bardin, dass er ein Held ist und vor gar nix Angst hat. Schon gar nicht vor Beeren."
+                             p "Und ich hab Hunger."
+                             e "Der Held hat Bauchschmerzen und kann nicht mehr kämpfen."
+                             p "Hö...was?"
+                             e "Tja, der Held hätte lieber erstmal der Bardin zuhören sollen."
+                             jump pnp1end
                             
-                "Vielleicht sollten wir ihr \"Hallo\" sagen?":
-                    e "Du gehst voran!"
-                    p "Äh...hallo?!"
-                    e "Die Person dreht sich um. Nun könnt ihr sie besser sehen."
-                    e "Ihr erkennt, dass sie aussieht, wie ein riesiger Panther. Er trägt viele Taschen mit Tüchern bei sich, die er wahrscheinlich verkaufen will."
-                    e "(mit verstellter Stimme)\"Grüß Somonoa, ihr Reisenden. Kann ich euch helfen?\" "
+                 "Vielleicht sollten wir ihr \"Hallo\" sagen?":
+                     e "Du gehst voran!"
+                     p "Äh...hallo?!"
+                     e "Die Person dreht sich um. Nun könnt ihr sie besser sehen."
+                     e "Ihr erkennt, dass sie aussieht, wie ein riesiger Panther. Er trägt viele Taschen mit Tüchern bei sich, die er wahrscheinlich verkaufen will."
+                     e "(mit verstellter Stimme)\"Grüß Somonoa, ihr Reisenden. Kann ich euch helfen?\" "
                     
-                    menu:
-                        "Wir sind Helden auf der Suche nach Abenteuern!":
-                            e "Der Händler lachte. \"Somonoa, davon gibt es wirklich schon mehr als genug. Wollt ihr euch nicht noch kurz meine Tücher anschauen?\" "
-                            e "\"Das ist sehr nett\", sagte die Bardin.\"Aber wir besitzen momentan kein Geld.\" "
-                            e "\"Zu schade! Dann will ich euch nicht länger stören.\" "
-                            p "Kann er uns nicht einfach was schenken?"
-                            e "\"Der Händler lacht nur und geht weiter."
+                     menu:
+                         "Wir sind Helden auf der Suche nach Abenteuern!":
+                             e "Der Händler lachte. \"Somonoa, davon gibt es wirklich schon mehr als genug. Wollt ihr euch nicht noch kurz meine Tücher anschauen?\" "
+                             e "\"Das ist sehr nett\", sagte die Bardin.\"Aber wir besitzen momentan kein Geld.\" "
+                             e "\"Zu schade! Dann will ich euch nicht länger stören.\" "
+                             p "Kann er uns nicht einfach was schenken?"
+                             e "\"Der Händler lacht nur und geht weiter."
                             
-                        "Wir sind eigentlich nur auf dem Weg ins nächste Dorf.":
-                            e "\"Oh...\" Der Händler schaut kurz komisch. \"Dann hab ich vielleicht was, was ihr gebrauchen könntet.\""
-                            e "Er kramt in seiner Tasche und zieht anschließend ein Glas mit einem schwarzen Pulver raus."
-                            e "\"Vertraut mir, ihr werdet es brauchen!\" "
-                            
-                            menu:
-                                "Oh...danke!":
-                                    $ powder = True
-                                    e "\"Aber wir können das gar nicht bezahlen\", sagte die Bardin."
-                                    e "\"Keine Sorge!\", sagte der Händler. \"Das ist ein Geschenk. Wir Eeisenden müssen zusammen halten.\" Er lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
+                         "Wir sind eigentlich nur auf dem Weg ins nächste Dorf.":
+                             e "\"Oh...\" Der Händler schaut kurz komisch. \"Dann hab ich vielleicht was, was ihr gebrauchen könntet.\""
+                             e "Er kramt in seiner Tasche und zieht anschließend ein Glas mit einem schwarzen Pulver raus."
+                             e "\"Vertraut mir, ihr werdet es brauchen!\" "
+                             
+                             menu:
+                                 "Oh...danke!":
+                                     $ powder = True
+                                     e "\"Aber wir können das gar nicht bezahlen\", sagte die Bardin."
+                                     e "\"Keine Sorge!\", sagte der Händler. \"Das ist ein Geschenk. Wir Eeisenden müssen zusammen halten.\" Er lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
                                     
-                                "Nein, danke!":
-                                    p "Mama sagt, man nimmt nichts von Fremden an."
-                                    e "\"Was mein Freund eigentlich sagen will\", sagte die Bardin,\"ist, dass wir kein Geld haben. Und wir können keine Geschenke annehmen.\""
-                                    e "\"Das ist schade\", sagte der Händler, lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
+                                 "Nein, danke!":
+                                     p "Mama sagt, man nimmt nichts von Fremden an."
+                                     e "\"Was mein Freund eigentlich sagen will\", sagte die Bardin,\"ist, dass wir kein Geld haben. Und wir können keine Geschenke annehmen.\""
+                                     e "\"Das ist schade\", sagte der Händler, lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
                                     
-                        "Wie soll ein Händler Helden helfen?":
-                            n "Evelynn schaut mich böse an."
-                            e "Der Händler ist beleidigt, dreht sich um und geht ohne auch nur ein Wort zu sagen."
-                            e "Die Bardin guckt ihren Freund böse an."
-                            e "Das hätte man besser machen können!"
+                         "Wie soll ein Händler Helden helfen?":
+                             n "Evelynn schaut mich böse an."
+                             e "Der Händler ist beleidigt, dreht sich um und geht ohne auch nur ein Wort zu sagen."
+                             e "Die Bardin guckt ihren Freund böse an."
+                             e "Das hätte man besser machen können!"
                             
-                "Keine Sorge, mein Fräullein! Ich werde Euch beschützen!":
-                    p "Ich bin ein mutiger Krieger und hab vor niemandem Angst! Kein Bandit kann mich besiegen!"
-                    n "Irgendwie schaut Evelynn mich komisch an."
-                    e "Der Held hat etwas zu laut gesprochen. Die komische Person hat das gehört und ist jetzt beleidigt."
-                    e " \"Ihr wollt es mit mir aufnehmen?\", fragte der Panthermensch wütend. \"Ich bin Händler. Ich begegne oft Leuten wie dir und hab Übung im Kämpfen. Du bist keine Gefahr für mich.\""
-                    p "Der Held hatte es nicht so gemei-"
-                    e "Der Händler zieht sein Schwert, entschlossen seine Sachen vor den beiden Fremden zu schützen."
-                    e "\"Also, das darfst du jetzt alleine auslöffeln\", sagte die Bardin zu ihrem Heldenfreund."
+                 "Keine Sorge, mein Fräullein! Ich werde Euch beschützen!":
+                     p "Ich bin ein mutiger Krieger und hab vor niemandem Angst! Kein Bandit kann mich besiegen!"
+                     n "Irgendwie schaut Evelynn mich komisch an."
+                     e "Der Held hat etwas zu laut gesprochen. Die komische Person hat das gehört und ist jetzt beleidigt."
+                     e " \"Ihr wollt es mit mir aufnehmen?\", fragte der Panthermensch wütend. \"Ich bin Händler. Ich begegne oft Leuten wie dir und hab Übung im Kämpfen. Du bist keine Gefahr für mich.\""
+                     p "Der Held hatte es nicht so gemei-"
+                     e "Der Händler zieht sein Schwert, entschlossen seine Sachen vor den beiden Fremden zu schützen."
+                     e "\"Also, das darfst du jetzt alleine auslöffeln\", sagte die Bardin zu ihrem Heldenfreund."
                     
-                    menu:
-                        "Ich greife an!":
-                            e "Das wird schwer..."
-                            p "Ach ja? Ich nehm einfach mein-"
-                            e "Du musst würfeln!"
-                            n "Das ist ja ein komischer Würfel...fast schon rund. Und ganz viele Zahlen stehen da drauf."
-                            p "Ha! 19! Das ist fast das höchste!"
-                            n "Warum schaut sie mich denn so komisch an?"
-                            p "Tjaa...das hättste nicht ggedacht, was?"
-                            e "Der Held stolpert beim Ziehen seiner Waffe über seine eigenen Füße und fällt in eine Sumpfgrube neben dem Weg. Dabei geht auch noch seine Waffe kaputt und er kann nicht mehr kämpfen."  
-                            p "Was? Wiesooo?! Das ist unfair!"
-                            e "Es ist schlecht hohe zahlen zu würfeln."
-                            jump pnp1bad
+                     menu:
+                         "Ich greife an!":
+                             e "Das wird schwer..."
+                             p "Ach ja? Ich nehm einfach mein-"
+                             e "Du musst würfeln!"
+                             n "Das ist ja ein komischer Würfel...fast schon rund. Und ganz viele Zahlen stehen da drauf."
+                             p "Ha! 19! Das ist fast das höchste!"
+                             n "Warum schaut sie mich denn so komisch an?"
+                             p "Tjaa...das hättste nicht gedacht, was?"
+                             e "Der Held stolpert beim Ziehen seiner Waffe über seine eigenen Füße und fällt in eine Sumpfgrube neben dem Weg. Dabei geht auch noch seine Waffe kaputt und er kann nicht mehr kämpfen."  
+                             p "Was? Wiesooo?! Das ist unfair!"
+                             e "Es ist schlecht Hohe Zahlen zu würfeln."
+                             jump pnp1bad
                             
-                        "Ich renne weg!":
-                            n "Warum schaut sie mich denn so komisch an?"
-                            e "Der Held rennt panisch davon. Die Bardin schaut ihm hinterher. \"Man, bist du peinlich...\", sagte sie und ging ihrem Freund dann schnell hinterher."
+                         "Ich renne weg!":
+                             n "Warum schaut sie mich denn so komisch an?"
+                             e "Der Held rennt panisch davon. Die Bardin schaut ihm hinterher. \"Man, bist du peinlich...\", sagte sie und ging ihrem Freund dann schnell hinterher."
                             
-            e "Die Beiden liefen weiter und sahen bald ein Dorf."
-            e "Aber auch das Dorf war komisch. Die Häuser waren alle schwarz und hatten große Löcher."
-            e "Die Bardin sah einen Bauer und sprach ihn darauf an."
-            e "Er erzählte ihr, dass die Leute hier in letzter Zeit oft Besuch von einem bösen Drachen bekommen, der aus Spaß ihre Häuser verbrennt und all ihr Essen wegisst; Vor allem die leckeren Kuchen, die eigentlich für den Geburtstag des Bürgermeisters gedacht waren."
-            e "\"Keine Sorge, mein Freund!\", sagte die Bardin zu ihm. \"Wir werden euch helfen!\" "
-            p "Ach ja?"
-            e "Wir werden mit ihm reden und mit ihm schimpfen! Dann werdet ihr keine Angst mehr vor ihm haben müssen."
-            e "Der Bauer schaut euch dankbar an."
-            p "Und wo sollen wir den Drachen finden?"
-            e "\"Ganz einfach\", sagte die Bardin. \"Wir folgen einfach den großen Füßabdrücken!\""
-            e "Nach gar nicht langer Zeit sahen sie den Drachen. Er lag unter einem Baum und hielt ein Mittagsschlaf, weil er so viel Kuchen gegessen hatte."
-            e "Was sollen wir tun?"
+             e "Die Beiden liefen weiter und sahen bald ein Dorf."
+             e "Aber auch das Dorf war komisch. Die Häuser waren alle schwarz und hatten große Löcher."
+             e "Die Bardin sah einen Bauer und sprach ihn darauf an."
+             e "Er erzählte ihr, dass die Leute hier in letzter Zeit oft Besuch von einem bösen Drachen bekommen, der aus Spaß ihre Häuser verbrennt und all ihr Essen wegisst; Vor allem die leckeren Kuchen, die eigentlich für den Geburtstag des Bürgermeisters gedacht waren."
+             e "\"Keine Sorge, mein Freund!\", sagte die Bardin zu ihm. \"Wir werden euch helfen!\" "
+             p "Ach ja?"
+             e "Wir werden mit ihm reden und mit ihm schimpfen! Dann werdet ihr keine Angst mehr vor ihm haben müssen."
+             e "Der Bauer schaut euch dankbar an."
+             p "Und wo sollen wir den Drachen finden?"
+             e "\"Ganz einfach\", sagte die Bardin. \"Wir folgen einfach den großen Füßabdrücken!\""
+             e "Nach gar nicht langer Zeit sahen sie den Drachen. Er lag unter einem Baum und hielt ein Mittagsschlaf, weil er so viel Kuchen gegessen hatte."
+             e "Was sollen wir tun?"
+             $ pnp1winpoints = 0
             
             
-            menu:
-                $ pnp1winpoints = 0
-                "Lass uns einfach angreifen!":
-                    e "Der Held rennt natürlich mal wieder einfach ohne nachzudenken auf den Drachen zu."
-                    e "Der wird von dem Gebrüll natürlich wach und ist gar nicht glücklich, dass ihn jemand beim Schlafen stört."
-                    e "Er steht auf und funkelt den Helden wütend an."
-                    e "Du musst würfeln. Je niedriger, desto besser."
-                    n "Okay, das muss doch..."
-                    p "8!"
-                    e "Glück gehabt!"
-                    e "Der Drache will Feuer nach dir spucken, aber spuckt aus Versehen vorbei."
-                    e "Du tust ihm aber mit deinem Angriff etwas weh."
-                    e "\"Aua!\", sagt der Drache. \"Das ist unfair!\""
-                    e "Aber noch ist der Drache nicht besiegt!"
+             menu:
+                 
+                 "Lass uns einfach angreifen!":
+                     e "Der Held rennt natürlich mal wieder einfach ohne nachzudenken auf den Drachen zu."
+                     e "Der wird von dem Gebrüll natürlich wach und ist gar nicht glücklich, dass ihn jemand beim Schlafen stört."
+                     e "Er steht auf und funkelt den Helden wütend an."
+                     e "Du musst würfeln. Je niedriger, desto besser."
+                     n "Okay, das muss doch..."
+                     p "8!"
+                     e "Glück gehabt!"
+                     e "Der Drache will Feuer nach dir spucken, aber spuckt aus Versehen vorbei."
+                     e "Du tust ihm aber mit deinem Angriff etwas weh."
+                     e "\"Aua!\", sagt der Drache. \"Das ist unfair!\""
+                     e "Aber noch ist der Drache nicht besiegt!"
                     
-                    if powder = True:
-                        $ pnp1winpoints += 1
-                        jump pnp1powdered
+                     if powder = True:
+                         $ pnp1winpoints += 1
+                         jump pnp1powdered
                         
-                    else:
-                        jump pnp1gethit
+                     else:
+                         jump pnp1gethit
                         
-                "Wir können ihn austricksen!":
-                    e "Das ist eine gute Idee! Und wie?"
-                    if berry == True:
-                        $ pnp1winpoints += 1
-                        p "Wir könnten ihm heimlich die Beeren geben, die wir gefunden haben. Vielleicht wird ihm dann schlecht."
-                        e "Das können wir probieren."
-                        e "Du musst würfeln!"
-                        e "Du musst würfeln. Je niedriger, desto besser."
-                        n "Okay, das muss doch..."
-                        p "8!"
-                        e "Das ist gut!"
-                        e "Der Held schafft es dem Drachen die Beeren heimlich ins Maul zu stecken."
-                        e "Der Drache wird davon wach, schluckt die Beeren aber trotzdem aus Versehen runter."
-                        e "\"Aua!\", sagt der Drache. \"Mein Bauch! Das ist unfair!\""
-                        e "Aber noch ist der Drache nicht besiegt!"
+                 "Wir können ihn austricksen!":
+                     e "Das ist eine gute Idee! Und wie?"
+                     if berry == True:
+                         $ pnp1winpoints += 1
+                         p "Wir könnten ihm heimlich die Beeren geben, die wir gefunden haben. Vielleicht wird ihm dann schlecht."
+                         e "Das können wir probieren."
+                         e "Du musst würfeln!"
+                         e "Du musst würfeln. Je niedriger, desto besser."
+                         n "Okay, das muss doch..."
+                         p "8!"
+                         e "Das ist gut!"
+                         e "Der Held schafft es dem Drachen die Beeren heimlich ins Maul zu stecken."
+                         e "Der Drache wird davon wach, schluckt die Beeren aber trotzdem aus Versehen runter."
+                         e "\"Aua!\", sagt der Drache. \"Mein Bauch! Das ist unfair!\""
+                         e "Aber noch ist der Drache nicht besiegt!"
                         
-                        if powder == True:
-                            $ pnp1winpoints +=1
-                            jump pnp1powdered
+                         if powder == True:
+                             $ pnp1winpoints +=1
+                             jump pnp1powdered
                             
-                        else:
-                            jump pnp1gethit
+                         else:
+                             jump pnp1gethit
                             
-                    else:
-                        p "Wir könnten uns leise anschleichen! Und dann überraschen wir ihn, mit unserem Angriff!"
-                        e "Das ist eine gute Idee!"
-                        e "Die Helden schleichen sich an. Ganz langsam, um den Drachen nicht zu wecken."
-                        e "Dann holt der Held aus und-"
-                        p "..."
-                        e "..."
-                        e "Du musst würfeln! Je niedriger, desto besser."
-                        n "Okay, das muss doch..."
-                        p "8!"
-                        e "Glück gehabt!"
-                        e "Der Drache wacht auf und will Feuer nach dir spucken, aber spuckt aus Versehen vorbei."
-                        e "Du tust ihm aber mit deinem Angriff etwas weh."
-                        e "\"Aua!\", sagt der Drache. \"Das ist unfair!\""
-                        e "Aber noch ist der Drache nicht besiegt!"
+                     else:
+                         p "Wir könnten uns leise anschleichen! Und dann überraschen wir ihn, mit unserem Angriff!"
+                         e "Das ist eine gute Idee!"
+                         e "Die Helden schleichen sich an. Ganz langsam, um den Drachen nicht zu wecken."
+                         e "Dann holt der Held aus und-"
+                         p "..."
+                         e "..."
+                         e "Du musst würfeln! Je niedriger, desto besser."
+                         n "Okay, das muss doch..."
+                         p "8!"
+                         e "Glück gehabt!"
+                         e "Der Drache wacht auf und will Feuer nach dir spucken, aber spuckt aus Versehen vorbei."
+                         e "Du tust ihm aber mit deinem Angriff etwas weh."
+                         e "\"Aua!\", sagt der Drache. \"Das ist unfair!\""
+                         e "Aber noch ist der Drache nicht besiegt!"
                         
-                        if powder == True:
-                            $ pnp1winpoints +=1
-                            jump pnp1powdered
+                         if powder == True:
+                             $ pnp1winpoints +=1
+                             jump pnp1powdered
                             
-                        else:
-                            jump pnp1gethit
+                         else:
+                             jump pnp1gethit
                             
 label pnp1gethit:
     e "\"Wir müssen schnell nochmal angreifen!\" rief die Bardin. \"Wir haben gar keine andere Wahl!\" "
