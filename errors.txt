@@ -2,25 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 2924: if statement expects a non-empty block.
-    if burgname == "Burgname1":
-                               ^
-
-File "game/script.rpy", line 2928: if statement expects a non-empty block.
-    if burgname == "Burgname2":
-                               ^
-
-File "game/script.rpy", line 2932: if statement expects a non-empty block.
-    if burgname == "Burgname3":
-                               ^
-
-File "game/script.rpy", line 2936: if statement expects a non-empty block.
-    if enemyname == "Enemy1":
-                             ^
-
-File "game/script.rpy", line 2940: if statement expects a non-empty block.
-    if enemyname == "Enemy2":
-                             ^
+File "game/script.rpy", line 3303: end of line expected.
+    show asport talk at left with moveinleft behind osport
+                                             ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Mon Jan 28 22:53:35 2019
+Tue Jan 29 01:46:59 2019

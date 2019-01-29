@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 3077, in script
-    LT "Du hast [scastlep] Punkte gesammelt und bekommst wenig Affinitypoints ..."
-Exception: Sayer 'LT' is not defined.
+  File "game/script.rpy", line 3289, in script
+    
+TypeError: say() takes at least 2 arguments (1 given)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 3077, in script
-    LT "Du hast [scastlep] Punkte gesammelt und bekommst wenig Affinitypoints ..."
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 650, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 560, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who.encode("utf-8"))
-Exception: Sayer 'LT' is not defined.
+  File "game/script.rpy", line 3289, in script
+    
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 678, in execute
+    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\exports.py", line 1204, in say
+    who(what, *args, **kwargs)
+TypeError: say() takes at least 2 arguments (1 given)
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 BFVN 1.0
-Mon Jan 28 23:58:18 2019
+Tue Jan 29 01:44:37 2019

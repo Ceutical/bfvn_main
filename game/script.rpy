@@ -3110,26 +3110,48 @@ label scenew2_10:
     ##############################################################
     menu:
         "Ich sollte mal nach Octavia schauen.":
+            stop music fadeout 1.0
+            pause 0.75
+            play music octatheme fadein 1.0
+            scene bg court with dissolve
             n "Was ist denn da draußen los im Innenhof?"
+            show osport talk at center
+            show lsport n at leftish behind osport
+            show asport n at rightish behind osport
+            with dissolve
             o "Hey, [name]!"
             n "Octavia steht natürlich wieder im Mittelpunkt. Die erzählt wahrscheinlich immer noch, wie oft sie vorhin schon wieder gewonnen hat."
             p "Was macht ihr alle hier?"
+            show osport vhappy
             o "Wir machen ein Wettrennen und du machst mit!"
             
             menu:
                 "Okay.":
                     "Na gut… Ich hab eh nichts zu tun."
                     label runokay:
+                        show asport behind osport
+                        show osport happy
                         o "Bereite dich schon mal auf deine Niederlage vor! Ich gehe regelmäßig mit meinem Papa joggen und da machen wir auch immer Sprintübungen."
-                        a "Ich geh lieber raus und kletter auf Bäume. Einmal hab ich da sogar ein Eichhörnchen gesehen. Aber das ist dann ganz schnell wieder-"
+                        show osport behind asport
+                        show asport talk
+                        a "Ich geh lieber und kletter auf Bäume. Einmal hab ich da sogar ein Eichhörnchen gesehen. Aber das ist dann ganz schnell wieder-"
+                        show asport behind osport
+                        o "Und genau deshalb habt ihr überhaupt keine Chance gegen mich"
+                        show osport behind asport
                         a "Ist doch eh egal. Solange es Spaß macht."
+                        show asport mad behind osport
+                        show osport mad
                         o "Ist es eben nicht! Es ist nicht egal, ob man ein Gewinner oder ein Verlierer ist!"
                         n "Nicht das schon wieder..."
                     
                 "Moment mal...":
                     p "Gar nicht! Nur weil ich jetzt raus gekommen bin, heißt das noch lange nicht, dass ich alles mache, was du sagst."
+                    show osport mad
                     o "Sei kein Lappen! Sogar Randy und Louis machen später auch mit."
+                    show osport behind asport
+                    show asport happy
                     a "Ey, ich auch!"
+                    show asport mad behind osport
                     o "Jaa, und die da auch."
                     n "Nicht das schon wieder..."
                     o "Aber du musst auch nicht mitmachen. Ist mir sowieso pupsegal. Ich gewinne sowieso!"
@@ -3142,38 +3164,59 @@ label scenew2_10:
                         "Nö.":
                             p "Ich mach trotzdem nicht mit. Ich kann euch ja zu schauen."
                             o "Kommt gar nicht in die Tüte! Ich brauch doch einen richtigen Mitstreiter. Die da zählt nicht!"
+                            show osport behind asport
                             a "Ey! Das hab ich voll gehört!"
-                            p "Na gut,, ich mach mit!"
+                            p "Na gut, ich mach mit!"
                             n "...aber nur damit ihr aufhört zu zanken."
-                            o "Bereite dich schon mal auf deine Niederlage vor! Ich gehe regelmäßig mit meinem Papa joggen und da machen wir auch immer Sprintübungen."
-                            a "Ich geh lieber raus und kletter auf Bäume. Einmal hab ich da sogar ein Eichhörnchen gesehen. Aber das ist dann ganz schnell wieder-"
-                            o "Und genau deshalb habt ihr überhaupt keine Chance gegen mich"
-                            a "Ist doch eh egal. Solange es Spaß macht."
-                            o "Ist es eben nicht! Es ist nicht egal, ob man ein Gewinner oder ein Verlierer ist!"
+                            jump runokay
             
+            show osport behind asport
+            show asport n
             a "Jetzt sag doch auch mal was!"
             menu:
                 "Spaß ist wichtiger.":
                     $ raceoutcome = "loss"
+                    show osport behind asport
+                    show asport happy
                     a "Siehste! Ich hab Recht!"
+                    show asport behind osport
+                    show osport mad
                     o "Pff, der sagt das doch nur, weil er selber ein Verlierer ist."
+                    show osport behind asport
+                    show asport talk
                     a "Aber ich hab Recht!"
                     
                     
                 "Gewinnen ist alles!":
                     $ raceoutcome = "win"
+                    show asport behind osport
+                    show osport mad
                     o "Siehste!"
+                    show osport behind asport
+                    show asport mad
                     a "Selber, siehste!"
                     
                     
             p"Wann geht das Rennen denn los?"
+            show asport behind osport
+            show osport talk
             o "Dann, wenn ich es sage, also jetzt!"
             
-            n "Es machen noch vier Andere mit. Evelyn nicht, die darf ja nicht mit raus."
+            scene bg rennenstart with dissolve
+            n "Es machen noch vier Andere mit. Evelynn nicht, die darf ja nicht mit raus."
+            show osport happy at center with moveinleft
             n "Ganz vorne an der Startlinie natürlich Octavia, überheblich wie immer."
+            hide osport with moveoutright
+            show randy happy at center with moveinleft
             n "Dann kommt auch Randy. Der sieht irgendwie aus wie immer. Der ist glaub ich auch nicht soo schnell im Laufen."
+            hide randy with moveoutright
+            show lsport laugh at center with moveinleft
             n "Daneben steht Louis. Das ist das erste Mal, dass ich ihn ohne seine Lieblingsjacke sehe. Aber die Sonnenbrille hat er natürlich trotzdem auf."
+            hide lsport with moveoutright
+            show asport happy at center with moveinleft
             n "Und dann hockt Anja da. Die guckt sich aber lieber grad einen Marienkäfer an. Ich glaub, die macht wirklich nur aus Spaß mit."
+            hide asport with moveoutright
+            show karin vhappy at center with moveinleft
             n "Und Karin ist wohl der Schiedsrichter."
             k "Auf die Plätze…."
             scene bg run
@@ -3198,14 +3241,20 @@ label scenew2_10:
             show rrun at rrun3
             show orun at orun3
             with MoveTransition(1.5)
+            show asport happy at left with dissolve
             a "Guck mal da! Die Katze!"
+            show osport mad at right with dissolve
             o "Ey, keiner streikt während meinem Wettrennen!"
+            hide asport
+            hide osport
+            with dissolve
             show arun at arun4
             show prun at prun4
             show lrun at lrun4
             show rrun at rrun4
             show orun at orun4
             with MoveTransition(1.5)
+            show asport happy at left with dissolve
             a "Aber die Katze!"
             scene bg rennen with dissolve
             $ renpy.pause ()
@@ -3216,9 +3265,14 @@ label scenew2_10:
             show rrun at rrun4
             show orun at orun4
             with fade
+            show osport mad at right with dissolve
             o "Verlierer!"
             o "Aus dem Weg Randy!"
+            show randy shock at rightish behind osport with dissolve
             r "Hey! HEY! Was soll das?!"
+            hide osport
+            hide randy
+            with dissolve
             show prun at prun5
             show lrun at lrun5
             show rrun at rrun5
@@ -3237,18 +3291,18 @@ label scenew2_10:
                 show rrun at rrun7a
                 show orun at orun7a
                 with MoveTransition(1.5)
-                $ renpy.pause ()
+                k "Und der Gewinner ist ..."
                 scene bg rennenende
                 show karin vhappy at center
                 with fade
-                k "Und der Gewinner ist ..."
                 k "[name]!"
                 n "Ha! Das war aber wirklich knapp am Ende. Octavia ist echt schnell!"
-                show karin at slightright with move
-                show osport mad at slightleft with moveinleft
+                show karin at rightish with move
+                show osport mad at leftish with moveinleft
                 o "Eigentlich wär ich ja schneller gewesen, aber mein Schnürsenkel war nicht ganz zu."
-                show asport talk at left with moveinleft
+                show asport talk at left behind osport with moveinleft
                 a "Du willst doch bloß nicht zugeben, dass du mal was nicht kannst."
+                show karin shock
                 o "Gar nicht wahr! Nächste Woche gibt es eine Revanche und dann werden wir es ja sehen!"
                 n "Octavia ist echt ganz schön wütend."
                 
@@ -3258,31 +3312,45 @@ label scenew2_10:
                 show lrun at lrun7b
                 show rrun at rrun7b
                 show orun at orun7b
-                with MoveTransition(1.5)
-                $ renpy.pause ()
-                scene bg rennenende
-                show karin vhappy at center
-                with fade
+                with MoveTransition(1.5)                
                 k "Und der Gewinner ist ..."
+                scene bg rennenende
+                show karin vhappy at slightright
+                with fade
                 show karin at slightright with move
                 show osport mad at slightleft with moveinleft
                 k "Octavia!"
                 n "Wieso guckt die mich denn so komisch an? Ist sie gar nicht froh, gewonnen zu haben?"
                 show karin shock
-                o " Ich nehme den Preis nicht an! Ich gehöre nicht in die Reihe der Preisgekrönten, wenn gewisse Personen..." 
+                o "Ich nehme den Preis nicht an! Ich gehöre nicht in die Reihe der Preisgekrönten, wenn gewisse Personen..." 
                 n "Jetzt guckt sie aber wirklich mich an!"
                 o"... das Wettrennen nicht ernst nehmen und mich absichtlich gewinnen lassen!"
                 n "Häh? Wen meint die denn damit?"
                 
+            hide karin
+            hide asport
+            with dissolve
+            show osport at center with move
             n "Und jetzt guckt sie mich schon wieder so böse an, dreht sich dann einfach um und geht."
+            hide osport with moveoutright
+            show asport n at center with dissolve
             a "Wollen wir wieder klettern gehen?"
+            scene bg court
+            show anja happyb at right
+            with fade
             p "Okay."
+            show mum n at left with moveinleft
             n "Oh da ist ja auch schon wieder Mama."
+            show mum talk
             m "Na, Püpschen, wie war dein Tag so?"
+            show mum n
             p "Ich hab Wettrennen gespielt! Jetzt hab ich Hunger… machen wir Pfannkuchen?"
+            show mum mad
             m "Die hatten wir doch erst letzte Woche!"
             p "Eben! Das ist schon wieder eine ganze Ewigkeit her!"
+            show mum happy
             m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
+            show pancakes
             n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
             jump pnp1done
             
