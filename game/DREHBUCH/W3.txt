@@ -1,0 +1,674 @@
+Ankunft am Waldrand
+
+Karin e
+Octavia o
+Prota p
+Narrator n
+Evelynn e
+Anja a
+Heidenau h
+Mutter m
+Randy r
+Louis l
+Kindergruppe kg
+
+kg "brabbel"
+k "Kinder..."
+kg "brabbel"
+k "Kinder wenn ich..."
+kg "brabbel"
+h "KINDER! RUHE!"
+kg "..."
+n "Wow das war laut! Sogar Anja ist ruhig."
+k "Tschuldigung, aber ich brauch nur mal kurz eure Aufmerksamkeit."
+k "Wir sind ja jetzt hier am Wald angekommen. Aber bevor wir aus dem Bus aussteigen und uns auf den Weg zur Bernerhütte machen, müssen wir noch einige Regeln klären."
+h "Also zuhören!"
+k "Ja äh genau... also Regel 1."
+k "Regel 1 ist einfach. Ihr bleibt immer bei der Gruppe."
+k "Regel 2 ist, dass wir euch in Paare einteilen. Euer Sitznachbar ist auch euer ... äh wie hatten sie das nochmal genannt Frau Heidenau?
+h "Marschpartner."
+k "Genau euer Sitznachbar ist euer Marschpartner."
+k "Ach und Regel 3 ist das ihr nichts ohne unsere Erlaubnis im Wald sammelt. Das ist nämlich gefährlich."
+h "Wenn ich jemanden von euch etwas aufsammeln sehe dann gnade euch Gott."
+h "Denn ich werde nicht so gnädig sein. Verstanden?"
+kg "..."
+h "Verstanden?!"
+kg "Ja."
+h "Ich meine hier auch ganz explizit dich Louis."
+h "Wenn du nur daran denkst was in deine Jacke zu stecken, dann war es das letzte Mal, dass du deine Jacke gesehen hast."
+l "..." *angsterfülltes gesicht*
+k "Nun...äh...gut."
+k "Dann mal los. Schnappt euren Marschpartner und folgt mir."
+
+menu (Bei wem hast du die meiste Affinity):
+	Option 1 (Octavia)
+		transition zu Waldpfad
+		o "Na komm. Wir wollen doch nicht die letzten sein."
+		p "Ist ja gut. Ich komm ja schon. Mach mal langsam."
+		o "Nix da. Langsam ist schlecht."
+		n "Man selbst beim wandern muss sie Tempo machen..."
+		o "Sag mal Prota, du warst ja noch nie bei der Bernerhütte oder?"
+		p "Ja, wieso?"
+		o "Ach nur so."
+		n "Was meint sie denn damit wieder..."
+		n "Egal. Hoffentlich sind wir bald an der Hütte. Wandern ist echt das langweiligste was es gibt." 
+		l "Hey Leute!"
+		p "Hi."
+		l "Sag mal. Meint ihr die Heidenau hat das ernstgemeint? Also das mit meiner Jacke."
+		o "Ich glaub schon Louis. Du weißt doch selber, wenn die Heidenau was sagt, dann meint die das auch."
+		l "Ja, aber die kann mir doch nicht meine Jacke wegnehmen. Ich hab doch nur eine."
+		p "Octavia hat Recht. Pass lieber auf."
+		l "Oh man. Verdammt."
+		r "Siehst du Louis. Ich habs dir doch gesagt!"
+		
+		transition zu Bernerhütte
+
+		k "So da wären wir."
+		n "Das soll die Hütte sein? Hat ich mir aber größer vorgestellt."
+		p "Das ist ja lahm."
+		o "Ja die Hütte ist wirklich nicht so besonders."
+		k "Jetzt seit doch nicht so. Der Weg ist doch das Ziel."
+		p "Hä? Was soll das denn heißen? Das macht ja gar keinen Sinn."
+		k "Doch doch... Das verstehst du wenn du größer bist."
+		n "Das hab ich schon häufiger gehört..."
+		r "Du Karin."
+		n "Ja Randy, was ist denn?"
+		r "Die Anja hat gesagt, dass es hier gar keine Eidechsen gibt. Dabei gibt es hier doch Eidechsen oder?"
+		k "Äh... das weiß ich ehrlich gesagt nicht."
+		r "Aber das ist doch ein Wald, da muss es doch Eidechsen geben!"
+		a "Also ich war schon häufiger im Wald und hab noch keine gesehen."
+		a "Aber ich hab schon mal ne Schlange gesehen."
+		a "Und Papa hat gesagt, dass das keine Schlange sondern ein Wurm war."
+		a "Aber dabei hat das wie ne Schlange ausgesehen."
+		a "Und außerdem..."
+		o "Komm mal mit."
+		n "Jetzt zieht mich Octavia schon weg. Die Kann wohl Anjas Sprech-Wasserfall nicht so lange wie ich aushalten."
+		p "Was? Wohin denn?"
+		o "Jetzt komm halt mit!"
+		o "Ich will dir was zeigen."
+		
+
+		transition zu Abhang im Wald mit BMX-Strecke
+		
+		o "Hier!"
+		p "Wie hier?"
+		o "Na hier. Der Hang!"
+		p "Und was ist mit dem?"
+		o "Den kann man mit dem Fahrrad runter fahren."
+		p "Wie, da fährt jemand mit 'nem Fahrrad runter? Das ist doch voll steil."
+		o "Ja und? Deswegen macht es ja grade Spaß!"
+		p "Ne sorry, aber ich glaube dir nicht, dass man da runter fahren kann."
+		o "Doch! Ich bin da schon selber runter gefahren."
+		p "Was? Wann?"
+		o "Zum Beispiel letzte Woche bevor ich allein nach Hause gefahren bin."
+		p "Und du darfst das?"
+		o "Was heißt "darf"?"
+		p "Na, ob deine Mama dir das erlaubt?"
+		o "Nö die weiß nichts davon."
+		p "Echt!?"
+		o "Jap."
+		p "Hast du keine Angst Ärger zu bekommen?"
+		o "Eigentlich nicht. Die findet das eh nicht raus."
+		p "Wow, du bist mutig!"
+		o "Ja, ich weiß."
+		o "Echt blöd, dass ich mein Fahrrad nicht mitnehmen durfte."
+		o "Dann könnte ich dir zeigen wie man da runter fährt."
+		p "Ne ich glaube da hab ich keine Lust drauf."
+		o "Hmm na gut."
+		p "Hey ich habs!"
+		o "Was hast du?"
+		p "Ne Idee was wir machen können."
+		p "Hast du dein Vega Playgear dabei?"
+		o "Klar. Im Rucksack."
+		p "Super! Ich hab meins auch dabei."
+		p "Sag's aber nicht meiner Mama. Eigentlich soll ichs nicht mitnehmen."
+		o "Versprochen! Pfadfinderehrenwort!"
+		p "Hä? Aber wir sind doch gar keine Pfadfinder?"
+		o "Man das sagt man doch nur so."
+		p "Ach so. Okay"
+		p "Was wollte ich nochmal sagen?"
+		p "Ach ja genau."
+			
+			wenn 1. fight in W2 + win
+			p "Du wolltest doch eine Revanche. Also in Fighte Mon."
+			o "Stimmt!"
+			o "Das können wir machen."
+			o "Aber du weißt schon dass du nicht nochmal gewinnst."
+			p "Das wollen wir erst mal sehen."
+			
+			wenn 1. fight in W2 + lose
+			p "Ich wollte doch eine Revanche. Also in Fighte Mon."
+			o "Stimmt!"
+			o "Das können wir machen."
+			o "Aber du weißt schon dass du wieder verlierst."
+			p "Das wollen wir erst mal sehen."
+
+			wenn KEIN 1. fight in W2
+			p "Hast du Fighte Mon?"
+			o "Klar ich hab sogar Fighte Mon 2!"
+			p "Echt? Super!"
+			p "Hast du dann Lust auf 'nen Kampf!
+			o "Joa...warum nicht."
+			o "Das können wir machen."
+			o "Aber du weißt schon dass du verlierst."
+			o "Ich bin nämlich die beste Fighte-Mon Trainerin der Welt!"
+			p "Das wollen wir erst mal sehen."
+			
+			
+			
+
+			transition zu Pokemon Fight 2:
+		
+
+			wenn win 2. fight
+			
+				wenn win 2. fight + win 1.fight in Woche 2
+					p "Yeah schon wieder gewonnen!"
+					p "In Fighte Mon bin ICH der Beste!
+					o "Das war doch nur Glück!"
+					o "Außerdem ist das doch auch egal."
+					o "Du kannst ja nichtmal richtig Fahrradfahren!"
+					p "Stimmt doch gar nicht!"
+					o "Stimmt wohl! Ich hab doch gesehen wie schlecht du gefahren bist!"
+					p "Aber...!"
+					o "Du kannst doch nicht mal geradeaus fahren!"
+					p "Klar kann ich das!"
+					o "Außerdem bist du ein Angsthase!"
+					p "Überhaupt nicht wahr!"
+					o "Natürlich ist das wahr! traust dich ja nicht mal den Berg runterzufahren!"
+					n "Verdammt sie hat Recht aber ich kann das doch nicht zugeben..."
+				
+					menu:
+						"Ich hab keine Angst. Den Berg fahr ich doch locker runter! Und schneller als du auch noch!
+						"Na gut. Ich hab Angst. Aber den Berg runterzufahren ist ja auch verrückt!" (fake option die durchgestrichen ist oder ausgegraut)
+
+			
+				wenn win 2. fight + lose oder kein 1. fight in Woche 2
+				
+					p "Yeah gewonnen!"
+					p "In Fighte Mon bin ICH der Beste!
+					o "Das war doch nur Glück!"
+					o "Außerdem ist das doch auch egal."
+					o "Du kannst ja nichtmal richtig Fahrradfahren!"
+					p "Stimmt doch gar nicht!"
+					o "Stimmt wohl! Ich hab doch gesehen wie schlecht du gefahren bist!"
+					p "Aber...!"
+					o "Du kannst doch nicht mal geradeaus fahren!"
+					p "Klar kann ich das!"
+					o "Außerdem bist du ein Angsthase!"
+					p "Überhaupt nicht wahr!"
+					o "Natürlich ist das wahr! Traust dich ja nicht mal den Berg runterzufahren!"
+					n "Verdammt sie hat Recht aber ich kann das doch nicht zugeben..."
+				
+					menu:
+						"Ich hab keine Angst. Den Berg fahr ich doch locker runter! Und schneller als du auch noch!"
+						"Na gut. Ich hab Angst. Aber den Berg runterzufahren ist ja auch verrückt!" {fake option die durchgestrichen ist oder ausgegraut}
+
+
+			wenn lose 2. fight
+				
+				wenn lose 2.fight + win 1.fight oder lose oder kein fight in W2
+				
+					p "Oh man, verdammt..."
+					o "Tja. Hab dir doch gesagt, dass du verlierst.
+					p "Aber es war mega knapp."
+					o "Gewonnen ist gewonnen!"
+					p "Naja aber ist ja auch nur Fighte Mon.
+					o "Ne, du kannst auch kein Fahrrad fahren. Und sowieso, was kannst du überhaupt.
+					p "Hey!"
+					o "Außerdem bist du ein Angsthase!"
+					p "Überhaupt nicht wahr!"
+					o "Natürlich ist das wahr! Traust dich ja nicht mal den Berg runterzufahren!"
+					n "Verdammt sie hat Recht aber ich kann das doch nicht zugeben..."
+				
+					menu:
+						"Ich hab keine Angst. Den Berg fahr ich doch locker runter! Und schneller als du auch noch!
+						"Na gut. Ich hab Angst. Aber den Berg runterzufahren ist ja auch verrückt!" {fake option die durchgestrichen ist oder ausgegraut}
+
+
+
+		
+
+		
+		o "Hahahaha..."
+		p "Warum lachst du denn? Ich mein es Ernst!"
+		o "Hahahaha..."
+		o "DU willst gegen mich ein Rennen fahren?"
+		p "Ja genau!"
+		o "Du kannst doch nicht mal richtig fahren. Also ohne Stützräder meine ich."
+		p "Dann muss ich halt trainieren."
+		o "Ich glaub nicht, dass das hilft."
+		p "Doch bestimmt!"
+		o "Okay."
+		o "Wir fahren ein Rennen."
+		o "Nächste Woche am Freitag. Hier, genau den Berg da runter."
+		o "Willst du jetzt immer noch?"
+		p "Äh... ja klar kein Problem."
+		p "Aber wir kommen hier doch gar nicht hin."
+		o "Klar kommen wir hier hin. Wir sind gar nicht weit vom Kindergarten."
+		o "Mit Papa bin ich schon mindestens 5 mal hier her gefahren."
+		p "Ja aber wir können doch nicht allein..."
+		o "Jetzt sei mal nicht so ein Angsthase."
+		o "Es ist wirklich nicht weit."
+		p "Hm..."
+		p "Na gut."
+		o "Super!"
+		p "Du Octavia. Meinst du nicht das wir mal langsam zurück müssen?"
+		o "Ja hast wahrscheinlich Recht."
+
+		transition zu Berner Hütte
+
+		k "Da seit ihr ja!"
+		p "Hey Karin."
+		k "Gott sei Dank!"
+		k "Ich hab schon überall gesucht!"
+		k "Ihr gebt mir noch nen Herzinfarkt!"
+		k "Ihr könnt doch nicht einfach so abhauen!"
+		o "Aber..."
+		k "Sagt mal wisst ihr eigentlich was wäre, wenn ich das euren Eltern erzählen müsste!?"
+		p "Tschuldigung."
+		o "Ja, tut uns echt leid."
+		k "Ja ja... seid ihr mal froh, dass Frau Heidenau das nicht mitbekommen hat."
+		p "Oh nein! Bitte sagen sie's ihr nicht."
+		k "Okay. Mach ich nicht. Aber im Gegenzug ihr müsst mir was versprechen."
+		k "Macht das nie wieder!"
+		p+o "Versprochen!"
+		k "Gut. Dann machen wir uns jetzt wieder auf den Weg zurück zum Bus..."
+
+		transition zu W3 - Tag 1 vor Kindergarten
+		
+		m "So... hier!"
+		m "Ich weiß ja immer noch nicht wofür du jetzt plötzlich dein Fahrrad brauchst aber gut."
+		p "Danke Mama!"
+		p "Bis spät..."
+		m "Hey, Moment!"
+		m "Dein Helm!"
+		p "Oh!"
+		m "So jetzt kannst du gehen."
+		p "Und sei vorsichtig, ja?!"
+
+		transition zu nach dem Morgenkreis im Hof
+		
+		a "Die Farbe ist ja mega cool!"
+		p "Ja ich weiß."
+		p "Die Rennstreifen hab ich mit meinem Papa draufgemalt. Der hat gesagt damit fahr ich schneller."
+		a "Oh stimmt. Das hab ich auch schon gehört!"
+		o "Was ist das denn?"
+		p "Ein Fahrrad."
+		o "Das weiß ich doch. Ich bin doch nicht doof!"
+		o "Nein, ich mein die Farben. Das ist ja voll hässlich!"
+		o "Und außerdem sind da ja noch Stützräder dran. Voll lahm!"
+		p "Gar nicht! Mein Fahrrad sieht mega cool aus!"
+		p "Anja findet das auch. Stimmt's?"
+		a "Ja stimmt."
+		a "Du hast einfach keine Ahnung von Fahrrädern Octavia!"
+		o "Klar hab ich Ahnung! Ich weiß am meisten über Fahrräder!"
+		a "Von wegen!"
+		o "Doch!"
+		a "Gar nicht!"
+		o "Wohl!"
+		n "Ich fang mal lieber an mit trainieren. Die streiten eh wieder den ganzen Tag."
+		
+
+		transition zu W3 - Tag 2 im Gang des Kindergartens auf dem Fahrrad
+
+		l "Vorsicht du musst bremsen!"
+		menu:
+			"Rücktrittbremse treten..." Skill +0
+			"Bremshebel am Lenker drücken..." Skill +1
+		
+		p "Ja ich mach ja!"
+		l "Du wackelst ja hin und her."
+		l "Bleib doch mal grade!"
+		p "Ich versuch ja..."
+		l "Das ist doch nicht so schwer!"
+		r "Echt? Ich brauch auch noch Stützräder..."
+		l "Du bist ja auch noch ein Baby. Und er auch."
+		r "Hey, ich bin kein Baby!"
+		n "Louis nervt. Der kann mir  einfach keine richtige Hilfe geben..."
+		k "Hey, ihr!"
+		k "Was macht ihr denn da?"
+		p "Fahrrad fahren."
+		k "Das seh ich. Aber ihr könnt das doch nicht hier im Gang machen."
+		p "Aber draußen regnet es doch und..."
+		k "Das ist mir egal."
+		k "Du stellst jetzt dein Fahrrad ab und dann kommt ihr mit in den Gruppenraum."
+		p "Okay..."
+
+		transition zu W3 - Tag 3 im Hof
+
+		a "Also meine Mama sagt immer das man es einfach nur solange probieren muss bis es klappt."
+		p "Ja aber ich probier doch schon!"
+		a "Hey schrei doch nicht!"
+		a "Weißt du was?"
+		a "Dir zu helfen macht keinen Spaß. Ich geh auf den Baum!"
+		p "Ja dann geh halt!"
+		p "Ich brauch auch gar keine Hilfe, weil ich es eh nicht schaffe!"
+		n "Man jetzt hab ich sie vergrault."
+		n "Sie kann doch auch nix dafür."
+		o "Hey. Stell doch mal deinen Sitz ein."
+		p "Was?"
+		o "Na du musst den einstellen. Wenn du zu hoch sitzt dann klappt das nicht."
+		o "Warte mal. Steig mal ab."
+		p "Äh ... okay."
+		o "Guck. Du musst das hier umlegen und dann kannst du den runter stellen."
+		o "Das hat mir Papa gezeigt."
+		o "So!"
+		o "Probier mal jetzt."
+		p "Okay."
+		p "Boah..."
+		p "Das fühlt sich ja viel besser an!
+		o "Siehst du!"
+		p "Danke!"
+		p "Aber warte."
+		p "Warum hilfst du mir denn?"
+		o "Weil du so schlecht bist."
+		p "Hä."
+		o "Weißt du..." 
+		o "Meine Mama hat mir mal gesagt, dass der Skat-Abend ihr keinen Spaß mehr macht."
+		o "Also weil sie jetzt immer gewinnt. Und früher war das nicht so."
+		o "Weil da war ihre Freundin noch da und die war genauso gut im Skat."
+		o "Und weißt du."
+		o "Wenn ich jetzt gegen dich ein Rennen fahre, dann macht das nur Spaß wenn du auch gut fährst."
+		p "Hmm... versteh ich nicht."
+		o "Ja du musst es ja auch nicht verstehen."
+		o "Sitz mal nicht so krumm."
+			menu
+				"Nach vorne lehnen..." Skill +0
+				"Zurück lehnen..." Skill +1
+		p "Okay. Ist so besser?"
+		o "Ja ich glaube so ist das richtig..."
+
+		transition zu W3 - Tag 4 vor Kindergarten
+
+		p "Danke Mama!"
+		p "Du bist die beste!"
+		m "Ja ja...sei mal froh, dass Papa dich nicht her fährt."
+		m "In seinem ach so schicken Sportwagen würde dein Fahrrad nämlich nicht reinpassen."
+ 		m "So, ich muss dann. Hab nen' schönen Tag. Bis später!"
+		p "Bis nachher!"
+		o "Hi Prota!"
+		o "Hi."
+		o "Hast du schon mit deiner Mama geredet?"
+		p "Ja. Sie hat gemeint ich darf das mit dem selber heimfahren probieren."
+		o "Super. Dann steht uns ja nix im Weg."
+		o "Also außer, dass du immernoch mega schlecht fährst."
+		p "Hey. Das ist unfair. So schlecht bin ich gar nicht."
+		o "Na gut. Aber wir trainieren später trotzdem."
+		p "Aber klar!"
+		
+		
+		transition zu Gang Kindergarten nach Morgenkreis
+	
+		n "Puh, endlich ist der Morgenkreis vorbei. Karin soll ihre komischen Turnübungen selber machen!"
+		n "Ich hab wichtigeres zu tun. Ab in den Hof..."
+		a "Hey Prota!"
+		p "Hey!"
+		a "Warum hast du's denn so eilig?"
+		p "Na, ich muss doch trainieren. Octavia wartet bestimmt schon."
+		a "Ist doch egal ob die wartet."
+		a "Warum hängst du überhaupt mit der ab?"
+		p "Warum denn nicht?"
+		a "Weil sie nervt."
+		p "Das stimmt doch gar nicht."
+		a "Klar stimmt das! Die ist voll die Zicke!
+		a "Weißt du was?"
+		a "Ich weiß schon warum du ständig mit der abhängst."
+		a "Du willst die Heiraten!"
+		a "So richtig eklig mit Knutschen und allem."
+		p "Überhaupt nicht!"
+		a "Ha!"
+		a "Lügner!"
+		p "Aber..."
+		o "Prota!"
+		o "Wo bleibst du denn?"
+		o "Ich hab schon im Hof gewartet. Warum kommst du denn nicht?
+		a "Boah eklig!"
+		a "Ich geh mit Louis spielen."
+		o "Ja, verzieh dich!"
+		o "Kommst du?"
+		p "Ja, ich hol nur schnell mein Fahrrad."
+			
+
+		transition zu Hof
+
+		o "Hey nicht schlecht!"
+		o "Gestern wrst du viel langsamer!"
+		o "Mach mal noch schneller, sonst besiegst du mich nie."
+			menu
+				"Hoch schalten..." Skill +1
+				"Runter schalten..." Skill +0
+		p "Ich geb ja schon alles!"
+		p "Guck mal ich bin so schnell, alles flattert im Wind!"
+		n "Ich glaub ich hab ne echte Chance morgen..."
+		
+
+		transition zu W3 - Tag 5 vor dem Kindergarten
+
+		k "Hm...ich bin mir immer noch unsicher."
+		k "Ihr habt zwar die Erlaubnis von Euren Eltern aber nach der Sache neulich im Wald..."
+		k "Ich weiß ja nicht."
+		o "Ach komm schon Karin."
+		p "Ja ich hab extra gefragt. Und es ist auch gar nicht weit."
+		k "Naja okay. Ihr seit ja auch bald Schulkinder. Da geht das denke ich schon in Ordnung."
+		k "Aber ihr fahrt direkt nach Hause. Keine unnötigen Umwege."
+		o + p "Ciao Karin!"
+
+		transition zu Abhang im Wald mit BMX-Strecke
+
+		o "Siehst du. Hab doch gesagt ist gar nicht weit."
+		o "Du hast auch echt gut mitgehalten."
+		p "Danke aber du warst echt schnell. War schwierig hinterher zu kommen."
+		o "Kannst du noch?"
+		o "Wegen dem Rennen mein ich."
+		p "Klar, ich bin topfit!"
+		o "Gut."
+		o "Da drüben der Pfad. Da müssen wir hoch."
+		o "Dann können wir von ganz oben runter."
+		
+		transition zu Abhang im Wald mit BMX-Strecke Sicht den Abhang runter
+
+		p "Boah..."
+		p "Das ist ganz schön steil."
+		o "Deswegen macht es ja so Spaß."
+		o "Wenns nicht steil wäre, dann wäre es ja lahm."
+		p "Aber..."
+		o "Ne kein aber."
+		o "Du hast gesagt du gewinnst locker. Also streng dich an."
+		o "Ach übrigens."
+		o "Was bekomm' ich eigentlich wenn ich gewinne?"
+		p "Hä wie?"
+		p "Wieso sollst du denn was bekommen?"
+		o "Weil das ein Rennen ist."
+		o "Und wenn man ein Rennen gewinnt dann bekommt man einen Preis. Das ist einfach so?"
+		o "Also was bekomm ich?"
+		p "Keine Ahnung?"
+		p "Was willst du denn?"
+		o "Einen Pokal!"
+		p "Aber ich ha gar keinen Pokal."
+		o "Hm...stimmt."
+		o "Wir wärs wenn du allen erzählst dass ich die beste im Fahrradfahren bin."
+		o "Also wenn ich gewinne."
+		p "Und was wenn ich gewinne?"
+		o "Aber du gewinnst doch eh nicht."
+		p "Doch!"
+		p "Und ich will dann auch einen Preis."
+		o "Hm... na gut!"
+		o "Wenn du gewinnst dann heirate ich dich."
+		p "Hä...hast du das von der Anja?"
+		o "Ist doch egal."
+		o "Nimmst du das als Preis?"
+		n "Also wenn ich sie dann knutschen muss, dann nicht. Aber vielleicht geht das ja auch ohne."
+		p "Okay, aber ohne knutschen!"
+		o "Hahahaha...als ob ich dich knutschen würde. Ist ja eklig!"
+		o "So."
+		o "Dann ist ja alles bereit oder?"
+		p "Glaub schon."
+		o "Oh warte kurz!"
+		n "Wenn die sich den Helm anzieht, dann meint sie's ja wirklich ernst."
+		o "Wenn ich los sage fahren wir runter."
+		o "Und wer dann als erster da unten bei dem Baumstumpf ist, hat gewonnen."
+		o "Also."
+		o "Auf die Plätze..."
+		o "...fertig..."
+		o "...LOS!!!"
+
+		Wenn mindestens 2 Skillpunkte gesammelt wurden:
+			n "Okay. dann mal los!"
+			n "Warum ist die so schnell?"
+			n "Verdammt!"
+			n "Vielleicht kann ich ja in der Kurve überholen..."
+			n "Okay nur ein bisschen mehr links..."
+			n "Nein. Ich komm nicht vorbei."
+			n "Diesmal muss es klappen..."
+			n "Ja das ist es."
+			n "Nur noch ein paar Meter."
+			p "JAAAAAAAAAAAAA!!!"
+			n "Ich habs geschafft! Oh mein Gott, ich habs geschafft!"
+			
+		
+		Wenn weniger als 2 Skillpunkte gesammelt wurden:
+			n "Okay. dann mal los!"
+			n "Warum ist die so schnell?"
+			n "Verdammt!"
+			n "Vielleicht kann ich ja in der Kurve überholen..."
+			n "Okay nur ein bisschen mehr links..."
+			n "Nein. Ich komm nicht vorbei."
+			n "Diesmal muss es klappen..."
+			n "Das gibt's doch nicht."
+			n "Die bekomm ich nie.."
+			n "Das wars."
+			o "JAAAAAAAAAAAA!!!"
+			n "Och menno..."
+
+
+
+		
+		Nach win:
+			
+			p "Hast du das gesehen?"
+			p "Ich war sooooooo schnell!"
+			p "Erst die Kurve und dann bin ich innen..."
+			p "Und ich wär da einmal fast..."
+			p "Außerdem hat das mit dem Bremsen auch geklappt."
+			p "Ich kanns nicht glauben!"
+			p "Und..."
+			p "Hey Octavia!"
+			p "Hörst du mir überhaupt zu?"
+			o "..." (trauriges gesicht)
+			p "Aber was ist denn?"
+			o "Ich..." (trauriges gesicht)
+			o "Ich hab..."
+			o "...verloren!" (weinen)
+			p "Nein nicht weinen."
+			p "Das ist doch nicht schlimm."
+			p "Es war doch nur ein Rennen und..."
+			o "Nein!"
+			o "Ich hab verloren!"
+			o "Und du bist besser als ich."
+			p "Ja aber doch nur in dem Rennen."
+			o "Nein du bist besser als ich. Und jetzt weint Opa bestimmt!"
+			p "Was meinst du?"
+			p "Wieso soll dein Opa weinen?"
+			o "Der weint da oben weil ich schlecht bin."
+			p "Aber du bist doch nicht schlecht."
+			o "Doch! Ich hab's ihm versprochen."
+			o "Dass ich immer mein bestes gebe."
+			p "Aber das hast du doch gemacht."
+			o "Nein, sonst hätte ich ja gewonnen."
+			p "Das stimmt doch nicht!"
+			p "Du hast doch nur verloren weil du mir geholfen hast."
+			p "Ohne deine Hilfe wäre ich doch nicht mal den Berg runtergefahren."
+			p "Und Stützräder würd ich auch noch brauchen."
+			p "Du hast mit mir gewonnen."
+			o "Echt? Aber ich war nicht als erste am Ziel."
+			p "Das ist doch egal!"
+			p "Hast du dich denn nicht angestrengt?"
+			o "Doch."
+			p "Dann hast du dein Bestes gegeben."
+			p "Und dein Opa muss nicht weinen!"
+			o "Okay."
+			o "Danke Prota."
+			p "Kein Problem Octavia."
+			o "Du kannst Octa sagen." {Anmerkung alle vorherigen nennungen von Octa in Octavia ändern)
+
+			
+			transition zu Hochzeitszene (BG)
+
+			The End
+			
+
+		Nach lose:
+		
+			o "Yeah! Ich bin die schnellste!"
+			o "Hast du gesehen wie schnell ich war?"
+			p "Ja ja, du warst schnell."
+			o "Ja und du warst langsam:"
+			o "Ganz langsam."
+			o "Hast du dich überhaupt angestrengt?"
+			p "Klar. Es war ja auch voll knapp."
+			o "Es war überhaupt nicht knapp."
+			o "Vielleicht brauchst du einfach noch Stützräder, damit du ne Chance hast, du Baby."
+			p "Hey, das stimmt nicht!"
+			o "Klar stimmt das. Du bist ein Baby was nix kann."
+			o "Du kannst überhaupt gar nichts!"
+			p "Ach echt?"
+			p "Dann bist du eine Oberzicke die keiner mag!"
+			o "Was?"
+			p "Ja genau!"
+			p "Anja hat recht! Du nervst!"
+			p "Und keiner mag dich!"
+			o "Aber..."
+			p "Ja und mag dich auch nicht!"
+			p "Und ich geh jetzt auch, weil ich hab keinen Bock mehr hier zu bleiben!"
+			o "Dann geh doch du Verlierer!
+			p "Tschau du Nervzicke!"
+			
+			transition zu Bad End (BG) {Keine Ahnung, denkt euch was aus, oder nehmt die Idee im Asset-Text}
+			
+			
+			
+		
+		
+		
+
+		
+
+		
+
+
+
+
+
+		
+		
+		
+
+
+
+
+
+		
+	
+			
+
+
+
+		
+		
+
+		
+
+		
+		
+		
+
+
+		
+		
+
+		
+
+
+ 
+
