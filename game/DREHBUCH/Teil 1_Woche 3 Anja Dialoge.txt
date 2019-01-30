@@ -1,0 +1,210 @@
+P: Protagonist
+G: Gedanken von P
+A: Anja
+K: Karin
+H: Heidenau
+R: Randy
+L: Louis
+E: Evelynn
+
+P "Ohhh ich glaube wir sind da Anja, schau!"
+
+A "Ja, der Bus hält hier an! Juhu!"
+
+A "Wollen wir dann zusammen laufen?"
+
+P "Ja, voll cool!"
+
+K "So meine Lieben, wir sind da! Freut ihr euch denn auf den Wandertag?"
+
+(Alle Kinder) "JAAAA!"
+
+K "Schön! Dann raus mit euch! Stellt euch bitte draußen vor dem Bus hin und wartet dort auf alle, okay?"
+
+G "Die anderen drängeln alle voll, ich will jetzt auch endlich raus!"
+
+G "Anja nimmt meine Hand..."
+
+A "Na komm! Lass uns raus gehen!"
+
+G "Ich bin sooo aufgeregt!"
+
+...
+
+K "Sind denn alle da?"
+
+G "Karin zählt wie immer alle durch..."
+
+K "Okay, wir sind vollzählig. Also alle mal aufpassen, wir sagen euch jetzt was heute passiert. Gut zuhören!"
+
+K "Wir wandern jetzt alle gemeinsam zu einer Lichtung im Wald. Das wird ein Stück dauern..."
+
+K "Deswegen machen wir auch mal eine Pause und ihr könnt eure Brotzeit in Ruhe essen."
+
+K "Wenn wir bei der Lichtung sind habt ihr alle Freizeit und könnt herumlaufen und spielen oder den Wald erkunden."
+
+(Alle Kinder) "JUHUU!"
+
+H "Aber lauft bloß nicht so weit weg! Ihr verirrt euch sonst im Wald! Schön in der Nähe bleiben, verstanden?"
+
+K "Genau, denn wir werden dann laut rufen wenn ihr wieder zurück zur Lichtung kommen sollt."
+
+K "Also geht nur so weit weg wie ihr uns noch hören könnt!"
+
+H "Und bildet Zweiergruppen!"
+
+H "Ihr müsst mindestens zu zweit herumlaufen, ihr könnt auch mit mehreren laufen."
+
+H "Hauptsache nicht alleine!"
+
+K "Gut, habt ihr jetzt noch Fragen?"
+
+L "Was ist eine Lichtung?"
+
+K "Oh, eine gute Frage Louis!"
+
+K "Das ist ein Ort, mitten im Wald. Aber da stehen keine Bäume, da ist nur Wiese oder Waldboden."
+
+K "Im Wald ist es ja meistens ziemlich dunkel wegen den vielen Bäumen."
+
+K "Aber bei einer Lichtung ist es heller weil ja dort keine Bäume sind."
+
+K "Deswegen heißt es nämlich auch Lichtung, das kommt von Licht, verstehst du?"
+
+L "Äh, ja... Ich glaub' schon..."
+
+A flüstert zu P: "Also ich glaub' nicht, hihi."
+
+K "So, dann laufen wir jetzt los! Hat jeder einen Partner zum laufen?"
+
+K "Ich laufe vor und ihr lauft hinterher, okay?"
+
+G "Anja ist meine Partnerin, wir laufen jetzt zusammen!"
+
+P "Der Wald ist voll spannend! Ich kann die Lichtung kaum erwarten!
+
+A "Ja, ich auch! Ich will unbedingt den Wald erkunden!"
+
+...
+
+G "Wir wandern jetzt schon eine ganze Weile, aber mir macht das nichts..."
+
+A "Hey, schau! Karin hat angehalten!"
+
+K "Alle mal aufpassen! Wir machen hier unsere Brotzeitpause!"
+
+K "Bitte nicht weglaufen, setzt euch hier in die Nähe! Hier liegen ein paar große Baumstämme, da könnt ihr euch draufsetzen."
+
+H "Ja, ich will euch nicht alle einzeln suchen, verstanden?"
+
+A "Okay, wollen wir uns auf den Stamm dort hinten setzen?"
+
+Menü
+
+	Option 1
+
+    	P "Ja, können wir machen!"
+
+    	Option 2
+
+    	P "Nein, lass uns doch zu allen anderen setzen"
+
+A "Alles klar!"
+
+	WENN Option 1 gewählt:
+
+    	G "Der Platz hier ist echt schön. Man hört die Vögel zwitschern!"
+
+    	Menü
+
+		Option 1
+
+		P "Was hast du denn als Brotzeit dabei Anja?"
+
+		Option 2
+
+		P "Glaubst du hier gibt's Wildschweine?"
+
+		WENN Option 1 gewählt:
+
+			A "Meine Mama hat mir 2 Brote gemacht, eins mit Schinken und eins mit Salami und Käse."
+			
+			A "Ich liebe Schinken, weißt du?"
+
+			A "Einen Apfel hat sie mir auch eingepackt!"
+
+			A "Mama sagt immer ich soll mehr Obst essen, aber ich mag Äpfel eigentlich nicht so..."
+
+			A "Magst du meinen Apfel haben?"
+
+			Menü
+
+				Option 1
+
+				P "Nein danke. Deine Mama hat aber recht, Obst ist nämlich gesund!"
+
+				Option 2
+
+				P "Wenn du ihn nicht magst nehme ich ihn gerne, ja!"
+
+				WENN Option 1 gewählt:
+
+					A "Hmm... Ja du hast wohl recht... Vielleicht sollte ich den Apfel doch selber essen..."
+
+				WENN Option 2 gewählt:
+
+					A "Okay, hier bitte!"
+
+					P "Boah, der ist voll lecker, danke!"
+
+		WENN Option 2 gewählt:	    	
+
+			A "Hier gibt's glaube ich keine... Aber ich will heute unbedingt Rehe sehen!"
+
+			A "Aber dafür müssen wir tief in den Wald gehen glaube ich. Vielleicht finden wir noch andere Tiere!"
+
+			A "Wir sollen zwar nicht so weit weg laufen, aber zu zweit finden wir den Weg schon wieder zurück..."
+
+	A "Boah, glaubst du hier im Wald ist die Hexenhütte von der Frau Heidenau? Hihi..."
+
+	P "Meinst du wirklich?"
+
+	A "Naja..."
+
+WENN Option 2 gewählt:
+
+	G "Die meisten Kinder sitzen auf diesem riesengroßen Stamm. Da ist sogar noch Platz!"
+
+	A "Na gut, dann gehen wir eben zu den anderen..."
+
+	R "HEY! SCHAUT MAL HER!"
+
+	G "Was hat Randy denn?"
+
+	R "HIER IST VOLL DER COOLE KÄFER!"
+
+	(Alle Kinder bis auf Louis) "WOAH!"
+
+	A "Der Käfer ist echt voll schön Randy!"
+
+	E "Wir sollten ihn mitnehmen!"
+
+	E "Dann kann ich ihn zuhause abmalen!"
+
+	L "Der ist doch mega langweilig..."
+
+	E "Boah Louis..."
+
+	R "DU bist langweilig! Such dir halt deinen eigenen Käfer!"
+
+	Menü
+
+		Option 1
+
+		P "Man Louis. Sei doch nicht so gemein!"
+
+		Option 2
+
+		P "Also ich finde deinen Käfer auch echt cool Randy!"
+
+K "Okay Kinder! Die Pause ist gleich vorbei! Esst noch alle auf wenn ihr noch nicht fertig seid, dann laufen wir weiter!"					
