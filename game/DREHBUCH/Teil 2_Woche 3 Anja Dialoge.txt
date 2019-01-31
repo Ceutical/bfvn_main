@@ -1,0 +1,178 @@
+P: Protagonist
+G: Gedanken von P
+A: Anja
+K: Karin
+H: Heidenau
+R: Randy
+L: Louis
+E: Evelynn
+
+K "Sind alle fertig? Weiter geht's! So weit ist es nicht mehr bis zu der Lichtung."
+
+...
+
+(Ankommen an der Lichtung)
+
+P "Das war ja wirklich gar nicht mehr so weit..."
+
+A "Stimmt. Ist voll schön hier."
+
+A "Hey Karin, dürfen wir jetzt herumlaufen?"
+
+K "Moment noch, ich will nur kurz durchzählen ob alle da sind."
+
+...
+
+K "Sieht gut aus."
+
+K "Also gut, nochmal an alle: Ihr lauft bitte mindestens zu zweit! Und nicht zu weit weg laufen!"
+
+K "Wir wollen nicht, dass ihr euch verirrt!"
+
+H "Und wir wollen auch pünktlich wieder von hier weg!"
+
+K "Hat jeder einen Partner? Oder eine Gruppe?"
+
+A "Okay komm, wir gehen los!"
+
+P "Warte, da kommt Randy... Ich glaube er weiß noch nicht mit wem er jetzt läuft."
+
+R "Hey... Ähm... Darf... Darf ich mit euch mitkommen?" 
+
+Menü
+
+	Option 1
+
+	P "Na klar Randy, komm mit!"
+
+	Option 2
+
+	P "Naja... Eigentlich wollten nur Anja und ich zusammen laufen... Tut mir leid."
+
+	WENN Option 1 gewählt:
+
+	A "Hmm... Aber wir wollen tief in den Wald laufen."
+
+	A "Du darfst nur mitkommen wenn du dich traust!"
+
+	R "Äh... Okay! Ich komme mit! Ich bin mutig!"
+
+	WENN Option 2 gewählt:
+
+	R "Och Schade... Aber na gut, dann lauf' ich wo anders mit..."
+
+A "Also gut, dann lass uns den Wald erkunden!"
+
+...
+
+G "Mittlerweile sind wir schon ziemlich tief im Wald... Es ist ganz schön dunkel vor lauter Bäumen."
+
+A "WOAH!"
+
+A "Direkt vor mir! Eine Spinne! Die ist ja groß!"
+
+	WENN Randy dabei ist (Option 1):
+
+	R "WÄÄÄÄH! SPINNEEE!"
+
+	R "ICH HASSE SPINNEN! ICH HAB ANGST VOR SPINNEN!"
+
+	A "Jetzt schrei doch mal nicht so rum! Das ist nur 'ne Spinne... Die tut uns doch nichts."
+
+	R "DIE IST BESTIMMT GIFTIG!"
+
+	R "ICH WILL NICHT STERBEN!"
+
+	(Randy rennt weg)
+
+	P "Hey! Bleib bei uns!"
+
+	A "RANDY!"
+
+	A "Hmm... Ich glaub' der kommt nicht wieder..."
+
+	P "Oh Mann."
+
+	WENN Randy nicht dabei ist (Option 2):
+
+	Menü
+
+		Option 1
+
+		P "Ihgitt! Ich mag Spinnen überhaupt nicht!"
+
+		P "Und die ist ja echt voll riesig!"
+
+		Option 2
+
+		P "Wow! Voll cool!"
+
+		P "Ich hätte die gar nicht bemerkt!"
+
+		WENN Option 1 gewählt:
+
+		A "Ach komm, so schlimm ist das doch nicht."
+
+		A "Also ich find Spinnen toll!"
+
+		A "Ich hatte im Zoo sogar mal eine auf der Hand."
+
+		WENN Option 2 gewählt:
+
+		A "Die ist ja auch voll unsichtbar! Auf dem Boden sieht man sie fast nicht."
+
+		A "Ich find Spinnen auch voll spannend!"
+
+A "Aber wir dürfen unsere Mission nicht vergessen! Ich will noch tiefer in den Wald!"
+
+P "Bist du sicher? Ich meine wir sind ja schon ganz schön weit gelaufen..."
+
+A "Ob ich sicher bin? Na klar! Es gibt so viel zu entdecken hier!"
+
+P "Hmm... Ich weiß nicht..."
+
+A "Stell dich nicht so an. Komm, wir gehen weiter!"
+
+P "Naja okay..."
+
+...
+
+P "Puh, also langsam sollten wir wirklich umdrehen Anja!"
+
+A "Jaja, wir laufen bald zurück."
+
+A "Schau! Da vorne!"
+
+A "Da ist ja ein Bach! Da ist es auch viel heller, da stehen nicht so viele Bäume!"
+
+A "Lass uns zum Bach gehen!"
+
+P "Warte! Bleib hier! Siehst du das?"
+
+A "Was denn?"
+
+P "Na da am Bach. Das ist doch die Frau Heidenau!"
+
+A "Du hast Recht! Was macht sie denn da?"
+
+P "Sie sucht irgendwas auf dem Boden. Da! Sie hat was aufgehoben. Irgendeine Pflanze."
+
+A "Ich hab Angst... Vielleicht ist sie ja doch eine Hexe!"
+
+A "Und sie sammelt gerade Pflanzen für einen Hexentrank! Dann will sie uns alle vergiften!"
+
+P "Meinst du echt?"
+
+P "Wir sollten schnell weg hier und es den anderen sagen!"
+
+A "Moment. Was macht sie denn jetzt?"
+
+A "Sie hat irgend so einen Sack in den Bach geworfen! Und jetzt läuft sie weg!"
+
+A "Wir müssen ihr folgen! Komm!"
+
+P "WAS!? Bist du verrückt?"
+
+P "Was wenn sie uns verhext?"
+
+A "Aber wir müssen es wissen! Wir müssen wissen wo ihre Hexenhütte ist!"
