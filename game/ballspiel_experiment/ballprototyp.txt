@@ -1,4 +1,4 @@
-# The script of the game goes in this file.
+﻿# The script of the game goes in this file.
 
 ###### SCRIPT START #####
 
@@ -45,8 +45,31 @@ label start:
     
 
     ##### Szene Ballspiel #####
-label sceneball:
+label scenetutorial:
+    scene bg court with dissolve
+    show osport talk with moveinright
+    o "Und du willst wirklich mitspielen? Kannst du das überhaupt."
+    o "Bei dem Spiel muss man gute Reflexe haben!"
+    menu:
+        "Ich kann das!":
+            o "Das will ich sehen:"
+        
+        "Ich geb mir Mühe...":
+            o "Das können wir gleich mal testen"
+            
+    o "Fang!"
     
+    [hier erste auswahl mit Zeitimit einfügen]
+    menu:
+        "Fangen"
+        
+    [wenn erwischt]
+    o "Gar nicht mal so schlecht. Jetzt bloß nicht nachlassen beim Spiel!"
+    
+    [wenn nicht erwischt:]
+    o "Das muss aber noch besser werden! Wir sehen uns auf dem Feld!"
+    
+label sceneball:
     scene bg ball with dissolve
     show karin go at leftish
     show osport vhappy at rightish
