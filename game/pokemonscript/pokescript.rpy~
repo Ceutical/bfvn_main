@@ -24,11 +24,7 @@ transform rotation:
     
 
 ######################################
-label startbattle:
-    stop sound fadeout 1.0
-    stop music fadeout 1.0
-    pause 0.75
-    play music poketheme fadein 1.0
+label start:
     
     $ HP_dog = 100
     $ HP_stick = 100
@@ -155,7 +151,7 @@ label kampf:
         o "NEEEEEIIIIN!"
         jump switch
     else:
-        "Dein Fightemon hat noch [activeHP_a] HP, der Gegner [activeHP_b]."
+        "Dein Fightemon hat noch [activeHP_a] HP, der Gegner [activeHP_b]. [queued]"
         "Was wirst du als nächstes tun?"
     
     
@@ -294,12 +290,19 @@ label win:
     $ win = "yes"
     "Du hast gegen [o] gewonnen!"
     "Gratualtion!"
-    jump endbattle
+    jump end
 
 label loss:
     $ win = "no"
     "[o] hat alle deine Monster besiegt!"
     o "Wacker geschlagen, aber noch nicht gut genug!"
-    jump endbattle
+
+label end:
+    "Real world Returns."
+    "YEET"
+    "YEET"
+    "YEET"
+    "YEET THAT FEET WITH MAH MEET"
 
 
+    return

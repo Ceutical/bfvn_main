@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 3303: end of line expected.
-    show asport talk at left with moveinleft behind osport
-                                             ^
+The label start is defined twice, at
+  File "game/pokemonscript/pokescript.rpyc", line 27 and
+  File "game/script.rpy", line 295.
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Tue Jan 29 01:46:59 2019
+Thu Jan 31 19:39:34 2019

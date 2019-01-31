@@ -47,6 +47,7 @@ define audio.anjatheme = "music/soundtracks/anjatheme.mp3"
 define audio.evetheme = "music/soundtracks/evetheme.mp3"
 define audio.octatheme = "music/soundtracks/octatheme.mp3"
 define audio.maintheme = "music/soundtracks/maintheme.mp3"
+define audio.poketheme = "music/soundtracks/Pokemon_Minigame.ogg"
 define audio.treefall = "music/sfx/treefall.ogg"
 define audio.cardoor1 = "music/sfx/Autotür1.ogg"
 define audio.cardoor2 = "music/sfx/Autotür2.ogg"
@@ -2630,53 +2631,54 @@ label scenew2_2:
             o "Ich beweis es dir! LOS, LASS KÄMPFEN!"
             n "Ich kann es kaum sehen, aber Octavia steckt ein Kabel in mein Gerät und an ihres. Wie es aussieht muss ich wohl kämpfen."
             o "LOS!"
-            menu:
-                "win":
-                    $ mon = "win"
-                    "PLACEHOLDER FÜR DEN KAMPF" #####
-                    
-                "loss":
-                    $ mon = "loss"
-                    "PLACEHOLDER FÜR DEN KAMPF" #####
+            jump startbattle
             
-            if mon == "win":
-                show bg grura
-                show octa shock
-                o "Wie? Ich hab doch fast alle."
-                o "Nein!"
-                n "Was ist denn jetzt los?"
-                show octa mad
-                o "Das Spiel ist  eh Mist!"
-                o "Bei allem anderen würde ich dich haushoch besiegen!"
-                p "Dann schlag doch was vor."
-                show octa smug
-                o "Na gut. Also wir machen immer so Wettrennen im Hof und da bin ich die Beste. Einige sind gut, sicher. Andere sogar sehr gut, aber niemand hat mich bis jetzt besiegen können und das wirst du auch nicht schaffen! Das kannst du mir aber glauben."
-                p "Ich bin auch ziemlich schnell."
-                o "Ich warne dich vor. Ich bin viel schneller. Versuchen brauchst du es eigentlich gar nicht!"
-                p "Ich hab bereits die Herausforderung angenommen!"
-                show octa talk
-                o "Alles klar."
-                o "Aber erst einmal, wollen wir vielleicht ein paar unserer Fightë Møn tauschen?"
-                o " Du hast noch nicht so viel und ich kann eines von dir gebrauchen!"
-                n "Irgendwie vertrau ich ihr da nicht so ganz."
-                p "Nein, ich muss mich auf unseren Wettkampf vorbereiten!"
-                jump scenew2_3
-    
-    
-            else:        
-                show bg grura
-                show octa smug
-                o "Hab ich's dir doch gesagt."
-                o "Bin eben viel besser als du. Dachte du hast eigentlich mehr drauf, aber ein echter Gegner bist du wohl nicht."
-                o "Lern erst einmal zu spielen!"
-                n "Octa ist gerade echt gemein..."
-                p "Hey!"
-                show octa talk
-                o "Was denn Verlierer?"
-                p "Ach ich geh!"
-                show octa smug
-                o "Alles klar, viel Spaß noch!"
-                
+            
+            label endbattle:
+                stop sound fadeout 1.0
+                stop music fadeout 1.0
+                pause 0.75
+                play music octatheme fadein 1.0
+                if win == "yes":
+                    scene bg grura
+                    show octa shock
+                    with fade
+                    o "Wie? Ich hab doch fast alle."
+                    o "Nein!"
+                    n "Was ist denn jetzt los?"
+                    show octa mad
+                    o "Das Spiel ist eh Mist!"
+                    o "Bei allem anderen würde ich dich haushoch besiegen!"
+                    p "Dann schlag doch was vor."
+                    show octa smug
+                    o "Na gut. Also wir machen immer so Wettrennen im Hof und da bin ich die Beste. Einige sind gut, sicher. Andere sogar sehr gut, aber niemand hat mich bis jetzt besiegen können und das wirst du auch nicht schaffen! Das kannst du mir aber glauben."
+                    p "Ich bin auch ziemlich schnell."
+                    o "Ich warne dich vor. Ich bin viel schneller. Versuchen brauchst du es eigentlich gar nicht!"
+                    p "Ich hab bereits die Herausforderung angenommen!"
+                    show octa talk
+                    o "Alles klar."
+                    o "Aber erst einmal, wollen wir vielleicht ein paar unserer Fightë Møn tauschen?"
+                    o " Du hast noch nicht so viel und ich kann eines von dir gebrauchen!"
+                    n "Irgendwie vertrau ich ihr da nicht so ganz."
+                    p "Nein, ich muss mich auf unseren Wettkampf vorbereiten!"
+                    jump scenew2_3
+                    
+                    
+                else:
+                    scene bg grura
+                    show octa smug
+                    with fade
+                    o "Hab ich's dir doch gesagt."
+                    o "Bin eben viel besser als du. Dachte du hast eigentlich mehr drauf, aber ein echter Gegner bist du wohl nicht."
+                    o "Lern erst einmal zu spielen!"
+                    n "Octa ist gerade echt gemein..."
+                    p "Hey!"
+                    show octa talk
+                    o "Was denn Verlierer?"
+                    p "Ach ich geh!"
+                    show octa smug
+                    o "Alles klar, viel Spaß noch!"
+                    
         "Mit Evelynn malen":
             n "Ich kann ja auch noch Nachmittag daheim spielen, erst einmal zu Evelynn!"
             n "Der Maltisch ist wohl heute wirklich voll. Randy hat sich wohl alle Brettspiele geschnappt."
@@ -2820,6 +2822,7 @@ label scenew2_3:
     play music maintheme fadein 1.0
     scene bg grura
     show randy talk at rightish
+    with fade
     r "[name]!"
     n "Was will denn Randy von mir?"
     r "Lust auf eine Runde Oligopoly? Wir brauchen noch jemanden um Zwei gegen Zwei zu spielen!"
@@ -2827,10 +2830,12 @@ label scenew2_3:
     p "Auja, da bin ich dabei! Bin nur noch nicht wirklich gut."
     show randy happy
     r "Dann bist du eben in meinen Team, ich kenne die Tricks."
-    show bg grura2
+    scene bg grura2
+    show randy happy at rightish
+    with fade
     r "Das sind wieder 200!"
     p "Randy und ich sind wohl ein echt gutes Team, noch ein bisschen und wir haben das in der Tasche."
-    show mum talk at leftish
+    show mum talk at leftish with moveinleft
     m "Hallo, mein Schatz!"
     p "Och nööö."
     n "Wir haben doch nicht gar nicht so lange gespielt!"
@@ -2923,6 +2928,7 @@ label scenew2_4:
         "Ball spielen":
             scene bg ball
             n "Wenn jeder spielt, dann muss ich wohl auch mitmachen."
+            jump startballgame
             
 label scenew2_5:
     scene bg sand
