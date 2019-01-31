@@ -17,41 +17,41 @@ h "KINDER! RUHE!"
 kg "..."
 g "Wow das war laut! Sogar Anja ist ruhig."
 k "Tschuldigung, aber ich brauch nur mal kurz eure Aufmerksamkeit."
-k "Wir sind ja jetzt hier am Wald angekommen. Aber bevor wir aus dem Bus aussteigen und uns auf den Weg zur Bernerhütte machen, müssen wir noch einige Regeln klären."
-h "Also zuhören!"
-k "Ja äh genau... also Regel 1."
+k "Wir sind ja jetzt hier am Wald angekommen. Aber bevor wir aus dem Bus aussteigen und uns auf den Weg zur BernerhÃ¼tte machen, mÃ¼ssen wir noch einige Regeln klÃ¤ren."
+h "Also zuhÃ¶ren!"
+k "Ja Ã¤h genau... also Regel 1."
 k "Regel 1 ist einfach. Ihr bleibt immer bei der Gruppe."
-k "Regel 2 ist, dass wir euch in Paare einteilen. Euer Sitznachbar ist auch euer ... äh wie hatten sie das nochmal genannt Frau Heidenau?
+k "Regel 2 ist, dass wir euch in Paare einteilen. Euer Sitznachbar ist auch euer ... Ã¤h wie hatten sie das nochmal genannt Frau Heidenau?
 h "Marschpartner."
 k "Genau euer Sitznachbar ist euer Marschpartner."
-k "Ach und Regel 3 ist das ihr nichts ohne unsere Erlaubnis im Wald sammelt. Das ist nämlich gefährlich."
+k "Ach und Regel 3 ist das ihr nichts ohne unsere Erlaubnis im Wald sammelt. Das ist nÃ¤mlich gefÃ¤hrlich."
 h "Wenn ich jemanden von euch etwas aufsammeln sehe dann gnade euch Gott."
-h "Denn ich werde nicht so gnädig sein. Verstanden?"
+h "Denn ich werde nicht so gnÃ¤dig sein. Verstanden?"
 kg "..."
 h "Verstanden?!"
 kg "Ja."
 h "Ich meine hier auch ganz explizit dich Louis."
 h "Wenn du nur daran denkst was in deine Jacke zu stecken, dann war es das letzte Mal, dass du deine Jacke gesehen hast."
-l "..." *angsterfülltes gesicht*
-k "Nun...äh...gut."
+l "..." *angsterfÃ¼lltes gesicht*
+k "Nun...Ã¤h...gut."
 
 K "Gut, habt ihr jetzt noch Fragen?"
 
-L "Äh...was ist eine Lichtung?"
+L "Ã„h...was ist eine Lichtung?"
 
 K "Oh, gute Frage Louis!"
 
-K "Das ist ein Ort, mitten im Wald. Aber da stehen keine Bäume, da ist nur Wiese oder Waldboden."
+K "Das ist ein Ort, mitten im Wald. Aber da stehen keine BÃ¤ume, da ist nur Wiese oder Waldboden."
 
-K "Im Wald ist es ja meistens ziemlich dunkel wegen den vielen Bäumen."
+K "Im Wald ist es ja meistens ziemlich dunkel wegen den vielen BÃ¤umen."
 
-K "Aber bei einer Lichtung ist es heller weil ja dort keine Bäume sind."
+K "Aber bei einer Lichtung ist es heller weil ja dort keine BÃ¤ume sind."
 
-K "Deswegen heißt es nämlich auch Lichtung, das kommt von Licht, verstehst du?"
+K "Deswegen heiÃŸt es nÃ¤mlich auch Lichtung, das kommt von Licht, verstehst du?"
 
-L "Äh, ja... Ich glaub' schon..."
+L "Ã„h, ja... Ich glaub' schon..."
 
-A (flüstern?): "Also ich glaub' nicht, hihi."
+A (flÃ¼stern?): "Also ich glaub' nicht, hihi."
 
 k "Dann mal los. Schnappt euren Marschpartner und folgt mir."
 
@@ -71,17 +71,17 @@ A "Hey, schau! Karin hat angehalten!"
 
 K "Alle mal aufpassen! Wir machen hier unsere Brotzeitpause!"
 
-K "Bitte nicht weglaufen, setzt euch her. Hier liegen ein paar große Baumstämme, da könnt ihr euch draufsetzen."
+K "Bitte nicht weglaufen, setzt euch her. Hier liegen ein paar groÃŸe BaumstÃ¤mme, da kÃ¶nnt ihr euch draufsetzen."
 
-H "Hört auf Karin. Hier gehbt keiner ohne Erlaubnis weg, ja?"
+H "HÃ¶rt auf Karin. Hier gehbt keiner ohne Erlaubnis weg, ja?"
 
 A "Hey, wollen wir uns da hinten hinsetzten? Auf den Stamm da?"
 
-Menü
+MenÃ¼
 
 	Option 1
 
-    	P "Ja, können wir machen!"
+    	P "Ja, kÃ¶nnen wir machen!"
 
     	Option 2
 
@@ -89,11 +89,11 @@ Menü
 
 A "Alles klar!"
 
-	WENN Option 1 gewählt:
+	WENN Option 1 gewÃ¤hlt:
 
-    	G "Der Platz ist echt schön. Man hört die Vögel zwitschern...!"
+    	G "Der Platz ist echt schÃ¶n. Man hÃ¶rt die VÃ¶gel zwitschern...!"
 
-    	Menü
+    	MenÃ¼
 
 		Option 1
 
@@ -103,59 +103,59 @@ A "Alles klar!"
 
 		P "Glaubst du hier gibt's Wildschweine?"
 
-		WENN Option 1 gewählt:
+		WENN Option 1 gewÃ¤hlt:
 
-			A "Meine Mama hat mir 2 Brote gemacht, eins mit Schinken und eins mit Salami und Käse."
+			A "Meine Mama hat mir 2 Brote gemacht, eins mit Schinken und eins mit Salami und KÃ¤se."
 			
-			A "Ich liebe Schinken, weißt du?"
+			A "Ich liebe Schinken, weiÃŸt du?"
 
 			A "Einen Apfel hat sie mir auch eingepackt!"
 
-			A "Mama sagt immer ich soll mehr Obst essen, aber ich mag Äpfel eigentlich nicht so..."
+			A "Mama sagt immer ich soll mehr Obst essen, aber ich mag Ã„pfel eigentlich nicht so..."
 
 			A "Magst du meinen Apfel haben?"
 
-			Menü
+			MenÃ¼
 
 				Option 1
 
-				P "Nein danke. Deine Mama hat aber recht, Obst ist nämlich gesund!"
+				P "Nein danke. Deine Mama hat aber recht, Obst ist nÃ¤mlich gesund!"
 
 				Option 2
 
 				P "KLar! Wenn du ihn nicht willst."
 
-				WENN Option 1 gewählt:
+				WENN Option 1 gewÃ¤hlt:
 
 					A "Hmm... Ja du hast wohl recht... Vielleicht sollte ich den Apfel doch selber essen..."
 
-				WENN Option 2 gewählt:
+				WENN Option 2 gewÃ¤hlt:
 
 					A "Okay, hier bitte!"
 
 					P "Boah... der ist voll lecker, danke!"
 
-		WENN Option 2 gewählt:	    	
+		WENN Option 2 gewÃ¤hlt:	    	
 
 			A "Hier gibt's glaube ich keine... Aber ich will heute unbedingt Rehe sehen!"
 
 			A "Aber die gibts nur tief im Wald. Vielleicht finden wir ja noch andere Tiere!"
 
-			A "Hey, weißt du was?"
+			A "Hey, weiÃŸt du was?"
 			A "Lass uns doch mal gucken gehen."
 			P "Aber die Karin hat doch gesgat wir sollen nicht weg gehen."
 			A "Ja schon..."
-			A "Aber zu zweit finden wir besstimmt wieder zurück bevor die es überhaupt bemerkt..."
+			A "Aber zu zweit finden wir besstimmt wieder zurÃ¼ck bevor die es Ã¼berhaupt bemerkt..."
 
-	transition zu tiefer im Wald
+	
 
-	A "Boah, glaubst du hier im Wald ist die Hexenhütte von der Frau Heidenau? Hihi..."
+	A "Boah, glaubst du hier im Wald ist die HexenhÃ¼tte von der Frau Heidenau? Hihi..."
 
 	P "Meinst du wirklich?"
 
 	A "Naja..."
 
-WENN Option 2 gewählt:
+WENN Option 2 gewÃ¤hlt:
 
 	A "Na gut, dann gehen wir eben zu den anderen..."
 
@@ -163,11 +163,11 @@ WENN Option 2 gewählt:
 
 	G "Was hat Randy denn?"
 
-	R "HIER IST VOLL DER COOLE KÄFER!"
+	R "HIER IST VOLL DER COOLE KÃ„FER!"
 
 	(Alle Kinder bis auf Louis) "WOAH!"
 
-	A "Der Käfer ist echt voll schön Randy!"
+	A "Der KÃ¤fer ist echt voll schÃ¶n Randy!"
 
 	E "Wir sollten ihn mitnehmen!"
 
@@ -177,9 +177,9 @@ WENN Option 2 gewählt:
 
 	E "Boah Louis..."
 
-	R "DU bist langweilig! Such dir halt deinen eigenen Käfer!"
+	R "DU bist langweilig! Such dir halt deinen eigenen KÃ¤fer!"
 
-	Menü
+	MenÃ¼
 
 		Option 1
 
@@ -187,6 +187,6 @@ WENN Option 2 gewählt:
 
 		Option 2
 
-		P "Also ich finde deinen Käfer auch echt cool Randy!"
+		P "Also ich finde deinen KÃ¤fer auch echt cool Randy!"
 
 K "Okay Kinder! Die Pause ist gleich vorbei! Esst noch alle auf wenn ihr noch nicht fertig seid, dann laufen wir weiter!" 
