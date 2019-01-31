@@ -276,12 +276,13 @@ label timedmenu4:
                 hide amate geworfen
                 with dissolve
                 o "Ha! Daneben!"
+                hide ball links with dissolve
                 
-                if enemyname == "plinksdrin":
+                if enemyname == "plinksdrin2":
                     show plinks n with dissolve
-                    hide ball links with dissolve
-                    show oball mittelzielen
-                    o "Jetzt mach ich dich fertig!"
+                    
+                show oball mittelzielen
+                o "Jetzt mach ich dich fertig!"
                     
                     
         "In die Mitte zielen":
@@ -420,7 +421,6 @@ label sceneverloren:
     k "Da bei Team Octa noch mehr Spieler im Feld stehen, habt ihr gewonnen!"
     show osport happy at center with moveinright
     show asport mad at rightish with moveinright
-    k "Damit hat Team Octa gewonnen!"
     a "Menno!"
     o "Das war von vornherein klar!"
     jump scenew2_6

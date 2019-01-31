@@ -2463,7 +2463,7 @@ label scene21:
     a "AAAAH!"
     n "Oh man, wieder ein Streit. Aber diesmal gibt es einen Ausweg!"
     p "LEUTE! LEUTE! RUHIG!"
-    show oparty n
+    show oparty happy
     show aparty n
     "...."
     p "Kuchen!"
@@ -2472,7 +2472,7 @@ label scene21:
     a "Ich versteh‘s auch nicht."
     p "Wir sind hier auf einer Party, wollen wir nicht mal etwas Kuchen essen?"
     o "Ich mein... Eigentlich schon."
-    show oparty n
+    show oparty happy
     show aparty talk
     a "Kuchen hört sich gut an."
     p "Dann auf zum Kuchen Mampfen." 

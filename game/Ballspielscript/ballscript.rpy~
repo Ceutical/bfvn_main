@@ -61,7 +61,7 @@ init:
 ###########################################################    
 
 
-label start:
+label startballgame:
     play music octatheme
 
     
@@ -71,7 +71,7 @@ label scenetutorial:
     
     
         
-    scene bg court with dissolve
+    scene bg ball with dissolve
     show osport talk with moveinright
     o "Und du willst wirklich mitspielen? Kannst du das überhaupt."
     o "Bei dem Spiel muss man gute Reflexe haben!"
@@ -423,7 +423,7 @@ label sceneverloren:
     k "Damit hat Team Octa gewonnen!"
     a "Menno!"
     o "Das war von vornherein klar!"
-    jump sceneblubb
+    jump scenew2_6
     
 label scenegewonnen:
     scene bg ball with dissolve
@@ -435,7 +435,7 @@ label scenegewonnen:
     show asport happy at rightish with moveinright
     o "Menno!"
     a "Yuhuuuu!"
-    jump sceneblubb
+    jump scenew2_6
     
 label sceneunentschieden:
     scene bg ball with dissolve
@@ -448,14 +448,4 @@ label sceneunentschieden:
     o "Na warte! So leicht kommst du mir nicht davon."
     o "Das gibt noch eine Revanche!"
     a "Worauf du dich verlassen kannst!"
-    jump sceneblubb
-    
-label sceneblubb:
-    scene bg cuddle
-    "random"
-    "blabliblubb"
-    "dummdidadidudidai"
-    
-    
-    
-    return
+    jump scenew2_6
