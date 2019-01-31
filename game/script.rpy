@@ -222,6 +222,75 @@ transform orun7b:
     yalign 0.64
 ######################################
 
+##########SANDKASTEN DEFINITIONS###################
+
+transform badsafe:
+    xalign -3.0
+    yalign 16.0 
+    
+transform pyhero:
+    xalign 35.0
+    yalign 5.0
+    
+transform duckhero:
+    xalign 25.0
+    yalign 10.0
+    
+transform riverhero1:
+    xalign 18.0
+    yalign 2.0
+    
+transform riverhero2:
+    xalign 35.0
+    yalign 4.0
+    
+transform horsehero:
+    xalign 16.0
+    yalign 23.0
+    
+transform horserun:
+    xalign 0.0
+    yalign 4.0
+
+transform dschhero:
+    xalign 35.0
+    yalign 16.0
+    
+transform monchero:
+    xalign 31.0
+    yalign 15.0
+    
+transform cakehero:
+    xalign 31.0
+    yalign 26.0
+    
+transform minehero:
+    xalign 23.0
+    yalign 23.0
+    
+transform girlhero:
+    xalign 35.0
+    yalign 0.0
+    
+transform kissknight:
+    xalign 40.0
+    yalign 11.0
+
+transform slap:
+    xalign 9.0
+    yalign 0.0
+    
+transform badduck:
+    xalign 12.5
+    yalign 23.0
+    
+transform duckfall:
+    xalign 11.5
+    yalign 14.0
+    
+
+######################################
+
 
 label start:
     play music introtheme
@@ -2896,11 +2965,8 @@ label scenew2_5:
             Lt "Wir erzählen also die Geschichte von Schloss Sandgel, in dem der schwarze Ritter wohnt."
             show badboy with dissolve
             Lt "Der schwarze Ritter ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
-            Lt "Und deswegen haben sich drei mutige Helden zusammengeschlossen um den Ritter zu besiegen."
-            pt "Und wie heißen die?"
-            Lt "Ähhh... das weiß keiner."
-            Lt "Ach ja und um das Schloss betreten zu können müssen die Helden drei Prüfungen bestehen damit ..."
-            Lt "Ähh.. sie drei Teile eines magischen Schlüssels erhalten."
+            show badboy at badsafe behind burg
+            with MoveTransition(1.0)
             
         "Die Schreckensburg von Zauberer Dunkelbös.":
             $ burgname = "Burgname2"
@@ -2910,6 +2976,8 @@ label scenew2_5:
             Lt "Wir erzählen also die Geschichte vom bösen Zauberer Dunkelbös der in seiner Schreckensburg lebt."
             show badboy with dissolve
             Lt "Wie gesagt der Zauberer ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
+            show badboy at badsafe behind burg
+            with MoveTransition(1.0)
             
         "Ich weiß nicht. Mir fällt nichts ein... vielleicht ...Fort Knight.":
             $ burgname = "Burgname3"
@@ -2919,6 +2987,8 @@ label scenew2_5:
             Lt "Wir erzählen also die Geschichte von Fort Knight in dem der dunkle Ritter wohnt."
             show badboy with dissolve
             Lt "Der schwarze Ritter ist böse und tyra… tyrann… also er ärgert die Bewohner des Landes."
+            show badboy at badsafe behind burg
+            with MoveTransition(1.0)
             
             
     if burgname == "Burgname1":
@@ -2958,12 +3028,20 @@ label scenew2_5:
     menu:
         "...auf die Spitze der Pyramide des Verderbens klettern.":
             show doom with dissolve
+            show wizzard at pyhero
+            show knight at pyhero
+            show held at pyhero
+            with MoveTransition(1.5)
             $ scastlep += 2
             Lt "Auf ihrem Weg zum Schloss treffen die Drei auf eine riesige Pyramide."
             Lt "Nach drei harten Tagen haben sie es endlich bis zur Spitze der Pyramide geschafft. In der goldenen Spitze finden sie ein Fach mit einem Teil des Schlüssels."
 
         "die Ente des Verderbens besiegen.":
             show duck with dissolve
+            show wizzard at duckhero
+            show knight at duckhero
+            show held at duckhero
+            with MoveTransition(1.0)
             Lt "Eine Ente? Echt?"
             Lt "Meinst du das Ernst?"
             pt "Also ja..."
@@ -2972,34 +3050,56 @@ label scenew2_5:
             Lt "Nach einem harten Kampf, schaffen die Helden es der Ente das Halsband mit dem Teil des Schlüssels abzunehmen."
 
         "den gefährlichen Fluss des Verderbens überqueren.":
-            show island with dissolve
+            show island behind sandpyramide with dissolve 
             $ scastlep += 1
+            show wizzard at riverhero1
+            show knight at riverhero1
+            show held at riverhero1
+            with MoveTransition(1.0)
             Lt "Okay."
             Lt "Auf dem Weg zur [burg] kommen sie an einem gefährlichen Fluss an. In der Mitte des Stroms ist eine Insel mit einer Schatztruhe."
             Lt "Leider ist die Brücke, die eigentlich zur Insel führen soll, zerstört."
-            Lt "Die Helden schaffen es aber, ein Floß zu bauen. Sie überwinden den Strom und schnappen sich den ersten Teil des Schlüssels."  
+            Lt "Die Helden schaffen es aber, ein Floß zu bauen. Sie überwinden den Strom und schnappen sich den ersten Teil des Schlüssels."
+            show wizzard at riverhero2
+            show knight at riverhero2
+            show held at riverhero2
+            with MoveTransition(1.5)
 
     Lt "Nachdem die Helden die erste Prüfung bestanden haben, müssen sie sich nun..."
     
     menu:
         "...mit dem magischen Aut...äh..pferdelosen Wagen gegen das schnellste Pferd des Landes antreten.":
-            show horse with dissolve
+            show horse behind sandauto with dissolve
+            show wizzard at horsehero
+            show knight at horsehero
+            show held at horsehero
+            with MoveTransition(1.0)
             $ scastlep += 2
             Lt "Der magische Wagen ohne Pferde steht vor den Helden. Bisher hat es keiner geschafft mit ihm zu fahren."
             pt "Aber die Helden sind mega klug!"
             Lt "Ja genau und weil sie so klug sind bringen sie den Wagen zum laufen."
+            show horse at horserun
+            with MoveTransition(0.5)
             Lt "Das Rennen gegen das Pferd ist dann fast einfach, denn nichts ist schneller als ihr Wagen. Der zweite Teil des Schlüssels ist jetzt ihrer."
             
         "...durch den Urwald des Verderbens schlagen.":
-            show dschungel with dissolve
+            show dschungel behind burg with dissolve
             Lt "Wie schon wieder ‘Verderben’?"
             Lt "Ist das nicht etwas langweilig?"
             pt "Nö wieso?"
             Lt "Na gut."
+            show wizzard at dschhero
+            show knight at dschhero
+            show held at dschhero
+            with MoveTransition(1.0)
             Lt "Die Helden schlagen sich also durch diesen gefährlichen Urwald. In dem Urwald lauern viele Gefahren wie Krokodile und Schlangen. Trotzdem halten die Helden bis zum Schluss durch und finden den zweiten Teil des Schlüssel auf einem Baumstumpf in einer Lichtung."
     
         "...dem größten Rätselmeister der Welt stellen.":
-            show monc with dissolve
+            show monc behind burg with dissolve
+            show wizzard at monchero
+            show knight at monchero
+            show held at monchero
+            with MoveTransition(1.0)
             $ scastlep += 1
             Lt "In einem einsamen Tempel auf dem höchsten Berg des Landes lebt der Rätselmeister."
             Lt "Er stellt den Helden ein Rätsel das bisher niemand gelöst hat."
@@ -3015,13 +3115,26 @@ label scenew2_5:
             Lt "Aber was ist denn jetzt die letzte Prüfung?"
             Lt "Eigentlich wollte ich ja dass du dir was ausdenkt."
             Lt "Na gut, wie wärs damit."
-            show barbie with dissolve
+            show sandpyramide behind sandauto
+            show barbie behind burg with dissolve 
+            show wizzard at girlhero
+            show knight at girlhero
+            show held at girlhero
+            with MoveTransition(1.0)
             Lt "Die Helden müssen ein ekliges Mädchen küssen, damit sie ihnen das dritte Schlüsselstück gibt."
             Lt "Dörte ist mega hässlich also braucht es sehr viel Mut sich zu überwinden."
+            show held at kissknight
+            with MoveTransition(1.0)
+            show held at girlhero
+            with MoveTransition(1.0)
             Lt "Die Helden trinken sich mit Cola Mut an und bekommen den letzten Teil des Schlüssels."
             
         "… der Troll in der alten Mine hat den letzten Teil des Schlüssels.":
-            show cave with dissolve
+            show cave behind sandauto with dissolve 
+            show wizzard at minehero
+            show knight at minehero
+            show held at minehero
+            with MoveTransition(1.0)
             $ scastlep += 1
             Lt "Die Helden werden also in die alte Mine geschickt."
             Lt "Dort wohnt ein fieser Troll der das Schlüsselstück unter seinem Kopfkissen versteckt hat."
@@ -3030,6 +3143,9 @@ label scenew2_5:
         "“… man braucht einen sehr starken Magen um den schrecklich trockenen Kuchen von Fürst Randolph zu verspeisen.":
             $ scastlep += 2
             Lt "Wow… Cool!"
+            show wizzard at cakehero
+            show knight at cakehero
+            show held at cakehero
             Lt "Die Helden suchen Fürst Randolph auf, weil jeder weiß, dass er einen Teil des Schlüssels besitzt."
             Lt "Randolph will aber ihn aber nicht einfach so hergeben. Er stellt ihnen eine Aufgabe. Wenn sie ein Stück seines unglaublich trockenen Kuchen verspeisen können ohne zu Staub zu zerfallen, dann gibt er ihnen sein Schlüsselstück.."
             show sandkuchen2 
@@ -3041,20 +3157,36 @@ label scenew2_5:
     Lt "Nach diesen schweren Prüfungen erreichen die Helden endlich die [burg]."
     Lt "Noch sind die großen schweren Tore verschlossen. Aber mit den drei Schlüsselstücken öffnen sie sich."
     Lt "Im Innenhof der Festung treffen die Helden nun endlich auf den [enemy]. Ein schwerer Kampf steht bevor. Der [enemy] schafft es fast die Helden zu überwältigen, aber am Ende besiegen sie ihn…"
+    show burg behind badboy with dissolve
+    show badboy at center
+    show wizzard at center
+    show knight at center
+    show held at center
+    with MoveTransition(1.5)
     
     menu:
         "...mit einem Stich ins Herz.":
             $ scastlep += 1
             Lt "Uh…voll brutal!"
             Lt "Einer der Helden schafft es sein Schwert direkt durch das Herz des Bösewichts zu stechen."
+            show wizzard at slap
+            with MoveTransition(0.5)
+            hide badboy with dissolve
+            show wizzard at center
+            with MoveTransition(1.0)
             Lt "Endlich ist der [enemy] besiegt!"
             
         "…mit einer Ente.":
             Lt "Hä? Wie soll das gehen?"
+            show badboy at badduck
+            with MoveTransition(1.5)
             pt "Naja, er könnte ja auf der Ente ausrutschen und sich alle Knochen brechen."
             Lt "Echt? Wirklich?"
             Lt "Man man man…"
+            show badboy at duckfall
+            with MoveTransition(0.5)
             Lt "Der Bösewicht rutscht auf einer Quietscheente aus und stirbt."
+            hide badboy with dissolve
             Lt "Endlich ist der [enemy] besiegt"
             
         "…mit einem Drachen den sie beschwören.":
@@ -3064,6 +3196,7 @@ label scenew2_5:
             Lt "Ich weiß zwar nicht wo der jetzt plötzlich herkommt… aber egal!"
             Lt "Der Drache verschlingt den Bösewicht in einem Haps!"
             Lt "Endlich ist der [enemy] besiegt!"
+            hide badboy with dissolve
             
     Lt "Die Welt ist gerettet und die Bewohner des Landes wieder frei."
     Lt "Die Helden werden überall gefeiert und bekommen goldene Medaillen für ihre Hilfe."

@@ -1,6 +1,5 @@
 ﻿##### SCRIPT START #####
 
-##### OTHER DEFINITIONS #####
 ##### CHARACTER DEFINITIONS #####
 
 define m = Character("Mama")
@@ -226,6 +225,9 @@ transform orun7b:
 
 label start:
     play music introtheme
+    
+    ##### OTHER DEFINITIONS #####
+    
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -2860,8 +2862,9 @@ label scenew2_5:
     show sandkuchen
     show sandpyramide
     with dissolve
+    $ scastlep = 0
     pt "Hey, Louis!"
-    Lt "Oh, hi Prota, willst du mitmachen?"
+    Lt "Oh, hi [name], willst du mitmachen?"
     pt "Hää… wie mitmachen. Bei was denn?"
     Lt "Na, wir spielen Geschichten erzählen."
     pt "Wie spielt man denn etwas zu erzählen?"
@@ -2870,10 +2873,10 @@ label scenew2_5:
     Lt "Also ich fange einen Satz an und du vervollständigst den dann. Und da wird dann eine Geschichte draus."
     Lt "Schau ich hab hier zum Beispiel ein Schloss gebaut."
     nt "Naja, ob das wie ein Schloss aussieht... Wie hat er es überhaupt geschafft, dass das so schief steht."
-    nt "Heißt das, er hat die anderen Sachen gar nicht gebaut? Wer baut denn ein Auto und'ne Pyramide und lässt die dann einfach stehen?"
-    nt "Und ich glaube auch nicht das Randy den Sand essen sollte. Meine Mama sagt zumindest immer, dass man das nicht macht."
+    nt "Heißt das, er hat die anderen Sachen gar nicht gebaut? Wer baut denn ein Auto und ne Pyramide und lässt die dann einfach stehen?"
+    nt "Und ich glaube auch nicht, dass Randy den Sand essen sollte. Meine Mama sagt zumindest immer, dass man das nicht macht."
     Lt "…und dann könnte man zum Beispiel…"
-    Lt "Hey Prota, hörst du mir überhaupt zu?"
+    Lt "Hey [name], hörst du mir überhaupt zu?"
     pt "Ääääh… was?"
     Lt "Oh man, hör halt mal zu! Und Randy hör auf den Sandkuchen zu essen. Den hab ich gestern gebaut. Der ist nicht zum essen."
     rt "Sorry… er sieht so lecker aus. Und er schmeckt nach Zitrone."
@@ -2888,6 +2891,7 @@ label scenew2_5:
         "Äh...Schloss...äh Sand..gel.":
             $ burgname = "Burgname1"
             $ enemyname = "Enemy1"
+            $ scastlep += 1
             Lt "Naja gut. Wenn du meinst..."
             Lt "Wir erzählen also die Geschichte von Schloss Sandgel, in dem der schwarze Ritter wohnt."
             show badboy with dissolve
@@ -2901,6 +2905,7 @@ label scenew2_5:
         "Die Schreckensburg von Zauberer Dunkelbös.":
             $ burgname = "Burgname2"
             $ enemyname = "Enemy2"
+            $ scastlep += 2
             Lt "Oh, ja das klingt gut!"
             Lt "Wir erzählen also die Geschichte vom bösen Zauberer Dunkelbös der in seiner Schreckensburg lebt."
             show badboy with dissolve
@@ -2917,24 +2922,24 @@ label scenew2_5:
             
             
     if burgname == "Burgname1":
-    python:
-        burg = "Burg Sandgel"
+        python:
+            burg = "Burg Sandgel"
         
     if burgname == "Burgname2":
-    python:
-        burg = "Schreckensburg" 
+        python:
+            burg = "Schreckensburg" 
         
     if burgname == "Burgname3":
-    python:
-        burg = "Burg Fort Knight" 
+        python:
+            burg = "Burg Fort Knight" 
         
     if enemyname == "Enemy1":
-    python:
-        enemy = "Ritter" 
+        python:
+            enemy = "Ritter" 
         
     if enemyname == "Enemy2":
-    python:
-        enemy = "Zauberer" 
+        python:
+            enemy = "Zauberer" 
         
 
             
@@ -2953,6 +2958,7 @@ label scenew2_5:
     menu:
         "...auf die Spitze der Pyramide des Verderbens klettern.":
             show doom with dissolve
+            $ scastlep += 2
             Lt "Auf ihrem Weg zum Schloss treffen die Drei auf eine riesige Pyramide."
             Lt "Nach drei harten Tagen haben sie es endlich bis zur Spitze der Pyramide geschafft. In der goldenen Spitze finden sie ein Fach mit einem Teil des Schlüssels."
 
@@ -2965,8 +2971,9 @@ label scenew2_5:
             Lt "auf ihrem Weg zur [burg] treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
             Lt "Nach einem harten Kampf, schaffen die Helden es der Ente das Halsband mit dem Teil des Schlüssels abzunehmen."
 
-        "den gefährlichen Fluss der Unterwelt überqueren.":
+        "den gefährlichen Fluss des Verderbens überqueren.":
             show island with dissolve
+            $ scastlep += 1
             Lt "Okay."
             Lt "Auf dem Weg zur [burg] kommen sie an einem gefährlichen Fluss an. In der Mitte des Stroms ist eine Insel mit einer Schatztruhe."
             Lt "Leider ist die Brücke, die eigentlich zur Insel führen soll, zerstört."
@@ -2977,6 +2984,7 @@ label scenew2_5:
     menu:
         "...mit dem magischen Aut...äh..pferdelosen Wagen gegen das schnellste Pferd des Landes antreten.":
             show horse with dissolve
+            $ scastlep += 2
             Lt "Der magische Wagen ohne Pferde steht vor den Helden. Bisher hat es keiner geschafft mit ihm zu fahren."
             pt "Aber die Helden sind mega klug!"
             Lt "Ja genau und weil sie so klug sind bringen sie den Wagen zum laufen."
@@ -2992,6 +3000,7 @@ label scenew2_5:
     
         "...dem größten Rätselmeister der Welt stellen.":
             show monc with dissolve
+            $ scastlep += 1
             Lt "In einem einsamen Tempel auf dem höchsten Berg des Landes lebt der Rätselmeister."
             Lt "Er stellt den Helden ein Rätsel das bisher niemand gelöst hat."
             Lt "Ein Rätsel so schwierig, dass nicht mal ich die Antwort weiß."
@@ -3013,16 +3022,18 @@ label scenew2_5:
             
         "… der Troll in der alten Mine hat den letzten Teil des Schlüssels.":
             show cave with dissolve
+            $ scastlep += 1
             Lt "Die Helden werden also in die alte Mine geschickt."
             Lt "Dort wohnt ein fieser Troll der das Schlüsselstück unter seinem Kopfkissen versteckt hat."
             Lt "Zum Glück sind die Helden schlau und können den Troll überlisten und ihm den letzten Teil des Schlüssels klauen."
             
         "“… man braucht einen sehr starken Magen um den schrecklich trockenen Kuchen von Fürst Randolph zu verspeisen.":
+            $ scastlep += 2
             Lt "Wow… Cool!"
             Lt "Die Helden suchen Fürst Randolph auf, weil jeder weiß, dass er einen Teil des Schlüssels besitzt."
             Lt "Randolph will aber ihn aber nicht einfach so hergeben. Er stellt ihnen eine Aufgabe. Wenn sie ein Stück seines unglaublich trockenen Kuchen verspeisen können ohne zu Staub zu zerfallen, dann gibt er ihnen sein Schlüsselstück.."
-           show sandkuchen2 
-           hide sandkuchen with dissolve
+            show sandkuchen2 
+            hide sandkuchen with dissolve
             Lt "Die Helden schaffen es nur zu dritt, in dem sie das Stück genau unter sich aufteilen."
             Lt "Fürst Randolph ist beeindruckt und gibt den letzen Teil des Schlüssels frei."
             
@@ -3033,6 +3044,7 @@ label scenew2_5:
     
     menu:
         "...mit einem Stich ins Herz.":
+            $ scastlep += 1
             Lt "Uh…voll brutal!"
             Lt "Einer der Helden schafft es sein Schwert direkt durch das Herz des Bösewichts zu stechen."
             Lt "Endlich ist der [enemy] besiegt!"
@@ -3047,6 +3059,7 @@ label scenew2_5:
             
         "…mit einem Drachen den sie beschwören.":
             show sanddragon with dissolve
+            $ scastlep += 2
             Lt "Yeah, cool ein Drache!"
             Lt "Ich weiß zwar nicht wo der jetzt plötzlich herkommt… aber egal!"
             Lt "Der Drache verschlingt den Bösewicht in einem Haps!"
@@ -3056,6 +3069,12 @@ label scenew2_5:
     Lt "Die Helden werden überall gefeiert und bekommen goldene Medaillen für ihre Hilfe."
     show preis with dissolve
     Lt "Und wenn sie nicht gestorben sind… und so weiter, und so weiter."
+    
+    if scastlep > 5:
+        Lt "Du hast [scastlep] Punkte gesammelt und bekommst viele Affinitypoints!"
+        
+    else:
+        Lt "Du hast [scastlep] Punkte gesammelt und bekommst wenig Affinitypoints ..."
             
             
             
@@ -3091,26 +3110,48 @@ label scenew2_10:
     ##############################################################
     menu:
         "Ich sollte mal nach Octavia schauen.":
+            stop music fadeout 1.0
+            pause 0.75
+            play music octatheme fadein 1.0
+            scene bg court with dissolve
             n "Was ist denn da draußen los im Innenhof?"
+            show osport talk at center
+            show lsport n at leftish behind osport
+            show asport n at rightish behind osport
+            with dissolve
             o "Hey, [name]!"
             n "Octavia steht natürlich wieder im Mittelpunkt. Die erzählt wahrscheinlich immer noch, wie oft sie vorhin schon wieder gewonnen hat."
             p "Was macht ihr alle hier?"
+            show osport vhappy
             o "Wir machen ein Wettrennen und du machst mit!"
             
             menu:
                 "Okay.":
                     "Na gut… Ich hab eh nichts zu tun."
                     label runokay:
+                        show asport behind osport
+                        show osport happy
                         o "Bereite dich schon mal auf deine Niederlage vor! Ich gehe regelmäßig mit meinem Papa joggen und da machen wir auch immer Sprintübungen."
-                        a "Ich geh lieber raus und kletter auf Bäume. Einmal hab ich da sogar ein Eichhörnchen gesehen. Aber das ist dann ganz schnell wieder-"
+                        show osport behind asport
+                        show asport talk
+                        a "Ich geh lieber und kletter auf Bäume. Einmal hab ich da sogar ein Eichhörnchen gesehen. Aber das ist dann ganz schnell wieder-"
+                        show asport behind osport
+                        o "Und genau deshalb habt ihr überhaupt keine Chance gegen mich"
+                        show osport behind asport
                         a "Ist doch eh egal. Solange es Spaß macht."
+                        show asport mad behind osport
+                        show osport mad
                         o "Ist es eben nicht! Es ist nicht egal, ob man ein Gewinner oder ein Verlierer ist!"
                         n "Nicht das schon wieder..."
                     
                 "Moment mal...":
                     p "Gar nicht! Nur weil ich jetzt raus gekommen bin, heißt das noch lange nicht, dass ich alles mache, was du sagst."
+                    show osport mad
                     o "Sei kein Lappen! Sogar Randy und Louis machen später auch mit."
+                    show osport behind asport
+                    show asport happy
                     a "Ey, ich auch!"
+                    show asport mad behind osport
                     o "Jaa, und die da auch."
                     n "Nicht das schon wieder..."
                     o "Aber du musst auch nicht mitmachen. Ist mir sowieso pupsegal. Ich gewinne sowieso!"
@@ -3123,38 +3164,59 @@ label scenew2_10:
                         "Nö.":
                             p "Ich mach trotzdem nicht mit. Ich kann euch ja zu schauen."
                             o "Kommt gar nicht in die Tüte! Ich brauch doch einen richtigen Mitstreiter. Die da zählt nicht!"
+                            show osport behind asport
                             a "Ey! Das hab ich voll gehört!"
-                            p "Na gut,, ich mach mit!"
+                            p "Na gut, ich mach mit!"
                             n "...aber nur damit ihr aufhört zu zanken."
-                            o "Bereite dich schon mal auf deine Niederlage vor! Ich gehe regelmäßig mit meinem Papa joggen und da machen wir auch immer Sprintübungen."
-                            a "Ich geh lieber raus und kletter auf Bäume. Einmal hab ich da sogar ein Eichhörnchen gesehen. Aber das ist dann ganz schnell wieder-"
-                            o "Und genau deshalb habt ihr überhaupt keine Chance gegen mich"
-                            a "Ist doch eh egal. Solange es Spaß macht."
-                            o "Ist es eben nicht! Es ist nicht egal, ob man ein Gewinner oder ein Verlierer ist!"
+                            jump runokay
             
+            show osport behind asport
+            show asport n
             a "Jetzt sag doch auch mal was!"
             menu:
                 "Spaß ist wichtiger.":
                     $ raceoutcome = "loss"
+                    show osport behind asport
+                    show asport happy
                     a "Siehste! Ich hab Recht!"
+                    show asport behind osport
+                    show osport mad
                     o "Pff, der sagt das doch nur, weil er selber ein Verlierer ist."
+                    show osport behind asport
+                    show asport talk
                     a "Aber ich hab Recht!"
                     
                     
                 "Gewinnen ist alles!":
                     $ raceoutcome = "win"
+                    show asport behind osport
+                    show osport mad
                     o "Siehste!"
+                    show osport behind asport
+                    show asport mad
                     a "Selber, siehste!"
                     
                     
             p"Wann geht das Rennen denn los?"
+            show asport behind osport
+            show osport talk
             o "Dann, wenn ich es sage, also jetzt!"
             
-            n "Es machen noch vier Andere mit. Evelyn nicht, die darf ja nicht mit raus."
+            scene bg rennenstart with dissolve
+            n "Es machen noch vier Andere mit. Evelynn nicht, die darf ja nicht mit raus."
+            show osport happy at center with moveinleft
             n "Ganz vorne an der Startlinie natürlich Octavia, überheblich wie immer."
+            hide osport with moveoutright
+            show randy happy at center with moveinleft
             n "Dann kommt auch Randy. Der sieht irgendwie aus wie immer. Der ist glaub ich auch nicht soo schnell im Laufen."
+            hide randy with moveoutright
+            show lsport laugh at center with moveinleft
             n "Daneben steht Louis. Das ist das erste Mal, dass ich ihn ohne seine Lieblingsjacke sehe. Aber die Sonnenbrille hat er natürlich trotzdem auf."
+            hide lsport with moveoutright
+            show asport happy at center with moveinleft
             n "Und dann hockt Anja da. Die guckt sich aber lieber grad einen Marienkäfer an. Ich glaub, die macht wirklich nur aus Spaß mit."
+            hide asport with moveoutright
+            show karin vhappy at center with moveinleft
             n "Und Karin ist wohl der Schiedsrichter."
             k "Auf die Plätze…."
             scene bg run
@@ -3179,14 +3241,20 @@ label scenew2_10:
             show rrun at rrun3
             show orun at orun3
             with MoveTransition(1.5)
+            show asport happy at left with dissolve
             a "Guck mal da! Die Katze!"
+            show osport mad at right with dissolve
             o "Ey, keiner streikt während meinem Wettrennen!"
+            hide asport
+            hide osport
+            with dissolve
             show arun at arun4
             show prun at prun4
             show lrun at lrun4
             show rrun at rrun4
             show orun at orun4
             with MoveTransition(1.5)
+            show asport happy at left with dissolve
             a "Aber die Katze!"
             scene bg rennen with dissolve
             $ renpy.pause ()
@@ -3197,9 +3265,14 @@ label scenew2_10:
             show rrun at rrun4
             show orun at orun4
             with fade
+            show osport mad at right with dissolve
             o "Verlierer!"
             o "Aus dem Weg Randy!"
+            show randy shock at rightish behind osport with dissolve
             r "Hey! HEY! Was soll das?!"
+            hide osport
+            hide randy
+            with dissolve
             show prun at prun5
             show lrun at lrun5
             show rrun at rrun5
@@ -3218,18 +3291,18 @@ label scenew2_10:
                 show rrun at rrun7a
                 show orun at orun7a
                 with MoveTransition(1.5)
-                $ renpy.pause ()
+                k "Und der Gewinner ist ..."
                 scene bg rennenende
                 show karin vhappy at center
                 with fade
-                k "Und der Gewinner ist ..."
                 k "[name]!"
                 n "Ha! Das war aber wirklich knapp am Ende. Octavia ist echt schnell!"
-                show karin at slightright with move
-                show osport mad at slightleft with moveinleft
+                show karin at rightish with move
+                show osport mad at leftish with moveinleft
                 o "Eigentlich wär ich ja schneller gewesen, aber mein Schnürsenkel war nicht ganz zu."
-                show asport talk at left with moveinleft
+                show asport talk at left behind osport with moveinleft
                 a "Du willst doch bloß nicht zugeben, dass du mal was nicht kannst."
+                show karin shock
                 o "Gar nicht wahr! Nächste Woche gibt es eine Revanche und dann werden wir es ja sehen!"
                 n "Octavia ist echt ganz schön wütend."
                 
@@ -3239,32 +3312,47 @@ label scenew2_10:
                 show lrun at lrun7b
                 show rrun at rrun7b
                 show orun at orun7b
-                with MoveTransition(1.5)
-                $ renpy.pause ()
-                scene bg rennenende
-                show karin vhappy at center
-                with fade
+                with MoveTransition(1.5)                
                 k "Und der Gewinner ist ..."
+                scene bg rennenende
+                show karin vhappy at slightright
+                with fade
                 show karin at slightright with move
                 show osport mad at slightleft with moveinleft
                 k "Octavia!"
                 n "Wieso guckt die mich denn so komisch an? Ist sie gar nicht froh, gewonnen zu haben?"
                 show karin shock
-                o " Ich nehme den Preis nicht an! Ich gehöre nicht in die Reihe der Preisgekrönten, wenn gewisse Personen..." 
+                o "Ich nehme den Preis nicht an! Ich gehöre nicht in die Reihe der Preisgekrönten, wenn gewisse Personen..." 
                 n "Jetzt guckt sie aber wirklich mich an!"
                 o"... das Wettrennen nicht ernst nehmen und mich absichtlich gewinnen lassen!"
                 n "Häh? Wen meint die denn damit?"
                 
+            hide karin
+            hide asport
+            with dissolve
+            show osport at center with move
             n "Und jetzt guckt sie mich schon wieder so böse an, dreht sich dann einfach um und geht."
+            hide osport with moveoutright
+            show asport n at center with dissolve
             a "Wollen wir wieder klettern gehen?"
+            scene bg court
+            show anja happyb at right
+            with fade
             p "Okay."
+            show mum n at left with moveinleft
             n "Oh da ist ja auch schon wieder Mama."
+            show mum talk
             m "Na, Püpschen, wie war dein Tag so?"
+            show mum n
             p "Ich hab Wettrennen gespielt! Jetzt hab ich Hunger… machen wir Pfannkuchen?"
+            show mum mad
             m "Die hatten wir doch erst letzte Woche!"
             p "Eben! Das ist schon wieder eine ganze Ewigkeit her!"
+            show mum happy
             m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
+            show pancakes
             n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
+            jump pnp1done
             
                 
                 
@@ -3362,6 +3450,7 @@ label scenew2_10:
                     p "Eben! Das ist schon wieder eine ganze Ewigkeit her!"
                     m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
                     n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
+                    jump pnp1done
                     
                 "Mama fragen, ob ich mit auf den Bauernhof darf.":
                     m "Heute noch? Das muss ich dann aber erst mal mit Anjas Eltern besprechen, ob das denn wirklich in Ordnung ist."
@@ -3395,6 +3484,7 @@ label scenew2_10:
                             p "Da sieht Heidenau aber noch wesentlich besser aus!"
                             a "Pass auf, gleich fress ich dich! Hexen lieben Kinder zum Nachtisch!"
                             n "Ich glaub Anja mag Hexen. In letzter Zeit redet sie echt oft darüber. Aber das Spielen mit ihr macht trotzdem sehr viel Spaß!"
+                            jump pnp1done
                             
                         "Dem Heu ausweichen.":
                             p "Ha, nicht erwischt!"
@@ -3408,6 +3498,7 @@ label scenew2_10:
                             a "Mit dir spiel ich nicht mehr! Und das Stroh ist auch voll doof in den Haaren. Das pikst voll!"
                             n "Wieso muss die immer gleich so sauer sein? Es tut mir doch leid, aber ich kann mich ja nicht mal entschuldigen, wenn die soviel redet!"
                             n "Und jetzt steht die auch noch einfach auf und geht. Na super! So hab ich mir das ja nicht vorgestellt..."
+                            jump pnp1done
             
                             
         "Ich schau lieber mal, wo Evelynn ist.":
@@ -3429,6 +3520,10 @@ label scenew2_10:
              p "Hä, was meinst du?"
              e "Na also guck das ist ganz einfach. Erst suchst du dir aus was für ein Wesen du sein willst."
              p "Hm…mal sehen was zur Auswahl steht…"
+             $ berry = False
+             $ powder = False
+             $ pnp1winpoints = 0
+             
             
              menu:
                 "Zwerg":
@@ -3585,7 +3680,7 @@ label scenew2_10:
              e "\"Ganz einfach\", sagte die Bardin. \"Wir folgen einfach den großen Füßabdrücken!\""
              e "Nach gar nicht langer Zeit sahen sie den Drachen. Er lag unter einem Baum und hielt ein Mittagsschlaf, weil er so viel Kuchen gegessen hatte."
              e "Was sollen wir tun?"
-             $ pnp1winpoints = 0
+             
             
             
              menu:
@@ -3720,7 +3815,7 @@ label pnp1good:
     m "Wir haben es leider etwas eilig. Wir müssen noch einkaufen gehen. Aber du kannst doch morgen weiterspielen. Das läuft dir schon nicht weg."
     p "Okaaaay..."
     n "Immer dann, wenn es am lustigsten wird, muss man aufhören. Das ist unfair. Wenn ich erst einmal groß bin, hör ich erst dann auf, wenn ich will."
-    jump credits
+    jump pnp1done
     
 label pnp1bad:
     n "Evelynn knallt das Buch zu."
@@ -3736,8 +3831,11 @@ label pnp1bad:
     m "Das klingt ja sehr begeistert. Freust du dich gar nicht auf den Wandertag?"
     p "Doch."
     n "Nicht so wirklich. Ich mag es nicht, wenn Evelynn auf mich sauer ist."
-    jump credits
+    jump pnp1done
     
+    
+    
+label pnp1done:
     
 label credits:
     scene bg bedroom with dissolve
