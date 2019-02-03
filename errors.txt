@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-The label start is defined twice, at
-  File "game/pokemonscript/pokescript.rpyc", line 27 and
-  File "game/script.rpy", line 295.
+File "game/Ballspielscript/ballscript.rpy", line 285: indentation mismatch.
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Thu Jan 31 19:39:34 2019
+Sun Feb 03 15:38:37 2019
