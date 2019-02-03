@@ -1,0 +1,602 @@
+P: Protagonist
+G: Gedanken von P
+A: Anja
+K: Karin
+H: Heidenau
+R: Randy
+L: Louis
+E: Evelynn
+O: Octavia
+
+G "So ein Mist, jetzt läuft Anja schon voraus... Ich will hier nicht alleine bleiben."
+
+P "Hey! Psst! Anja! Warte auf mich!"
+
+A "Komm schnell, wir dürfen die Hexe nicht aus den Augen verlieren!"
+
+A "Wir können uns hinter den Bäumen in der Nähe verstecken, dann sieht sie uns nicht."
+
+...
+
+P "Sie ist wieder stehen geblieben. Wir müssen leise sein."
+
+A "Ja, was macht sie da?"
+
+P "Sie sammelt Pilze, siehst du?"
+
+A "Oh nein! Das sind bestimmt giftige Pilze!"
+
+A "Ich hab doch gesagt sie will uns vergiften!"
+
+P "Du hast Recht!"
+
+A "Du auch!"
+
+P "Ich auch?"
+
+A "Ja! Du hast doch vorhin gesagt, dass wir das allen anderen erzählen müssen!"
+
+P "Schau! Sie hat sogar ein Buch dabei, da stehen bestimmt alle Zutaten für ihren Vergiftungstrank drin!"
+
+A "Ja! So ein Buch haben doch alle Hexen! Da stehen alle möglichen Tränke drin."
+
+A "Sie läuft weiter. Hinterher!"
+
+P "Nein nein, warte! Sie bleibt wieder stehen, schnell, lass uns zusammen...
+
+Menü
+
+	Option 1
+
+	P ...hinter dem Felsen dort verstecken!"
+
+	Option 2
+
+	P ...hinter dem dicken Baumstamm dort verstecken!"
+
+	WENN Option 1 gewählt:
+
+	A "Okay!"
+
+	A "Woah, warte! Da sitzt eine Spinne an dem Felsen! Cool!"
+
+	A "Der ganze Wald ist voller Spinnen!"
+
+	P "Boah Anja, jetzt komm' hinter den Felsen! Sie sieht dich doch sonst!"
+
+	WENN Option 2 gewählt:
+
+	A "Okay, dann los!"
+
+	P "Ja ja ja, ich mach' ja schon!"
+
+	*knack* (Hier Ast zerbrechen Sound einfügen)
+
+	P "Oh mist..."
+
+	A "Was machst du denn!? Pass doch auf wo du hintrittst!"
+
+H "HEY! Wer schleicht denn da durch die Gegend!?"
+
+H "Ich hab euch 2 schon bemerkt!"
+
+H "Ihr sollt doch nicht so weit weg laufen, könnt ihr denn nicht hören!?"
+
+H "Jetzt seht bloß zu dass ihr ganz schnell her kommt!"
+
+Menü
+
+	Option 1
+
+	P "Wir müssen wegrennen Anja!"
+
+	Option 2
+
+	P "Wir müssen zu ihr hin Anja..."
+
+	WENN Option 1 gewählt:
+
+	A "Aber wohin denn?"
+
+	P "Na zurück zur Lichtung!"
+
+	A "Aber da wird die Hexe uns doch finden!"
+
+	P "Ja, aber da sind ja noch Karin und die anderen Kinder, da sind wir in Sicherheit!"
+
+	A "Okay, gute Idee!"
+
+	P "Ja ja, jetzt renn' einfach!"
+
+	...
+
+	(Wieder an der Lichtung)
+
+	P "Puh... Wir sind da. Geschafft."
+
+	A "Während wir gerannt sind hab' ich überlegt..."
+
+	A "Wir sollten das bis Montag für uns behalten."
+
+	A "Am Montag reden wir dann mit den anderen."
+
+	P "Wie du meinst... Aber wir sollten auf jeden Fall Karin was sagen!"
+
+	A "Nein, bloß nicht!"
+
+	A "Was, wenn Karin auch eine Hexe ist?"
+
+	A "Wenn wir mit ihr reden weiß sie ja, dass wir das mit Frau Heidenau herausgefunden haben."
+
+	A "Und dann verhext sie uns damit wir nichts mehr sagen können!"
+
+	P "Hm... Ja, vielleicht stimmt das..."
+
+	K "Oh, hey, da seid ihr ja, ihr beiden!"
+
+	K "Na? Hattet ihr denn Spaß?"
+
+	K "Die anderen sind schon da, geht doch schon mal zu ihnen. Ich warte noch auf die Frau Heidenau."
+	
+	A "Okay, machen wir..."
+
+	...
+
+	P "Anja, schau! Da kommt Frau Heidenau!"
+
+	A "Ja, und sie schaut uns böse an..."
+
+	A "Siehst du das? Sie redet mit der Karin und schaut immer wieder zu uns."
+
+	A "Ich glaube wirklich Karin ist auch eine Hexe!"
+
+	K "So Kinder! Sind alle wieder da?"
+
+	K "Dann zähle ich mal durch und dann laufen wir zum Bus zurück!"
+
+	...
+
+	H "Sind wir vollzählig?"
+
+	K "Ja, sieht gut aus."
+
+	H "Also los! Auf zum Bus, ich bin froh wenn ich wieder zuhause bin."
+
+	...
+	
+	WENN Option 2 gewählt:
+
+	A "Oh nein! Ich will nicht vergiftet werden!"
+
+	P "Wir können uns gegenseitig beschützen, komm!"
+
+	...
+
+	H "So so... Ihr beiden..."
+
+	H "Was fällt euch eigentlich ein? Was macht ihr denn so weit weg von der Lichtung?"
+
+	H "Wir haben ausdrücklich gesagt, dass ihr in der Nähe bleiben sollt!"
+
+	P "Wir... ähm... Wir wollten..."
+
+	A "Wir dachten dass die Lichtung noch ganz nah ist."
+
+	A "Aber wir haben uns glaube ich verlaufen, oder?"
+
+	P "Äh... Ja! Wir haben uns verlaufen!"
+
+	H "Verlaufen habt ihr euch also... Ich glaube ihr wart einfach nur neugierig."
+
+	H "Neugierig was ich hier mache hm?"
+
+	H "Jetzt seht gefälligst zu dass ihr wieder zur Lichtung kommt!"
+
+	H "Ich werde mit euch laufen, euch 2 kann man ja scheinbar nicht alleine lassen!"
+
+	...
+
+	(Wieder an der Lichtung)
+
+	H "So, ihr geht jetzt mal zu den anderen und ich rede mit der Karin."
+
+	H "Wir sind eh schon spät dran dank euch beiden. Alle anderen sind schon da!"
+
+	P "Tut uns leid Frau Heidenau..."
+
+	H "Ja ja, jetzt geht!"
+
+	...
+
+	A "Während wir zurück gelaufen sind hab' ich überlegt..."
+
+	A "Wir sollten die Sache bis Montag für uns behalten."
+
+	A "Am Montag reden wir dann mit den anderen."
+
+	P "Wie du meinst... Aber wir sollten auf jeden Fall Karin was sagen!"
+
+	A "Nein, bloß nicht!"
+
+	A "Was, wenn Karin auch eine Hexe ist?"
+
+	A "Wenn wir mit ihr reden weiß sie ja, dass wir das mit Frau Heidenau herausgefunden haben."
+
+	A "Und dann verhext sie uns damit wir nichts mehr sagen können!"
+
+	P "Hm... Ja, vielleicht stimmt das..."
+
+	A "Siehst du das? Die Frau Heidenau redet mit der Karin und schaut immer wieder zu uns."
+
+	A "Ich glaube wirklich Karin ist auch eine Hexe!"
+
+	K "So Kinder! Sind alle wieder da?"
+
+	K "Dann zähle ich mal durch und dann laufen wir zum Bus zurück!"
+
+	...
+
+	H "Sind wir vollzählig?"
+
+	K "Ja, sieht gut aus."
+
+	H "Also los! Auf zum Bus, ich bin froh wenn ich wieder zuhause bin."
+
+	...
+
+(Im Bus)
+
+A "Also pass auf: Ich hab' zuhause ein Buch, da geht's auch um eine Hexe."
+
+A "Das bring' ich am Montag mit und wir lesen das dann okay?"
+
+P "Okay, gut! Dann können wir alle anderen Kinder warnen!"
+
+...
+
+(Montag nach Wandertag)
+
+G "Der Morgenkreis heute war langweilig..."
+
+G "Aber eigentlich nur weil ich schon das ganze Wochenende darauf warte, was Anja herausgefunden hat."
+
+A "Hey, hey! Ich hab' das Buch dabei!"
+
+A "Und du wirst nicht glauben was man darin sieht!"
+
+A "Lass uns in eine Ecke setzen, dann schauen wir es gemeinsam an!"
+
+P "Okay, gut, ich kann's kaum erwarten!"
+
+...
+
+A "So, hier ist das Buch."
+
+P "Die böse Hexe Rubina?"
+
+A "Ja! Da sind ganz viele Bilder drin, pass auf!"
+
+A "Hier. Siehst du?"
+
+P "Warte mal... Das ist die Hexe Rubina? Die sieht ja fast so aus wie Frau Heidenau!"
+
+A "Ja, die sehen sich voll ähnlich oder?"
+
+A "Aber das ist noch nicht alles!"
+
+P "Wow! Sammelt sie da etwa Pilze!? Oh mein Gott!"
+
+A "Und wie ich es gesagt habe: Sie hat ein Buch dabei für all ihre Tränke!"
+
+A "Aus diesem Buch weiß ich das nämlich alles!"
+
+P "Okay, es muss stimmen! Frau Heidenau ist die Hexe!"
+
+E "Hey... Was macht ihr da?"
+
+P "Oh, hallo Evelynn. Das ist jetzt voll wichtig okay?"
+
+P "Du musst die anderen Kinder schnell her holen! Kannst du das machen?"
+
+A "Es geht um ein Geheimnis, sag ihnen das!"
+
+E "Ähm... Okay... Mach ich."
+
+...
+
+E "So, hier sind alle."
+
+O "Was sollen wir jetzt hier? Was macht ihr da überhaupt!?"
+
+A "Ihr müsst jetzt gut aufpassen! Wir haben ein Geheimnis herausgefunden!"
+
+P "Ja! Wir sind an dem Wandertag zusammen herumgelaufen."
+
+P "Und mitten im Wald haben wir die Frau Heidenau gesehen."
+
+A "Sie hat so Kräuter und so gesammelt."
+
+A "Und Pilze."
+
+P "Und wisst ihr für was?"
+
+P "Frau Heidenau ist eine Hexe! Sie hat Zutaten für einen Trank gesammelt!"
+
+A "Und sie will uns alle vergiften!"
+
+A "Sie hatte sogar das Buch dabei mit den ganzen Anleitungen für ihre Tränke!"
+
+R "Seid... Seid ihr sicher?"
+
+E "Ja, vielleicht will sie nur eine Suppe aus den Pilzen machen."
+
+A "Auf keinen Fall! Ich hab' hier ein Buch über eine Hexe!"
+
+P "Und da sammelt die Hexe auch Pilze und so und hat ein Buch dabei für ihren Gifttrank!"
+
+A "Und die Hexe in dem Buch sieht der Frau Heidenau voll ähnlich!"
+
+R "Aber... Aber..."
+
+R "Ich will nicht vergiftet werden!"
+
+E "Ich auch nicht! Was machen wir denn jetzt!?"
+
+O "Ach kommt schon... Das ist doch voll der Quatsch. Hexen gibt es doch nicht wirklich!"
+
+R "Aber woher willst du das denn wissen?"
+
+A "Ob du uns glaubst oder nicht, wir haben Beweise!"
+
+P "Wir müssen alle vorsichtig sein! Wir dürfen der Hexe nicht zu nahe kommen!"
+
+K "Kinder, was macht ihr denn da alle in der Ecke?"
+
+K "Kommt her, wir spielen gemeinsam etwas!"
+
+A "Oh nein! Frau Heidenau ist auch da!"
+
+O "Hm... Okay, ich werd' auch aufpassen, vielleicht habt ihr doch Recht!"
+
+E "Was flüstert Karin da zu Frau Heidenau?"
+
+L "Keine Ahnung, aber sie schauen zu uns rüber!"
+
+R "Vorsicht! Die Hexe kommt!"
+
+H "Sagt mal... Die Karin hat gerade mit mir geredet..."
+
+H "Und ich glaube ich muss mal ein Wörtchen mit Anja und *Name von P* reden!"
+
+H "Ihr seid mir seit dem Wandertag nämlich schon aufgefallen ihr beiden!"
+
+H "Kommt mal mit, wir reden jetzt mal darüber."
+
+...
+
+Menü
+
+	Option 1 (GUTES ENDE)
+
+	Wortlos mit der Hexe mitkommen
+
+	Option 2 (SCHLECHTES ENDE)
+
+	Sich wehren und nicht mitkommen
+
+	WENN Option 1 gewählt:
+
+	R "NEIN! TUT DAS NICHT!"
+
+	E "Oh Gott nein!"
+
+	H "So ihr beiden. Was zur Hölle ist hier los?"
+
+	H "Erzählt ihr etwas über mich?"
+
+	H "Warum herrscht hier so ein Chaos?"
+
+	A "SIE SIND EINE HEXE!"
+
+	H "Ich bin bitte WAS?"
+
+	P "EINE HEXE!"
+
+	A "Sie wollen uns alle vergiften und haben am Wandertag die Zutaten für den giftigen Trank gesammelt!"
+
+	P "Sie hatten das Buch dabei mit der Anleitung dafür!"
+
+	A "JA! Und HIER in meinem Buch steht das genau so drin!"
+
+	A "WIR HABEN BEWEISE!"
+
+	H "..."
+
+	H "..."
+
+	H "Aaaahahahahahahahaha! Buahaaaahahahaha!"
+
+	H "Hahaaaaaaaaahahaha! Ich kann nicht mehr!"
+
+	H "Hahaaa! Das ist ja köstlich!"
+
+	H "Karin! Komm mal her, das musst du hören! Haaahahahah!"
+
+	P "Ähm..."
+
+	K "Was denn?"
+
+	H "Ich bin eine Hexe! Wusstest du das schon?"
+
+	K "Hehe, eine Hexe?"
+
+	K "Wie kommt ihr 2 denn bitte auf so etwas?"
+
+	H "Ich war am Wandertag doch Pilze sammeln, du weißt schon, an dem Bach."
+
+	H "Und die beiden hier haben mich dabei wohl "erwischt" und denken ich will alle vergiften."
+
+	K "Ach Gottchen, hihi!"
+
+	H "Also gut, passt auf ihr 2 Quatschköpfe."
+
+	H "Wisst ihr, ich sammle einfach gerne Pilze und Kräuter."
+
+	H "Daheim koche ich daraus dann immer ein leckeres Gericht."
+
+	H "An dem Bach wachsen nämlich ganz viele gesunde Sachen, da gehe ich öfter entlang."
+
+	A "Aber... Aber was ist mit dem Buch?"
+
+	H "Das ist ein Buch über Pilze!"
+
+	H "Wenn man Pilze sammelt muss man nämlich ganz genau aufpassen dass man nur die essbaren mitnimmt."
+
+	H "Manchmal, wenn ich mir bei einem Pilz nicht sicher bin, schaue ich in mein Buch."
+
+	P "..."
+
+	A "..."
+
+	A "Das... heißt das stimmt alles garnicht?"
+
+	A "Aber in meinem Buch..."
+
+	K "Ach Anja... Das ist nur eine Geschichte. Die ist erfunden!"
+
+	K "Ihr müsst also keine Angst vor uns oder irgendwem sonst hier haben. Es gibt keine Hexen!"
+
+	A "Hm..."
+
+	K "Na kommt, wir gehen mal mit euch und der Frau Heidenau zu den anderen Kindern und erklären es denen, okay?"
+
+	P "Na gut... Nicht dass die anderen Angst haben..."
+
+	...
+
+	(2 Wochen später)
+
+	G "Ich bin froh dass ich hier in den Kindergarten gehe. Mittlerweile habe ich einige Freunde gefunden, vor allem Anja."
+
+	G "Und auch wenn die Frau Heidenau manchmal voll streng ist: Zumindest ist sie keine Hexe."
+
+	ENDE
+
+	 
+	WENN Option 2 gewählt:
+ 
+	P "NIEMALS!"
+
+	E "Ja! Rennt weg!"
+
+	H "HEY! Bleibt hier!"
+
+	A "NEEEEIN!"
+
+	H "Passt doch auf! Ihr rennt ja alles um!"
+
+	H "KARIN! KOMM SCHNELL!"
+
+	K "KOMME!"
+	
+	K "Was ist denn HIER los!?"
+
+	H "Das reinste Chaos!"
+
+	H "So etwas dulde ich hier nicht!"
+
+	K "KINDER! Beruhigt euch!"
+
+	R "ALLE AUF DIE HEXEEE!"
+
+	K "STOP RANDY!"
+
+	H "DAS IST JA UNERHÖRT!"
+
+	K "STOP! ALLE HINSETZEN! SOFORT!"
+
+	...
+
+	K "SO! Und jetzt..."
+
+	H "JETZT ERKLÄRT MIR MAL WAS IN EUCH GEFAHREN IST!"
+
+	(Alle Kinder) "HEXE! HEXE!"
+
+	H "Bitte WAS? ICH!?"
+
+	E "Ja! Anja und *Name* sagen, sie sind eine Hexe!"
+
+	A "Sie wollen uns alle vergiften und haben am Wandertag die Zutaten für den giftigen Trank gesammelt!"
+
+	P "Sie hatten das Buch dabei mit der Anleitung dafür!"
+
+	A "JA! Und HIER in meinem Buch steht das genau so drin!"
+
+	A "WIR HABEN BEWEISE!"
+
+	H "Aaaahahahahahahahaha! Buahaaaahahahaha!"
+
+	H "Hahaaaaaaaaahahaha! Ich kann nicht mehr!"
+
+	H "Hahaaa! Das ist ja köstlich!"
+	
+	K "Wie kommt ihr 2 denn bitte auf so etwas?"
+
+	H "Ich war am Wandertag doch Pilze sammeln, du weißt schon, an dem Bach."
+
+	H "Und die beiden hier haben mich dabei wohl "erwischt" und denken ich will alle vergiften."
+
+	H "Also gut, passt auf ihr 2 Quatschköpfe."
+
+	H "Wisst ihr, ich sammle einfach gerne Pilze und Kräuter."
+
+	H "Daheim koche ich daraus dann immer ein leckeres Gericht."
+
+	H "An dem Bach wachsen nämlich ganz viele gesunde Sachen, da gehe ich öfter entlang."
+
+	A "Aber... Aber was ist mit dem Buch?"
+
+	H "Das ist ein Buch über Pilze!"
+
+	H "Wenn man Pilze sammelt muss man nämlich ganz genau aufpassen dass man nur die essbaren mitnimmt."
+
+	H "Manchmal, wenn ich mir bei einem Pilz nicht sicher bin, schaue ich in mein Buch."
+
+	P "..."
+
+	A "..."
+
+	R "Das... heißt das stimmt alles garnicht?"
+
+	A "Aber in meinem Buch..."
+
+	K "Ach Anja... Das ist nur eine Geschichte. Die ist erfunden!"
+
+	K "Ihr müsst also keine Angst vor uns oder irgendwem sonst hier haben. Es gibt keine Hexen!"
+
+	K "Na los, geht spielen!"
+
+	...
+
+	E "Lügner!"
+
+	R "JA! Ihr seid Lügner!"
+
+	A "Das wollten wir doch nicht!"
+
+	P "Wir wollten euch warnen! Wir dachten wirklich Frau Heidenau ist eine Hexe!"
+
+	R "Aber das ist sie nicht! Ihr habt uns angelogen!"
+
+	(2 Wochen später)
+
+	G "Seit dem wir dachten Frau Heidenau ist eine Hexe hassen mich alle im Kindergarten."
+
+	G "Sogar mit Anja hab' ich mich gestritten..."
+
+	G "Der Kindergarten hier macht überhaupt keinen Spaß..."
+
+	G "Ich bin so froh wenn ich in die Schule komme... Dann wird es hoffentlich wieder besser."
+
+	ENDE
