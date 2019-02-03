@@ -33,6 +33,7 @@ define odad = Character("Octavias Vater")
 define rmum = Character("Randys Mutter")
 define rdad = Character("Randys Vater")
 define nvln = Character(name=None, kind=nvl)
+define kg = Character("Kinder", what_italic=True) #Kindergartengruppe
 
 #define test = Character("Test", window_ypos=0.27) #TESTCHAR
 
@@ -48,6 +49,22 @@ define audio.evetheme = "music/soundtracks/evetheme.mp3"
 define audio.octatheme = "music/soundtracks/octatheme.mp3"
 define audio.maintheme = "music/soundtracks/maintheme.mp3"
 define audio.poketheme = "music/soundtracks/Pokemon_Minigame.ogg"
+define audio.dueltheme = "music/soundtracks/Dramatische_Duellmusik.ogg"
+define audio.bosstheme1 = "music/soundtracks/Fantasy_Boss1.ogg"
+define audio.bosstheme2 = "music/soundtracks/Fantasy_Boss2.ogg"
+define audio.fantheme1 = "music/soundtracks/Fantasy1.ogg"
+define audio.fantheme2 = "music/soundtracks/Fantasy2.ogg"
+define audio.happytheme1 = "music/soundtracks/Happy_Theme1.ogg"
+define audio.happytheme2 = "music/soundtracks/Happy_Theme2.ogg"
+define audio.playtheme1 = "music/soundtracks/Kinder_Beim_Spielen1.ogg"
+define audio.playtheme2 = "music/soundtracks/Kinder_Beim_Spielen2.ogg"
+define audio.opartytheme = "music/soundtracks/Kinder_Party_Theme1.ogg"
+define audio.apartytheme = "music/soundtracks/Kinder_Party_Theme2.ogg"
+define audiot.epartytheme = "music/soundtracks/Kinder_Party_Theme3.ogg"
+
+
+##### SFX DEFINITIONS #####
+
 define audio.treefall = "music/sfx/treefall.ogg"
 define audio.cardoor1 = "music/sfx/Autotür1.ogg"
 define audio.cardoor2 = "music/sfx/Autotür2.ogg"
@@ -3975,6 +3992,40 @@ label pnp1bad:
     
     
 label pnp1done:
+    
+    
+label scenew3_0:
+    kg "Brabbel"
+    k "Kinder..."
+    kg "brabbel"
+    k "Kinder wenn ich..."
+    kg "brabbel"
+    h "KINDER! RUHE!"
+    kg "..."
+    n "Wow das war laut! Sogar Anja ist ruhig."
+    k "Tschuldigung, aber ich brauch nur mal kurz eure Aufmerksamkeit."
+    k "Wir sind ja jetzt hier am Wald angekommen. Aber bevor wir aus dem Bus aussteigen und uns auf den Weg zur Bernerhütte machen, müssen wir noch einige Regeln klären."
+    h "Also zuhören!"
+    k "Ja äh genau... also Regel 1."
+    k "Regel 1 ist einfach. Ihr bleibt immer bei der Gruppe."
+    k "Regel 2 ist, dass wir euch in Paare einteilen. Euer Sitznachbar ist auch euer ... äh wie hatten sie das nochmal genannt Frau Heidenau?"
+    h "Marschpartner."
+    k "Genau euer Sitznachbar ist euer Marschpartner."
+    k "Ach und Regel 3 ist das ihr nichts ohne unsere Erlaubnis im Wald sammelt. Das ist nämlich gefährlich."
+    h "Wenn ich jemanden von euch etwas aufsammeln sehe dann gnade euch Gott."
+    h "Denn ich werde nicht so gnädig sein. Verstanden?"
+    kg "..."
+    h "Verstanden?!"
+    kg "Ja."
+    h "Ich meine hier auch ganz explizit dich Louis."
+    h "Wenn du nur daran denkst was in deine Jacke zu stecken, dann war es das letzte Mal, dass du deine Jacke gesehen hast."
+    show louis mad at left with moveinleft
+    l "..." *angsterfülltes gesicht*
+    hide louis with moveoutleft
+    k "Nun...äh...gut."
+    k "Dann mal los. Schnappt euren Marschpartner und folgt mir."
+    
+    
     
 label credits:
     scene bg bedroom with dissolve

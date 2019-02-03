@@ -279,13 +279,10 @@ label timedmenu4:
                 hide ball links with dissolve
                 
                 if enemyname == "plinksdrin2":
-                    show plinks n with dissolve
-                    show oball 
-                    o "Jetzt mach ich dich fertig!"
                     show plinks n
                     hide ball links
-                    with dissolve
                     show oball mittelzielen
+                    with dissolve
                     o "Jetzt mach ich dich fertig!"
                     
                     
