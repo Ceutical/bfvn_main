@@ -1,0 +1,17 @@
+"Waldpfad" (BG) - Bei Brotzeitpause, mit gefällten Baumstämmen
+"Käfer" (Displayable?) - Bei Brotzeit
+"Spinne" (Displayable?) - Bei noch Tiefer im Wlad
+"Tief im Wald" (BG)
+"Tiefer im Wald" (BG)
+"Bach im Wald" (BG)
+"Heidenau am Bach" (Displayable) - Für Bach im Wald BG, mit Kräutersäckchen
+"Noch tiefer im Wald - Standard" (BG) - Mit Felsen in der Nähe und Baumstamm etwas weiter weg, Vielleicht mit Heidenau
+"Heidenau noch tiefer im Wald" (Displayable?) - Für Noch Tiefer im Wald BG, Wenn BG ohne Heidenau
+"Noch tiefer im Wald - Hinter Felsen" (BG) - Wenn hinter Baumstamm ausgewählt, leicht andere Perspektive als Standard
+"Noch tiefer im Wald - Hinter Baumstamm" (BG) - Wenn hinter Felsen ausgewählt, leicht andere Perspektive als Standard
+"Buch über Hexen" (BG oder Displayable) - Anjas Märchenbuch über die böse Hexe Rubina, Hexe im Buch sieht Heidenau ähnlich
+"Good End" (BG) - Anja die dir lachend vom Baum zuwinkt
+"Bad End" (BG) - Anja die traurig vom Baum auf den Boden runterguckt
+
+
+
