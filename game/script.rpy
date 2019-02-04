@@ -4020,7 +4020,7 @@ label scenew3_0:
     h "Ich meine hier auch ganz explizit dich Louis."
     h "Wenn du nur daran denkst was in deine Jacke zu stecken, dann war es das letzte Mal, dass du deine Jacke gesehen hast."
     show louis mad at left with moveinleft
-    l "..." *angsterfülltes gesicht*
+    L "..." 
     hide louis with moveoutleft
     k "Nun...äh...gut."
     k "Dann mal los. Schnappt euren Marschpartner und folgt mir."
