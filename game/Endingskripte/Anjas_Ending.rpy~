@@ -1,0 +1,87 @@
+
+
+
+
+label anjas_ending:
+    k "Gut, habt ihr jetzt noch Fragen?"
+    L "Äh...was ist eine Lichtung?"
+    k "Oh, gute Frage Louis!"
+    k "Das ist ein Ort, mitten im Wald. Aber da stehen keine Bäume, da ist nur Wiese oder Waldboden."
+    k "Im Wald ist es ja meistens ziemlich dunkel wegen den vielen Bäumen."
+    k "Aber bei einer Lichtung ist es heller weil ja dort keine Bäume sind."
+    k "Deswegen heißt es nämlich auch Lichtung, das kommt von Licht, verstehst du?"
+    L "Äh, ja... Ich glaub' schon..."
+    a "Also ich glaub' nicht, hihi." #flüstern
+    k "Dann mal los. Schnappt euren Marschpartner und folgt mir."
+    k "Ich laufe vor und ihr lauft hinterher, okay?"
+    n "Anja ist meine Partnerin, wir laufen jetzt zusammen!"
+    p "Der Wald ist voll spannend! Ich kann's kaum erwarten!"
+    a "Ja, ich auch! Ich will den ganzen Wald erkunden!"
+    #transition zu Waldpfad
+    a "Hey, schau! Karin hat angehalten!"
+    k "Alle mal aufpassen! Wir machen hier unsere Brotzeitpause!"
+    k "Bitte nicht weglaufen, setzt euch her. Hier liegen ein paar große Baumstämme, da könnt ihr euch draufsetzen."
+    h "Hört auf Karin. Hier gehbt keiner ohne Erlaubnis weg, ja?"
+    
+    
+    menu:
+        a "Hey, wollen wir uns da hinten hinsetzten? Auf den Stamm da?"
+        
+        "Ja, können wir machen!":
+            a "Alles klar!"
+            n "Der Platz ist echt schön. Man hört die Vögel zwitschern...!"
+            
+            menu:
+                "Was hast du denn als Brotzeit dabei Anja?":
+                    a "Meine Mama hat mir 2 Brote gemacht, eins mit Schinken und eins mit Salami und Käse."
+                    a "Ich liebe Schinken, weißt du?"
+                    a "Einen Apfel hat sie mir auch eingepackt!"
+                    a "Mama sagt immer ich soll mehr Obst essen, aber ich mag Äpfel eigentlich nicht so..."
+                    menu:
+                        a "Magst du meinen Apfel haben?"
+                        
+                        "Gerne.":
+                            p "Klar! Wenn du ihn nicht willst."
+                            a "Okay, hier bitte!"
+                            p "Boah... der ist voll lecker, danke!"                            
+                            
+                        "Lieber nicht...":
+                            p "Nein danke. Deine Mama hat aber recht, Obst ist nämlich gesund!"
+                            a "Hmm... Ja du hast wohl recht... Vielleicht sollte ich den Apfel doch selber essen..."
+                            
+                "Glaubst du, hier gibt's Wildschweine?":
+                    a "Hier gibt's glaube ich keine... Aber ich will heute unbedingt Rehe sehen!"
+                    a "Aber die gibts nur tief im Wald. Vielleicht finden wir ja noch andere Tiere!"
+                    a "Hey, weißt du was?"
+                    a "Lass uns doch mal gucken gehen."
+                    p "Aber die Karin hat doch gesgat wir sollen nicht weg gehen."
+                    a "Ja schon..."
+                    a "Aber zu zweit finden wir besstimmt wieder zurück bevor die es überhaupt bemerkt..."
+                    
+            a "Boah, glaubst du hier im Wald ist die Hexenhütte von der Frau Heidenau? Hihi..."
+            p "Meinst du wirklich?"
+            a "Naja..."
+            
+        "Nein, lass uns doch zu den anderen setzen.":
+            
+            a "Na gut, dann gehen wir eben zu den anderen..."
+            r "HEY! SCHAUT MAL HER!"
+            n "Was hat Randy denn?"
+            r "HIER IST VOLL DER COOLE KÄFER!"
+            "{color=#0099ff}Anja:{/color} Cool!\n{color=#0099ff}Evelynn:{/color} Der ist aber schön!\n{color=#0099ff}Octavia:{/color} Der kann bestimmt voll schnell fliegen!\n{color=#0099ff}[name]:{/color} Woah!"
+            a "Der Käfer ist echt voll schön Randy!"
+            e "Wir sollten ihn mitnehmen!"
+            e "Dann kann ich ihn zuhause abmalen!"
+            L "Der ist doch mega langweilig..."
+            e "Boah Louis..."
+            r "DU bist langweilig! Such dir halt deinen eigenen Käfer!"
+            menu:
+                "Mann, Louis ...":
+                    p "Mann, Louis... Sei doch nicht so gemein!"
+                    L "Ist doch nur ein blöder Käfer, jetzt reg dich do..."
+                
+                "Toller Käfer!":
+                    p "Also ich finde deinen Käfer auch echt cool Randy!"
+                    
+                            
+

@@ -331,7 +331,7 @@ label start:
     $ catch = 0
     $ seekattempts = 0
     $ climber = True
-    
+    $ tookrandy = False
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -392,6 +392,7 @@ label scene1:
 
     ##### Szene 2 CHILD #####
 label childlike:
+    jump anjas_ending
     scene mnd with fade
     pause 1.5
     scene bg black with fade
