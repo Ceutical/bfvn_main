@@ -1,4 +1,4 @@
-P: Protagonist
+﻿P: Protagonist
 G: Gedanken von P
 A: Anja
 K: Karin
@@ -8,418 +8,418 @@ L: Louis
 E: Evelynn
 O: Octavia
 
-G “Verdammt! Die soll nicht einfach weg rennen.”
+n "Verdammt! Die soll nicht einfach weg rennen."
 
-P "Hey! Psst! Anja! Wart’ auf mich!"
+p "Hey! Psst! Anja! Wart’ auf mich!"
 
-A "Komm schnell, wir dürfen die Hexe nicht aus den Augen verlieren!"
+a "Komm schnell, wir dürfen die Hexe nicht aus den Augen verlieren!"
 
-A "Wir können uns hinter den Bäumen in der Nähe verstecken, dann sieht sie uns nicht."
+a "Wir können uns hinter den Bäumen in der Nähe verstecken, dann sieht sie uns nicht."
 
 ...
 
-P “Da!”
+p "Da!"
 
-P “Sie hat gestoppt.”
+p "Sie hat gestoppt."
 
-A "Ja, aber warum?”
+a "Ja, aber warum?"
 
-P “Die sammelt Pilze. Guck!”
+p "Die sammelt Pilze. Guck!"
 
-A "Oh nein! Die sind bestimmt giftig!”
+a "Oh nein! Die sind bestimmt giftig!"
 
-A "Ich habs dir doch gesagt, die will uns vergiften!"
+a "Ich habs dir doch gesagt, die will uns vergiften!"
 
-P “Ich glaub du hast Recht!"
+p "Ich glaub du hast Recht!"
 
-A "Du auch!"
+a "Du auch!"
 
-P “Wie, ich auch?"
+p "Wie, ich auch?"
 
-A "Ja! Du hast doch vorhin gesagt, dass wir das den Anderen erzählen müssen!"
+a "Ja! Du hast doch vorhin gesagt, dass wir das den Anderen erzählen müssen!"
 
-P "Schau! Die hat ein Buch dabei.
+p "Schau! Die hat ein Buch dabei.
 
-P “Da stehen bestimmt alle Zutaten für ‘nen Vergiftungstrank drin!"
+p "Da stehen bestimmt alle Zutaten für ‘nen Vergiftungstrank drin!"
 
-A "Ja! So ein Buch haben doch alle Hexen! Da stehen alle möglichen Tränke drin."
+a "Ja! So ein Buch haben doch alle Hexen! Da stehen alle möglichen Tränke drin."
 
-A “Schnell! Die Heidenau geht weiter!”
+a "Schnell! Die Heidenau geht weiter!"
 
-P “Ne warte!”
+p "Ne warte!"
 
-P “Die ist schon wieder stehen geblieben.”
+p "Die ist schon wieder stehen geblieben."
 
-P “Lass mal lieber verstecken. Sonst findet die uns noch…”
+p "Lass mal lieber verstecken. Sonst findet die uns noch…"
 
 Men
 
 	Option 1
 
-	P “Der Felsen hier ist doch ein super Versteck!”
+	p "Der Felsen hier ist doch ein super Versteck!"
 
 	Option 2
 
-	P “Da hinter dem Baumstamm haben wir bestimmt ne gute Sicht.”
+	p "Da hinter dem Baumstamm haben wir bestimmt ne gute Sicht."
 
 	WENN Option 1 gewählt:
 
-	A "Okay!"
+	a "Okay!"
 
-	A "Woah, warte! Da ist ‘ne Spinne am Felsen! Cool!"
+	a "Woah, warte! Da ist ‘ne Spinne am Felsen! Cool!"
 
-	A "Der ganze Wald ist voller Spinnen!"
+	a "Der ganze Wald ist voller Spinnen!"
 
-	P "Boah Anja, jetzt komm' hinter den Felsen! Die sieht dich noch!”
+	p "Boah Anja, jetzt komm' hinter den Felsen! Die sieht dich noch!"
 
 	WENN Option 2 gewählt:
 
-	A "Okay, dann los!"
+	a "Okay, dann los!"
 
-	P "Ja ja ja, ich mach' ja schon!"
+	p "Ja ja ja, ich mach' ja schon!"
 
 	*knack* (Hier Ast zerbrechen Sound einfügen)
 
-	P "Mist..."
+	p "Mist..."
 
-	A "Was machst du denn!? Pass doch auf wo du hintrittst!"
+	a "Was machst du denn!? Pass doch auf wo du hintrittst!"
 
-H "HEY! Wer ist da!?”
+h "HEY! Wer ist da!?"
 
-H “Komm raus!”
+h "Komm raus!"
 
-H “Ah da seit ihr ja!”
+h "Ah da seit ihr ja!"
 
-H "Ihr sollt doch nicht so weit weg laufen, könnt ihr denn nie zu hören!?"
+h "Ihr sollt doch nicht so weit weg laufen, könnt ihr denn nie zu hören!?"
 
-H “Diese nichtsnutzige!”
+h "Diese nichtsnutzige!"
 
-H “Kann euch nicht mal ein paar Minuten unter Kontrolle halten.”
+h "Kann euch nicht mal ein paar Minuten unter Kontrolle halten."
 
-H “Ihr kommt jetzt besser sofort raus!“
+h "Ihr kommt jetzt besser sofort raus!"
 
 Men
 
 	Option 1
 
-	P "Wir müssen hier weg Anja!"
+	p "Wir müssen hier weg Anja!"
 
 	Option 2
 
-	P “Lass uns rauskommen, sonst bekommen wir noch Ärger.”
+	p "Lass uns rauskommen, sonst bekommen wir noch Ärger."
 
 	WENN Option 1 gewählt:
 
-	A "Aber wohin denn?"
+	a "Aber wohin denn?"
 
-	P "Na zurück zur Lichtung!"
+	p "Na zurück zur Lichtung!"
 
-	A "Aber da wird die Hexe uns doch finden!"
+	a "Aber da wird die Hexe uns doch finden!"
 
-	P "Ja, aber da sind doch Karin und die Anderen.”
+	p "Ja, aber da sind doch Karin und die Anderen."
 	
-	P “Da sind wir in Sicherheit!"
+	p "Da sind wir in Sicherheit!"
 
-	A "Okay, gute Idee!"
+	a "Okay, gute Idee!"
 
-	P "Ja ja, komm schnell!”
+	p "Ja ja, komm schnell!"
 
 	...
 
 	(Wieder an der Lichtung)
 
-	P "Puh... Wir sind da. Geschafft."
+	p "Puh... Wir sind da. Geschafft."
 
-	A "Während wir gerannt sind hab' ich nachgedacht…”
+	a "Während wir gerannt sind hab' ich nachgedacht…"
 
-	A "Wir dürfen bis nächste Woche nix erzählen.”
+	a "Wir dürfen bis nächste Woche nix erzählen."
 
-	P “Aber warum?”
+	p "Aber warum?"
 
-	A “Vertrau mir einfach. Ich hab ‘nen Plan!”
+	a "Vertrau mir einfach. Ich hab ‘nen Plan!"
 
-	A "Am Montag erzählen wir’s den anderen."
+	a "Am Montag erzählen wir’s den anderen."
 
-	P “Na gut… Aber wir sollten auf jeden Fall Karin was sagen!"
+	p "Na gut… Aber wir sollten auf jeden Fall Karin was sagen!"
 
-	A "Nein, bloß nicht!"
+	a "Nein, bloß nicht!"
 
-	A "Was, wenn Karin auch ‘ne Hexe ist?"
+	a "Was, wenn Karin auch ‘ne Hexe ist?"
 
-	A "Wenn wir mit der reden weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
+	a "Wenn wir mit der reden weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
 
-	A "Und dann verhext die uns damit wir nichts mehr sagen können!"
+	a "Und dann verhext die uns damit wir nichts mehr sagen können!"
 
-	P "Hm... Ja, vielleicht hast du ja Recht, aber das..."
+	p "Hm... Ja, vielleicht hast du ja Recht, aber das..."
 
-	K "Oh, hey, da seid ihr ja, ihr beiden!"
+	k "Oh, hey, da seid ihr ja, ihr beiden!"
 
-	K "Na? Spaß gehabt?”
+	k "Na? Spaß gehabt?"
 
-	K “Wir müssen bald zurück zum Bus. Geht schon mal zu den anderen. Ich komm gleich nach.”
+	k "Wir müssen bald zurück zum Bus. Geht schon mal zu den anderen. Ich komm gleich nach."
 
-	K “Ich warte noch auf die Frau Heidenau."
+	k "Ich warte noch auf die Frau Heidenau."
 	
-	A "Okay, machen wir..."
+	a "Okay, machen wir..."
 
 	...
 
-	P "Anja, schau! Die Heidenau!”
+	p "Anja, schau! Die Heidenau!"
 
-	A “Man, die schaut mega böse…”
+	a "Man, die schaut mega böse…"
 
-	A “Guck! Die redet mit der Karin.”
+	a "Guck! Die redet mit der Karin."
 
-	A “Bestimmt über uns!”
+	a "Bestimmt über uns!"
 
-	A “Mist!”
+	a "Mist!"
 
-	A “Karin ist wirklich auch ‘ne Hexe!"
+	a "Karin ist wirklich auch ‘ne Hexe!"
 
-	K "Kinder! Sind alle wieder da?"
+	k "Kinder! Sind alle wieder da?"
 
-	K “Ich muss mal durchzählen.”
+	k "Ich muss mal durchzählen."
 
-	K “Bleibt mal kurz stehen!”
+	k "Bleibt mal kurz stehen!"
 
 	...
 
-	H “So, sind wir vollzählig?"
+	h "So, sind wir vollzählig?"
 
-	K "Ja, sieht gut aus."
+	k "Ja, sieht gut aus."
 
-	H "Also los! Auf zum Bus, ich bin froh wenn ich wieder zuhause bin."
+	h "Also los! Auf zum Bus, ich bin froh wenn ich wieder zuhause bin."
 
 	...
 	
 	WENN Option 2 gewählt:
 
-	A "Oh nein! Ich will nicht vergiftet werden!"
+	a "Oh nein! Ich will nicht vergiftet werden!"
 
-	P "Wir können uns gegenseitig beschützen, komm!"
+	p "Wir können uns gegenseitig beschützen, komm!"
 
 	...
 
-	H "So so... Ihr beiden..."
+	h "So so... Ihr beiden..."
 
-	H "Was fällt euch eigentlich ein? Was macht ihr denn so weit weg von der Lichtung?"
+	h "Was fällt euch eigentlich ein? Was macht ihr denn so weit weg von der Lichtung?"
 
-	H "Wir haben doch ausdrücklich gesagt, dass ihr in der Nähe bleiben sollt!"
+	h "Wir haben doch ausdrücklich gesagt, dass ihr in der Nähe bleiben sollt!"
 
-	P "Wir... hm... Wir wollten..."
+	p "Wir... hm... Wir wollten..."
 
-	A “So weit ist die Lichtung doch gar nicht.“
+	a "So weit ist die Lichtung doch gar nicht."
 
-	A "Aber wir haben uns glaube ich verlaufen, oder?"
+	a "Aber wir haben uns glaube ich verlaufen, oder?"
 
-	P “Hm… Ja genau! Wir haben uns verlaufen!"
+	p "Hm… Ja genau! Wir haben uns verlaufen!"
 
-	H "Verlaufen habt ihr euch also…”
+	h "Verlaufen habt ihr euch also…"
 
-	H “Wisst ihr was?”
+	h "Wisst ihr was?"
 
-	H “Lügen bringt euch mit mir nichts.”
+	h "Lügen bringt euch mit mir nichts."
 
-	H “Ihr seit neugierige kleine Käfer.”
+	h "Ihr seit neugierige kleine Käfer."
 
-	H “Wie die Küchenschaben in der Speisekammer…” 
+	h "Wie die Küchenschaben in der Speisekammer…" 
 
-	H “Egal, jetzt seht gefälligst zu, dass ihr wieder zur Lichtung kommt!"
+	h "Egal, jetzt seht gefälligst zu, dass ihr wieder zur Lichtung kommt!"
 
-	H “Und ich komme mit!”
+	h "Und ich komme mit!"
 
-	H “Euch zwei kann man ja scheinbar nicht alleine lassen!"
+	h "Euch zwei kann man ja scheinbar nicht alleine lassen!"
 
 	...
 
 	(Wieder an der Lichtung)
 
-	H “So, ihr geht jetzt zu den anderen.”
+	h "So, ihr geht jetzt zu den anderen."
 
-	H “Ich muss noch ein Wörtchen mit Karin wechseln.”
+	h "Ich muss noch ein Wörtchen mit Karin wechseln."
 
-	H “Wegen euch sind wir nämlich schon hinter dem Zeitplan.”
+	h "Wegen euch sind wir nämlich schon hinter dem Zeitplan."
 
-	P "Tut uns leid Frau Heidenau..."
+	p "Tut uns leid Frau Heidenau..."
 
-	H "Ja ja, jetzt geht!"
-
-	...
-
-
-	A “Du Prosa.”
-
-	A “Während wir zurückgelaufen sind, hab' ich nachgedacht…”
-
-	A "Wir dürfen bis nächste Woche nix erzählen.”
-
-	P “Aber warum?”
-
-	A “Vertrau mir einfach. Ich hab ‘nen Plan!”
-
-	A "Am Montag erzählen wir’s den anderen."
-
-	P “Na gut. Aber wir sollten auf jeden Fall Karin was sagen!"
-
-	A "Nein, bloß nicht!"
-
-	A "Was, wenn Karin auch ‘ne Hexe ist?"
-
-	A "Wenn wir mit der reden weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
-
-	A "Und dann verhext die uns damit wir nichts mehr sagen können!"
-
-	P "Hm... Ja, vielleicht hast du Recht…“
-
-	A “Guck! Die Heidenau redet mit der Karin.”
-
-	A “Bestimmt über uns!”
-
-	A “Mist!”
-
-	A “Karin ist wirklich auch ‘ne Hexe!"
-
-	K "Kinder! Sind alle wieder da?"
+	h "Ja ja, jetzt geht!"
 
 	...
 
-	H "Sind wir vollzählig?"
 
-	K "Ja, sieht gut aus."
+	a "Du Prosa."
 
-	H "Also los! Auf zum Bus, ich bin froh wenn ich wieder zuhause bin."
+	a "Während wir zurückgelaufen sind, hab' ich nachgedacht…"
+
+	a "Wir dürfen bis nächste Woche nix erzählen."
+
+	p "Aber warum?"
+
+	a "Vertrau mir einfach. Ich hab ‘nen Plan!"
+
+	a "Am Montag erzählen wir’s den anderen."
+
+	p "Na gut. Aber wir sollten auf jeden Fall Karin was sagen!"
+
+	a "Nein, bloß nicht!"
+
+	a "Was, wenn Karin auch ‘ne Hexe ist?"
+
+	a "Wenn wir mit der reden weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
+
+	a "Und dann verhext die uns damit wir nichts mehr sagen können!"
+
+	p "Hm... Ja, vielleicht hast du Recht…"
+
+	a "Guck! Die Heidenau redet mit der Karin."
+
+	a "Bestimmt über uns!"
+
+	a "Mist!"
+
+	a "Karin ist wirklich auch ‘ne Hexe!"
+
+	k "Kinder! Sind alle wieder da?"
+
+	...
+
+	h "Sind wir vollzählig?"
+
+	k "Ja, sieht gut aus."
+
+	h "Also los! Auf zum Bus, ich bin froh wenn ich wieder zuhause bin."
 
 	...
 
 (Im Bus)
 
-A "Also pass auf: Ich hab' zuhause ein Buch, da geht's auch um eine Hexe."
+a "Also pass auf: Ich hab' zuhause ein Buch, da geht's auch um eine Hexe."
 
-A "Das bring' ich am Montag mit und wir lesen das dann okay?"
+a "Das bring' ich am Montag mit und wir lesen das dann okay?"
 
-P "Okay, gut! Dann können wir alle anderen Kinder warnen und beschützen!”
+p "Okay, gut! Dann können wir alle anderen Kinder warnen und beschützen!"
 
 ...
 
 (Montag nach Wandertag)
 
-A "Hey, hey! Ich hab' das Buch dabei!"
+a "Hey, hey! Ich hab' das Buch dabei!"
 
-A "Und du wirst nicht glauben was man darin sieht!"
+a "Und du wirst nicht glauben was man darin sieht!"
 
-A "Lass uns in die Ecke setzen, dann schauen wir es gemeinsam an!"
+a "Lass uns in die Ecke setzen, dann schauen wir es gemeinsam an!"
 
-P "Okay.”
+p "Okay."
 
-P “Mega spannend!”
-
-...
-
-A "So, hier ist das Buch."
-
-P "Die böse Hexe Rubina?"
-
-A "Ja! Da sind ganz viele Bilder drin, pass auf!"
-
-A "Hier. Siehst du?"
-
-P "Warte mal... Das ist die Hexe Rubina? Die sieht ja fast so aus wie Frau Heidenau!"
-
-A "Ja, die sehen sich voll ähnlich oder?"
-
-A "Aber das ist noch nicht alles!"
-
-P "Wow! Sammelt die da auch Pilze!? Oh mein Gott!"
-
-A "Und wie ich’s im Wald gesagt habe: Die hat ein Buch dabei für all ihre Tränke!"
-
-A “Wegen dem Buch hie weiß ich das nämlich auch alles!"
-
-P "Okay, dann stimmt das alles ja!”
-
-P “Die Heidenau ist wirklich ‘ne Hexe!"
-
-E "Hey... Was macht ihr da?"
-
-P "Oh, hi Evelynn. Das ist jetzt voll wichtig okay?"
-
-P "Du musst die anderen Kinder schnell her holen! Kannst du das machen?"
-
-A "Es geht um ein Geheimnis, sag ihnen das!"
-
-E “Hm... Okay... Wenn ihr meint… Mach ich."
+p "Mega spannend!"
 
 ...
 
-E "So, hab versucht alle zu holen."
+a "So, hier ist das Buch."
 
-O “Und?”
+p "Die böse Hexe Rubina?"
 
-O “Was sollen wir jetzt hier? Was macht ihr da überhaupt!?"
+a "Ja! Da sind ganz viele Bilder drin, pass auf!"
 
-A "Ihr müsst jetzt gut aufpassen! Wir haben ein schlimmes Geheimnis herausgefunden!"
+a "Hier. Siehst du?"
 
-P "Ja! Wir sind ja am Wandertag zusammen herumgelaufen."
+p "Warte mal... Das ist die Hexe Rubina? Die sieht ja fast so aus wie Frau Heidenau!"
 
-P "Und mitten im Wald haben wir die Heidenau gesehen."
+a "Ja, die sehen sich voll ähnlich oder?"
 
-A “Die hat so Kräuter und so gesammelt."
+a "Aber das ist noch nicht alles!"
 
-A “Ach… und Pilze!”
+p "Wow! Sammelt die da auch Pilze!? Oh mein Gott!"
 
-P "Und wisst ihr für was?"
+a "Und wie ich’s im Wald gesagt habe: Die hat ein Buch dabei für all ihre Tränke!"
 
-P "Frau Heidenau ist eine Hexe! Sie hat Zutaten für einen Trank gesammelt!"
+a "Wegen dem Buch hie weiß ich das nämlich auch alles!"
 
-A "Und die will uns alle vergiften!"
+p "Okay, dann stimmt das alles ja!"
 
-A “Die hat sogar ein Buch mit den ganzen Anleitungen für ihre Tränke!"
+p "Die Heidenau ist wirklich ‘ne Hexe!"
 
-R “Äh…seid... seid ihr sicher?"
+e "Hey... Was macht ihr da?"
 
-E "Ja, wahrscheinlich will die nur eine Suppe aus den Pilzen machen."
+p "Oh, hi Evelynn. Das ist jetzt voll wichtig okay?"
 
-A "Auf keinen Fall! Hier in dem Buch steht das alles!”
+p "Du musst die anderen Kinder schnell her holen! Kannst du das machen?"
 
-P "Und da sammelt die Hexe auch Pilze und so und hat ein Buch dabei für ihren Gifttrank!"
+a "Es geht um ein Geheimnis, sag ihnen das!"
 
-A "Und die Hexe in dem Buch sieht genauso aus wie die Heidenau!"
+e "Hm... Okay... Wenn ihr meint… Mach ich."
 
-R "Aber... Aber..."
+...
 
-R "Ich will nicht vergiftet werden!"
+e "So, hab versucht alle zu holen."
 
-E "Ich auch nicht! Was machen wir denn jetzt!?"
+o "Und?"
 
-O "Ach kommt schon... Das ist doch voll der Quatsch. Hexen gibt es doch nicht wirklich!"
+o "Was sollen wir jetzt hier? Was macht ihr da überhaupt!?"
 
-R "Aber woher willst du das denn wissen?"
+a "Ihr müsst jetzt gut aufpassen! Wir haben ein schlimmes Geheimnis herausgefunden!"
 
-A "Ob du uns glaubst oder nicht, wir könnens beweisen!”
+p "Ja! Wir sind ja am Wandertag zusammen herumgelaufen."
 
-P "Wir müssen alle vorsichtig sein! Wir dürfen der Hexe nicht zu nahe kommen!"
+p "Und mitten im Wald haben wir die Heidenau gesehen."
 
-K "Kinder, was macht ihr denn da alle in der Ecke?"
+a "Die hat so Kräuter und so gesammelt."
 
-K "Kommt her, wir machen ein Gruppenspiel!”
+a "Ach… und Pilze!"
 
-A "Oh nein! Frau Heidenau ist auch da!"
+p "Und wisst ihr für was?"
 
-O "Hm... komisch vielleicht habt ihr ja doch Recht!"
+p "Frau Heidenau ist eine Hexe! Sie hat Zutaten für einen Trank gesammelt!"
 
-E "Was flüstert die Karin denn mit der Heidenau?"
+a "Und die will uns alle vergiften!"
 
-L "Keine Ahnung, aber die schauen zu uns!”
+a "Die hat sogar ein Buch mit den ganzen Anleitungen für ihre Tränke!"
 
-R "Vorsicht! Die Hexe kommt!"
+r "Äh…seid... seid ihr sicher?"
 
-H "Sagt mal... Die Karin hat gerade mit mir geredet..."
+e "Ja, wahrscheinlich will die nur eine Suppe aus den Pilzen machen."
 
-H "Und ich glaube ich muss mal ein Wörtchen mit Anja und *Name von P* reden!"
+a "Auf keinen Fall! Hier in dem Buch steht das alles!"
 
-H "Ihr seid mir seit dem Wandertag nämlich schon aufgefallen ihr beiden!"
+p "Und da sammelt die Hexe auch Pilze und so und hat ein Buch dabei für ihren Gifttrank!"
 
-H "Kommt mal mit!”
+a "Und die Hexe in dem Buch sieht genauso aus wie die Heidenau!"
+
+r "Aber... Aber..."
+
+r "Ich will nicht vergiftet werden!"
+
+e "Ich auch nicht! Was machen wir denn jetzt!?"
+
+o "Ach kommt schon... Das ist doch voll der Quatsch. Hexen gibt es doch nicht wirklich!"
+
+r "Aber woher willst du das denn wissen?"
+
+a "Ob du uns glaubst oder nicht, wir könnens beweisen!"
+
+p "Wir müssen alle vorsichtig sein! Wir dürfen der Hexe nicht zu nahe kommen!"
+
+k "Kinder, was macht ihr denn da alle in der Ecke?"
+
+k "Kommt her, wir machen ein Gruppenspiel!"
+
+a "Oh nein! Frau Heidenau ist auch da!"
+
+o "Hm... komisch vielleicht habt ihr ja doch Recht!"
+
+e "Was flüstert die Karin denn mit der Heidenau?"
+
+L "Keine Ahnung, aber die schauen zu uns!"
+
+r "Vorsicht! Die Hexe kommt!"
+
+h "Sagt mal... Die Karin hat gerade mit mir geredet..."
+
+h "Und ich glaube ich muss mal ein Wörtchen mit Anja und *Name von P* reden!"
+
+h "Ihr seid mir seit dem Wandertag nämlich schon aufgefallen ihr beiden!"
+
+h "Kommt mal mit!"
 
 ...
 
@@ -427,103 +427,103 @@ Men
 
 	Option 1 (GUTES ENDE)
 
-	“Wortlos mit der Hexe mitkommen…”
+	"Wortlos mit der Hexe mitkommen…"
 
 	Option 2 (SCHLECHTES ENDE)
 
-	“Sich wehren und nicht mitkommen…”
+	"Sich wehren und nicht mitkommen…"
 
 	WENN Option 1 gewählt:
 
-	R "NEIN! TUT DAS NICHT!"
+	r "NEIN! TUT DAS NICHT!"
 
-	E "Oh Gott nein!"
+	e "Oh Gott nein!"
 
-	H "So ihr beiden. Was zur Hölle ist hier los?"
+	h "So ihr beiden. Was zur Hölle ist hier los?"
 
-	H “Ihr plant doch irgendwas.”
+	h "Ihr plant doch irgendwas."
 
-	H "Warum herrscht hier so ein Chaos?"
+	h "Warum herrscht hier so ein Chaos?"
 
-	A "SIE SIND EINE HEXE!"
+	a "SIe SIND EINe HEXE!"
 
-	H "Ich bin bitte WAS?"
+	h "Ich bin bitte WAS?"
 
-	P "EINE HEXE!"
+	p "EINe HEXE!"
 
-	A "Sie wollen uns alle vergiften und haben am Wandertag die Zutaten für den giftigen Trank gesammelt!"
+	a "Sie wollen uns alle vergiften und haben am Wandertag die Zutaten für den giftigen Trank gesammelt!"
 
-	P “Und in ihrem Buch da ist die Anleitung dafür!"
+	p "Und in ihrem Buch da ist die Anleitung dafür!"
 
-	A "JA GENAU! Und HIER in meinem Buch steht das genau so drin!"
+	a "Ja GENAU! Und HIEr in meinem Buch steht das genau so drin!"
 
-	A "WIR HABEN BEWEISE!"
+	a "WIr HABEN BEWEISE!"
 
-	H "..."
+	h "..."
 
-	H "..."
+	h "..."
 
-	H "Aaaahahahahahahahaha! Buahaaaahahahaha!"
+	h "Aaaahahahahahahahaha! Buahaaaahahahaha!"
 
-	H "Hahaaaaaaaaahahaha! Ich kann nicht mehr!"
+	h "Hahaaaaaaaaahahaha! Ich kann nicht mehr!"
 
-	H "Hahaaa! Das ist ja köstlich!"
+	h "Hahaaa! Das ist ja köstlich!"
 
-	H "Karin! Komm mal her, das musst du hören! Haaahahahah!"
+	h "Karin! Komm mal her, das musst du hören! Haaahahahah!"
 
-	P "hm..."
+	p "hm..."
 
-	K "Was denn?"
+	k "Was denn?"
 
-	H "Ich bin eine Hexe! Wusstest du das schon?"
+	h "Ich bin eine Hexe! Wusstest du das schon?"
 
-	K "Hehe, eine Hexe?"
+	k "Hehe, eine Hexe?"
 
-	K "Wie kommt ihr 2 denn bitte auf so etwas?"
+	k "Wie kommt ihr 2 denn bitte auf so etwas?"
 
-	H "Ich war am Wandertag doch Pilze sammeln, du weist schon, an dem Bach."
+	h "Ich war am Wandertag doch Pilze sammeln, du weist schon, an dem Bach."
 
-	H "Und die beiden hier haben mich dabei wohl "erwischt" und denken ich will alle vergiften."
+	h "Und die beiden hier haben mich dabei wohl "erwischt" und denken ich will alle vergiften."
 
-	K "Ach Gottchen, hihi!"
+	k "Ach Gottchen, hihi!"
 
-	H "Also gut, passt auf ihr 2 Quatschköpfe."
+	h "Also gut, passt auf ihr 2 Quatschköpfe."
 
-	H "Wisst ihr, ich sammle einfach gerne Pilze und Kräuter."
+	h "Wisst ihr, ich sammle einfach gerne Pilze und Kräuter."
 
-	H "Daheim koche ich daraus dann immer ein leckeres Gericht."
+	h "Daheim koche ich daraus dann immer ein leckeres Gericht."
 
-	H "An dem Bach wachsen nämlich ganz viele gesunde Sachen, da gehe ich öfter entlang."
+	h "An dem Bach wachsen nämlich ganz viele gesunde Sachen, da gehe ich öfter entlang."
 
-	A "Aber... Aber was ist mit dem Buch?"
+	a "Aber... Aber was ist mit dem Buch?"
 
-	H "Das ist ein Pilzalmanach!”
+	h "Das ist ein Pilzalmanach!"
 
-	H “Ein Buch über Pilze.”
+	h "Ein Buch über Pilze."
 
-	H "Wenn man Pilze sammelt muss man nämlich ganz genau aufpassen, dass man nur die Essbaren mitnimmt."
+	h "Wenn man Pilze sammelt muss man nämlich ganz genau aufpassen, dass man nur die Essbaren mitnimmt."
 
-	H "Manchmal, wenn ich mir bei einem Pilz nicht sicher bin, schau ich in mein Buch."
+	h "Manchmal, wenn ich mir bei einem Pilz nicht sicher bin, schau ich in mein Buch."
 
-	P "..."
+	p "..."
 
-	A "..."
+	a "..."
 
-	A "Das... heißt das stimmt alles garnicht?"
+	a "Das... heißt das stimmt alles garnicht?"
 
-	A "Aber in meinem Buch..."
+	a "Aber in meinem Buch..."
 
-	K "Ach Anja... Das ist nur ein Märchen. Das ist erfunden!"
+	k "Ach Anja... Das ist nur ein Märchen. Das ist erfunden!"
 
-	K "Ihr müsst also keine Angst vor uns oder irgendwem sonst hier haben. Es gibt keine Hexen!"
+	k "Ihr müsst also keine Angst vor uns oder irgendwem sonst hier haben. Es gibt keine Hexen!"
 
-	A "Hm..."
+	a "Hm..."
 
-	K "Na kommt!”
+	k "Na kommt!"
 
-	K “Ich glaube wir müssen den anderen Kindern mal was erklären.”
+	k "Ich glaube wir müssen den anderen Kindern mal was erklären."
 
-	P "Na gut... Nicht dass die anderen Angst haben..."
+	p "Na gut... Nicht dass die anderen Angst haben..."
 
 	...
 
@@ -538,113 +538,113 @@ Men
 	 
 	WENN Option 2 gewählt:
  
-	P "NIEMALS!"
+	p "NIEMALS!"
 
-	E "Ja! Rennt weg!"
+	e "Ja! Rennt weg!"
 
-	H "HEY! Bleibt hier!"
+	h "HEY! Bleibt hier!"
 
-	A "NEEEEIN!"
+	a "NEEEEIN!"
 
-	H "Passt doch auf! Ihr rennt ja alles um!"
+	h "Passt doch auf! Ihr rennt ja alles um!"
 
-	H "KARIN! KOMM SCHNELL!"
+	h "KARIN! KOMM SCHNELL!"
 
-	K "KOMME!"
+	k "KOMME!"
 	
-	K "Was ist denn HIER los!?"
+	k "Was ist denn HIEr los!?"
 
-	H "Das reinste Chaos!"
+	h "Das reinste Chaos!"
 
-	H "So etwas dulde ich hier nicht!"
+	h "So etwas dulde ich hier nicht!"
 
-	K "KINDER! Beruhigt euch!"
+	k "KINDER! Beruhigt euch!"
 
-	R "ALLE AUF DIE HEXEEE!"
+	r "ALLe AUF DIe HEXEEE!"
 
-	K "STOP RANDY!"
+	k "STOp RANDY!"
 
-	H "DAS IST JA UNERHRT!"
+	h "DAS IST Ja UNERHRT!"
 
-	K "STOP! ALLE HINSETZEN! SOFORT!"
+	k "STOP! ALLe HINSETZEN! SOFORT!"
 
 	...
 
-	K "SO! Und jetzt..."
+	k "SO! Und jetzt..."
 
-	H "JETZT ERKLRT MIR MAL WAS IN EUCH GEFAHREN IST!"
+	h "JETZT ERKLRT MIr MAL WAS IN EUCh GEFAHREN IST!"
 
 	(Alle Kinder) "HEXE! HEXE!"
 
-	H "Bitte WAS? ICH!?"
+	h "Bitte WAS? ICH!?"
 
-	E "Ja! Anja und *Name* haben gesagt, sie sind eine Hexe!"
+	e "Ja! Anja und *Name* haben gesagt, sie sind eine Hexe!"
 
-	A "Sie wollen uns alle vergiften und haben am Wandertag die Zutaten für den giftigen Trank gesammelt!"
+	a "Sie wollen uns alle vergiften und haben am Wandertag die Zutaten für den giftigen Trank gesammelt!"
 
-	P “Genau, sie hatten das Buch dabei mit der Anleitung dafür!"
+	p "Genau, sie hatten das Buch dabei mit der Anleitung dafür!"
 
-	A "JA! Und HIER in meinem Buch steht das genau so drin!"
+	a "JA! Und HIEr in meinem Buch steht das genau so drin!"
 
-	A "WIR HABEN BEWEISE!"
+	a "WIr HABEN BEWEISE!"
 
-	H "Aaaahahahahahahahaha! Buahaaaahahahaha!"
+	h "Aaaahahahahahahahaha! Buahaaaahahahaha!"
 
-	H "Hahaaaaaaaaahahaha! Ich kann nicht mehr!"
+	h "Hahaaaaaaaaahahaha! Ich kann nicht mehr!"
 
-	H "Hahaaa! Das ist ja kstlich!"
+	h "Hahaaa! Das ist ja kstlich!"
 	
-	K "Wie kommt ihr 2 denn bitte auf so etwas?"
+	k "Wie kommt ihr 2 denn bitte auf so etwas?"
 
-	H "Ich war am Wandertag doch Pilze sammeln, du weißt schon, an dem Bach."
+	h "Ich war am Wandertag doch Pilze sammeln, du weißt schon, an dem Bach."
 
-	H "Und die beiden hier haben mich dabei wohl "erwischt" und denken ich will alle vergiften."
+	h "Und die beiden hier haben mich dabei wohl "erwischt" und denken ich will alle vergiften."
 
-	H "Also gut, passt auf ihr 2 Quatschköpfe."
+	h "Also gut, passt auf ihr 2 Quatschköpfe."
 
-	H "Wisst ihr, ich sammle einfach gerne Pilze und Kräuter."
+	h "Wisst ihr, ich sammle einfach gerne Pilze und Kräuter."
 
-	H "Daheim koche ich daraus dann immer ein leckeres Gericht."
+	h "Daheim koche ich daraus dann immer ein leckeres Gericht."
 
-	H "An dem Bach wachsen nämlich ganz viele gesunde Sachen, da gehe ich öfter entlang."
+	h "An dem Bach wachsen nämlich ganz viele gesunde Sachen, da gehe ich öfter entlang."
 
-	A "Aber... Aber was ist mit dem Buch?"
+	a "Aber... Aber was ist mit dem Buch?"
 
-	H "Das ist ein Pilzalmanach!”
+	h "Das ist ein Pilzalmanach!"
 
-	H “Ein Buch über Pilze.”
+	h "Ein Buch über Pilze."
 
-	H "Wenn man Pilze sammelt muss man nämlich ganz genau aufpassen, dass man nur die Essbaren mitnimmt."
+	h "Wenn man Pilze sammelt muss man nämlich ganz genau aufpassen, dass man nur die Essbaren mitnimmt."
 
-	H "Manchmal, wenn ich mir bei einem Pilz nicht sicher bin, schau ich in mein Buch."
+	h "Manchmal, wenn ich mir bei einem Pilz nicht sicher bin, schau ich in mein Buch."
 
-	P "..."
+	p "..."
 
-	A "..."
+	a "..."
 
-	R "Das... heißt das stimmt alles garnicht?"
+	r "Das... heißt das stimmt alles garnicht?"
 
-	A "Aber in meinem Buch..."
+	a "Aber in meinem Buch..."
 
-	K "Ach Anja... Das ist nur ein Märchen. Das ist erfunden!"
+	k "Ach Anja... Das ist nur ein Märchen. Das ist erfunden!"
 
-	K "Ihr müsst also keine Angst vor uns oder irgendwem sonst hier haben. Es gibt keine Hexen!"
+	k "Ihr müsst also keine Angst vor uns oder irgendwem sonst hier haben. Es gibt keine Hexen!"
 
-	K "So und jetzt geht spielen! Wir müssen hier erst mal wieder aufräumen.“
+	k "So und jetzt geht spielen! Wir müssen hier erst mal wieder aufräumen."
 
 	...
 
-	E "Lügner!"
+	e "Lügner!"
 
-	R "JA! Ihr seid Lügner!"
+	r "JA! Ihr seid Lügner!"
 
-	A "Das wollten wir doch nicht!"
+	a "Das wollten wir doch nicht!"
 
-	P "Wir wollten euch warnen! Wir dachten wirklich die Heidenau ist eine Hexe!"
+	p "Wir wollten euch warnen! Wir dachten wirklich die Heidenau ist eine Hexe!"
 
-	R "Aber das ist sie nicht! Ihr habt uns angelogen!"
+	r "Aber das ist sie nicht! Ihr habt uns angelogen!"
 
-	“LÜGNER”
+	"LÜGNER"
 
 	Transition zu Traurige Anja auf dem Baum die in die Ferne blickt
 
