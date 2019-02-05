@@ -2881,6 +2881,10 @@ label scenew2_3:
 label scenew2_4:
     stop music fadeout 1.0
     pause 0.75
+    scene bg black with fade
+    show tue with fade
+    pause 1.5
+    hide fri with fade
     play music introtheme fadein 1.0
     scene bg grura
     n "...oder auch nicht. Wieso wurde alles aufgeräumt?"
@@ -3239,14 +3243,25 @@ label scenew2_5:
     window auto
 label scenew2_6:
     "Placeholder W2S6"
+    
 label scenew2_7:
+    scene bg black with fade
+    show wed with fade
+    pause 1.5
+    hide fri with fade
     "Placeholder W2S7"
+    
 label scenew2_8:
     "Placeholder W2S8"
+    
 label scenew2_9:
     "Placeholder W2S9"
     
 label scenew2_10:
+    scene bg black with fade
+    show thr with fade
+    pause 1.5
+    hide fri with fade
     scene bg grura2
     show karin talk at slightright
     show octa smug at slightleft
@@ -3993,6 +4008,11 @@ label pnp1bad:
     
 label pnp1done:
     
+label scenewanderstart:
+    scene bg black with fade
+    show fri with fade
+    pause 1.5
+    hide fri with fade
     
 label scenew3_0:
     kg "Brabbel"

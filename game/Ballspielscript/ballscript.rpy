@@ -459,6 +459,8 @@ label timedmenu5:
         
     
 label sceneverloren:
+    $ anja_points -= 1
+    $ octa_points -= 2
     scene bg ball with dissolve
     show karin go at left
     k "Oh...leider müssen wir jetzt Schluss machen!"
@@ -474,6 +476,8 @@ label sceneverloren:
     jump scenenachball
     
 label scenegewonnen:
+    $ anja_points += 2
+    $ octa_points += 3
     scene bg ball with dissolve
     show karin go at left
     k "Oh...leider müssen wir jetzt Schluss machen!"
@@ -482,7 +486,7 @@ label scenegewonnen:
     show osport mad at center with moveinright
     show asport happy at rightish with moveinright
     a "Yuhuuuu!"
-    o "Ich hab voll mit Absicht nicht so hart gespielt. Schließlich ist Prot neu hier!"
+    o "Ich hab voll mit Absicht nicht so hart gespielt. Schließlich ist [name] neu hier!"
     a "Von wegen! Du hast sogar meinen Spezialwurf geklaut!"
     o "Hah, nix geklaut! Das war mein eigener Spezialwurf. Ich hätte auch locker gewinnen können!"
     n "Man, die hören ja wirklich nie auf."
@@ -490,6 +494,8 @@ label scenegewonnen:
     jump scenenachball
     
 label sceneunentschieden:
+    $ anja_points += 1
+    $ octa_points -= 1
     scene bg ball with dissolve
     show karin go at left
     k "Oh...leider müssen wir jetzt Schluss machen!"

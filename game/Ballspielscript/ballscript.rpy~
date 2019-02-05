@@ -73,7 +73,8 @@ label scenetutorial:
         
     scene bg ball with dissolve
     show osport talk with moveinright
-    o "Und du willst wirklich mitspielen? Kannst du das überhaupt."
+    p "Hey, Leute, kann ich noch mitspielen?"
+    o "Wirklich? Kannst du das überhaupt?"
     o "Bei dem Spiel muss man gute Reflexe haben!"
     menu:
         "Ich kann das!":
@@ -96,18 +97,30 @@ label timedmenu1:
 
    
 label menu1_slow:
-    o "Das muss aber noch besser werden! Wir sehen uns auf dem Feld!"
+    o "Das muss aber noch besser werden. In mein Team kommen nur die Besten. Wir sehen uns dann auf dem Feld!"
     jump sceneball
     
 label menu1_end:
-    o "Gar nicht mal so schlecht. Jetzt bloß nicht nachlassen beim Spiel!"
+    o "Gar nicht mal so schlecht. Aber in mein Team kommen nur die Besten. Wir sehen uns auf dem Feld!!"
     
     
 label sceneball:
-    scene bg ball with dissolve
-    show karin go at leftish
-    show osport vhappy at rightish
-    k "Soo, alle bereit? Dann kann es ja gleich los gehen, auf 3..."
+    show karin go at leftish with moveinleft
+    show osport vhappy at rightish with dissolve
+    show asport mad at center with moveinleft
+    a "Ist doch egal, ob er gut spielt."
+    o "Ne, ist es nicht. Wenn er schlecht spielt, zieht er nur mein Team runter. Er muss mindestens so gut sein wie die aus der Axolotl-Gruppe."
+    show asport n
+    p "Also, ich-"
+    o "Dann nimm du ihn doch, wenn es dich nicht stört, Anja!"
+    show asport happy
+    a "Mach ich auch!"
+    o "Weil wir sowieso besser sind, dürft ihr Ausnahmsweise den Ball zuerst haben. Sonst wäre es zu einfach für mich."
+    hide asport n with dissolve
+    n "Octavia tut zwar auf cool, ist aber wieder total angespannt. Warum nimmt die das alles immer so furchtbar ernst?"
+    k "Soo, alle bereit?" 
+    p "Ja!"
+    k "Dann kann es ja gleich los gehen, auf 3..."
     o "Wir machen euch fertig!"
     hide osport vhappy with moveoutright
     k "...2"
@@ -120,6 +133,7 @@ label sceneball:
     a "Du hast zuerst den Ball!"
     show prot gefangen with dissolve
     k "Los!"
+    p "Okay, jetzt darf ich bloß nicht zu langsam sein..."
     $ spielpunkte = 0
 
 label timedmenu2:
@@ -142,7 +156,7 @@ label timedmenu2:
             show prot geworfen
             with dissolve
             show ball links with zoomin
-            a "Haha! Person 1, du bist raus!"
+            a "Haha! Und schon ist die aus der anderen Gruppe draußen!"
             $ spielpunkte += 1
             o "Anfängerglück!"
             hide prot
@@ -152,6 +166,7 @@ label timedmenu2:
             show lrechts n
             with dissolve
             o "Na warte, jetzt bin ich dran!"
+            o "Pow!"
             show oball hochzielen with dissolve
             
         
@@ -173,6 +188,7 @@ label timedmenu2:
             show oball mittelzielen
             with dissolve
             o "Na warte, jetzt bin ich dran!"
+            o "Pow!"
             show oball hochzielen with dissolve
             
         
@@ -196,6 +212,7 @@ label timedmenu2:
                 with dissolve
                 o "Also, wenn ihr noch gewinnen wollt, müsst ihr noch sehr viel besser werden!"
                 a "Protagonist wärmt sich nur noch auf, du wirst schon sehen!"
+                o "Na warte, jetzt bin ich dran. Pow!"
                 show oball hochzielen with dissolve
         
                 
@@ -231,9 +248,16 @@ label timedmenu3:
         "Hoch springen":
             label menu3_slow:
                 hide screen countdown
+                show oball n
                 show ball iyf
+                with dissolve
                 o "Ha! Voll erwischt!"
                 o "Du bist draußen!"
+                hide ball iyf
+                p "Hey, das gildet nicht, ich war ja noch gar nicht richtig drinnen und..."
+                o "Nix da! Getroffen ist getroffen, also raus mit dir!"
+                p "Jaja, ich geh ja schon!"
+                o "So, wer ist als nächstes dran?"
                 n "Danach hat Octavia einen nach dem Anderen wie Federn vom Spielfeld gepustet."
                 jump sceneverloren
                 
@@ -266,9 +290,11 @@ label timedmenu4:
                     $ enemyname = "lrechtsdrin2"
                     
                 if ballname == "gefangen1":
+                    p "SUPER-SPEZIAL-WURF!"
                     show prot geworfen with dissolve
                     
                 elif ballname == "agefangen1":
+                    a "Und Spezialwurf!"
                     show amate geworfen with dissolve
                 
                 show ball links with zoomin
@@ -279,11 +305,13 @@ label timedmenu4:
                 hide ball links with dissolve
                 
                 if enemyname == "plinksdrin2":
-                    show plinks n
-                    hide ball links
-                    show oball mittelzielen
-                    with dissolve
-                    o "Jetzt mach ich dich fertig!"
+                    show plinks n with dissolve
+                    
+                hide ball links  
+                show oball mittelzielen
+                with dissolve
+                o "Jetzt mach ich dich fertig!"
+                n "Immer wenn Octavia den Ball in der Hand hat, ist das andere Team wie erstarrt. Nichtmal Anja bewegt sich."
                     
                     
         "In die Mitte zielen":
@@ -297,15 +325,17 @@ label timedmenu4:
                 show plinks ausg with dissolve
             
             if ballname == "gefangen1":
+                p "SUPER-SPEZIAL-WURF!"
                 show prot geworfen with dissolve
                 
             if ballname == "agefangen1":
+                a "Und Spezialwurf!"
                 show amate geworfen with dissolve
                 
             show ball mittellinks with zoomin
             
             if enemyname == "plinksdrin":
-                k "Person 1, du bist draußen!"
+                a "Haha! Und schon ist die aus der anderen Gruppe draußen!"
                 o "So ein Mist aber auch!"
                 $ spielpunkte += 1
                 
@@ -319,6 +349,7 @@ label timedmenu4:
             with dissolve
             show oball mittelzielen with dissolve
             o "Jetzt mach ich dich fertig!"
+            n "Immer wenn Octavia den Ball in der Hand hat, ist das andere Team wie erstarrt. Nichtmal Anja bewegt sich."
             
                 
         
@@ -334,9 +365,11 @@ label timedmenu4:
                 $ enemyname = "plinksdrin2"
             
             if ballname == "gefangen1":
+                p "SUPER-SPEZIAL-WURF!"
                 show prot geworfen with dissolve
                 
             if ballname == "agefangen1":
+                a "Und Spezialwurf!"
                 show amate geworfen with dissolve
                 
             show ball rechts with zoomin
@@ -348,20 +381,24 @@ label timedmenu4:
                 show plinks n with dissolve
             
             elif enemyname  == "lrechtsdrin":
+                L "Uff!"
                 k "Louis du bist raus!"
-                L "Menno!"
+                o "Hättest echt mal besser ausweichen können!"
+                o "Alles muss man alleine machen!"
                 $ spielpunkte += 1
                 hide lrechts n
                 hide ball
                 show oball mittelzielen
                 with dissolve
                 o "Jetzt geht es um alles!"
+                n "Immer wenn Octavia den Ball in der Hand hat, ist das andere Team wie erstarrt. Nichtmal Anja bewegt sich."
                 
         
             else: 
                 k "Octavia, du bist raus!"
-                o "Das ist doch blöd!"
-                n "Nachdem Octavia einmal draußen war, war Gewinnen ganz einfach."
+                o "Das ist doch blöd! Das war nur ein Streifer..."
+                a "Runter vom Feld! Du wurdest getroffen. Das zählt!"
+                n "Nachdem Octavia einmal draußen war, war Gewinnen ganz einfach. Vor allem Anja hat alle mit ihrem SUPER-MEGA-ULTRA-SPEZIALWURF aus dem Feld gehauen."
                 jump scenegewonnen
                 
                 
@@ -389,7 +426,11 @@ label timedmenu5:
                 hide screen countdown
                 show oball n with dissolve
                 o "Ha! Voll auf die Beine!"
+                r "Ich dachte auf die Beine ist verboten!"
+                o "Quatsch, gar nix ist verboten!"
                 k "Prot! Du bist raus!"
+                p "Jaja, ich geh ja schon!"
+                o "So, wer ist als nächstes dran?"
                 n "Danach hat Octavia Einen nach dem Anderen wie Federn vom Spielfeld gepustet."
                 jump sceneverloren
         
@@ -398,6 +439,9 @@ label timedmenu5:
             show oball n with dissolve
             a "Huch! Was machst du denn?"
             o "Ha! Ich hab Anja erwischt!"
+            a "Aua!"
+            a "Musst du so hart werfen?"
+            o "Sei mal nicht so eine Memme! Das ist ein Schaumball, der kann gar nicht wehtun."
             k "Anja du bist draußen!"
             $ spielpunkte -= 1
             a "Och manno..."
@@ -422,9 +466,12 @@ label sceneverloren:
     k "Da bei Team Octa noch mehr Spieler im Feld stehen, habt ihr gewonnen!"
     show osport happy at center with moveinright
     show asport mad at rightish with moveinright
-    a "Menno!"
-    o "Das war von vornherein klar!"
-    jump scenew2_6
+    o "Ja, ich hab gewonnen! Ich bin die Beste!"
+    a "Du hast meinen Spezialwurf geklaut! Das darfst du nicht!"
+    o "Hah, nix geklaut! Das war mein eigener Spezialwurf. Ihr habt verloren, voll traurig für euch!"
+    n "Man, die hören ja wirklich nie auf."
+    hide karin with dissolve
+    jump scenenachball
     
 label scenegewonnen:
     scene bg ball with dissolve
@@ -434,9 +481,13 @@ label scenegewonnen:
     k "Da bei Team Prota noch mehr Spieler im Feld stehen, habt ihr gewonnen!"
     show osport mad at center with moveinright
     show asport happy at rightish with moveinright
-    o "Menno!"
     a "Yuhuuuu!"
-    jump scenew2_6
+    o "Ich hab voll mit Absicht nicht so hart gespielt. Schließlich ist Prot neu hier!"
+    a "Von wegen! Du hast sogar meinen Spezialwurf geklaut!"
+    o "Hah, nix geklaut! Das war mein eigener Spezialwurf. Ich hätte auch locker gewinnen können!"
+    n "Man, die hören ja wirklich nie auf."
+    hide karin with dissolve
+    jump scenenachball
     
 label sceneunentschieden:
     scene bg ball with dissolve
@@ -449,4 +500,23 @@ label sceneunentschieden:
     o "Na warte! So leicht kommst du mir nicht davon."
     o "Das gibt noch eine Revanche!"
     a "Worauf du dich verlassen kannst!"
+    hide karin with dissolve
+    jump scenenachball
+    
+    
+    
+    
+label scenenachball:
+    show osport mad at leftish with dissolve
+    show asport mad at rightish with dissolve
+    o "Man, du bist so schlecht Anja!"
+    a "Ich bin überhaupt nicht schlecht!"
+    "{color=#0099ff}Octavia:{/color} Doch bist du! Außerdem strengst du dich gar nicht an. \n{color=#0099ff}Anja:{/color} Na und?! Dafür kannst du nicht klettern!"
+    "{color=#0099ff}Octavia:{/color} Das stimmt doch gar nicht! \n{color=#0099ff}Anja:{/color} Stimmt wohl! Ich wette du kommst nicht mal den Baum hoch."
+    o "D…doch das ist su..per einfach."
+    n "Warum stottert sie denn jetzt. Kann Octa nicht klettern?"
+    a "Dann komm mit hoch. Ich Kletter schon mal vor."
+    o "Ah...klar."
+    n "Was mach ich jetzt nur?"
+    
     jump scenew2_6
