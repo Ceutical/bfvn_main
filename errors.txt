@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 485: indentation mismatch.
+File "game/script.rpy", line 4222: expected menuitem
+    $ anja_points -= 2
+    ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Tue Feb 05 05:13:54 2019
+Tue Feb 05 17:51:56 2019

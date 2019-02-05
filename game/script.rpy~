@@ -89,7 +89,7 @@ define audio.draw = "music/sfx/Malgeräusche.ogg"
 define audio.foodplay = "music/sfx/Mit Essen Spielen.ogg"
 define audio.snackers = "music/sfx/snackers.ogg"
 define audio.street = "music/sfx/street.ogg"
-define audio.Woosh3 = "music/sfx/Woosh3"
+define audio.Whoosh3 = "music/sfx/Whoosh3.ogg"
 
 ######################################
 
@@ -3594,8 +3594,8 @@ label scenew2_8:
     menu:
         "Verstecken spielen":
             $ octa_points -= 1
-            $ seek = "True"
-            $ paper = "False"
+            $ seek = True
+            $ paper = False
             p "Ne, ich wollte eigentlich schon lieber verstecken spielen. Papierflieger sind mir egal!"
             show octa shock
             show randy happy
@@ -3606,8 +3606,8 @@ label scenew2_8:
             
         "Papierfliegerwettbewerb":
             $ octa_points += 1
-            $ paper = "True"
-            $ seek = "False"
+            $ paper = True
+            $ seek = False
             p "Also Papierflieger hört sich schon lustig an."
             show randy happy
             r "Ich hab auch irgendwie lust drauf!"
@@ -3854,7 +3854,7 @@ label scenew2_9:
     p "Ähhm. Ja."
     m "Was hast du denn heute so gemacht?"
     
-    if paper = "True":
+    if paper == True:
         p "Flieger gebastelt!"
         p "Also, aus Papier."
         p "Und dann haben wir uns abgeworfen, dass war lustig."
@@ -3862,7 +3862,7 @@ label scenew2_9:
         p "Das müssen wir daheim auch mal machen!"
         p "Zeig mir wie du das machst!"
     
-    elif seekwin = "True":
+    elif seekwin == True:
         p "Wir haben heute alle zusammen verstecken gespielt und ich musste suchen." 
         p "Ich musste die Augen zu machen, dann drei mal bis 20 zählen und ich hab gewonnen."
         show mum happy

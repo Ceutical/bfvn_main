@@ -321,7 +321,7 @@ label start:
     play music introtheme
     
     ##### OTHER DEFINITIONS #####
-    $ seekwin = "True"
+    $ seekwin = True
     $ seekloss = ""
     $ grura = ""
     $ flur = ""
@@ -330,12 +330,14 @@ label start:
     $ food = ""
     $ catch = 0
     $ seekattempts = 0
+    $ climber = True
     
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
     $ eve_points = 0
     $ anja_points = 0
+    $ mapa = "Bumpy" #Marschpartner
     
     ##### AFFINITY SYSTEM END #####
 
@@ -1164,6 +1166,7 @@ label scene11:
                     $ anja_points -= 2
                     $ gone = True
                     $ anjatreat = False
+                    $ climber = False
                     p "Nein! Nein, nein! Ich ... ich guck mal wo dein Freund ist."
                     show anja madb
                     a "NA TOLL! Dann geh doch!"
@@ -1171,6 +1174,7 @@ label scene11:
                     jump scene12
                     
                 "Na gut.":
+                    $ climber = True
                     $ anja_points += 3
                     p "Okay, aber wenn mir was passiert bist du schuld!"
                     a "Jeder kann klettern, ist nur eine Frage der Technik!"
@@ -1198,6 +1202,7 @@ label scene11:
             
             
         "Wortlos gehen.":
+            $ climber = False
             $ anja_points -= 3
             $ gone = True
             $ anjatreat = False
@@ -1209,6 +1214,7 @@ label scene11:
             jump scene12
             
         "Ich kann klettern.":
+            $ climber = True
             $ anja_points += 2
             p "Okay, ich komm zu dir hoch."
             p "Klettern ist einfach. Hände hier, Beine da und schon oben. Hallo du!"
@@ -2054,7 +2060,7 @@ label scene19:
         a "Mach so etwas NIE WIEDER!"
         a "Versprechen bricht man nicht und die Anderen finden das auch dumm."
 
-        if anjatreat == "True":
+        if anjatreat == True:
             p "Aber, du hattest doch auch nichts dagegen, als ich sie mit dir geteilt hab!"
             show aparty shock
             a "Was?"
@@ -3443,8 +3449,8 @@ label scenew2_7:
     m "...kann ich gut verstehen.Und hat sich [name] schon mit anderen Gleichaltrigen angefreundet?"### Flagge und Affinitycheck
     
 
-    if anja_points > octa_points and anja_points > eve_points :
-        #$anjaday = "True"
+    if anja_points > octa_points and anja_points > eve_points:
+        
         show karin talk
         k "Ihr [name] ist hier gut aufgehoben und passt wunderbar in unsere bunte Gruppe."
         k "Am meisten ist [name] mit Anja unterwegs."
@@ -3465,7 +3471,7 @@ label scenew2_7:
         show karin n
             
     elif eve_points > anja_points and eve_points > octa_points:
-        #$eveday = "True"
+        
         show karin talk
         k "Ihr [name] ist ein wirklich kreatives Kind, weswegen es kein WUnder ist, dass [pro2] sich so gut mit Evelynn versteht."
         k "Die beiden sind ständig am Maltischu und produzieren ihre kleinen Kunstwerke."
@@ -3486,7 +3492,7 @@ label scenew2_7:
         show karin n
         
     elif octa_points > anja_points and octa_points > eve_points:
-        #$octaday = "True"
+        
         show karin go
         k "[name] ist wirklich sehr ergeizig und gibt sich mit allem was er macht wirklich mühe."
         k "Das ist schon bemerkenswert für [pro] Alter, deswegen wundert es mich auch nicht, dass [pro2] sich mit den, wie soll ich sagen, Musterkind Octavia angefreundet hat."
@@ -3507,7 +3513,7 @@ label scenew2_7:
         show karin n
             
     else:
-        #$boo = "True"
+        #$boo = True
         show karin shock
         k "Leider scheint er/sie ja eher zurückgezogen zu sein. Zwar bemüht sich Ihr Kind immer wieder, aber so richtig klappen will es scheinbar nicht. Zumindest, soweit ich das beurteilen kann." 
         k "Wenn Sie wollen, werde ich Freitag mal ein genaueren Blick auf ihn/sie werfen."            
@@ -3634,7 +3640,7 @@ label wettbewerb:
             
             menu:
                 "breit":
-                    $dynamik = "True"
+                    $ dynamik = True
                     n "Zum gewinnen braucht es viel Luft und Wind, deswegen sind wohl Breite Flügel klüger!"
                     scene bg black with dissolve
                     n "Dann noch hier etwas."
@@ -3655,7 +3661,7 @@ label wettbewerb:
             
         
         "Spitze Falten":
-            $tip = "True"
+            $tip = True
             n "Ich habe mal gehört, dass die Spitze das wichtigste ist."
             n "Wenn das stimmt, gewinne ich hunderprozentig!"
             n "Freu ich mich schon auf Octavias Gesicht!"
@@ -3664,7 +3670,7 @@ label wettbewerb:
             
             menu:
                 "Farbe":
-                    $farbflug = "True"
+                    $farbflug = True
                     n "Ich muss Octavia auch mit Stil besiegen!"
                     scene bg black with dissolve
                     n "Dann mal los, ich hab ja hier die ganzen Farben."
@@ -3674,7 +3680,7 @@ label wettbewerb:
                     n "Jetzt aber wirklich, fertig!"
                     
                 "Flügel":
-                    $dynamik = "True"
+                    $dynamik = True
                     n "Zum gewinnen braucht es viel Luft und Wind, deswegen sind wohl Breite Flügel klüger!"
                     scene bg black with dissolve
                     n "Dann noch hier etwas."
@@ -3686,7 +3692,7 @@ label wettbewerb:
                                                                          
         
         "Einfach loslegen!":
-            $chaos = "True"
+            $chaos = True
             n "Ach, dass wird schon irgendwie klappen."
             scene bg black with dissolve
             n "Erst einmal etwas hiervon. Etwas davon."
@@ -3702,7 +3708,7 @@ label wettbewerb:
     n "Sie faltet gerade auch einen Flieger, also gut zielen uuuuund"
     p "LOS!"
     
-    if chaos == "True":
+    if chaos == True:
         $ octa_points -= 2
         show papierkneul at flight with moveinleft
         hide papierkneul with moveoutbottom
@@ -3724,11 +3730,11 @@ label wettbewerb:
         k "Oh mann, meine Mutter ist schon da?"
         jump scenew2_9
         
-    elif dynamik == "True":
+    elif dynamik == True:
         show papierflieger_stromlinienförmig at flight with moveinright
         hide papierflieger_stromlinienförmig with moveoutleft
         
-    elif farbflug == "True":
+    elif farbflug == True:
         show papierflieger_bunt with moveinright
         hide papierflieger_bunt with moveoutleft
         
@@ -3765,7 +3771,7 @@ label wettbewerb:
     o "Was machst du denn jetzt?"
     n "Dann bin nurnoch ich übrig!"
     
-    if dynamik == "True" and tip == "True":
+    if dynamik == True and tip == True:
         $ anja_points += 3
         $ octa_points += 2
         show papierflieger_stromlinienförmig at flightright with moveinright
@@ -3778,7 +3784,7 @@ label wettbewerb:
         o "Außerdem hast du mich ja abgelenkt als du ihn auf mich geworfen hast."
         o "Beim nächsten gewinne ich!"
     
-    elif dynamik == "True":
+    elif dynamik == True:
         $ anja_points += 3
         $ octa_points += 1
         show papierflieger_stromlinienförmig at flight with moveinright
@@ -3791,7 +3797,7 @@ label wettbewerb:
         hide octa
         n "Hmmh..."
     
-    elif farbflug == "True":
+    elif farbflug == True:
         $ anja_points += 2
         $ octa_points += 1
         $ eve_points += 2
@@ -3931,6 +3937,8 @@ label scenew2_10:
             menu:
                 "Okay.":
                     "Na gut… Ich hab eh nichts zu tun."
+                    $ octa_points += 3
+                    $ anja_points += 1
                     label runokay:
                         show asport behind osport
                         show osport happy
@@ -3962,9 +3970,13 @@ label scenew2_10:
                     menu:
                         "Okay.":
                             "Na gut… Ich hab eh nichts zu tun."
+                            $ octa_points += 2
+                            $ anja_points += 1
                             jump runokay
                             
                         "Nö.":
+                            $ octa_points -= 4
+                            $ anja_points -= 1
                             p "Ich mach trotzdem nicht mit. Ich kann euch ja zu schauen."
                             o "Kommt gar nicht in die Tüte! Ich brauch doch einen richtigen Mitstreiter. Die da zählt nicht!"
                             show osport behind asport
@@ -3978,6 +3990,9 @@ label scenew2_10:
             a "Jetzt sag doch auch mal was!"
             menu:
                 "Spaß ist wichtiger.":
+                    $ octa_points -= 5
+                    $ eve_points += 3
+                    $ anja_points += 3
                     $ raceoutcome = "loss"
                     show osport behind asport
                     show asport happy
@@ -3991,6 +4006,9 @@ label scenew2_10:
                     
                     
                 "Gewinnen ist alles!":
+                    $ octa_points += 5
+                    $ eve_points -= 3
+                    $ anja_points -= 3
                     $ raceoutcome = "win"
                     show asport behind osport
                     show osport mad
@@ -4167,9 +4185,15 @@ label scenew2_10:
             
             menu:
                 "Das ist ja echt cool!":
+                    $ octa_points -= 1
+                    $ eve_points += 1
+                    $ anja_points += 2
                     p "Ich fin-"
                 
                 "Ich finde es in der Stadt besser als auf dem Land.":
+                    $ octa_points += 1
+                    $ eve_points -= 1
+                    $ anja_points -= 2
                     p "Ich fin-"
             
             a "Aber die Luft finde ich da eigentlich nicht so toll. Vor allem im Schweinestall stinkt es immer voll. Aber das Stroh riecht gut!"
@@ -4186,18 +4210,22 @@ label scenew2_10:
             menu:
                 "Lecker! Kirschkuchen!":
                     p "Das klingt-"
+                    $ anja_points += 2
                     
                 "Nichts schmeckt besser als Mamas Kekse!":
                     p "Das klingt-"
+                    $ anja_points -= 2
                     
             a "Aber die Tiere sind trotzdem das Coolste! Ich will später auch mal irgendwas mit ganz viel Tieren machen. Aber nicht Bauer."
             a "Lieber Tierarzt oder so. Dann kann ich den ganzen Tieren helfen und dann werden die alle meine Freunde. Aber niemand wird ein besserer Freund als unsere Kuh Elsa. Die ist die Allerbesteste!"
             a "Was ist denn- Komm auch hoch! Das musst du sehen! Schnell!"
             menu:
                 "Ich kann da nicht hochklettern.":
+                    $ anja_points -= 2
                     a "Jetzt komm schon! Du verpasst es!"
                 
                 "Ich beeil mich.":
+                    $ anja_points += 2
                     a "Jetzt komm schon! Du verpasst es!"
                     
             n "Was macht die denn für einen Wirbel? Die tut ja fast schon so, als wäre da oben ein Alien"
@@ -4211,6 +4239,7 @@ label scenew2_10:
             
             menu:
                 "Oben bleiben":
+                    $ anja_points += 2
                     n "Der Schatten hinter dem Vorhang sieht wirklich aus wie der von Heidenau. Nur irgendwie gruseliger… Das ist echt unheimlich."
                     p "Was macht die denn da?"
                     a "Keine Ahnung! Aber die läuft da schon die ganze Zeit im Kreis und siehst du da den Rauch aus dem Fenster kommen? Die kocht da jetzt bestimmt irgendeinen Zaubertrank!"
@@ -4224,6 +4253,7 @@ label scenew2_10:
                     n "Heidenau schließt das Fenster wieder. Ich kletter auch lieber schnell runter. Und dann versteck ich mich mit bei Anja, bevor ich noch mehr Ärger bekomme."
                     
                 "Runter klettern":
+                    $ anja_points -= 2
                     p "Lass uns was anderes Spielen. Das ist doof!"
                     a "Ist ja schon gut, aber ich sag‘s dir! Irgendwann wird sie dich fressen und dann bist du froh, wenn du mich hast!"
                     p "Das werden wir dann sehen!"
@@ -4235,9 +4265,12 @@ label scenew2_10:
             
             menu:
                 "Ja, das glaube ich auch!":
+                    $ anja_points += 2
+                    $ eve_points += 2
                     a "Wir sollten sie auf jeden Fall weiter beobachten!"
                     
                 "Hexen gibt es doch nicht in echt!":
+                    $ anja_points -= 2
                     a "Mmh… ich denke es gibt viel mehr als Erwachsene immer sagen. Auch Dinge wie Geister, die man vielleicht sogar gar nicht sehen kann. Und die klauen dann immer die Socken aus der Maschine!"
                     
 
@@ -4275,7 +4308,8 @@ label scenew2_10:
                     n "Ich glaub Anja kann wirklich nichts mehr sehen. So langsam wankt sie Richtung Treppe. Aber sie ist auch schon wieder ordentlich mit Heu bewaffnet."
                     
                     menu:
-                        "Anja umlenken.":
+                        "Anja warnen.":
+                            $ anja_points += 2
                             p "Vorsicht, da ist eine-"
                             a "Raaaaacheeee!"
                             p "Bah, voll ins Gesicht!"
@@ -4290,6 +4324,7 @@ label scenew2_10:
                             jump scenew2_12
                             
                         "Dem Heu ausweichen.":
+                            $ anja_points -= 2
                             p "Ha, nicht erwischt!"
                             a "Irgendwann er-WOAH!"
                             n "Ohjeh! Jetzt fällt Anja doch noch die Stufe runter! Zum Glück ist ja alles gut mit Heu abgepolstert."
@@ -4367,13 +4402,14 @@ label scenew2_10:
              e "... in einem Land namens Müramoor."
              e "Da lebten zwei Helden, die waren auf der Durchreise durch das Land, auf der Suche nach Abenteuern."
              e "Sie waren gerade gemütlich unterwegs im Wald auf dem Weg in das nächste Dorf, als sie auf dem Weg eine zwieli...zw... eine komische Person mit einem langen Mantel bemerkten."
-             e "Da sagte die mutige Bardin zu ihre[r/m] Freund[in] dem:"
+             e "Da sagte die mutige Bardin zu ihre[r/m] Freund[in] dem [race] [role]:"
              e "Was willst du tun? Das könnte ein Bandit sein. Sollen wir uns verstecken?"
              n "Oh..."
              n "Ich glaub, ich soll jetzt was sagen."
             
              menu:
                  "Äh...worum geht's?":
+                     $ eve_points -= 2
                      n "Ich glaub, das war falsch. Evelynn rollt mit den Augen."
                      e "\"Dann halt nicht\", sagt die Bardin. Aber lass uns schnell weitergehen, ich hab Hunger."
                     
@@ -4393,11 +4429,13 @@ label scenew2_10:
                             
                          "Okay.":
                              $ berry = True
+                             $ pnp1winpoints += 4
                              p "Ich hab noch Platz hier in meiner Tasche."
                              e "Beide Helden stecken sich ein paar der Beeren in die Beutel, essen sie aber nicht, weil sie nicht wissen, ob man das darf."
                              e "Dann bemerken sie, dass die komische Person nicht mehr zu sehen ist und kriechen wieder aus dem Gebüsch."    
                             
                          "Wieso mitnehmen und nicht gleich essen?":
+                             $ eve_points -= 10
                              n "Evelynn schaut mich komisch an."
                              e "Die Bardin sagte ihrem Heldenfreund, dass sie das für keine gute Idee hält."
                              p "Und der Heldenfreund sagt der Bardin, dass er ein Held ist und vor gar nix Angst hat. Schon gar nicht vor Beeren."
@@ -4416,22 +4454,25 @@ label scenew2_10:
                     
                      menu:
                          "Wir sind Helden auf der Suche nach Abenteuern!":
+                             $ eve_points += 2
                              e "Der Händler lachte. \"Somonoa, davon gibt es wirklich schon mehr als genug. Wollt ihr euch nicht noch kurz meine Tücher anschauen?\" "
                              e "\"Das ist sehr nett\", sagte die Bardin.\"Aber wir besitzen momentan kein Geld.\" "
                              e "\"Zu schade! Dann will ich euch nicht länger stören.\" "
                              p "Kann er uns nicht einfach was schenken?"
                              e "\"Der Händler lacht nur und geht weiter."
                             
-                         "Wir sind eigentlich nur auf dem Weg ins nächste Dorf.":
+                         "Wir sind auf dem Weg ins nächste Dorf.":
+                             $ eve_points += 3
                              e "\"Oh...\" Der Händler schaut kurz komisch. \"Dann hab ich vielleicht was, was ihr gebrauchen könntet.\""
                              e "Er kramt in seiner Tasche und zieht anschließend ein Glas mit einem schwarzen Pulver raus."
                              e "\"Vertraut mir, ihr werdet es brauchen!\" "
                              
                              menu:
                                  "Oh...danke!":
+                                     $ eve_points += 2
                                      $ powder = True
                                      e "\"Aber wir können das gar nicht bezahlen\", sagte die Bardin."
-                                     e "\"Keine Sorge!\", sagte der Händler. \"Das ist ein Geschenk. Wir Eeisenden müssen zusammen halten.\" Er lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
+                                     e "\"Keine Sorge!\", sagte der Händler. \"Das ist ein Geschenk. Wir Reisenden müssen zusammen halten.\" Er lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
                                     
                                  "Nein, danke!":
                                      p "Mama sagt, man nimmt nichts von Fremden an."
@@ -4439,6 +4480,7 @@ label scenew2_10:
                                      e "\"Das ist schade\", sagte der Händler, lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
                                     
                          "Wie soll ein Händler Helden helfen?":
+                             $ eve_points -= 4
                              n "Evelynn schaut mich böse an."
                              e "Der Händler ist beleidigt, dreht sich um und geht ohne auch nur ein Wort zu sagen."
                              e "Die Bardin guckt ihren Freund böse an."
@@ -4455,6 +4497,7 @@ label scenew2_10:
                     
                      menu:
                          "Ich greife an!":
+                             $ eve_points -= 8
                              e "Das wird schwer..."
                              p "Ach ja? Ich nehm einfach mein-"
                              e "Du musst würfeln!"
@@ -4468,6 +4511,7 @@ label scenew2_10:
                              jump pnp1bad
                             
                          "Ich renne weg!":
+                             $ eve_points -= 4
                              n "Warum schaut sie mich denn so komisch an?"
                              e "Der Held rennt panisch davon. Die Bardin schaut ihm hinterher. \"Man, bist du peinlich...\", sagte sie und ging ihrem Freund dann schnell hinterher."
                             
@@ -4489,6 +4533,7 @@ label scenew2_10:
              menu:
                  
                  "Lass uns einfach angreifen!":
+                     $ eve_points -= 4
                      e "Der Held rennt natürlich mal wieder einfach ohne nachzudenken auf den Drachen zu."
                      e "Der wird von dem Gebrüll natürlich wach und ist gar nicht glücklich, dass ihn jemand beim Schlafen stört."
                      e "Er steht auf und funkelt den Helden wütend an."
@@ -4510,6 +4555,8 @@ label scenew2_10:
                         
                  "Wir können ihn austricksen!":
                      e "Das ist eine gute Idee! Und wie?"
+                     $ eve_points += 6
+                     $ pnp1winpoints += 1
                      if berry == True:
                          $ pnp1winpoints += 1
                          p "Wir könnten ihm heimlich die Beeren geben, die wir gefunden haben. Vielleicht wird ihm dann schlecht."
@@ -4733,11 +4780,32 @@ label scenew2_12:
 
     
 label scenew3_0:
+    if anja_points > octa_points and anja_points > eve_points:
+        $ mapa = "Anja"
+        
+    elif eve_points > anja_points and eve_points > octa_points:
+        $ mapa = "Evelynn"
+        
+    elif octa_points > anja_points and octa_points > eve_points:
+        $ mapa = "Octavia"
+        
+    elif anja_points == octa_points and anja_points > eve_points:
+        $ mapa = "Anja"
+        
+    elif anja_points == eve_points and anja_points > octa_points:
+        $ mapa = "Anja"
+        
+    elif octa_points == eve_points and octa_points > anja_points:
+        $ mapa = "Octavia"
+        
+    else:
+        $ mapa = "Evelynn"
+        
     kg "Brabbel"
     k "Kinder..."
-    kg "brabbel"
+    kg "Brabbel"
     k "Kinder wenn ich..."
-    kg "brabbel"
+    kg "Brabbel"
     h "KINDER! RUHE!"
     kg "..."
     n "Wow das war laut! Sogar Anja ist ruhig."
@@ -4749,6 +4817,7 @@ label scenew3_0:
     k "Regel 2 ist, dass wir euch in Paare einteilen. Euer Sitznachbar ist auch euer ... äh wie hatten sie das nochmal genannt Frau Heidenau?"
     h "Marschpartner."
     k "Genau euer Sitznachbar ist euer Marschpartner."
+    n "Ahh, also ist [mapa] mein Marschpartner! Toll!"
     k "Ach und Regel 3 ist das ihr nichts ohne unsere Erlaubnis im Wald sammelt. Das ist nämlich gefährlich."
     h "Wenn ich jemanden von euch etwas aufsammeln sehe dann gnade euch Gott."
     h "Denn ich werde nicht so gnädig sein. Verstanden?"
@@ -4763,6 +4832,14 @@ label scenew3_0:
     k "Nun...äh...gut."
     k "Dann mal los. Schnappt euren Marschpartner und folgt mir."
     
+    if mapa == "Anja":
+        jump anjas_ending
+        
+    elif mapa == "Octavia":
+        jump octas_ending
+        
+    else:
+        jump eves_ending
     
     
 label credits:
