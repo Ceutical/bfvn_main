@@ -391,8 +391,14 @@ label scene1:
             ddd = "die"
 
     ##### Szene 2 CHILD #####
+    menu:
+        "Was spielen?"
+        "Anjas Ende.":
+            jump anjas_ending
+            
+        "Normal.":
+            jump childlike
 label childlike:
-    jump anjas_ending
     scene mnd with fade
     pause 1.5
     scene bg black with fade
