@@ -1,0 +1,402 @@
+﻿##### SCRIPT START #####
+
+
+##### CHARACTER DEFINITIONS #####
+
+define m = Character("Mama")
+define p = Character("[name]") #Name of Player Character -- P = Protagonist
+define n = Character(name=None, what_italic=True) #Narrator
+define a = Character("Anja")
+define e = Character("Evelynn")
+define o = Character("Octavia")
+define O = Character("Octa")
+define h = Character("Frau Heidenau")
+define k = Character("Karin")
+define L = Character("Louis")
+define r = Character("Randy")
+define emum = Character("Evelynn's Mutter")
+define edad = Character("Evelynn's Vater")
+define omum = Character("Octavia's Mutter")
+define odad = Character("Octavia's Vater")
+define rmum = Character("Randy's Mutter") ### new
+define nvln = Character(name=None, kind=nvl)
+
+######################################
+
+##### MUSIC DEFINITIONS #####
+
+define audio.introtheme = "music/soundtracks/introtheme.mp3"
+define audio.anjatheme = "music/soundtracks/anjatheme.mp3"
+define audio.evetheme = "music/soundtracks/evetheme.mp3"
+define audio.octatheme = "music/soundtracks/octatheme.mp3"
+define audio.maintheme = "music/soundtracks/maintheme.mp3"
+define audio.happy1 = "music/soundtracks/Happy_Theme1.ogg"
+define audio.Whoosh3 = "music/sfx/Whoosh3.ogg"
+define audio.Ball_Getroffen1 = "music/sfx/Ball_Getroffen1.ogg"
+define audio.treefall = "music/sfx/treefall.ogg"
+define audio.cardoor1 = "music/sfx/Autotür1.ogg"
+define audio.cardoor2 = "music/sfx/Autotür2.ogg"
+
+######################################
+
+##### TRANSFORM DEFINITIONS #####
+
+transform slightleft:
+    xalign .35
+    yalign 1.0
+transform slightright:
+    xalign .68
+    yalign 1.0
+transform leftish:
+    xalign .26
+    yalign 1.0
+transform rightish:
+    xalign .76
+    yalign 1.0
+transform chicken:
+    xalign .68
+    yalign .5
+
+
+transform flight:
+    xalign .5
+    yalign .4
+
+transform flightright:
+    xalign .8
+    yalign .4
+
+
+transform rotation:
+    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
+    rotate 10
+    
+
+######################################
+
+###time###
+transform alpha_dissolve:
+    alpha 0.0
+    linear 0.5 alpha 1.0
+    on hide:
+        linear 0.5 alpha 0
+
+###screens###
+
+screen countdown:
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
+    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve # This is the timer bar.
+init:
+    $ timer_range = 0
+    $ timer_hump = 0
+    
+screen grurahide():
+    imagebutton idle "images/Displayables/verstecken/vs grura2_1.png":
+        focus_mask True
+        action [Hide("grurahide") ,Call("success_grura")]
+
+screen flurhide():
+    imagebutton idle "images/Displayables/verstecken/vs flur2.png":
+        focus_mask True
+        action [Hide("flurhide") ,Call("success_flur")]
+        
+screen courthide():
+    imagebutton idle "images/Displayables/verstecken/vs court1.png":
+        focus_mask True
+        action [Hide("courthide") ,Call("success_court")]
+
+
+label start:
+
+    ##### AFFINITY SYSTEM INITIATE #####
+    $ randyname = True
+    $ hasknappers = True
+    $ snackersdeal = True
+    $ anjatreat = True
+    $ octa_points = 1
+    $ eve_points = 4
+    $ anja_points = 3
+    $ paper =""
+    $ farbflug = ""
+    $ dynamik = ""
+    $ chaos =""
+    $ tip =""
+    $ seekwin = "True"
+    $ seekloss = ""
+    
+    $ grura = ""
+    $ flur = ""
+    $ court = ""
+    $ kz = ""
+    $ food = ""
+    $ catch = 0
+    $ seekattempts = 0
+
+    
+    ##### AFFINITY SYSTEM END #####
+    python:
+        name = renpy.input("Gib dem Kind einen Namen.")
+        name= name.strip() or "P"
+        
+        
+    menu:
+        "Wird das Kind Junge oder als Mädchen gesehen?"
+        "Als Junge":
+            $ gender = "male"
+            
+        "Als Mädchen":
+            $ gender = "female"
+            
+            
+    
+    if gender == "male":
+        python:
+            pro = "sein"
+            pro2 = "er"
+            pro3 = "ihm"
+            pro4 = "Sohn"
+            pro5 = "ihn"
+            suf = "en"
+            suf2 = "" ### neu
+            ddd = "der" ### neu
+    else:
+        python:
+            pro = "ihr"
+            pro2 = "sie"
+            pro3 = "ihr"
+            pro4 = "Tochter"
+            pro5 = "sie"
+            suf = "e"
+            suf2 = "in" ### neu
+            ddd = "die" ### neu
+
+
+            
+label suchen:
+    
+    p "Ich will eh suchen, wenn ich euch finde wird Das lustig!"
+    show randy happy
+    r "Alles klar wir haben einen Sucher!"
+    r "Also, du machst jetzt die Augen zu und zählst drei mal bis 20, dann darfst du die Augen wieder öffnen und Anfangen zu suchen."
+    r "Verstanden?"
+    p "Ja schon."
+    show randy talk
+    r "Ach ja, wenn du zu lange brauchst dann kommen wir hervor und du hast auch verloren."
+    p "Na gut."
+    scene bg black with dissolve
+    hide randy
+    n "1...2...3...4..."
+    r "ALLE VERSTECKEN!"
+    n "18...19...20"
+    n "Noch 2 mal!"
+    n "1...2... 18...19...20"
+    n "17...18...19 uuuund 20!"
+    p "Bereit oder nicht ich komme!"
+       
+       
+label location:
+    hide screen grurahide
+    hide screen courthide
+    hide screen flurhide
+    $ seekattempts +=1
+    
+    if catch == 3:
+        jump seekwinner
+    elif seekattempts == 5:
+        jump seekloser
+    
+    
+    n "Wo sollte ich wohl suchen? Sobald ich loslauf muss ich schnell sein!"
+    menu:
+        "Gruppenraum" if grura == "":
+            jump Gruppenraum
+        "Flur" if flur == "":
+            jump Flur 
+        "Essenszimmer" if food == "":
+            jump Essenszimmer
+        "Draußen" if court == "":
+            jump Court
+        "Krankenzimmer" if kz == "":
+            jump Krankenzimmer
+            
+label Gruppenraum:
+    $ grura = "False"
+    $ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'location'
+    show screen countdown
+    show bg grura2
+    show screen grurahide()
+    
+    
+    n "Nein."
+    n "Nicht Hier."
+    n "Da auch nicht."
+    n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
+    hide screen grurahide
+    hide screen countdown
+    jump location
+
+label success_grura:
+    hide screen countdown
+    $ catch += 1
+    n "Ich glaube, dass Kissen war vorher nicht da!"
+    show randy shock at rightish
+    p "Hab dich!"
+    r "Och menno, ich dachte ich bin hier sicher."
+    p "Nicht sicher vor mir!"
+    n "So, wo sind wohl die anderen?"
+    hide randy
+    jump location
+
+label Flur:
+    $ flur = "False"
+    $ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'location'
+    show screen countdown
+    show bg flur
+    show screen flurhide()
+    n "Nein."
+    n "Nicht Hier."
+    n "Da auch nicht."
+    n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
+    hide screen flurhide
+    hide screen countdown
+    jump location
+    
+label success_flur:
+    hide screen countdown
+    $ catch +=1
+    n "An der Garderobe stimmt etwas nicht."
+    show octa shock
+    p "Octavia? Ich dachte du wolltest Papierflieger machen."
+    show octa smug
+    o "Das kann ich doch schon. Aber was anderes, dachte nicht, dass du mich findest."
+    p "Nun ja, ich muss weiter schauen."
+    hide octa
+    jump location
+    
+    
+label Essenszimmer:
+    $ food = "False"
+    $ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'location'
+    show screen countdown
+    show bg food
+    n "Nein."
+    n "Nicht Hier."
+    n "Da auch nicht."
+    n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
+    hide screen countdown
+    jump location
+    
+label Court:
+    $ court = "False"
+    $ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'location'
+    show screen countdown
+    show bg court
+    show screen courthide()
+    n "Nein."
+    n "Nicht Hier."
+    n "Da auch nicht."
+    n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
+    hide screen courthide
+    hide screen countdown
+    jump location
+
+label success_court:
+    hide screen countdown
+    $ catch += 1
+    n "Da hinten hat etwas geraschelt."
+    show anja what at leftish
+    a "Sappererlot, dachte nicht mir folgt jemand nach draußen."
+    p "Wusste doch, dass du dich hier aufhalten wirst."
+    show anja happy
+    a "Nun ja, da wurden wir eben..."
+    h "Was macht ihr denn da draußen!?"
+    a "Oh. Oh."
+    h "Schaut sofort, dass ihr wieder rein kommt."
+    n "Ich muss eh noch zu den anderen kommen!"
+    hide anja
+    jump location
+    
+label Krankenzimmer:
+    $ kz = "False"
+    $ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'location'
+    show screen countdown
+    show bg health
+    n "Nein."
+    n "Nicht Hier."
+    n "Da auch nicht."
+    n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
+    hide screen countdown
+    jump location    
+
+label seekwinner:
+    $ seekwin = "True"
+    show bg grura2
+    show randy talk at rightish
+    show octa shock
+    show anja talk at leftish
+    a "Du hast uns echt alle erwischt!"
+    p "Ja, irgendwie schon."
+    show octa talk
+    o "War schon gut und so von dir, dass nächste mal will ich aber dich erwischen!"
+    show randy talk
+    show octa smug
+    r "Du bist wirklich wahnsinnig gut!"
+    show karin shock with moveinright
+    show anja mad
+    show randy mad
+    k "Tut mir leid Kinder!"
+    k "Was soll denn das [name], hörst du mich nicht?"
+    k "Deine Mutter wartet schon auf dich!"
+    k "Los, du kannst dich ja mittlerweile schon alleine anziehen!"
+    n "Hmmh, dann muss ich wohl laus."
+    p "Wenn meine mama wartet, dann tschau Leute."
+    o "Tschüss."
+    a "Servus."
+    r "Auf Wiedersehen."
+    jump scenew2_9
+    
+label seekloser:
+    $ seekloss = "True"
+    show bg grura2
+    n "Ich kann nicht mehr!"
+    p "So leute, ich gebe auf, ihr könnt aus euren verstecken!"
+    show randy talk at rightish
+    show octa smug
+    show anja jabber at leftish
+    o "Wussten wir doch, dass du nicht alle finden wirst."
+    a "Trotzdem gut geschlagen."
+    show anja n
+    r "Nun ja, hat doch gepasst."
+    show karin shock with moveinright
+    show anja mad
+    show randy mad
+    show octa smug
+    k "Tut mir leid Kinder!"
+    k "Was soll denn das [name], hörst du mich nicht?"
+    k "Deine Mutter wartet schon auf dich!"
+    k "Los, du kannst dich ja mittlerweile schon alleine anziehen!"
+    n "Hmmh, dann muss ich wohl laus."
+    p "Wenn meine mama wartet, dann tschau Leute."
+    o "Tschüss."
+    a "Servus."
+    r "Auf Wiedersehen."
+
+label scenew2_9:
+    scene bg black
+    "Naja, dass ende halt zum testen."
+    "Test"
+    "Teeeest"
+    "Test"
+
+
+    return
