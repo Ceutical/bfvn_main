@@ -82,7 +82,7 @@ label location:
             jump Krankenzimmer
             
 label Gruppenraum:
-    $ grura = False
+    $ grura = "False"
     $ time = 5
     $ timer_range = 5
     $ timer_jump = 'location'
@@ -112,7 +112,7 @@ label success_grura:
     jump location
 
 label Flur:
-    $ flur = False
+    $ flur = "False"
     $ time = 5
     $ timer_range = 5
     $ timer_jump = 'location'
@@ -141,7 +141,7 @@ label success_flur:
     
     
 label Essenszimmer:
-    $ food = False
+    $ food = "False"
     $ time = 5
     $ timer_range = 5
     $ timer_jump = 'location'
@@ -155,7 +155,7 @@ label Essenszimmer:
     jump location
     
 label Court:
-    $ court = False
+    $ court = "False"
     $ time = 5
     $ timer_range = 5
     $ timer_jump = 'location'
@@ -187,7 +187,7 @@ label success_court:
     jump location
     
 label Krankenzimmer:
-    $ kz = False
+    $ kz = "False"
     $ time = 5
     $ timer_range = 5
     $ timer_jump = 'location'
@@ -201,7 +201,7 @@ label Krankenzimmer:
     jump location    
 
 label seekwinner:
-    $ seekwin = True
+    $ seekwin = "True"
     show bg grura2
     show randy talk at rightish
     show octa shock
@@ -228,7 +228,7 @@ label seekwinner:
     jump scenew2_9
     
 label seekloser:
-    $ seekloss = True
+    $ seekloss = "True"
     show bg grura2
     n "Ich kann nicht mehr!"
     p "So leute, ich gebe auf, ihr könnt aus euren verstecken!"

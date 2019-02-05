@@ -89,6 +89,7 @@ define audio.draw = "music/sfx/Malgeräusche.ogg"
 define audio.foodplay = "music/sfx/Mit Essen Spielen.ogg"
 define audio.snackers = "music/sfx/snackers.ogg"
 define audio.street = "music/sfx/street.ogg"
+define audio.Woosh3 = "music/sfx/Woosh3"
 
 ######################################
 
@@ -121,6 +122,12 @@ transform topishleft:
 transform rotation:
     around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
     rotate 10
+transform flight:
+    xalign .5
+    yalign .4
+transform flightright:
+    xalign .8
+    yalign .4
     
 ######Rennen#####
 transform arun1:
@@ -314,6 +321,15 @@ label start:
     play music introtheme
     
     ##### OTHER DEFINITIONS #####
+    $ seekwin = "True"
+    $ seekloss = ""
+    $ grura = ""
+    $ flur = ""
+    $ court = ""
+    $ kz = ""
+    $ food = ""
+    $ catch = 0
+    $ seekattempts = 0
     
 
     ##### AFFINITY SYSTEM INITIATE #####
@@ -368,9 +384,9 @@ label scene1:
             suf = "e"
             suf2 = "e"
             suf3 = "in"
+            pre = "meine"
             suf4 = "e"
             ddd = "die"
-            pre = "meine"
 
     ##### Szene 2 CHILD #####
 label childlike:
@@ -403,11 +419,15 @@ label childlike:
     m "Freust du dich schon deine neuen Freunde kennenzulernen?"
     menu:
         "Jaaaaaa!":
+            $ octa_points += 1
+            $ eve_points -= 1
+            $ anja_points += 1
             $ happytogo = True
             n "Das wird bestimmt super."
             m "Das ist schön. Du kommst bestimmt in eine Gruppe mit ganz tollen anderen Kindern."
      
         "Ja...":
+            $ eve_points += 1
             $ happytogo = False
             n "So wirklich Lust habe ich nicht."
             m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
@@ -427,7 +447,7 @@ label scene3:
         n "Aber irgendwie auch nicht. Vielleicht finde ich da ja neue noch bessere Freunde als in meinem alten Kindergarten. "
         m "Das wird ein ganz toller Tag, glaub mir!"
     else:
-        n "Verdammt ich möchte das nicht. Muss das sein? Mein alter Kindergarten war doch super. Warum muss ich jetzt hier hin?"
+        n "Mann, ich will nicht. Muss das sein? Mein alter Kindergarten war doch super. Warum muss ich jetzt hier hin?"
         n "Naja, wenigstens ist Mama da."
         m "Gleich sind wir da. Keine Angst, das wird schon! Du wirst bestimmt viele neue Freunde finden."
         n "Mein alter Kindergarten ist definitiv schöner als das hässliche Haus da."
@@ -445,6 +465,8 @@ label scene3:
     h "Ah. Der Neuzugang. Ich bin Frau Heidenau. Wie ist dein Name [pro6]?"
     menu:
         "Selbst vorstellen.":
+            $ octa_points += 1
+
             p "Ich bin [ddd] [name] und schon 6 Jahre alt!"
             h "Hmpf. [name] also. Wieso sollte man sein Kind bitte [name] nennen?"
             show mum mad at left with moveinleft
@@ -452,8 +474,8 @@ label scene3:
             show heide mad
             h "Papperlapapp!"
             hide mum with moveoutleft
-            show heide talk
-            h "Ihr Kind ist bei uns bestens aufgehoben. So \"[name]\", deine Gruppe ist die Käfergruppe, die Karin kümmert sich um dich."
+            show heide talk 
+            h "Ihr Kind ist bei uns bestens aufgehoben. So \" [name] \", deine Gruppe ist die Käfergruppe, die Karin kümmert sich um dich."
             h "Mitkommen!"
             n "Warum zieht sie mich am Ärmel. Ich will das nicht."
             n "Ich wäre auch so mit gekommen. Warum ist diese komische alte Frau so grob. Meine Oma ist auch alt, aber die würde sowas nie machen."
@@ -461,6 +483,9 @@ label scene3:
             h "Hier Karin. Ein[suf4] Neu[suf2]. Ich muss jetzt weitermachen. Ich erwarte nachher deinen Bericht."
         
         "Mutter hilfesuchend ansehen.":
+            $ octa_points -= 1
+            $ anja_points += 1
+
             show heide n at slightright with move
             show mum talk at slightleft with moveinleft
             p "Äh... I... ich..."
@@ -504,12 +529,19 @@ label scene3:
     
     menu:
         "Vorstellen.":
+            $ octa_points += 1
+            $ anja_points += 1
+
             $ menu_choice3 = "yes"
             p "Hallo, ich bin [name]! Lasst uns Freunde sein!"
             k "Da hört ihr's Kinder. Ich hoffe ihr freundet euch alle mit [name] an!"
             
             
         "Schweigen.":
+            $ octa_points -= 1
+            $ eve_points += 2
+            $ anja_points -= 1
+
             $ menu_choice3 = "no"
             p "..."
             n "Ich will mich nicht vorstellen. Am Ende versprech’ ich mich noch und die Anderen machen sich über mich lustig."
@@ -519,6 +551,9 @@ label scene3:
             k "Alles gut. Also Kinder, das hier ist [name], ich hoffe ihr alle könnt Freunde werden."
         
         "Stammeln.":
+            $ octa_points -= 1
+            $ anja_points += 1
+
             $ menu_choice3 = "meh"
             p "I.. ich.. also ich b-b-bin..."
             k "Du brauchst keine Angst haben."
@@ -567,10 +602,12 @@ label scene4:
     o "Hallo! Du bist neu, oder? Ich bin Octavia. Das sind Klanghölzer, weißt du oder? Das kannst du doch, oder?"
     menu:
         "Ja! Die sind voll lustig!":
+            $ octa_points += 1
             $ boomstick = True
             o "Find ich auch! Und voll einfach. Ich kann das hier am Besten, sagt meine Mama mir auch immer."
             
         "Ähm, nein ... Noch nie ...":
+            $ octa_points -= 1
             $ boomstick = False
             o "Was, du kannst das garnicht?"
             o "Die anderen sagen das ist voll schwer. Find ich nicht. Ich bin die Beste damit!"
@@ -585,6 +622,7 @@ label scene4:
         "Hast du das Minispiel gewonnen oder verloren?"
         
         "Gewonnen.":
+            $ octa_points += 2
             hide karin
             show octa talk at center with move
             o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
@@ -596,6 +634,7 @@ label scene4:
                 o "Du hast doch gesagt, du kannst das nicht? Egal. Ich war ja auch viel besser als du."
             
         "Verloren...":
+            $ octa_points -= 2
             hide karin
             show octa talk at center with move
             o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
@@ -694,6 +733,8 @@ label scene6:
         e "Wie findest du das Bild?"
         
         "Das sieht toll aus!":
+            $ eve_points += 2
+
             hide dis leuchtturm
             show eve shy2
             with dissolve
@@ -717,6 +758,7 @@ label scene6:
             e "Weißt du denn garnicht was ein Leuchtturm ist?"
             menu:
                 "Nein...":
+                    $ eve_points += 1
                     show eve shy2
                     p "Nein, weiß ich nicht. Aber ich mag dein Bild!"
                     e "Ich hab auch noch nie einen Echten gesehen."
@@ -730,6 +772,7 @@ label scene6:
                     e "Aber jetzt weißt du was das ist. Dann kannst du auch einen malen!"
                     
                 "Leuchttürme sehen ganz anders aus.":
+                    $ eve_points -= 2
                     p "Also ich war schonmal mit meinen Eltern bei einem Leuchtturm und der sah ganz anders aus."
                     show eve mad
                     e "War wohl ein blöder Leuchtturm."
@@ -739,6 +782,7 @@ label scene6:
                     
             
         "Das kann ich aber besser.":
+            $ eve_points -= 3
             hide dis leuchtturm
             show eve mad
             with dissolve
@@ -808,6 +852,7 @@ label scene8:
     menu:
         
         "Interesse zeigen.":
+            $ eve_points += 1
             show eve foodplay
             p "Warte du ..."
             p "Ohh toll! Du malst ja wirklich!"
@@ -822,6 +867,7 @@ label scene8:
 
             
         "Igitt....":
+            $ eve_points -= 2
             p "Aber warum denn mit deinem Essen... Das ist doch ekelig."
             show eve foodmad
             e "Gar nicht wahr. Das ist schön, guck doch mal."
@@ -834,6 +880,7 @@ label scene8:
             e "Darum geht es doch auch gar nicht!"
             
         "WAS tust du?!":
+            $ eve_points -= 1
             p "Ihhh! Mama sagt man spielt nicht mit Essen!"
             show eve foodmad
             e "Meine auch. Aber ich spiele ja auch garnicht. Ich male."
@@ -849,6 +896,7 @@ label scene8:
         e "Versuch es doch einfach auch mal."
         
         "Au ja!":
+            $ eve_points += 1
             scene cg foodplay with dissolve
             play sound foodplay
             e "Nicht schlecht. Man kann fast erkennen, dass du ein Haus bauen wolltest."
@@ -856,6 +904,7 @@ label scene8:
             e "Ohh! Ja stimmt, wenn man es weiß. Du musst aber wirklich noch üben."
             
         "Nein, sicher nicht.":
+            $ eve_points -= 1
             scene cg food with dissolve
             p "Nein ... nein ich esse lieber ganz normal. Ich will mich nicht schmutzig machen."
             e "Dann nicht ..."
@@ -1050,6 +1099,7 @@ label scene11:
                 p "Ähm... Ich glaube ..."
                 
                 "Schoko ist besser!":
+                    $ anja_points += 1
                     show anja happyb
                     a "HAH! Da hast's, Randy! Jetzt sind wir schon 2."
                     r "Ist doch egal, wenn's Geschmackssache ist. Jetzt macht's aber eh keinen Sinn mehr da noch zu reden."
@@ -1060,6 +1110,7 @@ label scene11:
                     a "Du, komm mal mit hoch."
                     
                 "Vanille ist besser!":
+                    $ anja_points -= 1
                     show randy vhappy
                     "???" "Ha! Siehst du, ist doch nur Geschmackssache! Selbst dein zufälliger Freund stimmt mir zu!"
                     a "Ich mein, ... ja ... also ... [name], fall mir doch nicht einfach in den Rücken!"
@@ -1072,6 +1123,7 @@ label scene11:
 
             
         "Versuchen den Streit zu stoppen.":
+            $ anja_points -= 1
             $ daze = True
             p "Hey! HEY! HÖRT AUF!"
             p "Hört doch auf zu streiten! Das macht doch keinen Sinn"
@@ -1109,6 +1161,7 @@ label scene11:
             a "Komm schon, ich zeig's dir auch wie's geht."
             menu:
                 "Lieber nicht...":
+                    $ anja_points -= 2
                     $ gone = True
                     $ anjatreat = False
                     p "Nein! Nein, nein! Ich ... ich guck mal wo dein Freund ist."
@@ -1118,6 +1171,7 @@ label scene11:
                     jump scene12
                     
                 "Na gut.":
+                    $ anja_points += 3
                     p "Okay, aber wenn mir was passiert bist du schuld!"
                     a "Jeder kann klettern, ist nur eine Frage der Technik!"
                     p "Ich hoffe ... "
@@ -1144,6 +1198,7 @@ label scene11:
             
             
         "Wortlos gehen.":
+            $ anja_points -= 3
             $ gone = True
             $ anjatreat = False
             show anja madb
@@ -1154,6 +1209,7 @@ label scene11:
             jump scene12
             
         "Ich kann klettern.":
+            $ anja_points += 2
             p "Okay, ich komm zu dir hoch."
             p "Klettern ist einfach. Hände hier, Beine da und schon oben. Hallo du!"
             a "Sauber, kannst's ja so gut wie ich. Respekt."
@@ -1180,6 +1236,7 @@ label scene11:
             "Willst du deine Snackers mit Anja teilen um sie zu beruhigen?"
             
             "Ja.":
+                $ anja_points += 2
                 $ anjatreat = True
                 p "Ich hab ein paar Snackers. Wenn du Schokolade willst, kann ich dir eins abgeben."
                 show anja happyb
@@ -1354,27 +1411,29 @@ label scene13:
     o "Ist doch egal. Probier's mal aus. Bist doch kein Weichei und wenn du fällst ist's ja nicht so schlimm. Hier, kannst auch meinen Helm haben."
     
     
-    $ bikepoints = 0
+    
     menu:
         o "Bawk, Bawk Bawk! Komm schon, du bist doch kein Angsthase, oder?"
         
         "Auf das Fahrrad steigen.":
+            $ octa_points += 2
             p "Ist ja gut, ich mach ja schon."
             
             
         "Nein.":
-            $ bikepoints += 1
+            $ octa_points -= 1
             p "Ich... Ich will wirklich nicht!"
             o "Ohh, du bist wohl ein Angsthase."
             show octa mad
             o "Jetzt mach oder ich erzähl Allen, dass du mich vom Rad geschubst hast!"
             menu:
                 "Doch auf's Rad steigen.":
+                    $ octa_points += 1
                     p "Schon gut! Ich fahre ja."
                     
                     
                 "Sich weiterhin weigern.":
-                    $ bikepoints += 1
+                    $ octa_points -= 2
                     p "Mama sagt, immer lügen tun nur dumme Kinder!"
                     p "Dann macht doch, dann sag ich Allen dass du lügst, es hat ja keiner gesehen, dass ich dich geschubst hab!"
                     show octa vmad
@@ -1410,6 +1469,7 @@ label scene14:
         p "Das hat weh getan ..."
         
         "Weinen.":
+            $ octa_points -= 1
             $ crying = True
             p "Wahhhh! Wahhhh!"
             p "Mein Knie!!"
@@ -1424,6 +1484,7 @@ label scene14:
 
             
         "Stark bleiben.":
+            $ octa_points += 1
             $ crying = False
             p "Ich brauch ein Pflaster..."
             o "Was ist passiert?"
@@ -1502,6 +1563,7 @@ label scene14:
         n "Wie erklär ich das jetzt?"
         
         "Die Wahrheit sagen":
+            $ octa_points -= 3
             $ octahome = True
             p "Ich bin mit Octavias Fahrrad gefahren."
             show karin shock
@@ -1525,6 +1587,7 @@ label scene14:
             o "Bitte nicht zu Hause anrufen..."
             
         "Lügen.":
+            $ octa_points += 2
             $ octahome = False
             p "Katze!"
             show octa happy
@@ -1759,6 +1822,7 @@ label scene16:
     
     menu:
         "Killerwal":
+            $ octa_points += 2
             $ costume = "wal"
             p "KILLERWAL!"
             m "Woah. Also dann, alles klar."
@@ -1769,6 +1833,7 @@ label scene16:
             show mum talk
         
         "Motte":
+            $ anja_points += 2
             $ costume = "moth"
             p "Mofpa!"
             m "Die sieht ja scheußlich aus."
@@ -1777,6 +1842,7 @@ label scene16:
             p "Ja, ich will das Kostüm."
             
         "Wolper...dings":
+            $ eve_points += 2
             $ costume = "wolp"
             p "Wolterdimper. Der ist voll cool!"
             show mum happy 
@@ -1826,6 +1892,8 @@ label scene17:
         if hasknappers == True:
             menu:
                 "Knappers geben":
+                    $ eve_points += 1
+                    $ anja_points += 2
                     $ trade = True
                     p "Einen Moment... Hier!"
                     show lparty happy
@@ -1847,6 +1915,9 @@ label scene17:
 
                 
                 "Kein Knappers geben":
+                    $ octa_points -= 2
+                    $ eve_points -= 1
+                    $ anja_points -= 3
                     $ trade = False
                     p "Ich hab leider keins dabei. Nächste Woche vielleicht?"
                     show lparty mad
@@ -1862,6 +1933,9 @@ label scene17:
         else:
             menu:
                 "Kein Knappers geben":
+                    $ octa_points -= 2
+                    $ eve_points -= 1
+                    $ anja_points -= 3
                     $ trade = False
                     p "Ich hab leider keins dabei. Nächste Woche vielleicht?"
                     show lparty mad
@@ -2050,10 +2124,12 @@ label scene19f:
             p "Bereit!"
             
         "Bereiterer.":
+            $ anja_points += 1
             n "An seinem Geburtstag doch immer."
             p "Na klar!"
             
         "Am Bereitesten.":
+            $ anja_points += 2
             n "Das müssen sie noch fragen?"
             p "Ich bin bereit! Ich bin bereit! Ich bin bereit!"
     
@@ -2109,8 +2185,9 @@ label scene20:
     r "Nein. Ihr seid die Neuen, ihr dürft gleich starten."
     menu:
         "Ich möchte anfangen.":
+            $ eve_points += 2
             p "Gut, dann fang ich eben an. Aber Evelynn, du kommst danach dran."
-            e "Danke trotzdem."
+            e "Na gut."
             n "Randy gibt mir einen Zettel auf dem steht... natürlich."
             hide rparty vhappy
             n "Radzilla..."
@@ -2121,6 +2198,7 @@ label scene20:
             
             menu:
                 "Dinosauriergebrüll":
+                    $ eve_points -= 2
                     p "Roooaaaar"
                     show oparty mad
                     show eparty mad
@@ -2129,6 +2207,7 @@ label scene20:
                     o "Tss... tss... tsss..."
 
                 "Umherstampfen":
+                    $ eve_points += 2
                     show aparty mad
                     show eparty talk2
                     show oparty talk
@@ -2137,6 +2216,7 @@ label scene20:
                     a "Ich als Cowboy? Nicht lustig."
                 
                 "Rumstehen":
+                    $ eve_points -= 1
                     show eparty talk2
                     show oparty mad
                     e "Los, mach was."
@@ -2147,6 +2227,7 @@ label scene20:
             n "Ich sollte wohl noch mehr machen."
             menu:
                 "Stampf über die Kartonstadt.":
+                    $ eve_points += 2
                     show eparty happy2
                     show oparty happy
                     show aparty jabber
@@ -2155,7 +2236,8 @@ label scene20:
                     o "Nicht schlecht."
 
                 "Gib auf!":
-                    p "Tut mir Leid, fühl mich unwohl."
+                    $ eve_points -= 2
+                    p "Tut mir Leid, fühl mich nicht gut."
                     show oparty buh                    
                     show eparty talk2
                     show aparty n
@@ -2192,6 +2274,7 @@ label scene20:
             
             
         "Evelynn darf anfangen.":
+            $ eve_points += 1
             p "Komm Evelynn, du fängst an."
             show eparty mad at rightish
             e "Was? Wieso?"
@@ -2211,12 +2294,15 @@ label scene20:
             
             menu:
                 "Jemand der seitlich steht":
+                    $ eve_points -= 1
                     p "Ein umfallender Mensch."
                 
                 "Skateboarder":
+                    $ eve_points += 1
                     p "Skateboardfahrer!"
                 
                 "Keine Ahnung!":
+                    $ eve_points -= 2
                     p "Ääähm, was bitte?"
             
             r "Radzilla? Der steht auch viel rum."
@@ -2226,9 +2312,10 @@ label scene20:
             
             show epantobaum
             hide epanto
-            n "Evelynn nimmt einen Karton und stellt sich darauf, ich glaube es könnte..."
+            n "Evelynn nimmt sich einen Ast der zur Deko gehört und stellt sich darauf, ich glaube es könnte..."
             menu:
                 "...ein Surfer...":
+                    $ eve_points += 2
                     "...sein."
                     p "Surfer!"
                     hide epantobaum 
@@ -2245,6 +2332,7 @@ label scene20:
                     "Evelynn schaut mich weiterhin an."
                     menu:
                         "Schauspiel loben.":
+                            $ eve_points += 2
                             p "Evelynn ist doch eine gute Schauspielerin. War doch nicht so schwer."
                             show eparty happy2 at center
                             o "Angeber."
@@ -2258,6 +2346,7 @@ label scene20:
                             jump foto
                             
                         "Nichts sagen.":
+                            $ eve_points -=1 
                             p "..."
                             show eparty mad at center
                             "Evelynn schaut mich einfach weiter an."
@@ -2271,6 +2360,7 @@ label scene20:
                             jump foto
 
                 "...garnichts...":
+                    $ eve_points -= 1
                     "...sein."
                     r "Prince Ape? Der klettert auf Bäume."
                     a "Ein Affe? Das kann stimmen."
@@ -2289,6 +2379,7 @@ label scene20:
                     "Evelynn schaut mich an."
                     menu:
                         "Schauspiel loben":
+                            $ eve_points += 2
                             p "Ist auch kein leichtes Wort, schlecht hast du nicht gespielt."
                             show eparty happy2 at center
                             o "Ähm was?"
@@ -2302,6 +2393,7 @@ label scene20:
                             jump foto
 
                         "Mit dem Rest schweigen":
+                            $ eve_points -=1 
                             "..."
                             show eparty talk2 at center
                             e "Du bist dran!"
@@ -2334,6 +2426,7 @@ label scene20:
                     "Evelynn schaut mich an."
                     menu:
                         "Schauspiel loben":
+                            $ eve_points += 2
                             p "Ist auch kein leichtes Wort, schlecht hast du nicht gespielt."
                             show eparty happy2 at center
                             o "Ähm was?"
@@ -2347,6 +2440,7 @@ label scene20:
                             jump foto
 
                         "Mit dem Rest schweigen":
+                            $ eve_points -=1 
                             "..."
                             show eparty talk2 at center
                             e "Du bist dran!"
@@ -2436,20 +2530,23 @@ label scene21:
     n "Egal. Ich kann sie überzeugen."
     menu:
         "WALDKILLERwal":
+            $ octa_points += 1
             n "Dann bin ich eben der erste WALDKILLERwal und du wirst berühmt für deine Entdeckung!"
             show aparty jabber
             a "So richtig glaub ich dir das nicht."
             a "Aber egal, lass uns spielen!"
         
         "In Panama gibt es Dschungel-Wale":
+            $ octa_points += 2
             p "Ich hab mal gehört, in Panama gibt es Wale die im Dschungel sind. Auf so großen Wassern."
             show aparty shock
             a "So etwas kann es geben?"
             a "Wow."
             show aparty talk
-            a "Na gut,lass uns klettern."
+            a "Na gut, lass uns klettern."
         
         "Klettern ist klettern":
+            $ octa_points -= 1
             p "Klettern ist klettern. Macht doch trotzdem Spaß."
             show aparty mad
             a "Recht haste ja."
@@ -2626,6 +2723,7 @@ label scenew2_2:
     n "Hmmmh"
     menu:
         "Konsole spielen":
+            $ octa_points += 2
             n "Malen kann ich ja immer noch wann anders lernen."
             n "Erst sollte ich alle Arenen erledigen, wenn ich schon damit angefangen habe!"
             n "Außerdem hör ich eh schon die Musik..."
@@ -2657,6 +2755,7 @@ label scenew2_2:
                 pause 0.75
                 play music octatheme fadein 1.0
                 if win == "yes":
+                    $ octa_points += 2
                     scene bg grura
                     show octa shock
                     with fade
@@ -2682,6 +2781,7 @@ label scenew2_2:
                     
                     
                 else:
+                    $ octa_points -= 2
                     scene bg grura
                     show octa smug
                     with fade
@@ -2697,13 +2797,16 @@ label scenew2_2:
                     o "Alles klar, viel Spaß noch!"
                     
         "Mit Evelynn malen":
+            $ eve_points += 2
             n "Ich kann ja auch noch Nachmittag daheim spielen, erst einmal zu Evelynn!"
             n "Der Maltisch ist wohl heute wirklich voll. Randy hat sich wohl alle Brettspiele geschnappt."
             scene bg grura2
             show eve draw 
             n "Was malt die denn da?"
             show mantikoreve with fade
+            pause 0.5
             hide mantikoreve with fade
+            $ renpy.block_rollback()
             n "Ich kann gar nichts sehen. Die Anderen standen im Weg!"
             n "Aber es sah interessant aus, vielleicht kann ich es ja nachzeichnen!"
             n "Ich probier es mal."
@@ -2712,7 +2815,7 @@ label scenew2_2:
             play music evetheme
             scene memory bg
             
-            n "Sooo, doch welche Farbe hatte das Tier?"
+            n "Sooo, aber welche Farbe hatte das Tier?"
             
             menu:
                 "Rot":
@@ -2800,6 +2903,7 @@ label scenew2_2:
             p "Schau mal Evelynn!"
 
             if colo == "o" and body == "l" and schwanz == "s" and flug == "d":
+                $ eve_points += 5
                 show edraw talk
                 e "Aaa... Also.."
                 show edraw mad
@@ -2820,6 +2924,7 @@ label scenew2_2:
                 jump scenew2_3
             
             else:
+                $ eve_points -= 1
                 show edraw mad
                 e "Hmmmh!"
                 n "Was schaut Sie denn so kritisch?"
@@ -2947,6 +3052,8 @@ label scenew2_4:
             jump scenew2_5
 
         "Ball spielen":
+            $ anja_points += 2
+            $ octa_points += 2
             scene bg ball
             n "Wenn jeder spielt, dann muss ich wohl auch mitmachen."
             jump startballgame
@@ -3241,21 +3348,546 @@ label scenew2_5:
             
             
     window auto
+    
 label scenew2_6:
-    "Placeholder W2S6"
+    scene bg grura2
+    play music maintheme
+    show karin n at right
+    n "Hmmh... Meine Mama müsste mich eigentlich schon lange abgeholt haben..."
+    n "Wo bleibt die nur?"
+    n "Die anderen wurden alle schon abgeholt, doch wieso sitze ich noch hier und muss warten?"
+    n "Wenigstens ist Karin noch da."
+    show karin talk
+    k "[name]?"
+    p "Was ist Karin?"
+    k "Hat deine Mama dir gesagt ob Sie heute später kommt?"
+    p "Nein, eigentlich kommt sie nie zu spät..."
+    show karin mad
+    k "Ich muss deswegen leider auch warten bis du abgeholt wirst... Weißt du ich hab' auch Kinder zu Hause."
+    show karin shock
+    k "Aber du kannst ja nichts dafür."
+    show karin talk
+    k "Das nächste mal, wenn Sie sich so sehr verspätet soll Sie bitte den Kindergarten anrufen."
+    k "Aber das kann ich ihr dann wohl auch selbst sagen, keine Sorge. Jetzt warten wir einfach zusammen."
+    hide karin
+    scene bg black
+    k "Die ist bestimmt bald da."
+    n "..."
+    n "..."
+    n "Karin?"
+    k "hmmh?"
+    n "ach nichts..."
+    n "pffff..."
+    scene bg grura
+    n "Endlich!"
+    show mum n at left with moveinleft
+    show karin mad at right
+    m "Na mein Schatz? Du wartest sicherlich schon ewig hier, oder? Tut mir leid, aber lass uns gleich nach Hause gehen!"
+    m "Tut mir Leid Karin, ich bin einfach nicht mit der Arbeit fertig geworden und konnte es auch nicht aufschieben."
+    k "Kein Problem, dass kann zwar passieren aber, bitte geben Sie mir bescheid oder rufen Sie mich an."
+    k "Ich konnte Sie auch nicht erreichen, als ich versucht habe Sie anzurufen."
+    show mum mad
+    m "Also..."
+    k "Das ist nicht nur nervig für mich, sondern stresst auch ihr Kind."
+    show mum vmad
+    k "Ich bin ja schließlich auch an Sie gebunden und verpflichtet zu bleiben, bis alle Kinder abgeholt wurden."
+    k "Außerdem warten meine Kinder und mein Mann auf mich."
+    show mum talk
+    m "Sie haben ja Recht."
+    p "Können wir endlich gehen?"
+    show mum happy
+    m "Natürlich!"
+    m "Auf Wiedersehen!"
+    scene bg black with dissolve
+    hide mum
+    hide karin
+    n "Wieso ist Mama so müde?"
+    p "Willst du schlafen?"
+    m "Nichts lieber als das, also heute."
+    p "Ich bin auch müde!"
+    m "Ach so..."
     
 label scenew2_7:
     scene bg black with fade
-    show wed with fade
-    pause 1.5
-    hide fri with fade
-    "Placeholder W2S7"
+    show wed with fade   
+    scene bg street
+    play music maintheme
+    play sound audio.cardoor1
+    show mum n at rightish
+    n "Es ist schon wieder ein neuer Tag, ich bin gespannt wie es heute wird!"
+    n "Moment."
+    p "Mama, wieso steigst du mit aus?"
+    show mum talk
+    m "Hmmh?"
+    m "Ach, ich wollte nur mal mit reinschauen."
+    show mum n
+    n "Man, bin ich heute müde!"
+    n "Ich kann kaum die Augen offen halten."
+    show mum talk
+    m "Schatz. Sag mal. Wie ist es eigentlich hier im Kindergarten?"
+    m "Sind alle nett zu dir unt hast du mittlerweilie auch schon andere Freunde außer Randy kennengelernt?"
+    p "Was?"
+    n "Ich kann mich gar nicht darauf konzentrieren, was Mama sagt."
+    p "Warum bist du eigentlich reingekommen? Ich finde doch selbst den Weg. Bin ja kein Baby mehr!"
+    show mum happy
+    m "Ach, ich wollte nur kurz mit Karin reden."
+    n "Was will die mit Karin bereden?"
+    show mum n
+    m "Hab einen schönen Tag und spiel diesmal nicht mit deinen Videospiel-Teil!"
+    hide mum with moveoutright
+    n "und weg ist sie im Nebenzimmer, was die wohl besprechen?"
+    n "Ich hör einfach mal zu!"
+    scene bg office
+    show mum talk at leftish
+    show karin n at rightish
+    m "...kann ich gut verstehen.Und hat sich [name] schon mit anderen Gleichaltrigen angefreundet?"### Flagge und Affinitycheck
+    
+
+    if anja_points > octa_points and anja_points > eve_points :
+        #$anjaday = "True"
+        show karin talk
+        k "Ihr [name] ist hier gut aufgehoben und passt wunderbar in unsere bunte Gruppe."
+        k "Am meisten ist [name] mit Anja unterwegs."
+        k "Die beiden sind ständig am Quatschen, wobei ehrlich gesagt, Sie mehr als [name]."
+        show mum happy
+        k "aber beide wirken recht aufgeweckt."
+        show karin n
+        m "Und was ist diese Anja für ein Typ?"
+        k "Oh Anja. Das ist eine ga... und außerdem..."
+        scene bg black with dissolve
+        n "Nanu!"
+        scene bg office with dissolve
+        show mum mad at leftish
+        show karin go at rightish
+        k "Nun, sie --- relativ neu. Es macht Sinn, dass die beiden --- kommunikativ und gut im zuhören."
+        k "Am Freitag werde---"
+        show mum happy
+        show karin n
+            
+    elif eve_points > anja_points and eve_points > octa_points:
+        #$eveday = "True"
+        show karin talk
+        k "Ihr [name] ist ein wirklich kreatives Kind, weswegen es kein WUnder ist, dass [pro2] sich so gut mit Evelynn versteht."
+        k "Die beiden sind ständig am Maltischu und produzieren ihre kleinen Kunstwerke."
+        show karin go
+        k "Evelynn ist ein Naturtalent und manchmal frag ich mich, ob Sie besser malen kann als ich. Zumindest was Beleuchtung angeht."
+        k "[name] hat sich deshalb auch unter ihrer Kritik auch künstlerisch stark verbessert."
+        show mum happy
+        m "Das ist ja gut. Und was für ein Typ ist diese Evelynn?"
+        k "Musikalisch talentiert, sehr talentiert, aber--- "
+        scene bg black with dissolve
+        n "Nanu!"
+        scene bg office with dissolve
+        show mum mad at leftish
+        show karin go at rightish
+        k "Leider ein --- zurück--- Mädchen. Beidenehmen---Freundschaft mit, denn--- Kokon heraus."
+        k "Am Freitag werde..."
+        show mum happy
+        show karin n
+        
+    elif octa_points > anja_points and octa_points > eve_points:
+        #$octaday = "True"
+        show karin go
+        k "[name] ist wirklich sehr ergeizig und gibt sich mit allem was er macht wirklich mühe."
+        k "Das ist schon bemerkenswert für [pro] Alter, deswegen wundert es mich auch nicht, dass [pro2] sich mit den, wie soll ich sagen, Musterkind Octavia angefreundet hat."
+        show karin n
+        show mum mad
+        m "Hmmmh..."
+        m "Und was ist diese Octavia für ein Typ?"
+        show karin happy
+        k "Ein richtiger Engel. Unkompliziertz, aber wenn --- Spiele--- nur einen Hauch von Wettbewerb."
+        scene bg black with dissolve
+        n "Nanu!"
+        scene bg office with dissolve
+        show mum mad at leftish
+        show karin go at rightish
+        k "...deshalb ist es gut, dass [name] jetzt hier ist --- jemandern der [pro2] fordert."
+        k "Deshalb, werde ich am Freitag..."
+        show mum happy
+        show karin n
+            
+    else:
+        #$boo = "True"
+        show karin shock
+        k "Leider scheint er/sie ja eher zurückgezogen zu sein. Zwar bemüht sich Ihr Kind immer wieder, aber so richtig klappen will es scheinbar nicht. Zumindest, soweit ich das beurteilen kann." 
+        k "Wenn Sie wollen, werde ich Freitag mal ein genaueren Blick auf ihn/sie werfen."            
+        show mum talk
+        m "Was ist denn am Freitag?"
+        show karin talk
+        show mum n
+        k "Ich dachte, Frau Heidenau hätte allen Eltern bescheid gegeben, dass wir zur Bernerhütte im Eichelgebirge wandern."
+        show mum talk
+        m "Ein Wandertag also? Nein, davon habe ich nichts gehört."
+        show karin shock
+        k "Entschuldigen Sie vielmals. Möchten Sie denn, dass ihr Kind mitkommt? Bis auf eine Brotzzeit und etwas zu trinken wird [pro2] nicht brauchen."
+        m "Bei mir spricht eigentlich nichts dagegen, wann genau muss ich mein Kind dann abholen?"
+        show karin vhappy
+        k "Es könnte etwas später werden, wohl etwa gegen 14 Uhr vermutlich..."
+        n "Wieso sagt mir denn niemand von einen Wandertag!"
+        jump secenew2_8
+        
+            
+    n "Ich versteh gar nichts mehr, wieso sind die soweit weg von der Tür aufeinmal."
+    n "Dann halt näher ran."
+    show mum talk
+    m "Was ist denn am Freitag?"
+    show karin talk
+    show mum n
+    k "Ich dachte, Frau Heidenau hätte allen Eltern bescheid gegeben, dass wir zur Bernerhütte im Eichelgebirge wandern."
+    show mum talk
+    m "Ein Wandertag also? Nein, davon habe ich nichts gehört."
+    show karin shock
+    k "Entschuldigen Sie vielmals. Möchten Sie denn, dass ihr Kind mitkommt? Bis auf eine Brotzzeit und etwas zu trinken wird [pro2] nicht brauchen."
+    m "Bei mir spricht eigentlich nichts dagegen, wann genau muss ich mein Kind dann abholen?"
+    show karin vhappy
+    k "Es könnte etwas später werden, wohl etwa gegen 14 Uhr vermutlich..."
+    n "Wieso sagt mir denn niemand von einen Wandertag!"
+    "End of scene"
+    hide karin
+    hide mum
+    scene bg black
     
 label scenew2_8:
-    "Placeholder W2S8"
+    play music maintheme
+    scene bg grura with dissolve
+    show karin mhappy
+    k "So Kinder, für heute sind wir erst einmal fertig!"
+    k "Dann viel Spaß beim Spielen!"
+    hide karin with dissolve
+    n "Was soll ich denn nach dem Morgenkreis machen? Ich weiß nie was ich machen will..."
+    r "Hey [name]!"
+    n "Randy kommt in meine Richtung, will der vielleicht spielen?"
+    show randy talk at rightish
+    r "Wir wollen verstecken spielen, wir brauchen noch jemand der suchen will."
+    r "Hast du Lust mitzumachen?"
+    
+    menu:
+        "Verstecken spielen":
+            p "Ja, ich weiß eh nicht was ich machen soll."
+            show randy happy
+            r "Alles klar!"
+            
+        "Was anderes machen":
+            p "Ich bin mir noch nicht wirklich sicher was ich machen will..."
+            show randy shock
+    
+    play sound Whoosh3
+    show papierflieger at flight with moveinleft
+    hide papierflieger with moveoutright
+    play sound ballhit1
+    p "AUAA! Mein Auge!"
+    p "Das war gemein, wer war das?"
+    o "TUT MIR LEEEID!"
+    stop music fadeout 1.0
+    play music octatheme
+    show octa happy at leftish
+    n "Jetzt kcihert sie. Aber das ist überhaupt nicht lustig!"
+    p "Was sollte denn das!"
+    show octa smug
+    o "Jetzt stell dich doch nicht so an, ich hab mich doch schon Entschuldigt!"
+    o "Wenn du willst, dann darfst du auch einen zurückwerfen. Oder wir machen einen Wettbewerb daraus!"
+    o "Meine Papierflieger sind eh die besten."
+    show randy talk
+    r "Wenn du willst, kannst du auch versuchen gegen Sie zu gewinnen!"
+    n "Hmmh, Papierflieger basteln oder verstecken spielen?"
+    
+    menu:
+        "Verstecken spielen":
+            $ octa_points -= 1
+            $ seek = "True"
+            $ paper = "False"
+            p "Ne, ich wollte eigentlich schon lieber verstecken spielen. Papierflieger sind mir egal!"
+            show octa shock
+            show randy happy
+            o "Was?"
+            r "Super."
+            o "Na gut, dann halt nicht."
+            jump suchen
+            
+        "Papierfliegerwettbewerb":
+            $ octa_points += 1
+            $ paper = "True"
+            $ seek = "False"
+            p "Also Papierflieger hört sich schon lustig an."
+            show randy happy
+            r "Ich hab auch irgendwie lust drauf!"
+            show octa vhappy
+            o "Wird sicherlich lustig euch zu besiegen."
+            p "Werden wir ja sehen."
+            jump wettbewerb
+        
+        
+label wettbewerb:
+    hide octa with dissolve
+    hide randy with dissolve
+    show bg bastel with dissolve
+
+    n "Ich will unbedingt einen besseren Flieger als Octavia bauen!"
+    n "Doch wie soll mein Papierflieger am besten aussehen, damit ich Sie besiege?"
+    n "Wie falte ich so ein Ding überhaupt?"
+    
+    menu:
+        
+        "Mitte Falten":
+            n "Erst einmal das Ding in der Mitte machen, dass haben ja alle Flieger!"
+            n "Dann noch die Flügel, doch wie soll ich die Flügel machen?"
+            
+            menu:
+                "breit":
+                    $dynamik = "True"
+                    n "Zum gewinnen braucht es viel Luft und Wind, deswegen sind wohl Breite Flügel klüger!"
+                    scene bg black with dissolve
+                    n "Dann noch hier etwas."
+                    n "Eine Kante noch."
+                    n "Ne moment."
+                    n "Hab ich irgendwas vergessen? Ach was!"
+                    n "Fertig!"
+                    
+                    
+                "schmal":
+                    n "Wenn er dünner ist, dann kann ich ihn schneller werfen und so komm ich sicher weiter als Octavia!"
+                    scene bg black with dissolve
+                    n "Jawohl, so wirds gemacht!"
+                    n "Klassisch."
+                    n "Also eigentlich."
+                    n "Eigentlich bin ich ja fertig!"
+                    
+            
+        
+        "Spitze Falten":
+            $tip = "True"
+            n "Ich habe mal gehört, dass die Spitze das wichtigste ist."
+            n "Wenn das stimmt, gewinne ich hunderprozentig!"
+            n "Freu ich mich schon auf Octavias Gesicht!"
+            n "Jetzt fehlt aber noch was!"
+            n "Ach ja!"
+            
+            menu:
+                "Farbe":
+                    $farbflug = "True"
+                    n "Ich muss Octavia auch mit Stil besiegen!"
+                    scene bg black with dissolve
+                    n "Dann mal los, ich hab ja hier die ganzen Farben."
+                    n "Etwas Orange und Gelb."
+                    n "Fert... Moment, Flügel!"
+                    n "So, dass wird schon hinhauen."
+                    n "Jetzt aber wirklich, fertig!"
+                    
+                "Flügel":
+                    $dynamik = "True"
+                    n "Zum gewinnen braucht es viel Luft und Wind, deswegen sind wohl Breite Flügel klüger!"
+                    scene bg black with dissolve
+                    n "Dann noch hier etwas."
+                    n "Eine Kante noch."
+                    n "Ne moment."
+                    n "Hab ich irgendwas vergessen? Ach was!"
+                    n "Fertig!"                   
+
+                                                                         
+        
+        "Einfach loslegen!":
+            $chaos = "True"
+            n "Ach, dass wird schon irgendwie klappen."
+            scene bg black with dissolve
+            n "Erst einmal etwas hiervon. Etwas davon."
+            n "Nein, nein so nicht, nochmal zurück."
+            n "Geht das noch?"
+            n "Einfach in die Form eines Flugzeugs bringen."
+    
+    
+    scene bg grura2 with dissolve
+    n "So, fertig. Sieht doch ziemlich cool aus!"
+    n "So, Octavia hat gesagt ich darf zurückwerfen. Das mache ich jetzt einfach!"
+    show octa happy at rightish
+    n "Sie faltet gerade auch einen Flieger, also gut zielen uuuuund"
+    p "LOS!"
+    
+    if chaos == "True":
+        $ octa_points -= 2
+        show papierkneul at flight with moveinleft
+        hide papierkneul with moveoutbottom
+        n "Oh mist, dass ist ja gar nichts!"
+        n "Hat das wer gesehen?"
+        n "Zum Glück nicht, oh was mach ich nur."
+        n "Ich will nicht ausgelacht werden..."
+        n "Ich glaube... Ich glaube ich verstecke mich lieber für heute."
+        hide octa
+        show bg cuddle with dissolve
+        n "Hier findet mich heute niemand mehr, erst wenn meine Mutter kommt."
+        n "Das dauert hoffentlich nicht mehr lang."
+        n "..."
+        n "..."
+        scene bg black with dissolve
+        n "..."
+        n "*schnarch*"
+        n "*schnarch*"
+        k "Oh mann, meine Mutter ist schon da?"
+        jump scenew2_9
+        
+    elif dynamik == "True":
+        show papierflieger_stromlinienförmig at flight with moveinright
+        hide papierflieger_stromlinienförmig with moveoutleft
+        
+    elif farbflug == "True":
+        show papierflieger_bunt with moveinright
+        hide papierflieger_bunt with moveoutleft
+        
+    else:
+        show papierflieger with moveinleft
+        hide papierflieger with moveoutright
+    
+    show octa shock
+    n "Zwar getroffen, aber nicht richtig."
+    o "Was soll denn..."
+    show octa smug
+    o "Ach so, das war nicht schlecht. mein Flieger ist trotzdem viel besser als die anderen hier!"
+    o "Wollen wir schauen wessen am weitesten fliegt?"
+    n "Oh, wie es aussieht sind da noch mehr leute die mitmachen."
+    n "Anja hat ihren angemalt, Randy geht für den Klassiker und Evelynn."
+    show origami at flight
+    n "Ein Vogel? WOW! Der kann sicher fliegen solange es kein Pinguin ist!"
+    hide origami
+    o "Kommt mal alle ran, wir werfen unsere Flieger hintereinander und wer am weitesten kommt gewinnt!"
+    a "Alles klar!"
+    r "Dann zeig ichs dir Octavia!"
+    hide octa
+    o "So, alle bereit?"
+    o "Ich wirf als erstes und dann schaut ob ihr so weit kommt!"
+    show papierflieger_stromlinienförmig at flight with moveinright
+    hide papierflieger_stromlinienförmig with moveoutleft
+    show papierflieger_bunt at flight with moveinright
+    hide papierflieger_bunt with moveoutleft
+    a "Fast!"
+    o "Nacheinander!"
+    show papierflieger at flight with moveinleft
+    hide papierflieger with moveoutright
+    p "Randy?"
+    o "Was machst du denn jetzt?"
+    n "Dann bin nurnoch ich übrig!"
+    
+    if dynamik == "True" and tip == "True":
+        $ anja_points += 3
+        $ octa_points += 2
+        show papierflieger_stromlinienförmig at flightright with moveinright
+        hide papierflieger_stromlinienförmig with moveoutleft
+        n "WOOOAH!"
+        show octa shock at rightish
+        a "[name] ist weiter als Octavia!"
+        r "Ich glaubs nicht!"
+        o "Aber... nur um ein paar Zentimeter!"
+        o "Außerdem hast du mich ja abgelenkt als du ihn auf mich geworfen hast."
+        o "Beim nächsten gewinne ich!"
+    
+    elif dynamik == "True":
+        $ anja_points += 3
+        $ octa_points += 1
+        show papierflieger_stromlinienförmig at flight with moveinright
+        hide papierflieger_stromlinienförmig with moveoutleft        
+        p "So knapp!"
+        show octa smug
+        o "Nicht schlecht."
+        a "Noch mal, dann gewinnst du sicher [name]!"
+        o "Niemals, aber ich hab auch nicht wirklich lust das nochmal zu machen. Mir reicht einmal gewinnen."
+        hide octa
+        n "Hmmh..."
+    
+    elif farbflug == "True":
+        $ anja_points += 2
+        $ octa_points += 1
+        $ eve_points += 2
+        show papierflieger_bunt at flight with moveinright
+        hide papierflieger_bunt with moveoutleft
+        p "So knapp!"
+        show octa smug
+        o "Nicht schlecht."
+        a "Noch mal, dann gewinnst du sicher [name]!"        
+        o "Niemals, aber ich hab auch nicht wirklich lust das nochmal zu machen. Mir reicht einmal gewinnen."
+        hide octa with moveoutright
+        n "Und da ist sie weg."
+        show eve happy2
+        e "Du [name], ich mag deinen Flieger."
+        p "Du hast einen ganzen Vogel gemacht, kannst du mir zeigen wie das geht?"
+        show eve vhappy2
+        e "Ja sehr gerne, zunächst must du..."
+        hide eve
+    
+    else:
+        $ anja_points += 1
+        $ octa_points -= 2
+        $ eve_points += 2
+        show papierflieger2 at flight with moveinright
+        hide papierflieger2 with moveoutleft
+        p "Hmmmh."
+        show octa smug
+        o "Sag ichs doch."
+        r "Was will man denn erwarten."
+        o "Genau, meiner ist der beste. Hab ichs euch doch gesagt. Ich mach dann mal was anderes."
+        hide octa with moveoutright
+        n "Hmmh."
+        p "Du Evelynn, wie hast du eigentlich einen ganzen Vogel gemacht?"
+        e "Das ist einfach, zunächst must du..."
+    
+    k "[name]!"
+    n "Nanu?"
+    show karin talk at leftish
+    k "Deine Mutter wartet draußen, die ist heute etwas früher da."
+    p "Oh."
+    k "Ja, dann helf ich dir schnell beim anziehen und..."
+    p "Ich kann das schon alleine."
+    hide karin with dissolve
+    scene bg flur with dissolve
+    n "Hier sind meine Schuhe und meine Jacke."
+    n "Ach mann, wenn Schuhe nicht sooo..."
+    n "Ich brauch wieder Klettverschluss..."
+    
+    
+
+
+  
+    
     
 label scenew2_9:
-    "Placeholder W2S9"
+    play music happytheme1
+    show bg street with dissolve
+    show mum talk at rightish
+    m "Hallo mein Schatz! Wie ist es denn geloffen? Hattest du einen schönen Tag?"
+    p "Ähhm. Ja."
+    m "Was hast du denn heute so gemacht?"
+    
+    if paper = "True":
+        p "Flieger gebastelt!"
+        p "Also, aus Papier."
+        p "Und dann haben wir uns abgeworfen, dass war lustig."
+        show mum happy
+        p "Das müssen wir daheim auch mal machen!"
+        p "Zeig mir wie du das machst!"
+    
+    elif seekwin = "True":
+        p "Wir haben heute alle zusammen verstecken gespielt und ich musste suchen." 
+        p "Ich musste die Augen zu machen, dann drei mal bis 20 zählen und ich hab gewonnen."
+        show mum happy
+        p "Alle gefunden!"
+        
+    else:
+        p "Wir haben heute alle zusammen verstecken gespielt und ich musste suchen." 
+        p "Ich musste die Augen zu machen, dann drei mal bis 20 zählen und dann suchen."
+        show mum n
+        p "Konnte Sie aber nicht alle erwischen, ich war zu langsam und dann sind Sie aus ihren verstecken gekommen."
+        p "Leider verloren."
+
+    show mum talk
+    m "Naja, hört sich ja nach einer schönen Zeit an!"
+    m "Ich muss dir noch etwas sagen: Wusstest du, dass ihr am Freitag Wandertag habt?"
+    p "Ähm, nein..."
+    show mum happy
+    m "Ich hab dich gleich mal angemeldet, dass wird sicher toll."
+    m "Du wirst da ganz viel Spaß haben."
+    p "Du hast mich angemeldet? Aber was, wenn ich keine Lust habe?"
+    show mum talk
+    m "Sei mal nicht so. Wandertage sind immer schön, durch die gegen mit deinen Freunden laufen, ein bisschen Erkunden und spielen!"
+    m "Ich mochte die Immer."
+    show mum happy
+    p "Klingt ja gar nicht so blöd."
     
 label scenew2_10:
     scene bg black with fade
@@ -3523,7 +4155,7 @@ label scenew2_10:
             m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
             show pancakes
             n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
-            jump pnp1done
+            jump scenew2_12
             
                 
                 
@@ -3621,7 +4253,7 @@ label scenew2_10:
                     p "Eben! Das ist schon wieder eine ganze Ewigkeit her!"
                     m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
                     n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
-                    jump pnp1done
+                    jump scenew2_12
                     
                 "Mama fragen, ob ich mit auf den Bauernhof darf.":
                     m "Heute noch? Das muss ich dann aber erst mal mit Anjas Eltern besprechen, ob das denn wirklich in Ordnung ist."
@@ -3655,7 +4287,7 @@ label scenew2_10:
                             p "Da sieht Heidenau aber noch wesentlich besser aus!"
                             a "Pass auf, gleich fress ich dich! Hexen lieben Kinder zum Nachtisch!"
                             n "Ich glaub Anja mag Hexen. In letzter Zeit redet sie echt oft darüber. Aber das Spielen mit ihr macht trotzdem sehr viel Spaß!"
-                            jump pnp1done
+                            jump scenew2_12
                             
                         "Dem Heu ausweichen.":
                             p "Ha, nicht erwischt!"
@@ -3669,7 +4301,7 @@ label scenew2_10:
                             a "Mit dir spiel ich nicht mehr! Und das Stroh ist auch voll doof in den Haaren. Das pikst voll!"
                             n "Wieso muss die immer gleich so sauer sein? Es tut mir doch leid, aber ich kann mich ja nicht mal entschuldigen, wenn die soviel redet!"
                             n "Und jetzt steht die auch noch einfach auf und geht. Na super! So hab ich mir das ja nicht vorgestellt..."
-                            jump pnp1done
+                            jump scenew2_12
             
                             
         "Ich schau lieber mal, wo Evelynn ist.":
@@ -3986,7 +4618,7 @@ label pnp1good:
     m "Wir haben es leider etwas eilig. Wir müssen noch einkaufen gehen. Aber du kannst doch morgen weiterspielen. Das läuft dir schon nicht weg."
     p "Okaaaay..."
     n "Immer dann, wenn es am lustigsten wird, muss man aufhören. Das ist unfair. Wenn ich erst einmal groß bin, hör ich erst dann auf, wenn ich will."
-    jump pnp1done
+    jump scenew2_12
     
 label pnp1bad:
     n "Evelynn knallt das Buch zu."
@@ -4002,17 +4634,103 @@ label pnp1bad:
     m "Das klingt ja sehr begeistert. Freust du dich gar nicht auf den Wandertag?"
     p "Doch."
     n "Nicht so wirklich. Ich mag es nicht, wenn Evelynn auf mich sauer ist."
-    jump pnp1done
+    jump scenew2_12
     
     
     
-label pnp1done:
+label scenew2_12:
+    play music happytheme1
+    scene bg street
+    n "Ja, endlich Wandertag!"
+    n "Ich war schon länger nicht mehr im Wald. Das letzte mal war im Winter, da ging es Papa aber nciht so gut."
+    n "Ich hoffe ich bekomme einen Fensterplatz, doch da muss ich schnell sein."
+    n "Warte, die Tür geht schon auf!"
+    k "So, dann alle einsteigent."
+    n "Waaah!"
+    scene bus with dissolve
+    n "Warum sind die alle so schnell? Jetzt ist ja schon alles besetzt."
+    n "Moment, noch 1 Platz HAHA!"
+    n "Ich hasse es am Gang zu sitzen, da kann man gar nicht richtig rausgucken."
     
-label scenewanderstart:
-    scene bg black with fade
-    show fri with fade
-    pause 1.5
-    hide fri with fade
+    if eve_points > anja_points and eve_points > octa_points:
+        $ scenario = "eve"
+        n "Da kommt ja Evelynn."
+        show eve happy2 at rightish
+        e "Hallo [name], darf ich neben dir?"
+        p "Gerne, setz dich hin!"
+        show eve happy2 at rightish
+        n "..."
+        n "..."
+        n "Heute ist sie schon wieder so still, vielleicht kann ich ja."
+        e "Hey, ich hab meine Malsachen dabei, wollen wir was malen?"
+        p "Wo denn?"
+        show eve mad
+        play sound "Briefumschlag.ogg"
+        show eve happy2
+        p "Woah, an den Sitzen ist ein Tisch?"
+        e "Wir malen Draußen."
+        p "Wie Draußen?"
+        show eve shy2
+        e "Na, was draußen am Fenster ist. Der Bus fährt zwar schnell, aber das geht schon."
+        e "Hier, Papier und Stifte!"
+        p "Dankeschön!"
+        show eve happy2
+        play sound "Malgeäusche_Zackig.ogg"
+        n "So langsam komm ich rein ins malen."
+        n "Welche Farben man nehmen soll, wie man eine Sonne malt, was Kontraste sind."
+        n "Alles von Evelynn gelernt."
+        n "Ich sollte ihr mal danken."
+    
+    elif octa_points > anja_points and octa_points > eve_points:
+        $ scenario = "octa"
+        n "Hey, da ist ja Octavia! Da war wohl ich mal schneller."
+        show octa happy
+        n "Sie setzt sich einfach hin."
+        p "Meine Mama sagt, dass man erst etwas sagen soll bevor man sich hinsetzt."
+        show octa talk
+        o "Hey."
+        p "Hmmmh."
+        n "Sie sagt ja kaum etwas. Will sie nicht neben mir sitzen?"
+        show octa shock
+        p "Da vorne ist auch noch ein Platz, weil du willst bestimmt nicht neben mir"
+        o "Was? Nein, passt schon..."
+        show octa happy
+        p "Hmmmh."
+        n "Wie ist die heute drauf?"
+        show octa talk
+        o "Du [name]. Warst du schon mal im Wald? Also den hier jetzt?"
+        p "Ich bin doch neu hier. Aber ich war schon öfters im Wald, mit meinen Vater und so."
+        show octa smug
+        o "Dann muss ich dir was voll cooles zeigen!"
+        n "Mir was cooles zeigen?"
+        p "Bin dabei!"
+    
+    else:
+        $scenario = "anja"
+        a "Hey [name]."
+        p "Da ist ja Anja."
+        show anja talk
+        a "Ich setz mich mal neben dich. Macht dir ja nichts aus, oder?"
+        show anja mad
+        a "Die anderen Plätze sind schon belegt und ich will nicht vorne zu Frau Heidenau, weißt du?"
+        p "Gerne."
+        show anja jabber
+        a "Freust du dich auch schon so auf den Wandertag? So wie ich? Wir sollen außerdem in Zweiergruppen laufen, willst du mit mir?"
+        p "Ich freu mich aufjedenfall."
+        a "Dann ist das ja geklärt. Weißt du eigentlich wie lange wir fahren werden? Bei lange fahrten langweile ich mich."
+        p "Bin doch auch neu, ich weiß es nicht."
+        a "Ach ja, stimmt ja. Willst du dann so lange etwas spielen?"
+        n "Sie redet schon wieder so schnell! Aber beim spielen langweile ich mich wenigstens nicht."
+        p "Was denn?"
+        show anja hihi
+        a "Ich sehe was was du nicht siehst und es ist rot!"
+        n "Es geht schon los? Das kann ja noch was werden mit ihr."
+        
+        show anja 
+    
+    "end of week 2"
+    
+
     
 label scenew3_0:
     kg "Brabbel"

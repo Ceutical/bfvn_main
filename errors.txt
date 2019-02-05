@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-The label scenew2_7 is defined twice, at
-  File "game/script.rpy", line 3313 and
-  File "game/script.rpy", line 3320.
+File "game/script.rpy", line 485: indentation mismatch.
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Tue Feb 05 00:22:39 2019
+Tue Feb 05 05:13:54 2019

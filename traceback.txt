@@ -1,22 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 3289, in script
-    
-TypeError: say() takes at least 2 arguments (1 given)
+  File "game/freddyskripte/script-seek.rpy", line 97, in script call
+    n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
+  File "game/freddyskripte/script-seek.rpy", line 165, in script call
+    n "Nein."
+  File "game/freddyskripte/script-seek.rpy", line 122, in script call
+    n "Nein."
+  File "game/script.rpy", line 3857, in script
+    if paper = "True":
+SyntaxError: invalid syntax (game/script.rpy, line 3857)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 3289, in script
-    
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 678, in execute
-    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\exports.py", line 1204, in say
-    who(what, *args, **kwargs)
-TypeError: say() takes at least 2 arguments (1 given)
+  File "game/freddyskripte/script-seek.rpy", line 97, in script call
+    n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
+  File "game/freddyskripte/script-seek.rpy", line 165, in script call
+    n "Nein."
+  File "game/freddyskripte/script-seek.rpy", line 122, in script call
+    n "Nein."
+  File "game/script.rpy", line 3857, in script
+    if paper = "True":
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1760, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1942, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 674, in py_compile
+    raise e
+SyntaxError: invalid syntax (game/script.rpy, line 3857)
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 BFVN 1.0
-Tue Jan 29 01:44:37 2019
+Tue Feb 05 05:23:12 2019

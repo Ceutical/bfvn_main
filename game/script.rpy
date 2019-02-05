@@ -89,6 +89,7 @@ define audio.draw = "music/sfx/Malgeräusche.ogg"
 define audio.foodplay = "music/sfx/Mit Essen Spielen.ogg"
 define audio.snackers = "music/sfx/snackers.ogg"
 define audio.street = "music/sfx/street.ogg"
+define audio.Whoosh3 = "music/sfx/Whoosh3.ogg"
 
 ######################################
 
@@ -121,6 +122,12 @@ transform topishleft:
 transform rotation:
     around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
     rotate 10
+transform flight:
+    xalign .5
+    yalign .4
+transform flightright:
+    xalign .8
+    yalign .4
     
 ######Rennen#####
 transform arun1:
@@ -314,6 +321,15 @@ label start:
     play music introtheme
     
     ##### OTHER DEFINITIONS #####
+    $ seekwin = "True"
+    $ seekloss = ""
+    $ grura = ""
+    $ flur = ""
+    $ court = ""
+    $ kz = ""
+    $ food = ""
+    $ catch = 0
+    $ seekattempts = 0
     
 
     ##### AFFINITY SYSTEM INITIATE #####
@@ -458,8 +474,8 @@ label scene3:
             show heide mad
             h "Papperlapapp!"
             hide mum with moveoutleft
-            show heide talk
-            h "Ihr Kind ist bei uns bestens aufgehoben. So \"[name]\", deine Gruppe ist die Käfergruppe, die Karin kümmert sich um dich."
+            show heide talk 
+            h "Ihr Kind ist bei uns bestens aufgehoben. So \" [name] \", deine Gruppe ist die Käfergruppe, die Karin kümmert sich um dich."
             h "Mitkommen!"
             n "Warum zieht sie mich am Ärmel. Ich will das nicht."
             n "Ich wäre auch so mit gekommen. Warum ist diese komische alte Frau so grob. Meine Oma ist auch alt, aber die würde sowas nie machen."
@@ -3558,7 +3574,7 @@ label scenew2_8:
     play sound Whoosh3
     show papierflieger at flight with moveinleft
     hide papierflieger with moveoutright
-    play sound Ball_Getroffen1
+    play sound ballhit1
     p "AUAA! Mein Auge!"
     p "Das war gemein, wer war das?"
     o "TUT MIR LEEEID!"
@@ -3578,8 +3594,8 @@ label scenew2_8:
     menu:
         "Verstecken spielen":
             $ octa_points -= 1
-            $ seek = "True"
-            $ paper = "False"
+            $ seek = True
+            $ paper = False
             p "Ne, ich wollte eigentlich schon lieber verstecken spielen. Papierflieger sind mir egal!"
             show octa shock
             show randy happy
@@ -3590,8 +3606,8 @@ label scenew2_8:
             
         "Papierfliegerwettbewerb":
             $ octa_points += 1
-            $ paper = "True"
-            $ seek = "False"
+            $ paper = True
+            $ seek = False
             p "Also Papierflieger hört sich schon lustig an."
             show randy happy
             r "Ich hab auch irgendwie lust drauf!"
@@ -3825,24 +3841,20 @@ label wettbewerb:
     n "Ich brauch wieder Klettverschluss..."
     
     
-    
-    jump scenew2_9
 
 
-label suchen:
-    
-    "Hier wird gesucht!"    
+  
     
     
 label scenew2_9:
-    play music happy1
+    play music happytheme1
     show bg street with dissolve
     show mum talk at rightish
     m "Hallo mein Schatz! Wie ist es denn geloffen? Hattest du einen schönen Tag?"
     p "Ähhm. Ja."
     m "Was hast du denn heute so gemacht?"
     
-    if paper = "True":
+    if paper == True:
         p "Flieger gebastelt!"
         p "Also, aus Papier."
         p "Und dann haben wir uns abgeworfen, dass war lustig."
@@ -3850,7 +3862,7 @@ label scenew2_9:
         p "Das müssen wir daheim auch mal machen!"
         p "Zeig mir wie du das machst!"
     
-    elif seekwin = "True":
+    elif seekwin == True:
         p "Wir haben heute alle zusammen verstecken gespielt und ich musste suchen." 
         p "Ich musste die Augen zu machen, dann drei mal bis 20 zählen und ich hab gewonnen."
         show mum happy
@@ -4627,7 +4639,7 @@ label pnp1bad:
     
     
 label scenew2_12:
-    play music happy1
+    play music happytheme1
     scene bg street
     n "Ja, endlich Wandertag!"
     n "Ich war schon länger nicht mehr im Wald. Das letzte mal war im Winter, da ging es Papa aber nciht so gut."
