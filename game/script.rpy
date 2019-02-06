@@ -26,12 +26,12 @@ define Lt = Character("Louis", window_ypos=0.27) #LouisTOP
 
 define r = Character("Randy")
 define rt = Character("Randy", window_ypos=0.27) #RandyTOP
-define emum = Character("Evelynns Mutter")
-define edad = Character("Evelynns Vater")
-define omum = Character("Octavias Mutter")
-define odad = Character("Octavias Vater")
-define rmum = Character("Randys Mutter")
-define rdad = Character("Randys Vater")
+define emum = Character("Evelynns Mama")
+define edad = Character("Evelynns Papa")
+define omum = Character("Octavias Mama")
+define odad = Character("Octavias Papa")
+define rmum = Character("Randys Mama")
+define rdad = Character("Randys Papa")
 define nvln = Character(name=None, kind=nvl)
 define kg = Character("Kinder", what_italic=True) #Kindergartengruppe
 
@@ -71,7 +71,7 @@ define audio.playtheme1 = "music/soundtracks/Kinder_Beim_Spielen1.ogg"
 define audio.playtheme2 = "music/soundtracks/Kinder_Beim_Spielen2.ogg"
 define audio.opartytheme = "music/soundtracks/Kinder_Party_Theme1.ogg"
 define audio.apartytheme = "music/soundtracks/Kinder_Party_Theme2.ogg"
-define audiot.epartytheme = "music/soundtracks/Kinder_Party_Theme3.ogg"
+define audio.epartytheme = "music/soundtracks/Kinder_Party_Theme3.ogg"
 
 
 ##### SFX DEFINITIONS #####
@@ -142,6 +142,9 @@ transform topishleft:
 transform rotation:
     around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
     rotate 10
+transform rotationreset:
+    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
+    rotate 0
 transform flight:
     xalign .5
     yalign .4
@@ -363,6 +366,28 @@ label start:
     $ tip = False
     $ farbflug = False
     $ chaos = False
+    
+    init:
+        image odance:
+            "images/Characters/octavia/omusic clap.png"
+            pause 0.20
+            "images/Characters/octavia/omusic pause.png"
+            pause 0.17
+            "images/Characters/octavia/octa music.png"
+            pause 0.17
+            repeat
+            
+        image kdance:
+            "images/Characters/karin/kmusic left.png"
+            pause 0.269
+            "images/Characters/karin/kmusic happy.png"
+            pause 0.269
+            "images/Characters/karin/kmusic right.png"
+            pause 0.269
+            "images/Characters/karin/kmusic happy.png"
+            pause 0.269
+            repeat
+            
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -699,11 +724,15 @@ label scene4:
             p "Aber ich dachte ..."
             o "Streng dich gefälligst an!"
             
-    show octa music at left with move
-    show karin mhappy at right with moveinright
+    show octa music at leftish with move
+    show karin mhappy at rightish with moveinright
     k "Also Kinder, alle bereit?"
     stop music fadeout 2.0
     k "Dann 1 und 2 und 3 und ..."
+    hide karin
+    hide octa
+    show odance at leftish
+    show kdance at rightish
     play music happytheme1
     n "Das ist also das Käfergruppenlied?"
     n "Klingt total toll ..."
@@ -711,6 +740,7 @@ label scene4:
     n "..."
     n "Ohh, sieht so aus als wären wir gleich fertig..."
     n "Schade..."
+    window hide
     $ renpy.pause ()
     play music octatheme fadeout 1.5
     if boomstickpoints == 3:
@@ -1605,14 +1635,16 @@ label scene14:
             p "Ich blute ganz doll, guck doch mal."
             o "Ja... Ja ist ja gut... Ich... Ich hol einen Erwachsenen."
             
-    scene bg court with fade    
+      
     if crying == True:
-        show octa shock at center
+        scene bg court with fade
+        show octa shock at center with moveinright
         show heide mad at right with moveinright
         h "Großer Gott! Was ist denn das hier für ein Tumult!"
         h "Was ist denn hier passiert?"
         h "[name] jetzt hör auf zu weinen. Kannst du laufen?"
         p "Also ich ... {i}schnüff{/i}... ich glaube schon."
+        o "D...dann kann ich ja jetzt gehen."
         show octa shock at left with move
         h "{b}OCTAVIA SIEGLINDE!{/b}"
         o "J... ja Frau Heidenau!"
@@ -1623,6 +1655,7 @@ label scene14:
         h "Gleich nicht mehr. Jetzt stell dich nicht so an und komm mit."
 
     else:
+        scene bg court with fade  
         show octa shock at slightleft with moveinright
         show karin shock at slightright with moveinright
         k "Was ist denn hier passiert?"
@@ -1658,12 +1691,13 @@ label scene14:
     h "Octavia, warum muss ich das machen?"
     show octa smug
     o "Ohh, damit die Wunde sauber ist und richtig heilt, ich bin in Erster Hilfe doch die-..."
-    h "Die Beste. Jaja. Wie du meinst. Aber es stimmt. Also halt still, [name]."
+    h "Die Beste. Jaja. Wie du meinst."
     show octa happy
+    h "Aber das war richtig. Also halt still, [name]."
     h "Jetzt noch ein Pflaster drauf ... und gut. Besser?"
     p "Ja, besser."
     h "Und jetzt will ich wissen..."
-    show heide talk
+    show heide mad
     show octa shock
     h "Was da draußen passiert ist!"
     o "Also ... ähm ..."
@@ -1671,7 +1705,7 @@ label scene14:
     menu:
         n "Wie erklär ich das jetzt?"
         
-        "Die Wahrheit sagen":
+        "Die Wahrheit":
             $ octa_points -= 3
             $ octahome = True
             p "Ich bin mit Octavias Fahrrad gefahren."
@@ -1695,7 +1729,7 @@ label scene14:
             show octa shock
             o "Bitte nicht zu Hause anrufen..."
             
-        "Lügen.":
+        "Notlüge":
             $ octa_points += 2
             $ octahome = False
             p "Katze!"
@@ -1754,14 +1788,12 @@ label scene14:
             ##### Szene 15 #####
 
 label scene15:
-    stop music fadeout 1.0
+    play music maintheme fadeout 1.0
     scene bg black with fade
-    show fri with fade
-    pause 1.5
-    hide fri with fade
-    scene bg grura
-    with dissolve
-    play music maintheme fadein 1.0
+    show fri with dissolve
+    $ renpy.pause(0.6, hard = True)
+    scene bg flur with fade
+
        
     n "Es ist Freitag. Also praktisch Wochenende. Da bin ich immer bei Papa. Vielleicht bekomme ich ja wieder Eis und Schokolade als Abendessen?"
     n "Hoffentlich!"
@@ -1769,7 +1801,9 @@ label scene15:
     n "So schön wie die von Evelynn sind sie leider nicht, aber fast!"
     n "Wo ist Evelynn eigentlich?"
     n "Vielleicht weiß Karin ja wo sie ist."
+    scene bg grura
     show karin talk at center
+    with fade
     p "Du... Karin..."
     k "Ja [name]?"
     p "Kann ich dich was fragen?"
@@ -1780,7 +1814,7 @@ label scene15:
     k "Du musst die Evelynn nicht suchen. Die ist heute zu Hause geblieben."
     k "Ihre Mutter muss angeblich etwas einkaufen und braucht dafür Evelynn. Mehr kann ich dir nicht sagen."
     
-    p "Mhhh. Man."
+    p "Mhhh. Mann."
     p "Ist ja voll doof, wollte was mit ihr malen."
     show karin vhappy
     k "Ich kann ja mit dir malen."
@@ -1795,22 +1829,20 @@ label scene15:
     n "Die hat sicherlich wieder viel zu erzählen, außerdem muss man die nicht suchen. Anja hört man immer!"
     
     a "Gar nicht wahr!"
-    stop music fadeout 1.0
-    play music anjatheme fadein 1.0
     n "Ich hör sie sogar jetzt."
     a "Mit den Hula Hoop Reifen bin ich viel besser als du!"
     n "Was is da los? Ich sollte mal nachschauen."
-    show bg grura2 with dissolve
+    scene bg court
     show anja mad at rightish
     show octa mad at leftish
-    with moveinbottom
-    o "Ich kann ihn bis zu 32 mal drehen bis er runterfällt."
+    with fade
+    o "Ich kann ihn 32 mal drehen bis er runterfällt."
     a "Stimmt doch gar nicht. So schnell kann man nicht mal zählen!"
     show octa smug
-    o "Du vielleicht nichtl. Ich kann das schon!"
+    o "Du vielleicht nicht. Ich kann das schon!"
     a "Lügnerin!"
     show octa vmad
-    o "Nenn mich nicht so, wenn ich keine bin!"
+    o "Nenn mich nicht so, wenn ich Keine bin!"
     show fight with dissolve
     n "Mama würde jetzt sagen, die Beiden sehen aus wie Zankhähne. Ich selber hab noch nie zankende Hühner gesehen."
     a "Aber du kannst das nicht!"
@@ -1820,11 +1852,7 @@ label scene15:
     p "Darf ich vielleicht den Reifen haben?"
     "{color=#0099ff}Octavia:{/color} Du erst recht nicht! \n{color=#0099ff}Anja:{/color} Gerade nicht!"
     n "Wie es aussieht bin ich hier nicht erwünscht. Ich sollte wohl einfach gehen."
-    show bg grura with dissolve
-    hide octa with dissolve
-    hide anja with dissolve
-    stop music fadeout 1.0
-    play music maintheme fadein 1.0
+    scene bg grura2 with fade
     n "Och man, was soll ich dann machen... Murmelbahn vielleicht? Auch langweilig..."
     n "Hmmh..."
     n "Was solls, auf zur Murmelbahn!"
@@ -1832,7 +1860,7 @@ label scene15:
     p "Dann kommt das noch hier hin und dann..."
     p "LAAANGWEILIG!"
     
-    scene bg grura
+    scene bg flur
     show randy happy at center
     with fade
     r "Da, [name]"
@@ -1872,64 +1900,71 @@ label scene15:
     p "Mir ist langweilig, willst du was spielen?"
     r "Na gut, danach sind wir dann auch Freunde!"
     scene cg marble with dissolve
-    n "Ich hoffe nur, dass meine Mutter mich dann auch zur Feier fährt."
+    n "Ich hoffe nur, dass Mama mich dann auch zur Feier fährt."
+    n "Nach einer Weile tippt mir jemand von hinten auf die Schulter."
+    p "Huh?"
 
         
 label scene16:
     scene bg grura
-    n "Nach einiger Zeit spielen tippt mir jemand von hinten auf die Schulter."
-    p "Huh?"
     show karin n at rightish
     show mum n at leftish
+    with fade
     k "Hey, [name]. Deine Mutter ist etwas früher gekommen um dich abzuholen."
     m "Hallo Klein[suf2]. Ich muss noch etwas in der Stadt erledigen und wollte, dass du mitkommst."
     p "In Ordnung."
     n "Ich packe also meine Sachen und gehe mit Mama zum Auto."
-    scene bg street with dissolve
-    n "Auf der Straße fällt mir wieder etwas ein."
+    scene bg street
     show mum n at rightish
+    with fade
+    n "Auf der Straße fällt mir wieder etwas ein."
+    
     p "Mama!"
     m "Ja?"
-    p "Ich wurde auf einen Geburtstag eingeladen. Darf ich da hingehen? Darf ich? Darf ich?"
-    show mum happy at rightish
+    p "Ich wurde auf Randys Geburtstag eingeladen! Darf ich da hingehen? Darf ich? Darf ich?"
+    show mum happy
     m "Schön, dass du schon Freunde gefunden hast. Meinetwegen gerne. Wann genau ist denn der Geburtstag?"
     n "Ich geb ihr meine Einladung."
     p "Da!"
     m "Hmmmh..."
-    show mum mad at rightish
+    show mum mad
     m "15 UHR!"
     m "Wieso bekomme ich das erst jetzt?"
     p "Ich hab die Einladung aber doch grad erst bekommen."
-    show mum talk at rightish
+    show mum talk
     m "Na gut. Ich muss dann aber noch deinem Vater sagen, dass er dich von der Feier abholen soll."
     p "Wir sollen uns außerdem verkleiden!"
-    show mum mad at rightish
+    show mum mad
     m "Mmmmmhhhhh."
     m "Verdaaaaa..."
-    show mum happy at rightish
+    show mum happy
     m "Ähhhm. Klar. Wir sind ja eh in der Stadt. Da können wir ja mal kurz in den Kostümladen schauen."
     p "YAAAY!"
     play sound cardoor1
-    play music introtheme
-    scene bg shop
+    play music introtheme fadeout 1.0
+    scene bg shop with fade
     n "Man, hier haben Sie ja wirklich alles! Von typischen Monsterkostümen wie eine Riesenmotte mit bunten Flügeln, bis hin zu... huh"
     n "Ein Tier... Tier... Hasensäbelzahnelchwolf?"
     n "Rehhundkatzenkanninchen?"
     p "Mama! Was ist denn das? Das sieht ja komisch aus."
-    show mum talk
+    show mum talk at left with moveinleft
     m "Hmmmh..."
-    m "Ich glaube ein Wolpertinger!"
+    m "Ich weiß nicht genau... Vielleicht ein Wolpertinger?"
     p "Ein Wolterdinger?"
     show mum happy
     m "Wolpertinger. Ein Fabelwesen, welches aus ganz vielen Tieren besteht. Das Wesen kommt aus Bayern."
     p "Cool."
-    show mum talk
+    show mum n
     m  "Aber schau mal her dieser Orca ist ja nett."
     p "WOAH! EIN KILLERWAL!"
+    show mum talk
     m "Oder ein Killerwal, wenn dir das besser gefällt."
+    show mum happy
     m "Wir haben aber leider nicht ewig Zeit. Hast du dich schon für was entschieden?"
+    hide mum with dissolve
     
     menu:
+        m "Wir haben aber leider nicht ewig Zeit. Hast du dich schon für was entschieden?"
         "Killerwal":
             $ octa_points += 2
             $ costume = "wal"
@@ -1939,7 +1974,6 @@ label scene16:
             p "Wieso?"
             m "Weil du dich auf das Kostüm freust. Gefällt dir doch, oder?"
             n "Ich nicke"
-            show mum talk
         
         "Motte":
             $ anja_points += 2
@@ -1954,16 +1988,14 @@ label scene16:
             $ eve_points += 2
             $ costume = "wolp"
             p "Wolterdimper. Der ist voll cool!"
-            show mum happy 
             m "Gerne kauf ich dir den Wol-Per-Ting-Er, wenn du ihn richtig aussprichst."
             p "Wieso?"
             m "Weil ich‘s süß finde."
             p "Ok... Wol-Per-Ting-Er... Wolperdinger."
-            show mum talk
     
+    show mum talk at center with dissolve
     m "Na dann. Ab zur Kasse"
-    hide mum talk with dissolve
-    show bg black with dissolve
+    scene bg black with dissolve
     
     n "Jetzt, wo ich mein tolles Kostüm habe, kann ich auf den Geburtstag gehen!"
     n "Das wird sicher Super!"
@@ -1972,23 +2004,22 @@ label scene16:
 label scene17:
     
     play sound cardoor1
-    stop music fadeout 1.0
-    pause 0.75
-    play music maintheme fadein 1.0
+    play music happytheme1 fadeout 1.0
     scene bg street
     show mum talk at rightish
+    with fade
     m "So, wir sind da."
     n "Ich steige vollkostümiert aus dem Auto aus und bin schon ganz gespannt, was die Anderen an haben werden!"
     n "Mama nimmt mich an die Hand und führt mich zur Tür."
     p "Darf ich klingeln?"
-    show mum happy at rightish
+    show mum happy
     m "Der Knopf da oben ist der Richtige."
-    show mum talk at rightish
+    show mum talk
     n "Kurz darauf geht die Tür auf."
     m "So, geh mal zu deinen Freunden. Ich rede noch kurz mit Randys Mama und bin dann gleich weg. Vergiss nicht, dein Papa holt dich heut Abend ab."
     p "OK. Tschüss Mama."
     hide mum talk with moveoutright
-    show bg party with dissolve
+    scene bg party with dissolve
     n "Ich komme kaum ins Zimmer, da kommt Louis mir schon entgegen."
     show lparty n 
     L "Hey, [name]."
@@ -2119,9 +2150,7 @@ label scene19:
     n "Na dann, auf zum Tisch und Kuchen essen."
     a "Nimm das Mofpa!"
     n "Jemand sticht mir in meine Seiten."
-    stop music fadeout 1.0
-    pause 0.75
-    play music anjatheme fadein 1.0
+    play music apartytheme fadeout 1.0
     show aparty mad
     p "Hey, lass das!"
     a "Aber du bist doch Böse!"
@@ -2189,7 +2218,7 @@ label scene19:
         
         else:
             p "Tut mir Leid, ich würde es auch gerne zurückgeben."
-            p "Ich traute mich einfach nicht meine Mutter zu Fragen."
+            p "Ich hab mich einfach nicht getraut Mama zu fragen."
             show aparty n
             a "Ist... Verstehe, trotzdem. Nie.."
             p "Nie wieder!"
@@ -2201,8 +2230,7 @@ label scene19:
         a "Hmmmmh?"
 
 label scene19f:
-    n "Was ist denn mit Anja los?"
-    n "Wieso schaut sie mich so an?"
+    n "Wieso schaut sie mich denn jetzt so an?"
     a "Ich hab eine Idee!"
     p "?"
     a "Siehst du diese Stadt?"
@@ -2270,10 +2298,8 @@ label scene19f:
 
 label scene20:
     n "Aber da drüben seh ich Evelynn. Ich sollte mal Hallo sagen."
-    show eparty talk2
-    stop music fadeout 1.0
-    pause 0.75
-    play music evetheme fadein 1.0
+    show eparty talk2 at center with moveinright
+    play music epartytheme fadeout 1.0
     p "Hi, Evelynn."
     e "Wow! Du siehst ja wild aus [name]."
     e "Komm mal mit mir mit."
@@ -2282,6 +2308,7 @@ label scene20:
     n "Sie packt mich an meinem Arm und zeigt auf jemanden der sich komisch bewegt, während andere..."
     p "Oh nein!" 
     p "Scharade."
+    show eparty vhappy2
     e "Genau."
     show eparty happy2 at rightish with move
     show rparty talk at leftish with dissolve
@@ -2298,12 +2325,14 @@ label scene20:
             p "Gut, dann fang ich eben an. Aber Evelynn, du kommst danach dran."
             e "Na gut."
             n "Randy gibt mir einen Zettel auf dem steht... natürlich."
-            hide rparty vhappy
-            n "Radzilla..."
-            show eparty happy2 at rightish
+            show rparty happy at rightish
+            show eparty happy2 at right
+            with move
             show oparty happy at center
-            show aparty n at leftish
-            with dissolve
+            show lparty n at leftish behind oparty
+            show aparty n at left behind lparty
+            with moveinleft
+            n "Radzilla..."
             
             menu:
                 "Dinosauriergebrüll":
@@ -2311,8 +2340,11 @@ label scene20:
                     p "Roooaaaar"
                     show oparty mad
                     show eparty mad
+                    show aparty shock
+                    show rparty vhappy
+                    show lparty mad
                     e "Keine Geräusche. Kein Schummeln."
-                    r "Richtig"
+                    r "Jaaa! Richtig!"
                     o "Tss... tss... tsss..."
 
                 "Umherstampfen":
@@ -2320,6 +2352,8 @@ label scene20:
                     show aparty mad
                     show eparty talk2
                     show oparty talk
+                    show rparty vhappy
+                    show lparty happy
                     e "Ein Monster!"
                     o "Vielleicht ein Minotaurus?"
                     a "Ich als Cowboy? Nicht lustig."
@@ -2328,6 +2362,9 @@ label scene20:
                     $ eve_points -= 1
                     show eparty talk2
                     show oparty mad
+                    show rparty vmad
+                    show aparty mad
+                    show lparty really
                     e "Los, mach was."
                     e "Trau dich."
                     o "Voll lahm."
@@ -2337,9 +2374,11 @@ label scene20:
             menu:
                 "Stampf über die Kartonstadt.":
                     $ eve_points += 2
-                    show eparty happy2
-                    show oparty happy
+                    show eparty vhappy2
+                    show oparty vhappy
                     show aparty jabber
+                    show rparty vhappy
+                    show lparty happy
                     e "Das Monster das gerade im Fernsehen läuft!"
                     a "Radzilla! Du bist Radzilla!"
                     o "Nicht schlecht."
@@ -2348,37 +2387,46 @@ label scene20:
                     $ eve_points -= 2
                     p "Tut mir Leid, fühl mich nicht gut."
                     show oparty buh                    
-                    show eparty talk2
-                    show aparty n
+                    show eparty mad
+                    show aparty mad
+                    show rparty vmad
+                    show lparty really
                     e "Wirklich, du gibst auf?"
                     o "Typisch."
                     p "Entschuldigung."
                     
                 "Floppe auf dem Boden herrum.":
                     show oparty happy
-                    show eparty mad
+                    show eparty talk2
                     show aparty shock
+                    show rparty vhappy
+                    show lparty really
                     e "Ähm. Fisch auf dem Trockenen?"
                     a "Trauriger Wal?"
                     r "Radzilla?"
                     p "Richtig!"
                     r "Also, so toll hast du den jetzt nicht gespielt. Aber du wolltest wohl etwas kaputt machen."
                     p "Ääääähhhm... Richtig, das wollte ich."
-                    n "Falsch."
             
+            show oparty happy
+            show aparty n
+            show eparty talk2
+            show rparty vhappy
+            show lparty n
+            r "So,jetzt bist du dran Evelynn."
+            show eparty mad
+            e "Jetzt schon?"
+            show rparty talk
+            r "Ihr seid die Neuen, also ja."
+            show eparty happy2
+            e "O... OK."
             hide oparty
             hide aparty
-            show eparty talk2 at rightish with move
-            show rparty vhappy at leftish with moveinleft
-            r "So,jetzt bist du dran Evelynn."
-            e "Jetzt schon?"
-            r "Ihr seid die Neuen, also ja."
-            e "O... OK."
+            hide rparty
+            hide lparty
+            with dissolve
+            show eparty at center with move
             n "Evelynn will gerade loslegen als Randy's Mama um die Ecke schaut."
-            show rmum talk at left with moveinleft
-            rmum "Kommt Kinder! Es gibt Kuchen!"
-            r "Ohh Junge! Ist der mit Kuchengeschmack?"
-            n "Natürlich rennen wir sofort alle an den Esstisch."
             jump foto
             
             
@@ -2392,7 +2440,7 @@ label scene20:
             e "Na gut."
             r "Evelynn, dein Wort ist..."
             "Randy gibt ihr einen Zettel."
-            hide rparty talk with dissolve
+            hide rparty talk with moveoutleft
             show eparty talk2 at center with move
             r "Bereit?"
             e "Ja."
@@ -2443,29 +2491,21 @@ label scene20:
                         "Schauspiel loben.":
                             $ eve_points += 2
                             p "Evelynn ist doch eine gute Schauspielerin. War doch nicht so schwer."
-                            show eparty happy2 at center
+                            show eparty happy2 at rotationreset
                             o "Angeber."
                             r "Jetzt bist du dran [name]. Los!"
                             "Randy reicht mir einen Zettel..."
                             n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
-                            show rmum talk at left with moveinleft
-                            rmum "Kommt Kinder! Es gibt Kuchen!"
-                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
-                            n "Natürlich rennen wir sofort alle an den Esstisch."
                             jump foto
                             
                         "Nichts sagen.":
                             $ eve_points -=1 
                             p "..."
-                            show eparty mad at center
+                            show eparty mad at rotationreset
                             "Evelynn schaut mich einfach weiter an."
                             e "Du bist dran!"
                             r "Stimmt, hier dein Zettel!"
                             n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
-                            show rmum talk at left with moveinleft
-                            rmum "Kommt Kinder! Es gibt Kuchen!"
-                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
-                            n "Natürlich rennen wir sofort alle an den Esstisch."
                             jump foto
 
                 "...garnichts...":
@@ -2490,28 +2530,20 @@ label scene20:
                         "Schauspiel loben":
                             $ eve_points += 2
                             p "Ist auch kein leichtes Wort, schlecht hast du nicht gespielt."
-                            show eparty happy2 at center
+                            show eparty happy2 at rotationreset
                             o "Ähm was?"
                             r "Jetzt bist du dran [name]. Los!"
                             "Randy reicht mir einen Zettel..."
                             n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
-                            show rmum talk at left with moveinleft
-                            rmum "Kommt Kinder! Es gibt Kuchen!"
-                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
-                            n "Natürlich rennen wir sofort alle an den Esstisch."
                             jump foto
 
                         "Mit dem Rest schweigen":
                             $ eve_points -=1 
                             "..."
-                            show eparty talk2 at center
+                            show eparty talk2 at rotationreset
                             e "Du bist dran!"
                             r "Stimmt, hier dein Zettel!"
                             n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
-                            show rmum talk at left with moveinleft
-                            rmum "Kommt Kinder! Es gibt Kuchen!"
-                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
-                            n "Natürlich rennen wir sofort alle an den Esstisch."
                             jump foto
                             
                     
@@ -2537,37 +2569,39 @@ label scene20:
                         "Schauspiel loben":
                             $ eve_points += 2
                             p "Ist auch kein leichtes Wort, schlecht hast du nicht gespielt."
-                            show eparty happy2 at center
+                            show eparty talk2 at rotationreset
                             o "Ähm was?"
                             r "Jetzt bist du dran [name]. Los!"
                             "Randy reicht mir einen Zettel..."
                             n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
-                            show rmum talk at left with moveinleft
-                            rmum "Kommt Kinder! Es gibt Kuchen!"
-                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
-                            n "Natürlich rennen wir sofort alle an den Esstisch."
                             jump foto
 
                         "Mit dem Rest schweigen":
                             $ eve_points -=1 
                             "..."
-                            show eparty talk2 at center
+                            show eparty talk2 at rotationreset
                             e "Du bist dran!"
                             r "Stimmt, hier dein Zettel!"
                             n "Ich will gerade loslegen als Randy's Mama um die Ecke schaut."
-                            show rmum talk at left with moveinleft
-                            rmum "Kommt Kinder! Es gibt Kuchen!"
-                            r "Ohh Junge! Ist der mit Kuchengeschmack?"
-                            n "Natürlich rennen wir sofort alle an den Esstisch."
                             jump foto
     
 label foto:
+    show rmum talk at left with moveinleft
+    rmum "Kommt Kinder! Es gibt Kuchen!"
+    show rparty vhappy at right with moveinright
+    r "Ohh Junge! Ist der mit Kuchengeschmack?"
+    n "Natürlich rennen wir sofort alle an den Esstisch."
+    scene bg party
+    show rmum talk at center
+    with fade
     rmum "Kommt mal alle zusammen für ein Gruppenfoto."
     "Auch noch so was. Na gut."
     rmum "Los alle. Käsekuchen!"
     scene cg selfiefriendo
+    with fade
     "Alle" "Käääääseeeekuuuucheeeen!!"
-    "... Nett."
+    window hide
+    $ renpy.pause()
     scene bg street with dissolve
     jump scene22
     
@@ -2575,7 +2609,7 @@ label foto:
 label scene21:
     n "Na dann, auf zum Tisch."
     show oparty buh at rightish
-    play music octatheme
+    play music opartytheme fadeout 1.0
     o "BOOOH"
     o "Haha."
     show oparty happy
@@ -3822,7 +3856,8 @@ label wettbewerb:
         n "Ich glaube... Ich glaube ich verstecke mich lieber für heute."
         hide octa
         show bg cuddle with dissolve
-        n "Hier findet mich heute niemand mehr, erst wenn meine Mutter kommt."
+        n "Hier findet mich heute niemand mehr."
+        n "Erst wenn Mama kommt."
         n "Das dauert hoffentlich nicht mehr lang."
         n "..."
         n "..."
@@ -3830,7 +3865,7 @@ label wettbewerb:
         n "..."
         n "*schnarch*"
         n "*schnarch*"
-        k "Oh mann, meine Mutter ist schon da?"
+        n "Oh mann, Mama ist schon da?"
         jump scenew2_9
         
     elif dynamik == True:
