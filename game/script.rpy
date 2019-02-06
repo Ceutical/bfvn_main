@@ -715,7 +715,7 @@ label scene4:
             p "Ist ja gut ..."
             n "Warum ist die denn so sauer?"
             
-    scene bg grura_2        
+    scene bg grura2        
     n "Der Morgenkreis hier ist auf jeden Fall lustiger als der in meinem alten Kindergarten."
     n "Irgendwie geben sich alle zumindest Mühe."
     n "Aber dieses Mädchen steigert sich da echt rein. Sie heißt Octavia, oder? Was ein komischer Name."
