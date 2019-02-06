@@ -616,13 +616,16 @@ label scene4:
     hide louis
     show octa music
     with dissolve
-    o "Hallo! Du bist neu, oder? Ich bin Octavia. Das sind Klanghölzer, weißt du oder? Das kannst du doch, oder?"
+    o "Hallo! Du bist neu, oder?"
+    o "Ich bin Octavia. Das sind Klanghölzer, weißt du oder?"
+    o "Damit kannst du umgehen, oder?"
     menu:
+        o "Damit kannst du umgehen, oder?"
         "Ja! Die sind voll lustig!":
             $ boomstickpoints += 1
             o "Find ich auch! Und voll einfach. Ich kann das hier am Besten, sagt meine Mama mir auch immer."
             
-        "Ähm, nein ... Noch nie ...":
+        "Ähm, nein ... Nicht wirklich ...":
             o "Was, du kannst das garnicht?"
             o "Die anderen sagen das ist voll schwer. Find ich nicht. Ich bin die Beste damit!"
     
@@ -666,7 +669,18 @@ label scene4:
             
     show octa music at left with move
     show karin mhappy at right with moveinright
-    k "Also Kinder, alle bereit? Dann 1 und 2 und 3 und ..."
+    k "Also Kinder, alle bereit?"
+    stop music fadeout 2.0
+    k "Dann 1 und 2 und 3 und ..."
+    play music happytheme1
+    n "Das ist also das Käfergruppenlied?"
+    n "Klingt total toll ..."
+    n "Und die Klanghölzer machen voll Spaß!"
+    n "..."
+    n "Ohh, sieht so aus als wären wir gleich fertig..."
+    n "Schade..."
+    $ renpy.pause ()
+    play music octatheme fadeout 1.5
     if boomstickpoints == 3:
         scene bg grura
         show octa talk at center
@@ -701,7 +715,7 @@ label scene4:
             p "Ist ja gut ..."
             n "Warum ist die denn so sauer?"
             
-    scene bg grura_2        
+    scene bg grura2        
     n "Der Morgenkreis hier ist auf jeden Fall lustiger als der in meinem alten Kindergarten."
     n "Irgendwie geben sich alle zumindest Mühe."
     n "Aber dieses Mädchen steigert sich da echt rein. Sie heißt Octavia, oder? Was ein komischer Name."

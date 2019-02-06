@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 403: expected statement.
-    renpy.pause(1.0, hard=true)
-                               ^
+File "game/script.rpy", line 1568: could not parse statement.
+    play sound grassbump delay = 0.5
+                         ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Wed Feb 06 00:17:01 2019
+Wed Feb 06 19:23:27 2019

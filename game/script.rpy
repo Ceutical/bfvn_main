@@ -41,6 +41,17 @@ define kg = Character("Kinder", what_italic=True) #Kindergartengruppe
 
 ######################################
 
+##### MUSIC CHANNEL DEFINITIONS #####
+
+init python:
+    renpy.music.register_channel("music1", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("music2", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("music3", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound1", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound2", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound3", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound4", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+
 ##### MUSIC DEFINITIONS #####
 
 define audio.introtheme = "music/soundtracks/introtheme.mp3"
@@ -90,6 +101,12 @@ define audio.foodplay = "music/sfx/Mit Essen Spielen.ogg"
 define audio.snackers = "music/sfx/snackers.ogg"
 define audio.street = "music/sfx/street.ogg"
 define audio.Whoosh3 = "music/sfx/Whoosh3.ogg"
+define audio.Chicken = "music/sfx/Hahnwecker.ogg"
+define audio.antiarmor = "music/sfx/Schutzausrüstung_ausziehen.ogg"
+define audio.bike = "music/sfx/Fahrrad.ogg"
+define audio.chain = "music/sfx/Fahrrad_alteKette.ogg"
+define audio.bikebreak = "music/sfx/Fahrradbremse.ogg"
+
 
 ######################################
 
@@ -116,6 +133,9 @@ transform mic:
 transform topright:
     xalign 1.0
     yalign 0.0
+transform topleft:
+    xalign 0.0
+    yalign 0.0    
 transform topishleft:
     xalign 0.0
     yalign 0.5
@@ -319,6 +339,11 @@ transform duckfall:
 
 label start:
     play music introtheme
+    python:
+        if not persistent.set_volumes:
+            persistent.set_volumes = True
+            _preferences.volumes['music'] *= .80 
+        renpy.music.set_volume(volume=0.5, channel='music')
     
     ##### OTHER DEFINITIONS #####
     $ seekwin = True
@@ -457,7 +482,9 @@ label scene3:
     scene bg street
     show mum talk at center
     with fade
-    play music maintheme fadeout 1.2 fadein 0.8
+    play music maintheme fadeout 1.0
+    python:
+        renpy.music.set_volume(volume=1.0, delay=1.2, channel='music')
     if happytogo == True:
         n "Ich bin total aufgeregt. Dabei ist das doch nur ein Kindergartentag wie sonst auch.."
         n "Aber irgendwie auch nicht. Vielleicht finde ich da ja neue noch bessere Freunde als in meinem alten Kindergarten. "
@@ -470,7 +497,7 @@ label scene3:
     scene bg flur
     show heide n at center
     with fade
-    play sound child1
+    play music2 child1
     n "Was für ne gruselige Frau ist da vorne denn?"
     n "Die sieht überhaupt nicht nett aus."
     show ghost with dissolve
@@ -585,7 +612,7 @@ label scene3:
     
     ##### Szene 4 #####
 label scene4:
-    play music octatheme fadeout 1.2 fadein 0.8
+    play music octatheme fadeout 1.0
     scene bg grura
     show karin talk at slightright
     show mum talk at slightleft
@@ -711,16 +738,15 @@ label scene4:
             o "Du warst nicht gut ... Ich hab zugeschaut, weißt du?"
             p "Aber ich hatte Spaß!"
             show octa mad
-            o "Aber du warst nicht gut. Hier geht es nicht um Spaß, das hab ich doch schonmal gesagt!"
+            o "Aber du warst nicht gut. Hier geht es nicht um Spaß, hab ich das nicht schonmal gesagt?!"
             p "Ist ja gut ..."
             n "Warum ist die denn so sauer?"
             
-    scene bg grura2        
+    hide octa with moveoutleft
     n "Der Morgenkreis hier ist auf jeden Fall lustiger als der in meinem alten Kindergarten."
     n "Irgendwie geben sich alle zumindest Mühe."
     n "Aber dieses Mädchen steigert sich da echt rein. Sie heißt Octavia, oder? Was ein komischer Name."
-    hide octa with dissolve
-    show karin mhappy at center with dissolve
+    show karin mhappy at center with moveinright
     
     k "Das habt ihr gut gemacht Kinder!"
     k "Aber jetzt ist genug, auf zum Frühstück mit euch. Husch husch, wir haben ja nicht den ganzen Tag Zeit."
@@ -728,9 +754,7 @@ label scene4:
     ##### Szene 5 #####
 label scene5:
     stop sound fadeout 1.0
-    stop music fadeout 1.0
-    pause 0.75
-    play music anjatheme fadein 1.0
+    play music anjatheme fadeout 1.0
     scene bg food
     play sound child2
     show anja eat at center
@@ -778,9 +802,7 @@ label scene5:
     ##### Szene 6 #####
 label scene6:
     scene bg grura with dissolve
-    stop music fadeout 1.0
-    pause 0.5
-    play music evetheme fadein 1.0
+    play music evetheme fadeout 1.5
     n "Puh… ein Glück dass das Gespräch erstmal vorbei ist."
     n "So viel Labern hält ja keiner aus."
     show eve draw at center with moveinbottom
@@ -828,6 +850,7 @@ label scene6:
             with dissolve
             e "Weißt du denn garnicht was ein Leuchtturm ist?"
             menu:
+                e "Weißt du denn garnicht was ein Leuchtturm ist?"
                 "Nein...":
                     $ eve_points += 1
                     show eve shy2
@@ -863,14 +886,11 @@ label scene6:
             jump meantoeve
 
     
-    hide eve
-    stop music fadeout 1.0
-    pause 0.75
-    play music maintheme fadein 1.0
+    hide eve with dissolve
     n "Wow… die kann mega toll malen. Ich will das auch können."
     n "Vielleicht kann sie mir ja morgen zeigen wie ich auch so gut werde."
 label meantoeve:
-    hide eve
+    hide eve with dissolve
     n "Oh… da ist ja Mama? Ist es schon Nachmittag? Aber es war doch gerade noch Morgenkreis und jetzt ist schon wieder Schluss?"
     n "Das ging ja echt schnell."
     show mum happy at center with moveinleft
@@ -888,13 +908,13 @@ label meantoeve:
     ##### Szene 7 #####
 label scene7:
     scene bg black with fade
-    show tue with fade
-    pause 1.5
-    hide tue with fade
+    show tue with dissolve
+    $ renpy.pause(0.6, hard = True)
     scene bg grura
+    play music happytheme2 fadeout 1.0
     play sound child1
     show karin mhappy at center
-    with dissolve
+    with fade
     n "Man… heute ist der Morgenkreis echt langweilig."
     n "Singen ist doof. Außerdem singt Karin so laut, da hört man uns eh nicht."
     
@@ -921,8 +941,8 @@ label scene8:
     e "Malen..."
     
     menu:
-        
-        "Interesse zeigen.":
+        n "Sie malt ... mit ihrem Essen?"
+        "Cool!":
             $ eve_points += 1
             show eve foodplay
             p "Warte du ..."
@@ -986,18 +1006,17 @@ stop sound fadeout 1.0
     ##### TAG 3 BEGINN #####
     ##### Szene 9 #####
 label scene9:
-    stop music fadeout 1.0
-    pause 0.75
-    play music maintheme fadein 1.0
+    play music maintheme fadeout 1.0
     scene bg black with fade
-    show wed with fade
-    pause 1.5
-    hide wed with fade
-    scene bg bedroom with dissolve
+    show wed with dissolve
+    $ renpy.pause(0.6, hard = True)
+    scene bg bedroom with fade
+    play sound Chicken loop
     "???" "{b}KICKERIKI! KICKERIKI! KICKERIKI!{/b}"
     p "Waaah!"
     p "Hilfe! Was ist das?! Mama!!!"
     "???" "{b}KICKERIKI! KICKERIKI! KI...{/b}"
+    stop sound
     show mum talk at center with moveinright
     m "Guten Morgen Püpschen!"
     m "Ich hab dir was mitgebracht!"
@@ -1012,7 +1031,7 @@ label scene9:
     scene bg grura
     show karin talk at slightright
     show dis mikro at mic
-    with dissolve
+    with fade
     k "Also Kinder, ich hab euch heute etwas mitgebracht."
     show karin happy
     k "Das ist ein Radio, mit Mikrofon! Damit können wir singen und uns anhören was wir gesungen haben."
@@ -1044,6 +1063,7 @@ label scene9:
     
     ##### Szene 10 #####
 label scene10:
+    play music happytheme2 fadeout 1.0
     show bg food
     with dissolve
     n "Karin muss echt noch etwas üben, was das Fangen angeht. So lang dauert der Morgenkreis sonst nicht."
@@ -1140,17 +1160,15 @@ label scene11:
     show karin happy at center with moveinright
     $ gone = False
     k "Kinder, schaut mal an wie schön es draußen ist! Wenn ihr fertig gegessen habt, dann zieht euch an und geht auf den Hof zum spielen."
-    scene bg court with fade
-    stop music fadeout 1.0
-    pause 0.5
-    play music anjatheme fadein 1.0
+    play music anjatheme fadeout 1.0
+    scene bg court with fade    
     n "Eigentlich will ich mich nur hinlegen und etwas in der Sonne dösen. Da auf der Wiese siehts gut aus."
     n "Wer schreit denn da?"
     n "Ich guck besser mal nach. Nicht das ich was verpasse."
     n "Sitzt da Anja im Baum? Wer ist den der Junge da?"
-    show anja vmadb at topright with dissolve
+    show anja vmadb2 at topleft with dissolve
     a "Is doch a völligs Gschmarre wos du dou verzüllst."
-    show randy vmad at left with dissolve
+    show randy vmad at right with dissolve
     "???" "Gibt doch viel Besseres, was man damit machen kann. Also wieso Eis!?"
     
     menu:
@@ -1159,23 +1177,23 @@ label scene11:
             $ daze = False
             show randy mad
             "???" "Ist doch einfach Geschmackssache und ich will das Eis essen, dass ich essen will."
-            show anja madb
+            show anja madb2
             a "Aber das schmeckt doch nur wenn noch was dazugegeben wird."
             "???" "Es schmeckt immer besser!"
-            show anja vmadb
+            show anja vmadb2
             a "UGHHH!"
-            show anja madb
+            show anja madb2
             a "Hey. Du! [name]! Schoko oder Vanilleeis!? Du entscheidest das jetzt."
             menu:
                 p "Ähm... Ich glaube ..."
                 
                 "Schoko ist besser!":
                     $ anja_points += 1
-                    show anja happyb
+                    show anja happyb2
                     a "HAH! Da hast's, Randy! Jetzt sind wir schon 2."
                     r "Ist doch egal, wenn's Geschmackssache ist. Jetzt macht's aber eh keinen Sinn mehr da noch zu reden."
                     r "Ich geh jetzt, macht doch was ihr wollt ..."
-                    hide randy with moveoutleft
+                    hide randy with moveoutright
                     p "Warum habt ihr euch denn jetzt eigentlich gezankt?"
                     a "Ich wollte nur etwas sticheln, dann wurde ich wirklich wütend."
                     a "Du, komm mal mit hoch."
@@ -1188,8 +1206,8 @@ label scene11:
                     a "Egal. Dafür kannst du immer noch nicht klettern Randy."
                     show randy mad
                     r "Ach, lass mich doch in Ruhe..."
-                    hide randy with moveoutleft
-                    show anja happyb at center with move
+                    hide randy with moveoutright
+                    show anja happyb2
                     p "Hey, [name]. Kannst du klettern? Komm mal mit hoch!"
 
             
@@ -1198,21 +1216,21 @@ label scene11:
             $ daze = True
             p "Hey! HEY! HÖRT AUF!"
             p "Hört doch auf zu streiten! Das macht doch keinen Sinn"
-            show anja vmadb
+            show anja vmadb2
             show randy vmad
             "{color=#0099ff}???:{/color} Belauscht du uns einfach? Was soll das?\n{color=#0099ff}Anja:{/color} Misch dich nicht ein!"
             p "Aber ich wollte doch nur ..."
             show randy shock
-            show anja happyb
+            show anja happyb2
             a "Oooh, ähm da haben wir wohl eine gleiche Meinung."
             show randy mad
             "???" "Sieht wohl so aus, ich will aber nicht weiter belauscht werden."
             "???" "Ich gehe. Macht doch was ihr wollt."
-            hide randy with moveoutleft
-            show anja madb
+            hide randy with moveoutright
+            show anja madb2
             a "Hast du ja toll gemacht, [name]."
             p "Warte mal, worum ging es eigentlich?"
-            show anja happyb
+            show anja happyb2
             a "Hehe, du hast also nicht alles gehört? Dann sag ich auch's nicht."
             p "Komm schon!"
             a "Erst wenn du hier hoch kommst!"
@@ -1225,10 +1243,10 @@ label scene11:
         
         "Ich kann nicht klettern.":
             p "Also, ähm... Ich kann nicht klettern."
-            show anja madb
+            show anja madb2
             a "Probier's doch wenigstens."
             p "Ich trau mich nicht ... Ich kann das nicht!"
-            show anja happyb
+            show anja happyb2
             a "Komm schon, ich zeig's dir auch wie's geht."
             menu:
                 "Lieber nicht...":
@@ -1237,7 +1255,7 @@ label scene11:
                     $ anjatreat = False
                     $ climber = False
                     p "Nein! Nein, nein! Ich ... ich guck mal wo dein Freund ist."
-                    show anja madb
+                    show anja madb2
                     a "NA TOLL! Dann geh doch!"
                     n "Verdammt jetzt ist sie sauer… Ich will doch bloß nicht auf diesen Baum. Da fall ich bestimmt nur runter."
                     jump scene12
@@ -1249,12 +1267,12 @@ label scene11:
                     a "Jeder kann klettern, ist nur eine Frage der Technik!"
                     p "Ich hoffe ... "
                     a "Warte ich komm erstmal runter ..."
-                    play sound cardoor2
-                    show anja hihi at right with move
+                    play sound grassbump
+                    show anja hihi at left with dissolve
                     a "So. Schau erst a mal mir zou."
                     show anja talk
-                    a "Nimmst erst as rechte Ba und hebsts an, dann suchst dir mit den Händen nen halt und dann…"
-                    show anja happyb at topright
+                    a "Nimmst erst as rechte Ba und hebsts an, dann suchst dir mit den Händen nen Halt und dann…"
+                    show anja happyb2 at topleft with dissolve
                     a "Bist du auch schon oben. Jetzt du!"
                     p "Wow! Das ging ja schnell. Das sieht so einfach aus."
                     p "Okay also die Hände ..."
@@ -1275,9 +1293,9 @@ label scene11:
             $ anja_points -= 3
             $ gone = True
             $ anjatreat = False
-            show anja madb
+            show anja madb2
             a "Hey! Was soll das? Wo willst du hin?"
-            show anja vmadb
+            show anja vmadb2
             a "NA TOLL! Dann geh doch!"
             n "Verdammt jetzt ist sie sauer… Ich will doch bloß jetzt grad nicht mit ihr spielen."
             jump scene12
@@ -1295,14 +1313,14 @@ label scene11:
     if daze == True:
         p "Aber worum ging es denn jetzt eigentlich?"
         a "Um Geschmack."
-        show anja madb
+        show anja madb2
         a "Schokolade ist das Beste und Randy mag eben Vanilleeis mehr."
         a "Ich wollte ihn einfach nur etwas nerven deswegen."
-        show anja vmadb
+        show anja vmadb2
         a "Aber er ist dann immer so langweilig, dass hat mich wütend gemacht."
 
 
-    show anja madb
+    show anja madb2
     p "Bist du jetzt noch böse?"
     a "Etwas ..."
     
@@ -1314,7 +1332,7 @@ label scene11:
                 $ anja_points += 2
                 $ anjatreat = True
                 p "Ich hab ein paar Snackers. Wenn du Schokolade willst, kann ich dir eins abgeben."
-                show anja happyb
+                show anja happyb2
                 a "Bist wohl Ein[suf2] mit Geschmack!"
                 p "Ich ... weiß nicht wie ich schmecke ..."
                 a "Hahaha!"
@@ -1327,27 +1345,27 @@ label scene11:
                 
 label treetalk:
     p "Also das war jetzt ... Randy? Wie ist der so? Ist der nett?"
-    show anja madb
+    show anja madb2
     a "Ganz komischer Kauz."
-    show anja happyb
+    show anja happyb2
     a "Er ist ein echt netter Kerl und ich bin auf seinen Geburtstag am Freitag eingeladen."
     a "Er ist einer meiner besten Freunde, aber er ist eben so unglaublich Normal, dass treibt mich manchmal echt an die Decke."
     p "Und ihr ... "
     a "Außerdem sind wir so oft anderer Meinung und du hasts ja gesehen."
-    show anja madb
+    show anja madb2
     a "Er hat immer den gleichen Standpunkt und wenn er darüber redet ist er sooo laaangweilig, ich weiß nicht was das soll."
     p "Ist das denn so schlecht?"
     a "Eigentlich nicht, aber es nervt mich."
-    show anja happyb
+    show anja happyb2
     a "Was er aber mag sind Filme mit riesigen Monstern die miteinander kämpfen."
     a "Er hat einen Bruder bei dem er die Filme immer anschauen kann."
     a "Sein Bruder ist super nett."
     p "Was für Fil-..."
     a "Die Gozok Reihe, Omegas und so weiter."
     a "Kannst du ja vielleicht kennenlernen, ich kann ja mal mit Randy reden, ob du auch am Freitag auch auf seinen Geburtstag kommen kannst…"
-    show anja happyb
+    show anja happyb2
     n "Jetzt redet sie wieder. Irgendwann will ich auch mal so viel am Stück reden können."
-    show mum n at left with moveinleft
+    show mum n at right with moveinright
     n "Oh… Mama ist da! Ist wohl Zeit nach Hause zu gehen."
     
     ##### Szene 12 #####
@@ -1384,7 +1402,7 @@ label scene12:
                 p "Ohh ich will... einfach nur mal wieder welche haben."
                 m "Ich schlag dir was vor."
                 p "Was denn?"
-                m "Du hilft mir morgen in der Küche, dann bekommst du ein Knappers."
+                m "Du hilfst mir morgen in der Küche, dann bekommst du ein Knappers."
                 p "Mach ich Mama!"
                 
             "Mama nichts von den Knappers erzählen.":
@@ -1394,15 +1412,13 @@ label scene12:
         ##### TAG 4 BEGINN #####
         ##### Szene 13 #####
 label scene13:
-    stop music fadeout 1.0
+    play music octatheme fadeout 1.0
     scene bg black with fade
-    show thr with fade
-    pause 1.5
-    hide thr with fade
+    show wed with dissolve
+    $ renpy.pause(0.6, hard = True)
     scene bg street
     show mum happy at center
-    with dissolve
-    play music octatheme fadein 1.0
+    with fade
     m "Hey Püpschen, Mama muss heute ganz schnell los. Schaffst du das alleine rein? Ich lass dich gleich am Hof raus."
     p "Mama ich bin doch schon groß!"
     m "Haha, ja mein Schatz, das bist du."
@@ -1444,11 +1460,12 @@ label scene13:
     pause 1.0
     play sound cardoor2
     o "Tschüss!"
+    play sound antiarmor
     o "Und jetzt weg mit dem Zeug."
     hide oschutz
     show octa smug
     with dissolve
-    o "Und wiieso musst du mich eigentlich ausspannen?"
+    o "Und wieso musst du mich eigentlich ausspannen?"
     o "Glaub bloß nicht, ich hätte dich nicht gesehen."
     o "Ich hab nämlich auch die besten Augen!"
     p "Auswas?"
@@ -1466,6 +1483,8 @@ label scene13:
     show obike wheelie with dissolve
     o "Schau her, so geht das!"
     play sound bell
+    play sound1 bike
+    play sound2 chain
     show obike at right with move
     pause 0.2
     show obike wheelier with dissolve
@@ -1475,8 +1494,12 @@ label scene13:
     pause 0.2
     show obike wheelie with dissolve
     pause 0.2
+    play sound3 bikebreak
     show obike at center with move
     pause 0.2
+    stop sound1 fadeout 1.0
+    stop sound2 fadeout 1.0
+    stop sound3 fadeout 1.0
     show obike n
     p "Wow!"
     o "Siehste, ganz einfach. Jetzt du!"
@@ -1528,16 +1551,22 @@ label scene13:
                  ##### Szene 14 #####   
 label scene14:
     scene cg biking with fade
+    play sound1 bike
+    play sound2 chain
     p "Ooookay und jetzt?"
     o "Und jetzt auf einem Rad! Los! Los!"
     o "Das Hinterrad, komm schon! Komm schon! Komm schon!"
     p "Okay ... also ... SO! Octa guck! Ich kann es! ich kann es!"
     o "[name] pass auf! KATZE!"
+    scene cg bikecat with dissolve
+    play sound3 bikebreak
     play sound bell
-    scene cg bikecat with fade
     p "Ohh ... WOAH! Katze vorsicht!"
+    stop sound1 fadeout 1.0
+    stop sound2 fadeout 1.0
     scene cg bikefall with fade
     play sound grassbump
+    
     p "Aua ..."
     
     menu:
