@@ -341,6 +341,7 @@ transform duckfall:
 
 
 label start:
+    stop music
     play music1 introtheme
     python:
         if not persistent.set_volumes:
@@ -2092,7 +2093,7 @@ label scene17:
                     p "Ich hab die schon alle aufgegessen..."
                     p "Ich bring dir nächste Woche auch zwei Knappers mit!"
                     show lparty mad
-                    L "Blödmann!"
+                    L "Blödian!"
                     L "Du hast es mir versprochen, du bekommst nichts mehr von mir!"
                     p "Ich bring dir doch nächste Woche zwei Knappers mit, ganz ehrlich!"
                     L "Versprechen werden nicht gebrochen!"
@@ -2112,7 +2113,7 @@ label scene17:
                     p "Ohh nein ... Ich hab vergessen Mama zu sagen, dass wir welche kaufen müssen!"
                     p "Ich bring dir nächste Woche auch zwei Knappers mit!"
                     show lparty mad
-                    L "Blödmann!"
+                    L "Blödian!"
                     L "Du hast es mir versprochen, du bekommst nichts mehr von mir!"
                     p "Wieso bist du denn so wütend?"
                     p "Ich bring dir doch nächste Woche zwei Knappers mit, ehrlich!"
