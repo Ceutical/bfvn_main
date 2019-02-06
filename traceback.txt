@@ -1,22 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 395, in script
-    jump anjas_ending
-ScriptError: could not find label 'anjas_ending'.
+  File "game/script.rpy", line 622, in script
+    $ boomstickpoints += 1
+  File "game/script.rpy", line 622, in <module>
+    $ boomstickpoints += 1
+NameError: name 'boomstickpoints' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 395, in script
-    jump anjas_ending
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1631, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\script.py", line 875, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'anjas_ending'.
+  File "game/script.rpy", line 622, in script
+    $ boomstickpoints += 1
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 882, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1913, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 622, in <module>
+    $ boomstickpoints += 1
+NameError: name 'boomstickpoints' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 BFVN 1.0
-Tue Feb 05 20:30:44 2019
+Wed Feb 06 02:02:35 2019

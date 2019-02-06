@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 4222: expected menuitem
-    $ anja_points -= 2
-    ^
+File "game/script.rpy", line 403: expected statement.
+    renpy.pause(1.0, hard=true)
+                               ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Tue Feb 05 17:51:56 2019
+Wed Feb 06 00:17:01 2019

@@ -331,7 +331,8 @@ label start:
     $ catch = 0
     $ seekattempts = 0
     $ climber = True
-    
+    $ tookrandy = False
+    $ boomstickpoints = 0
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -371,8 +372,8 @@ label scene1:
             pro6 = "Junge"
             suf = "en"
             suf2 = "er"
-            suf3 = " "
-            suf4 = " "
+            suf3 = ""
+            suf4 = ""
             ddd = "der"
             pre = "mein"
     else:
@@ -391,10 +392,16 @@ label scene1:
             ddd = "die"
 
     ##### Szene 2 CHILD #####
+    menu:
+        "Was spielen?"
+        "Anjas Ende.":
+            jump anjas_ending
+            
+        "Normal.":
+            jump childlike
 label childlike:
-    jump anjas_ending
     scene mnd with fade
-    pause 1.5
+    $ renpy.pause(0.6, hard = True)
     scene bg black with fade
     "???" "Hey Püpschen! Aufwachen! Du willst doch nicht zu spät kommen!"
     n "Oh man. Ich mag Montage nicht. Ich bin noch so müde."
@@ -404,7 +411,7 @@ label childlike:
     play sound decke
     show bg bedroom2 with fade
     n "Nein… nicht die warme Decke…"
-    n "Man, muss alles so hell sein…"
+    n "Mann, muss alles so hell sein…"
     show bg bedroom with dissolve
     show mum talk with moveinright
     m "Guten Morgen mein kleiner Spatz!"
@@ -413,14 +420,19 @@ label childlike:
     m "Ach jetzt stell dich nicht so an. Na komm. Wir ziehen dich gleich an, jetzt gibt's erstmal Essen."
     m "Ich hab Pfannenkuchen gemacht! Heute ist doch dein großer Tag!"
     p "Pfannkuchen! Jaa! Mama ich hab dich lieb!"
-    scene bg kitchen with dissolve
-    show pancakes with dissolve
+    scene bg kitchen
+    show pancakes
+    with dissolve
     n "Am liebsten würde ich jeden Tag Pfannkuchen essen."
     show mum talk
-    hide pancakes with dissolve
-    
+    hide pancakes
+    with dissolve
     m "Freust du dich schon deine neuen Freunde kennenzulernen?"
+    
+    
     menu:
+        m "Freust du dich schon deine neuen Freunde kennenzulernen?"
+        
         "Jaaaaaa!":
             $ octa_points += 1
             $ eve_points -= 1
@@ -432,7 +444,7 @@ label childlike:
         "Ja...":
             $ eve_points += 1
             $ happytogo = False
-            n "So wirklich Lust habe ich nicht."
+            n "So wirklich Lust hab ich ja nicht."
             m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
             n "Ja, das ist echt blöd."
             m "Du kommst heute bestimmt ein eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
@@ -442,9 +454,10 @@ label childlike:
 
     ##### Szene 3 #####
 label scene3:
-    scene bg street with dissolve
+    scene bg street
     show mum talk at center
-    play music maintheme
+    with fade
+    play music maintheme fadeout 1.2 fadein 0.8
     if happytogo == True:
         n "Ich bin total aufgeregt. Dabei ist das doch nur ein Kindergartentag wie sonst auch.."
         n "Aber irgendwie auch nicht. Vielleicht finde ich da ja neue noch bessere Freunde als in meinem alten Kindergarten. "
@@ -454,19 +467,19 @@ label scene3:
         n "Naja, wenigstens ist Mama da."
         m "Gleich sind wir da. Keine Angst, das wird schon! Du wirst bestimmt viele neue Freunde finden."
         n "Mein alter Kindergarten ist definitiv schöner als das hässliche Haus da."
-    scene bg flur with dissolve
+    scene bg flur
+    show heide n at center
+    with fade
     play sound child1
-    show mum n at slightleft with moveinleft
-    show heide n at slightright with moveinright
     n "Was für ne gruselige Frau ist da vorne denn?"
     n "Die sieht überhaupt nicht nett aus."
     show ghost with dissolve
     n "Und warum ist die so weiß? Wie ein Geist..."
-    hide mum
     hide ghost with dissolve
-    show heide talk at center with move
+    show heide talk at center
     h "Ah. Der Neuzugang. Ich bin Frau Heidenau. Wie ist dein Name [pro6]?"
     menu:
+        h "Ah. Der Neuzugang. Ich bin Frau Heidenau. Wie ist dein Name [pro6]?"
         "Selbst vorstellen.":
             $ octa_points += 1
 
@@ -478,14 +491,19 @@ label scene3:
             h "Papperlapapp!"
             hide mum with moveoutleft
             show heide talk 
-            h "Ihr Kind ist bei uns bestens aufgehoben. So \" [name] \", deine Gruppe ist die Käfergruppe, die Karin kümmert sich um dich."
+            h "Ihr Kind ist bei uns bestens aufgehoben. So \"[name]\", deine Gruppe ist die Käfergruppe, die Karin kümmert sich um dich."
             h "Mitkommen!"
             n "Warum zieht sie mich am Ärmel. Ich will das nicht."
             n "Ich wäre auch so mit gekommen. Warum ist diese komische alte Frau so grob. Meine Oma ist auch alt, aber die würde sowas nie machen."
-            show bg grura with dissolve
+            scene bg grura
+            show karin n at slightleft
+            with fade
+            show heide mad at slightright with moveinright
             h "Hier Karin. Ein[suf4] Neu[suf2]. Ich muss jetzt weitermachen. Ich erwarte nachher deinen Bericht."
+            hide heide with moveoutright
+            show karin n at center with move
         
-        "Mutter hilfesuchend ansehen.":
+        "Mama hilfesuchend ansehen.":
             $ octa_points -= 1
             $ anja_points += 1
 
@@ -506,16 +524,14 @@ label scene3:
             h "Ihr Kind ist in der Käfergruppe. Die Gruppenleitung heißt Karin, das ist die Dicke in dem Raum da hinten."
             h "Wenn es schon nicht reden kann, bringen Sie es am Besten selbst rum. Vielleicht hilft das."
             h "Guten Tag!!"
-            hide heide
-            show bg grura with dissolve
-            show mum at center with move
+            hide heide with moveoutright
             n "Puh, endlich ist diese gruselige Frau weg."
+            scene bg grura
+            show karin n at center
+            with fade
 
         
-    
-    hide heide with moveoutleft
-    show karin n with moveinright
-    hide mum with moveoutleft
+
     n "Wer ist die Frau? Ist das diese Karin von der die Alte erzählt hat?"
     k "Ahh, hallo sie Beide. Danke, dass Sie ihr Kind gebracht habe. Sie können unbesorgt sein, wir kümmern uns ganz wunderprächtig um [pro5]."
     k "Also willkommen dann, in der Käfergruppe!"
@@ -531,6 +547,7 @@ label scene3:
     k "Das sind deine neuen Freunde! Stell dich uns Allen doch mal vor, wir wissen ja noch gar nicht wie du heißt."
     
     menu:
+        k "Das sind deine neuen Freunde! Stell dich uns Allen doch mal vor, wir wissen ja noch gar nicht wie du heißt."
         "Vorstellen.":
             $ octa_points += 1
             $ anja_points += 1
@@ -568,12 +585,11 @@ label scene3:
     
     ##### Szene 4 #####
 label scene4:
-    stop music fadeout 1.0
-    pause 0.5
-    play music octatheme fadein 1.0
-    scene bg grura with dissolve
-    show karin talk at slightright with moveinright
-    show mum talk at slightleft with moveinleft
+    play music octatheme fadeout 1.2 fadein 0.8
+    scene bg grura
+    show karin talk at slightright
+    show mum talk at slightleft
+    with fade
     k "Sie können Ihr Kind dann jetzt auch bei uns lassen. Wir kümmern uns bis sie zum Abholen vorbeikommen."
     m "Rufen Sie mich einfach sofort an falls irgendwas sein sollte."
     k "Natürlich, natürlich. Überhaupt keine Frage."
@@ -585,7 +601,7 @@ label scene4:
     k "Wir machen jetzt Morgenkreis. Stell dich einfach da hin und warte ab. Brav sein!"
     n "Ah… Morgenkreis. Wie im alten Kindergarten. Ob wir hier auch nur singen?"
     k "Sind alle da?"
-    hide karin
+    hide karin with dissolve
     show anja what at left with moveinleft
     show eve happy2 at right with moveinright
     show octa happy at center
@@ -596,58 +612,96 @@ label scene4:
     n "Hä? Was sollen wir machen? Warum gibt mir das Mädchen ein Stück Holz?"
     hide anja
     hide randy
-    with moveoutleft
     hide eve
     hide louis
-    with moveoutright
-    
-    show octa music at center
+    show octa music
+    with dissolve
     o "Hallo! Du bist neu, oder? Ich bin Octavia. Das sind Klanghölzer, weißt du oder? Das kannst du doch, oder?"
     menu:
         "Ja! Die sind voll lustig!":
-            $ octa_points += 1
-            $ boomstick = True
+            $ boomstickpoints += 1
             o "Find ich auch! Und voll einfach. Ich kann das hier am Besten, sagt meine Mama mir auch immer."
             
         "Ähm, nein ... Noch nie ...":
-            $ octa_points -= 1
-            $ boomstick = False
             o "Was, du kannst das garnicht?"
             o "Die anderen sagen das ist voll schwer. Find ich nicht. Ich bin die Beste damit!"
     
     n "Sie nimmt das aber Ernst. Ist doch nur der Morgenkreis. Kann man da überhaupt die Beste drin sein?"
+    o "Und du weißt auch wozu die Klanghölzer gut sind?"
+    menu:
+        o "Und du weißt auch wozu die Klanghölzer gut sind?"
+        
+        "Für den Rhythmus!":
+            $ boomstickpoints += 1
+            p "Na um damit den Rhythmus zu halten, ist doch ganz einfach."
+            o "Puh, na dann weißt du ja wenigstens etwas."
+        
+        "Zum Krach machen!":
+            p "Um sie volle Kanne gegeneinander zu hauen! Juhu!"
+            o "..."
+            o "Schon. Aber mit Gefühl. Im richtigen Takt."
+            
+    o "Wie willst du überhaupt vernünftig mit mitmachen?"
+    o "Du kennst doch unser Käfergruppenlied noch garnicht."
+    o "Am Ende versaust du noch alles ..."
+    o "Und dann muss ich, als die Beste natürlich, alles wieder gutmachen!"
+    
+    menu:
+        o "Und dann muss ich, als die Beste natürlich, alles wieder gutmachen!"
+        
+        "Ich lerne schnell!":
+            $ boomstickpoints += 1
+            p "Das ist garkein Problem! Ich lerne ganz schnell, sagt Mama immer."
+            o "Dann klingt es am Anfang immernoch furchtbar."
+            p "Na dann hör ich dir zu und dann mach ich das was du machst."
+            o "Willst du mich etwa nachmachen?"
+            p "Du hast doch gesagt du bist die Beste!"
+            o "Natürlich bin ich die Beste!"
+        
+        "Wird schon schiefgehen ...":
+            p "Ach das klappt schon. Irgendwie."
+            o "Wir machen das hier doch nicht zum Spaß."
+            p "Aber ich dachte ..."
+            o "Streng dich gefälligst an!"
+            
     show octa music at left with move
     show karin mhappy at right with moveinright
     k "Also Kinder, alle bereit? Dann 1 und 2 und 3 und ..."
-    "Minigame geht los. Takt halten."
-    "Minigame steht noch nicht, von daher Choice:"
-    menu:
-        "Hast du das Minispiel gewonnen oder verloren?"
+    if boomstickpoints == 3:
+        scene bg grura
+        show octa talk at center
+        with fade
+        $ octa_points += 3
+        o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
+        o "Aber ... du warst auch garnicht schlecht!"
+        p "Ohh dankesch..."
+        show octa smug
+        o "Hast ja auch von der Besten gelernt."
+        n "Ja genau ... Von der Besten ..."
         
-        "Gewonnen.":
-            $ octa_points += 2
-            hide karin
-            show octa talk at center with move
-            o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
-            if boomstick == True:
-                show octa smug
-                o "Ich dachte du kannst das? Irgendwie war ich trotzdem viel besser als du."
-            else:
-                show octa smug
-                o "Du hast doch gesagt, du kannst das nicht? Egal. Ich war ja auch viel besser als du."
+    else:
+        scene bg grura
+        show octa talk at center
+        with fade
+        $ octa_points -= 3
+        o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
+        if boomstickpoints == 1 or boomstickpoints == 2:
+            $ octa_points += 1
+            show octa smug
+            o "Du hast doch gesagt, du kannst das. Ich war viel, viel besser als du."
+            p "Tut mir leid..."
+            o "Jetzt ist zu spät. Ich hatte viel mehr von dir erwartet..."
+            o "Naja. Nächstes Mal dann."
+        elif boomstickpoints == 0:
+            show octa smug
+            o "Du warst nicht gut ... Ich hab zugeschaut, weißt du?"
+            p "Aber ich hatte Spaß!"
+            show octa mad
+            o "Aber du warst nicht gut. Hier geht es nicht um Spaß, das hab ich doch schonmal gesagt!"
+            p "Ist ja gut ..."
+            n "Warum ist die denn so sauer?"
             
-        "Verloren...":
-            $ octa_points -= 2
-            hide karin
-            show octa talk at center with move
-            o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
-            if boomstick == True:
-                show octa smug
-                o "Du hast alles falsch gemacht! Du hast doch gesagt, du kannst das. Ich war viel, viel besser als du."
-            else:
-                show octa smug
-                o "Du warst nicht gut ... Ich hab zugeschaut, weißt du?"
-            
+    scene bg grura_2        
     n "Der Morgenkreis hier ist auf jeden Fall lustiger als der in meinem alten Kindergarten."
     n "Irgendwie geben sich alle zumindest Mühe."
     n "Aber dieses Mädchen steigert sich da echt rein. Sie heißt Octavia, oder? Was ein komischer Name."
