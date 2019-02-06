@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1568: could not parse statement.
-    play sound grassbump delay = 0.5
-                         ^
+File "game/script.rpy", line 515: expected end of line
+    stop music 1 fadeout 2.0
+               ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Wed Feb 06 19:23:27 2019
+Wed Feb 06 23:42:58 2019
