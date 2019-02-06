@@ -91,7 +91,7 @@ label Gruppenraum:
     show screen grurahide()
     
     
-    n "Nein."
+    n "Wo sind die?"
     n "Nicht Hier."
     n "Da auch nicht."
     n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
@@ -102,6 +102,7 @@ label Gruppenraum:
 label success_grura:
     hide screen countdown
     $ catch += 1
+    $ octa_points = 1
     n "Ich glaube, dass Kissen war vorher nicht da!"
     show randy shock at rightish
     p "Hab dich!"
@@ -119,7 +120,7 @@ label Flur:
     show screen countdown
     show bg flur
     show screen flurhide()
-    n "Nein."
+    n "Wo sind die?"
     n "Nicht Hier."
     n "Da auch nicht."
     n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
@@ -131,6 +132,8 @@ label success_flur:
     hide screen countdown
     $ catch +=1
     n "An der Garderobe stimmt etwas nicht."
+    $ octa_points += 1
+    $ anja_points += 2
     show octa shock
     p "Octavia? Ich dachte du wolltest Papierflieger machen."
     show octa smug
@@ -147,7 +150,7 @@ label Essenszimmer:
     $ timer_jump = 'location'
     show screen countdown
     show bg food
-    n "Nein."
+    n "Wo sind die?"
     n "Nicht Hier."
     n "Da auch nicht."
     n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
@@ -162,7 +165,7 @@ label Court:
     show screen countdown
     show bg court
     show screen courthide()
-    n "Nein."
+    n "Wo sind die?"
     n "Nicht Hier."
     n "Da auch nicht."
     n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
@@ -173,6 +176,8 @@ label Court:
 label success_court:
     hide screen countdown
     $ catch += 1
+    $ octa_points += 1
+    $ anja_points -= 1
     n "Da hinten hat etwas geraschelt."
     show anja what at leftish
     a "Sappererlot, dachte nicht mir folgt jemand nach draußen."
@@ -193,7 +198,7 @@ label Krankenzimmer:
     $ timer_jump = 'location'
     show screen countdown
     show bg health
-    n "Nein."
+    n "Wo sind die?"
     n "Nicht Hier."
     n "Da auch nicht."
     n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
@@ -202,6 +207,8 @@ label Krankenzimmer:
 
 label seekwinner:
     $ seekwin = True
+    $ octa_points += 1
+    $ anja_points += 1
     show bg grura2
     show randy talk at rightish
     show octa shock
@@ -229,6 +236,7 @@ label seekwinner:
     
 label seekloser:
     $ seekloss = True
+    $ octa_points -= 2
     show bg grura2
     n "Ich kann nicht mehr!"
     p "So leute, ich gebe auf, ihr könnt aus euren verstecken!"

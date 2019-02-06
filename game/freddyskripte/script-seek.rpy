@@ -70,15 +70,15 @@ label location:
     
     n "Wo sollte ich wohl suchen? Sobald ich loslauf muss ich schnell sein!"
     menu:
-        "Gruppenraum" if grura == "":
+        "Gruppenraum" if grura == True:
             jump Gruppenraum
-        "Flur" if flur == "":
+        "Flur" if flur == True:
             jump Flur 
-        "Essenszimmer" if food == "":
+        "Essenszimmer" if food == True:
             jump Essenszimmer
-        "Draußen" if court == "":
+        "Draußen" if court == True:
             jump Court
-        "Krankenzimmer" if kz == "":
+        "Krankenzimmer" if kz == True:
             jump Krankenzimmer
             
 label Gruppenraum:
