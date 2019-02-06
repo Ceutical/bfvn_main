@@ -4,7 +4,7 @@
 
 ##### CHARACTER DEFINITIONS #####
 
-define p = Character("Prot") 
+define p = Character("[name]") #Name of Player Character -- P = Protagonist) 
 
 define n = Character(name=None, what_italic=True) #Narrator
 
@@ -211,7 +211,7 @@ label timedmenu2:
                 show lrechts n
                 with dissolve
                 o "Also, wenn ihr noch gewinnen wollt, müsst ihr noch sehr viel besser werden!"
-                a "Protagonist wärmt sich nur noch auf, du wirst schon sehen!"
+                a "[name] wärmt sich nur noch auf, du wirst schon sehen!"
                 o "Na warte, jetzt bin ich dran. Pow!"
                 show oball hochzielen with dissolve
         
@@ -428,7 +428,7 @@ label timedmenu5:
                 o "Ha! Voll auf die Beine!"
                 r "Ich dachte auf die Beine ist verboten!"
                 o "Quatsch, gar nix ist verboten!"
-                k "Prot! Du bist raus!"
+                k "[name] ! Du bist raus!"
                 p "Jaja, ich geh ja schon!"
                 o "So, wer ist als nächstes dran?"
                 n "Danach hat Octavia Einen nach dem Anderen wie Federn vom Spielfeld gepustet."
@@ -464,7 +464,7 @@ label sceneverloren:
     scene bg ball with dissolve
     show karin go at left
     k "Oh...leider müssen wir jetzt Schluss machen!"
-    k "Es fängt gleich an zu Regnen."
+    k "Bald ist schon wieder Abholzeit."
     k "Da bei Team Octa noch mehr Spieler im Feld stehen, habt ihr gewonnen!"
     show osport happy at center with moveinright
     show asport mad at rightish with moveinright
@@ -481,7 +481,7 @@ label scenegewonnen:
     scene bg ball with dissolve
     show karin go at left
     k "Oh...leider müssen wir jetzt Schluss machen!"
-    k "Es fängt gleich an zu Regnen."
+    k "Bald ist schon wieder Abholzeit."
     k "Da bei Team Prota noch mehr Spieler im Feld stehen, habt ihr gewonnen!"
     show osport mad at center with moveinright
     show asport happy at rightish with moveinright
@@ -499,7 +499,7 @@ label sceneunentschieden:
     scene bg ball with dissolve
     show karin go at left
     k "Oh...leider müssen wir jetzt Schluss machen!"
-    k "Es fängt gleich an zu Regnen."
+    k "Bald ist schon wieder Abholzeit."
     k "Da bei beiden noch gleich viele Spieler im Spielfeld stehen, ist unentschieden!"
     show osport mad at center with moveinright
     show asport mad at rightish with moveinright
@@ -551,7 +551,7 @@ label scenenachball:
             
             if climber == True:
                 n "Jetzt beim zweiten mal ist es echt nicht mehr so schwer."
-                a "Schau sogar Prota kann das."
+                a "Schau sogar [name] kann das."
                 o "Ja, aber jetzt wo ihr da oben seid kann ich ja nicht mehr hoch. Da ist nämlich überhaupt kein Platz für 3."
                 o "Sonst würde ich das natürlich machen."
                 a "Ja ja was auch immer! Feigling!"

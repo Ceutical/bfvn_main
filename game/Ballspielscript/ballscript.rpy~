@@ -523,6 +523,117 @@ label scenenachball:
     n "Warum stottert sie denn jetzt. Kann Octa nicht klettern?"
     a "Dann komm mit hoch. Ich Kletter schon mal vor."
     o "Ah...klar."
-    n "Was mach ich jetzt nur?"
     
+    menu:
+        n "Was mach ich jetzt nur?"
+        
+        "Ich halt mich besser zurück...":
+            
+            a "Worauf wartest du dann? Los!"
+            o "Ja, ja ich mach ja gleich."
+            n "Man das sieht nicht gut aus."
+            o "So…erstmal…"
+            n "Verdammt hoffentlich hat sie sich nicht weh getan."
+            o "Au…"
+            k "Was ist denn hier los?"
+            k "Oh man Octa, was machst du denn?"
+            o "Ich wollte doch nur…"
+            k "Jetzt komm mal mit wir müssen das verarzten."
+            k "Und du Anja kommst auch mal mit."
+            a "Aber…"
+            k "Nix aber! Du kommst jetzt mit."
+            n "Vielleicht hätte ich doch lieber im Sandkasten gespielt…"
+            jump scenew2_6
+            
+        "Ich will auch klettern!":
+            p "Hey, lass mich mal. Ich will auch auf den Baum!"
+            $ octa_points += 1
+            
+            if climber == True:
+                n "Jetzt beim zweiten mal ist es echt nicht mehr so schwer."
+                a "Schau sogar Prota kann das."
+                o "Ja, aber jetzt wo ihr da oben seid kann ich ja nicht mehr hoch. Da ist nämlich überhaupt kein Platz für 3."
+                o "Sonst würde ich das natürlich machen."
+                a "Ja ja was auch immer! Feigling!"
+                a "Verzieh dich!"
+                o "Pah!"
+                n "Und weg ist sie…"
+                a "Man die nervt! Bin ich froh, dass sie abgehauen ist."
+                a "Und du… sag mal was sollte das?"
+                
+                menu:
+                    a "Warum hast du dich denn vorgedrängelt?"
+                    
+                    "Na ich wollte halt hoch auf den Baum.":
+                        $ anja_points -= 1
+                        a "Ach lüg doch nicht!"
+                        p "Was wieso?"
+                        a "Du hast das doch nur gemacht damit sie sich nicht schlecht fühlt."
+                        a "Weiß doch jeder, dass sie nicht klettert. Ich glaub sie hat Angst davor."
+                        p "Na gut, vielleicht."
+                        a "Sag mal magst du die Octavia. Kann ich ja nicht wirklich verstehen."
+                        a"Die nervt doch immer nur."
+                        p"Ja aber…"
+                        jump axolotl
+                        
+                    "Octavia hat mir leid getan...":
+                        $ anja_points += 2
+                        a "Ach so! Das hatte ich mir irgendwie schon gedacht."
+                        a "Gut dass du nicht gelogen hast."
+                        a "So richtig versteh ich das ja nicht. Octavia nervt doch immer nur."
+                        p"Ja aber…"
+                        jump axolotl
+                        
+                        
+            else:
+                n "So, ich  brauch nur ordentlich Schwung."
+                p "Au! Verdammt! Blöder Baum!"
+                o "Hahaha… was machst du denn für einen Blödsinn?"
+                a "[name]? Ist alles okay?"
+                p "Ja, ich glaub schon."
+                a "Gut. Das hat ganz schön gekracht. Dachte schon du hättest dir was gebrochen."
+                a "Aber egal. Dann kann ja jetzt Oc…"
+                a "Hey, Moment! Wo ist sie denn?"
+                a "Ist die einfach abgehauen?"
+                p "Hm…sieht so aus."
+                a "Typisch."
+                a "Und du… sag mal was soll das eigentlich?"
+                
+                menu:
+                    a "Warum hast du dich denn vorgedrängelt?"
+                    
+                    "Na ich wollte halt hoch auf den Baum.":
+                        $ anja_points -= 3
+                        a "Ach lüg doch nicht!"
+                        p "Was wieso?"
+                        a "Letzte Woche wolltest du auch nicht klettern. Und jetzt plötzlich…"
+                        a "Das glaub ich nicht."
+                        p "Aber…"
+                        a "Nix aber lügen ist blöd!"
+                        a "Weiß doch jeder, dass sie nicht klettert. Ich glaub sie hat Angst davor."
+                        p "Na gut, vielleicht."
+                        a "Ja und deswegen hast du dich vorgedrängelt, damit sie nicht klettern muss."
+                        a "Und weißt du was?"
+                        a "Wenn du die blöde Octavia so magst, dann geh doch zu der statt rumzulügen!"
+                        n "Ich geh besser. Sie ist echt sauer. Vielleicht hätte ich nicht lügen sollen, aber ich wollte doch nur dass sich Octa nicht weh tut…"
+                        jump scenew2_6
+                        
+                    "Octavia hat mir leid getan...":
+                        $ anja_points += 2
+                        a "Ach so! Das hatte ich mir irgendwie schon gedacht."
+                        a "Gut dass du nicht gelogen hast."
+                        a "So richtig versteh ich das ja nicht. Octavia nervt doch immer nur."
+                        p"Ja aber…"
+                        jump axolotl
+                        
+                        
+label axolotl:
+    a "Weißt du eigentlich, dass der Lucas aus der Axolotl-Gruppe ein Handy bekommen hat?"
+    p "Nö, wer ist Lu…"
+    a "Ich meine so eins von diesen wo man Spiele drauf spielen kann. Voll krass!"
+    p "Ist das d…"
+    a "Zum Beispiel gibt es da so ein Spiel mit ‘ner Schlange und man muss irgendwie machen, dass die Schlange länger wird."
+    p "Aha, und wi…"
+    a "Und man muss irgendwie auch seinem eigenen Schwanz ausweichen."
+    n "Ob ich heute noch mal zu Wort komme…"
     jump scenew2_6
