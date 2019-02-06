@@ -347,17 +347,22 @@ label start:
     
     ##### OTHER DEFINITIONS #####
     $ seekwin = True
-    $ seekloss = ""
-    $ grura = ""
-    $ flur = ""
-    $ court = ""
-    $ kz = ""
-    $ food = ""
+    $ seekloss = True
+    $ grura = True
+    $ flur = True
+    $ court = True
+    $ kz = True
+    $ food = True
     $ catch = 0
     $ seekattempts = 0
-    $ climber = True
+    $ climber = False
     $ tookrandy = False
     $ boomstickpoints = 0
+    $ dynamik = False
+    $ trade = False
+    $ tip = False
+    $ farbflug = False
+    $ chaos = False
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -1370,11 +1375,11 @@ label treetalk:
     
     ##### Szene 12 #####
 label scene12:
-    stop music fadeout 1.0
+    play music maintheme fadeout 1.0
     scene bg bedroom
     show mum happy at center
-    with dissolve
-    play music maintheme fadein 1.0
+    with fade
+    
     
     m "Und wie hat es dir heute gefallen?"
     p "Gut, wir hatten ganz viel Spaß. "
@@ -3759,7 +3764,7 @@ label wettbewerb:
             
         
         "Spitze Falten":
-            $tip = True
+            $ tip = True
             n "Ich habe mal gehört, dass die Spitze das wichtigste ist."
             n "Wenn das stimmt, gewinne ich hunderprozentig!"
             n "Freu ich mich schon auf Octavias Gesicht!"
@@ -3768,7 +3773,7 @@ label wettbewerb:
             
             menu:
                 "Farbe":
-                    $farbflug = True
+                    $ farbflug = True
                     n "Ich muss Octavia auch mit Stil besiegen!"
                     scene bg black with dissolve
                     n "Dann mal los, ich hab ja hier die ganzen Farben."
@@ -3790,7 +3795,7 @@ label wettbewerb:
                                                                          
         
         "Einfach loslegen!":
-            $chaos = True
+            $ chaos = True
             n "Ach, dass wird schon irgendwie klappen."
             scene bg black with dissolve
             n "Erst einmal etwas hiervon. Etwas davon."
