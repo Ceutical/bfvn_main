@@ -1,30 +1,40 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/freddyskripte/pokescript.rpy", line 261, in script
-    menu:
-  File "game/freddyskripte/pokescript.rpy", line 409, in <module>
-    "Wechseln" if switchpoints < 2:
-NameError: name 'switchpoints' is not defined
+  File "game/script.rpy", line 3708, in script
+    play music playtheme fadeout 1.0
+  File "renpy/common/000statements.rpy", line 120, in execute_play_music
+    renpy.music.play(_audio_eval(p["file"]),
+  File "renpy/common/000statements.rpy", line 32, in _audio_eval
+    return eval(expr, locals=store.audio.__dict__)
+  File "game/script.rpy", line 3708, in <module>
+    play music playtheme fadeout 1.0
+NameError: name 'playtheme' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/freddyskripte/pokescript.rpy", line 261, in script
-    menu:
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1562, in execute
-    choice = renpy.exports.menu(choices, self.set)
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\exports.py", line 878, in menu
-    if renpy.python.py_eval(condition) ]
+  File "game/script.rpy", line 3708, in script
+    play music playtheme fadeout 1.0
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1859, in execute
+    self.call("execute")
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1847, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\statements.py", line 179, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 120, in execute_play_music
+    renpy.music.play(_audio_eval(p["file"]),
+  File "renpy/common/000statements.rpy", line 32, in _audio_eval
+    return eval(expr, locals=store.audio.__dict__)
   File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1944, in py_eval
     return py_eval_bytecode(code, globals, locals)
   File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1937, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/freddyskripte/pokescript.rpy", line 409, in <module>
-    "Wechseln" if switchpoints < 2:
-NameError: name 'switchpoints' is not defined
+  File "game/script.rpy", line 3708, in <module>
+    play music playtheme fadeout 1.0
+NameError: name 'playtheme' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 BFVN 1.0
-Thu Feb 07 06:03:56 2019
+Thu Feb 07 22:04:24 2019

@@ -475,7 +475,12 @@ label scene1:
     menu:
         "Was spielen?"
         "Anjas Ende.":
+            stop music1
             jump anjas_ending
+
+        "Eves Ende.":
+            stop music1
+            jump eves_ending
             
         "Normal.":
             jump childlike

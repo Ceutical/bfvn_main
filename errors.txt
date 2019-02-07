@@ -2,13 +2,13 @@
 errors listed below, and try again.
 
 
-The label start is defined twice, at
-  File "game/Endingskripte/script_eveday.rpy", line 164 and
-  File "game/script.rpy", line 349.
+File "game/script.rpy", line 4807: Menu does not contain any choices.
+    menu:
+         ^
 
-The label scene1 is defined twice, at
-  File "game/Endingskripte/script_eveday.rpy", line 224 and
-  File "game/script.rpy", line 427.
+File "game/script.rpy", line 4810: expected statement.
+    "Dann will ich ein Bogenschießer sein!":
+                                           ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Thu Feb 07 06:32:42 2019
+Thu Feb 07 23:49:47 2019
