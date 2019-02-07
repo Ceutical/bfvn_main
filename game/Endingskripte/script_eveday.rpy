@@ -206,7 +206,7 @@ label eves1:
     e "Du, [name]?"
     p "Ja?"
     e "Hast du Lust Das Blaue Auge zu spielen, wenn wir bei der Hütte sind?"
-    p "Na klar, gernet!"
+    p "Na klar, gerne!"
     ### eventuell Charactersheet Displayable? Points = Stats ###
     show eve happy2
     e "Super!"
@@ -223,17 +223,17 @@ label eves1:
     show eve vhappy2
     e "Wollen wir anfangen?"
     p "Klar. Auf geht's!"
-    stop music fadeout 1.0
+    stop music fadeout 3.0
     play music fantheme1
     show eve talk2
     e "Unser Abenteuer beginnt  ganz in der Nähe des Königspalastes von Müramoor."
     e "Wir sind Helden, die gerufen wurden, und müssen uns in Richtung einer Stadt aufmachen!"
-    e "Erst am frühen Morgen, als die Sonne gerade aufgeht, können sie die Stadtmauern von Burenia erblicken."
-    e "Sie machen dort kurz auf einem Hügel rast um sich zu erholen und frühstücken."
+    e "Erst am frühen Morgen, als die Sonne gerade aufgeht, können wir die Stadtmauern von Burenia erblicken."
+    e "Wir machen dort kurz auf einem Hügel rast um uns zu Erholen und Frühstücken."
     n "Evelynn erzählt total toll! Ich kann mir ganz genau vorstellen, wie die Stadt aussehen würde."
-    show bg castle with dissolve
-    show eve pnp with dissolve
+    scene bg castle with dissolve
     p "Alles voll bunt und föhlich hier. Was ist denn das auf deinem Rücken?"
+    show eve pnp2 with dissolve
     e "Oh, das ist wohl eine Laute! Das Werkzeug einer Bardin."
     p "Baden?"
     p "Und wieso Werkzeug? Kannst du damit bauen?"
@@ -247,7 +247,7 @@ label eves1:
 
 label eves2:
     scene bg pnpvillage with dissolve
-    show eve pnpvhappy at rightish
+    show eve pnpvhappy at rightish with dissolve
     e "Wow! Sieh nur, wie viele Leute hier sind. Die haben bestimmt spannende Geschichten zu erzählen!"
     p "Aber wir haben doch gar keine Zeit für sowas. Wir müssen wissen, wo unsere Hilfe gebraucht wird."
     show eve pnpask
@@ -268,20 +268,20 @@ label eves2:
     "Passant" "Möchten Sie wohl dort ein Ständchen singen?"
     show eve pnpvhappy
     e "Vielleicht."
-    show eve pnp
+    show eve pnp2
     e "Haben Sie vielen Dank und einen schönen Tag noch."
     hide cat with moveoutright
     p "Wieso hast du auf einmal so komisch geredet?"
     e "Das macht man hier so..."
     p "Und hast du seine Schnurrhaare gesehen? Sehen die hier alle so aus?"
-    show eve pnp
+    show eve pnp2
     e "Bestimmt nicht, es leben viele verschiedene Wesen hier."
     p "Die will ich sehen!"
     e "Na dann. Los, auf in die Taverne!"
 
 label eves3:
     scene bg pnppub with dissolve
-    stop music fadeout 1.0
+    stop music fadeout 3.0
     play music fantheme2 fadein 1.0
     p "Ich glaube, ich fühle mich doch etwas unwohl hier. Wir sind die einzigen normalen Leute."
     show eve pnpmad
@@ -301,7 +301,7 @@ label eves3:
     "Wirt" "Ihr seht mir aber ein bisschen jung aus für Abenteurer, aber wer bin ich um das zu hinterfragen?"
     "Wirt" "Aber selbstverständlich, hier ist immer viel los."
     show wirt talk
-    show eve pnp
+    show eve pnp2
     "Wirt" "Neulich hat die alte Brunhilde ihren Goldzahn in den Brunnen fallen lassen."
     "Wirt" "Viele Männer haben versucht den Zahn zu bergen, aber niemand hat ihn gefunden..."
     show eve pnpask
@@ -310,12 +310,14 @@ label eves3:
     "Wirt" "Hmmmh... Achso, es gibt tatsächlich ein paar Gerüchte über ein furchteinflößendes Monster."
     "Wirt" "Viele Leute sind in den letzten Nächten verschollen und es wird vermutet, dass eine Kreatur namens Königsfüßler sie in seine Höhle mitgenommen hat."
     show wirt n
-    show eve pnp
+    show eve pnp2
     p "Wie schrecklich! Hat das Wesen irgendwelche Kräfte?"
     show wirt mad
     "Wirt" "Es kann den Willen der Menschen unterdrücken. Ihre Opfer können sich dann nicht mehr wehren und werden schutzlos verspeißt!"
     n "Wille unterdrücken? Das ist ja gruselig. Ich kann mir so etwas gar nicht vorstellen."
+    show wirt n
     p "Und gegen was ist es schwach?"
+    show wirt talk
     "Wirt" "Ist ja nur ein Gerücht. Es soll aber einen harten Panzer und unzählige Beine haben. Wenn es also eine weiche, unbepanzerte Stelle besitzt, dann sollte man wohl dort angreifen."
     show eve pnpask
     e "Und wo genau ist diese Höhle von dem Monster?"
@@ -324,7 +326,7 @@ label eves3:
     "Wirt" "Aber ich würde mir ein Lager in der Nähe suchen, wenn ich es auf die Stadt abgesehen hätte, etwa in dem Wald oder so."
     show eve pnpvhappy
     e "Vielen Dank!"
-    hide wirt
+    hide wirt with dissolve
     show eve pnpask
     e "Du [name], glaubst du wir sind stark genug für das Monster?"
     p "Bestimt, wir sollten es auf jeden Fall versuchen."
@@ -335,11 +337,11 @@ label eves3:
 
 label eves4:
     scene bg caveentry with dissolve
-    stop music fadeout 1.0
-    play music hoeletheme1 fadein 1.0
+    stop music fadeout 3.0
+    play music hoehletheme1 fadein 3.0
     e "Du [name], glaubst du das ist die Höhle?"
     p "Bestimmt."
-    show eve pnp with dissolve
+    show eve pnp2 with dissolve
     e "Wieso bist du dir so sicher?"
     p "Weil es hier unheimlich aussieht."
     e "Wir müssen vorsichtig sein, man weiß nie, was in der Dunkelheit lebt."
@@ -359,8 +361,8 @@ label eves4:
             play sound Whoosh3
             scene bg black with dissolve
             e "Vorsicht, Sie greift an!"
-            show bat angst at rightish
             scene bg caveentry with dissolve
+            show eve pnpmad with dissolve
             show bat angst at leftish with move
             p "Aua!"
             p "Nochmal..."
@@ -401,9 +403,8 @@ label eves4:
     
 label eves5:
     scene bg cave with dissolve
-    stop music fadeout 1.0
-    play music hoeletheme2 fadein 1.0
-    play music hoehletheme1
+    stop music fadeout 3.0
+    play music hoehletheme2 fadein 3.0
     show eve pnpn at leftish
     p "Ich wusste gar nicht, dass es hier so gruselig ist. Dunkelheit macht mir Angst."
     e "Und Hunger."
@@ -418,7 +419,7 @@ label eves5:
     e "Tagliatelle find ich bella..."
     play sound Magie4
     show pizza
-    p "WOAH! Eine Monterpizza!"
+    p "WOAH! Eine Monsterpizza!"
     e "Mir gehört das große Stück!"
     p "Nicht, wenn ich es zuerst esse!"
     show eve pnpmad
@@ -426,11 +427,11 @@ label eves5:
     n "Woah. Was ist auf einmal mit ihr los, ist doch nur Pizza. Egal, sie hat es auch hergezaubert."
     hide pizza
     show pizza2
-    show eve pnp
+    show eve pnp2
     e "Mmmh, lecker."
     p "Ja, sag mal. Du weißt ja viel, hatten die damals Pizza?"
     e "Wieso denn nicht?"
-    p "Stimmt. Das wäre traurig."
+    p "Stimmt. Sonst wäre das traurig."
     hide pizza2 with dissolve
     show pizzastueck
     p "Willst du das letzte Stück noch?"
@@ -447,20 +448,20 @@ label eves5:
     e "Was sollen wir denn jetzt tun?"
     menu:
         "Pizza werfen":
-            n "Ich glaub ich habe essen gehört!"
-            hide pizzastück with moveouttop
+            n "Ich glaub ich habe Essen gehört!"
+            hide pizzastueck with moveouttop
             p "FANG!"
             "Goblins" "Nicht das Essen!"
             hide goblin1 with moveouttop
             hide goblin2 with moveouttop
             p "Los, Rennen!"
-            show eve pnp
+            show eve pnp2
             e "Das war klug von dir."
             p "Ich hab nur aufgepasst, jetzt los."
             hide eve with moveoutright
             
         "Falle auslösen":
-            n "Die steine da oben!"
+            n "Die Steine da oben!"
             p "Kannst du die Steine da oben lösen?"
             e "Ich versuch es!"
             show eve pnpsing
@@ -470,7 +471,7 @@ label eves5:
             "Goblins" "Au, meine Ohren! Tut weh!"
             e "Oh, tut mir leid. Ich wollte niemanden weh tun."
             "Goblins" "Wir wollen doch nur essen."
-            p "Uns isst ihr aber nicht!"
+            p "Uns esst ihr aber nicht!"
             hide pizzastueck
             e "Hier! Pizza"
             show goblin1 happy
@@ -501,14 +502,14 @@ label eves5:
             show goblin1 dead
             show goblin2 dead
             n "Wow! Ein Amboss?"
-            show eve pnp
+            show eve pnp2
             e "Oh nein."
             p "Gut gemacht, aber wenn hier Monster sind dann müssen wir schnell weiter!"
-            hide eve pnp
+            hide eve pnp2
 
 label eveboss:
     scene bg gang with dissolve
-    show eve pnp
+    show eve pnp2
     p "Wie tief sind wir jetzt eigentlich in dieser Höhle?"
     e "Ich weiß nicht, aber ich kann kaum noch was sehen..."
     play sound Whoosh5
@@ -521,7 +522,7 @@ label eveboss:
     show eve pnpask at leftish
     e "Nichts."
     p "Ich will nicht mehr, dass dauert jetzt schon lange. Wir müssen doch eh bald mit den anderen Kindern wieder heim. Ist doch eh alles komisch."
-    show eve pnp
+    show eve pnp2
     e "Ich weiß nicht..."
     p "Hmmh?"
     show eve pnpask
@@ -579,7 +580,7 @@ label eveboss:
     
     p "Warum klappt das nicht?"
     e "Hey, mach irgendwas!"
-    play sound magic1
+    play sound Magie1
     p "Ich kann mich nicht bewegen!"
     e "Ich auch nicht! Was ist das für ein Zauber!"
     e "Wir haben verloren!"
@@ -587,6 +588,8 @@ label eveboss:
     p "Vielleicht musst du dich einfach mal mehr durchsetzen!"
     hide monster with moveoutbottom
     e "EEEK!"
+    show monster n at center with moveinbottom
+    show eve pnpask at leftish with moveinbottom
     p "WEHR DICH DOCH!"
     e "Ich kann nicht! Ich will nicht! Ich darf nicht!"
     menu:
@@ -596,7 +599,7 @@ label eveboss:
             p "Was ist denn jetzt dein Problem?!"
             e "AAAAAAH"
             stop music
-            scene bg hut with dissolve
+            scene hut with dissolve
             show eve mad
             play music spookywald3 fadein 1.0
             e "DU IDIOT MUSST MIR ALLES RUINIEREN!"
@@ -610,9 +613,9 @@ label eveboss:
             p "...ganz gut..."
             n "Irgendwie war es nachdem Evelynn weggegangen ist, nicht mehr so toll."
             n "Sie hat nicht ein Wort mehr mit mir geredet. Dabei hat es doch soviel Spaß gemacht!"
-            show emum n at center
-            show edad n at rightish
-            show eve mad at slightright
+            show emum n at slightright
+            show edad n at right
+            show mad at rightish
             with moveinright
             n "Sogar jetzt guckt sie mich nur böse an"
             show mum nett
@@ -623,7 +626,7 @@ label eveboss:
             hide emum n
             hide edad n
             hide eve mad
-            with moveoutright
+            with moveoutleft
             p "...ich bin müde..."
             m "Nanu, so kenn ich dich ja gar nicht! Hast du gar nichts Spannendes zu erzählen?"
             scene bg black with fade
@@ -646,16 +649,21 @@ label eveboss:
             e "IN SCHLING UND DONNERTAL! BLEIBT MIR KEINE WAHL!"
             show monster n with moveinbottom
             p "Ich kann mich wieder bewegen!"
+            show monster n at rightish with move
             "Königsfüßler" "NEIN!"
+            show monster n at right with move
             e "HÖR DEN HALL UND SPÜR DEN WALL!"
-            show monster plants with dissolve
+            show monster plants at right with dissolve
             "Königsfüßler" "Das darfst du nicht!!! Das ist gefährlich!!!"
             e "Jetzt greif ihn an, wo er nicht geschützt ist!"
             play sound Whoosh3
             p "Mitten ins Gesicht!"
             "Königsfüßler" "EVELYNN!!!!"
             show monster dead with dissolve
-            stop music fadeout 1.0
+            e "..."
+            hide monster with dissolve
+            stop music fadeout 4.0
+            e "...wir...."
             play music fantheme2 fadein 1.0
             show eve pnpask
             e "Wir habens geschafft."
@@ -665,19 +673,19 @@ label eveboss:
             e "Ja, ja, JA!"
             p "..."
             p "Und jetzt?"
-            show eve pnp
+            show eve pnp2
             p "Wollen wir unsere Belohnung von der Stadt abholen?"
             e "Gerne können wir das noch machen."
             scene bg caveentry with dissolve
-            show eve pnp
+            show eve pnp2
             p "Moment mal!"
             show eve pnpask
             e "Was ist denn?"
             p "Ich muss dich jetzt was Fragen, bevor ich's vergesse."
             e "Hmmmh?"
             p "Sag mal... ist das mit deinen Eltern real gewesen?"
-            scene bg hut with dissolve
             stop music fadeout 1.0
+            scene hut with dissolve
             play music evetheme fadein 1.0
             show eve talk2 with dissolve
             e "Wieso das denn?"
@@ -704,13 +712,13 @@ label eveboss:
             show mum talk at leftish with dissolve
             m "Na, und wie war's?"
             p "Supertoll! Wir waren in einer Stadt mit Burg, und da war ein Monster! Und Fledermäuse! Und eine Riesenpizza! Aber Evelynn hat das Monster dann besiegt, und die Pizza haben wir..."
-            m "Oh hey, immer mit der Rhe! Ich komm gar nicht mehr mit."
+            m "Oh hey, immer mit der Ruhe! Ich komm gar nicht mehr mit."
             m "Was für eine Burg? Ich dachte ihr habt euch eine Waldhütte angeschaut?"
-            n "Man, Erwachsene verstehen auch echt gar nix."
+            n "Mann, Erwachsene verstehen auch echt gar nix."
             n "Oh, da drüben ist ja auch Evelynn!"
-            show emum n at center
-            show edad n at rightish
-            show eve happy2 at slightright
+            show emum n at slightright
+            show edad n at right
+            show eve happy2 at rightish
             with moveinright
             n "Sie sieht auch aus, als hätte sie Spaß gehabt."
             show mum nett
@@ -723,10 +731,12 @@ label eveboss:
             show eve happy2
             e "Das war der allertollste Tag überhaupt!"
             emum "...was willst du denn jetzt damit sagen?"
+            hide eve happy2
+            with moveoutleft
+            emum "...Evelynn?!"
             hide emum n
             hide edad n
-            hide eve happy2
-            with moveoutright
+            with moveoutleft
             p "Mama, darf ich am Wochenende vielleicht Evelynn besuchen? Wir wollten zusammen malen und vielleicht einen Schatz suchen gehen oder andere Abenteuer."
             show mum talk
             m "Also, von mir aus ja. Ich kann ja später mal ihre Eltern anrufen und fragen."
@@ -734,8 +744,8 @@ label eveboss:
             jump sceneevegood
     
 label sceneevegood:
+    stop music fadeout 4.0
     scene eve goodend
-    stop music fadeout 1.0
     play music GoodEnd fadein 1.0
     n "Der Wandertag ist jetzt schon 3 Wochen her. Bald bin ich groß genug und darf in die Schule!"
     n "Aber der Ausflug war wirklich lustig. Und Evelynn ist seit dem auch ganz anders."
@@ -750,8 +760,8 @@ label sceneevegood:
 
 
 label sceneevebad:
+    stop music fadeout 4.0
     scene eve badend
-    stop music fadeout 1.0
     play music BadEnd fadein 1.0
     n "Der Wandertag ist jetzt schon 3 Wochen her, aber Evelynn ist immernoch sauer auf mich."
     n "Sie redet kaum noch mit mir und spielen will sie auch nicht mehr."
