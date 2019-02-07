@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 2775: end of line expected.
-    show oparty buh at rightish with dissolve behind aparty
-                                              ^
+File "game/script.rpy", line 2838: expected statement.
+    JUMPER
+          ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Thu Feb 07 01:10:15 2019
+Thu Feb 07 02:24:14 2019

@@ -391,6 +391,23 @@ label start:
             pause 0.269
             repeat
             
+        image oadance:
+            "images/Characters/octavia/oparty vhappy.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.5
+            "images/Characters/octavia/oparty vhappy.png"
+            xalign 0.5 yalign 1.0
+            linear 1.0 xalign 1.0
+            repeat
+            
+        image aodance:
+            "images/Characters/anja/AParty/aparty jabber.png"
+            xalign 0.5 yalign 1.0
+            linear 1.0 xalign 1.0
+            "images/Characters/anja/AParty/aparty jabber.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.5
+            repeat    
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -2822,31 +2839,37 @@ label scene21:
     o "Ach sooo! Hab mich das auch schon gefragt."
     show aparty shock
     p "Warte, was?"
-    show oparty vhappy
+    show oparty vhappy at right with move
+    show aparty jabber
     o "Ähh.. Ach so, hättest du das mal mich gefragt. Ich hätte das gewusst."
-    n "Wir reden noch ein bisschen und spielen im Wald, es ist wohl doch wieder alles gut."
-    
-    p "ooof... Fertig"
-    show rmum nerv
-    rmum "Keine Müdigkeit vortäuschen."
-    show rmum talk
-    rmum "Kommt mal alle zusammen für ein Gruppenfoto."
-    n "Auch noch so was. Na gut."
-    rmum "Los alle. Käsekuchen!"
+    hide oparty
+    hide aparty
+    show aodance
+    show oadance
+    n "Nachdem der Kuchen alle versöhnt hatte, haben wir noch ein wenig miteinander gespielt."
+    n "Anja und Octavia haben sich sogar ausnahmsweise mal vertragen!"
     window hide
+    $ renpy.pause()
+    hide aodance
+    hide oadance
+    with dissolve
+    window auto
+    show rmum talk at center with moveinright
+    rmum "Kommt mal alle zusammen für ein Gruppenfoto."
+    n "Auch das noch! Na gut."
+    rmum "Los alle. Käsekuchen!"
     scene cg selfieorca with dissolve
+    "Alle" "Käääääseeeeekuuuuucheeeeen!"
+    window hide
     $ renpy.pause ()
     window auto
-    "alle" "Käääääseeeeekuuuuucheeeeen!"
-    n "... Nett."
     scene bg street
 
 
     jump scene22
     
 label scene22:
-    stop music fadeout 1.0
-    play music maintheme  
+    play music maintheme fadeout 1.0
     show car at rightish
     show dad talk at leftish 
     with dissolve
