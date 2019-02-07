@@ -73,7 +73,7 @@ define audio.opartytheme = "music/soundtracks/Kinder_Party_Theme1.ogg"
 define audio.apartytheme = "music/soundtracks/Kinder_Party_Theme2.ogg"
 define audio.epartytheme = "music/soundtracks/Kinder_Party_Theme3.ogg"
 
-
+#JUMPER
 ##### SFX DEFINITIONS #####
 
 define audio.treefall = "music/sfx/treefall.ogg"
@@ -1986,7 +1986,7 @@ label scene16:
     m "Ähhhm. Klar. Wir sind ja eh in der Stadt. Da können wir ja mal kurz in den Kostümladen schauen."
     p "YAAAY!"
     play sound cardoor1
-    play music introtheme fadeout 1.0
+    play music playtheme1 fadeout 1.0
     scene bg shop with fade
     n "Man, hier haben Sie ja wirklich alles! Von typischen Monsterkostümen wie eine Riesenmotte mit bunten Flügeln, bis hin zu... huh"
     n "Ein Tier... Tier... Hasensäbelzahnelchwolf?"
@@ -2882,7 +2882,7 @@ label scene22:
     
   
    ##### TAG 5 ENDE #####
-            
+            #JUMPER
   ##### TAG 6 BEGINN #####
     
 label scenew2_0:
