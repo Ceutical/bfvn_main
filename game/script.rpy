@@ -106,6 +106,8 @@ define audio.antiarmor = "music/sfx/Schutzausrüstung_ausziehen.ogg"
 define audio.bike = "music/sfx/Fahrrad.ogg"
 define audio.chain = "music/sfx/Fahrrad_alteKette.ogg"
 define audio.bikebreak = "music/sfx/Fahrradbremse.ogg"
+define audio.scream = "music/sfx/Kinderschrei3.ogg"
+define audio.scream2 = "music/sfx/Kinderschrei1.ogg"
 
 
 ######################################
@@ -2024,7 +2026,7 @@ label scene16:
     scene bg black with dissolve
     
     n "Jetzt, wo ich mein tolles Kostüm habe, kann ich auf den Geburtstag gehen!"
-    n "Das wird sicher Super!"
+    n "Das wird sicher super!"
     n "Jetzt sind wir auch mit Einkaufen fertig, ich hoffe ich komme noch rechtzeitig zum Randys Geburtstag!"
 
 label scene17:
@@ -2150,7 +2152,7 @@ label scene17:
     rmum "Niedliche Kostüme übrigens."
     p "Danke."
     n "Och man. Ich wollte doch gruselig sein, ich bin doch ein Monster!"
-    hide lparty really with moveoutleft
+    hide lparty really with dissolve
     hide rmum talk with moveoutright
 
 label scene18:
@@ -2188,7 +2190,7 @@ label scene18:
     
 label scene19:
     
-    n "Na dann, auf zum Tisch und Kuchen essen."
+    n "Naja egal, erstmal Kuchen essen."
     a "Nimm das Mofpa!"
     n "Jemand sticht mir in meine Seiten."
     play music apartytheme fadeout 1.0
@@ -2196,92 +2198,92 @@ label scene19:
     p "Hey, lass das!"
     a "Aber du bist doch Böse!"
     p "Aber das tut trotzdem weh."
-
-    if trade == True:
-        show aparty n
-        a "Hehe, Louis hat gesagt du hast Knappers dabei?"
-        p "Hatte ich! Aber nur eins ..."
-        p "Und das hab ich Louis gegeben."
-        p "Der hat mir dafür drei Snackers getauscht!"
-        a "Aha! Ein ehrlicher Tauschhandel. Das macht den Sherrif aber glücklich."
-        a "Gut, dass man sich auf dich verlassen kann!"
-        show aparty jabber        
-        a "Bist wohl ein ehrbares Monster!"
-        
-        if anjatreat == True:
+    if snackersdeal == True:
+        if trade == True:
             show aparty n
-            a "Aber, waren das die, die du mir gegeben hast? Ahhhw. Ist ja Süß."
-            p "Ja Snackers sind süß."
-            show aparty talk
-            a "Oh Mann. Finde es trotzdem toll, dass du extra Snackers für mich besorgt hast."
-            n "Extra für sie?"
-            n "Häh, ich hab doch nur mit Louis getauscht."
-            n "Mädchen sind komisch."
-            show aparty jabber
-            a "Hmmmh?"
-            jump scene19f
-        
+            a "Hehe, Louis hat gesagt du hast Knappers dabei?"
+            p "Hatte ich! Aber nur eins ..."
+            p "Und das hab ich Louis gegeben."
+            p "Der hat mir dafür drei Snackers getauscht!"
+            a "Aha! Ein ehrlicher Tauschhandel. Das macht den Sherrif aber glücklich."
+            a "Gut, dass man sich auf dich verlassen kann!"
+            show aparty jabber        
+            a "Bist wohl ein ehrbares Monster!"
+            
+            if anjatreat == True:
+                show aparty n
+                a "Aber, waren das die, die du mir gegeben hast? Ahhhw. Ist ja Süß."
+                p "Ja Snackers sind süß."
+                show aparty talk
+                a "Oh Mann. Finde es trotzdem toll, dass du extra Snackers für mich besorgt hast."
+                n "Extra für sie?"
+                n "Häh, ich hab doch nur mit Louis getauscht."
+                n "Dieses Mädchen ist echt komisch."
+                show aparty jabber
+                a "Hmmmh?"
+                jump scene19f
+                
+            else:
+                show aparty shock
+                a "Und du hast mir keins abgegeben?"
+                p "Hab nicht daran gedacht."
+                show aparty n
+                a "Na gut Partner..."
+                show aparty mad
+                a "Hände Hoch, dass ist ein Überfall."
+                p "Aber ich hab doch keine mehr dabei!"
+                show aparty jabber
+                a "War nur ein Jucks."
+                a "Hmmmh?"
+                jump scene19f
+
         else:
-            show aparty shock
-            a "Und du hast mir keins abgegeben?"
-            p "Hab nicht daran gedacht."
-            show aparty n
-            a "Na gut Partner..."
+            a "Und doof bist du auch!"
             show aparty mad
-            a "Hände Hoch, dass ist ein Überfall."
-            p "Aber ich hab doch keine mehr dabei!"
-            show aparty jabber
-            a "War nur ein Jucks."
-            a "Hmmmh?"
-            jump scene19f
+            p "Was?"
+            a "Louis hat‘s mir gesagt. Du versprichst ihm Knappers und bringst sie ihm dann nicht mit!"
+            p "Ich konnte noch keine..."
+            a "Mach so etwas NIE WIEDER!"
+            a "Versprechen bricht man nicht und die Anderen finden das auch dumm."
 
-    else:
-        a "Und doof bist du auch!"
-        show aparty mad
-        p "Was?"
-        a "Louis hat‘s mir gesagt. Du versprichst ihm Knappers und bringst sie ihm dann nicht mit!"
-        p "Ich konnte noch keine..."
-        a "Mach so etwas NIE WIEDER!"
-        a "Versprechen bricht man nicht und die Anderen finden das auch dumm."
-
-        if anjatreat == True:
-            p "Aber, du hattest doch auch nichts dagegen, als ich sie mit dir geteilt hab!"
-            show aparty shock
-            a "Was?"
-            show aparty mad
-            a "DU VOLLIDIOT HAST EINEM SHERIFF GESTOHLENES ESSEN GEGEBEN?!"
-            a "Ich dachte das wäre deins gewesen du Lügner!"
-            hide aparty mad with moveoutright
-            n "Irgendwie kommt es mir so vor, als würde mich jeder anschauen."
-            n "Vielleicht hab ich das auch verdient ..."
-            n "Hoffentlich hab ich jetzt Randy nicht den Geburtstag verdorben."
-            "..."
-            n "Hmm... wie es aussieht nehmen mir die anderen es gar nicht so übel."
-            show rmum n at center with moveinright
-            rmum "Kommt mal alle zusammen ihr kleinen Monsterlein!"
-            rmum "Gruppenfoto!"
-            n "Wenigstens darf ich auch noch auf das Foto."
-            rmum "Sagt Käsekuchen"
-            scene cg selfiemoth with dissolve
-            "Alle" "Käääääseeeekuuuucheeeen!"
-            window hide
-            $ renpy.pause ()
-            window auto
-            scene bg street with dissolve
-            jump scene22
-        
-        else:
-            p "Es tut mir ja leid ..."
-            p "Ich hab mich doch schon entschuldigt ..."
-            p "Ich würde es auch gerne zurückgeben aber ich hab heute keins dabei."
-            p "Ich hab Louis gesagt er bekommt nächste Woche zwei Knappers ..."
-            show aparty n
-            a "Ist... Verstehe, trotzdem. Nie.."
-            p "Nie wieder!"
-            a "Nie wieder!"
-            show aparty jabber
-            a "Hmmmh?"
-            jump scene19f
+            if anjatreat == True:
+                p "Aber, du hattest doch auch nichts dagegen, als ich sie mit dir geteilt hab!"
+                show aparty shock
+                a "Was?"
+                show aparty mad
+                a "DU VOLLIDIOT HAST EINEM SHERIFF GESTOHLENES ESSEN GEGEBEN?!"
+                a "Ich dachte das wäre deins gewesen du Lügner!"
+                hide aparty mad with moveoutright
+                n "Irgendwie kommt es mir so vor, als würde mich jeder anschauen."
+                n "Vielleicht hab ich das auch verdient ..."
+                n "Hoffentlich hab ich jetzt Randy nicht den Geburtstag verdorben."
+                "..."
+                n "Hmm... wie es aussieht nehmen es mir die Anderen gar nicht so übel."
+                show rmum n at center with moveinright
+                rmum "Kommt mal alle zusammen ihr kleinen Monsterlein!"
+                rmum "Gruppenfoto!"
+                n "Wenigstens darf ich auch noch auf das Foto."
+                rmum "Sagt Käsekuchen"
+                scene cg selfiemoth with dissolve
+                "Alle" "Käääääseeeekuuuucheeeen!"
+                window hide
+                $ renpy.pause ()
+                window auto
+                scene bg street with dissolve
+                jump scene22
+                
+            else:
+                p "Es tut mir ja leid ..."
+                p "Ich hab mich doch schon entschuldigt ..."
+                p "Ich würde es auch gerne zurückgeben aber ich hab heute keins dabei."
+                p "Ich hab Louis gesagt er bekommt nächste Woche zwei Knappers ..."
+                show aparty n
+                a "Ist... Verstehe, trotzdem. Nie.."
+                p "Nie wieder!"
+                a "Nie wieder!"
+                show aparty jabber
+                a "Hmmmh?"
+                jump scene19f
 
 label scene19f:
     n "Wieso schaut sie mich denn jetzt so an?"
@@ -2670,28 +2672,35 @@ label foto:
     
     
 label scene21:
-    n "Na dann, auf zum Tisch."
-    show oparty buh at rightish
-    play music opartytheme fadeout 1.0
+    n "Naja egal, erstmal Kuchen essen."
+    show oparty buh at center with dissolve
+    play music opartytheme
     o "BOOOH"
+    p "Ahh!"
+    show oparty vhappy    
     o "Haha."
     show oparty happy
-    p "Octavia."
+    p "Octavia! Erschreck mich doch nicht so ..."
     o "Cooles Kostüm, [name]"
     o "Sieht sogar mal gut aus."
     show oparty talk
-    p "Danke? Seh ich wohl sonst nicht gut aus?"
-    o "Ja, aber du scheinst ja doch was zu können."
-    p "Du siehst auch gut aus."
+    p "Danke!"
+    p "Seh ich sonst nicht gut aus?"
+    o "Doch schon... Ich meine..."
+    o "Du scheinst ja doch was zu können."
+    p "Danke. Aber du siehst auch gut aus."
+    p "Wenn ich jetzt noch wüsste was du bist ..."
     show oparty happy
     o "Ich bin die Medusa aus der griechischen Antike."
-    p "Die Schlangen Haare sehen mega gruselig aus."
-    o "Sag mal."
-    p "?"
+    p "Die Schlangenhaare sehen mega gruselig aus."
+    show oparty talk
+    o "Sag mal ..."
+    p "Ja?"
     o "Willst du mir bei was helfen?"
     p "Was willst du denn genau machen?"
-    show oparty talk
+    show oparty buh
     o "Anja erschrecken, so wie dich."
+    show oparty talk
     o "Die ist zwar etwas zäh, aber ich glaub ich kann das schaffen."
     o "Es ist eine Monsterparty. Sie wird es uns nicht übel nehmen."
     p "Mmmh... Na gut und wie willst du sie erschrecken?"
@@ -2706,17 +2715,17 @@ label scene21:
     o "Jeder der die Schlangen der Medusa anschaut wird zu Stein laut Legende, aber ich hab ja nur ein Kostüm."
     o "Bereit?"
     p "In Ordnung."
+    show oparty happy
     n "Zu Stein erstarren? Das will ich sehen!"
-    n "Aber Octavia hat auch recht, Anja ist Zäh."
-    hide oparty talk
-    scene bg partyocta
-    n "So, wo ist Anja."
-    show aparty n
+    n "Aber Anja ist zäh, mal schauen ob das was wird!"
+    scene bg partyocta with dissolve
+    n "So, wo ist Anja?"
+    n "Ach da drüben steht sie ja."
     p "Hey Anja!"
-    show aparty jabber
+    show aparty jabber at center with dissolve
     a "Hi [name], was bist du denn?"
     p "Ein KILLERwal!"
-    p "Und du bist der Sheriff dieser Stadt."
+    p "Und du bist der Sheriff dieser Stadt?"
     p "Aber Cowboys sind doch keine Monster?"
     show aparty talk
     a "Mein Papa sagt, sie sind wie riesige Monster gewesen, zumindest gegen die Einheimischen."
@@ -2735,7 +2744,8 @@ label scene21:
     n "Mmmh, irgendwie will sie nicht. Hab ich was Falsches gesagt?"
     n "Egal. Ich kann sie überzeugen."
     menu:
-        "WALDKILLERwal":
+        n "Egal. Ich kann sie überzeugen."
+        "WALDkillerwal":
             $ octa_points += 1
             n "Dann bin ich eben der erste WALDKILLERwal und du wirst berühmt für deine Entdeckung!"
             show aparty jabber
@@ -2763,45 +2773,57 @@ label scene21:
             
     show aparty n
     a "Die Bäume sind echt klein, aber eventuell wenn wir..."
-    scene bg party
-    show oparty buh at rightish
-    show aparty shock at leftish
+    show bg party
+    show oparty buh at slightright behind aparty with dissolve
     o "HSSSSSS!"
+    play sound1 scream
+    show aparty shock at center
     "{color=#0099ff}[name]:{/color} AAAAH! \n{color=#0099ff}Anja:{/color} AAAH! HIMMEL HERRGOTT SACKERER!"
-    n "Jetzt hab sogar ich mich erschreckt!"
-    show oparty vhappy 
+    n "Wo kam die denn her?!"
+    show oparty vhappy at rightish with move
     o "Ihr beide hattet ja echt mega Angst."
     o "Ihr seid ja wirklich erstarrt!"
-    show aparty mad
+    show aparty mad at slightleft with move
     a "Wieso machst du sowas!"
     o "Ruhig, ist doch eine Monsterparty"
     a "Manchmal bist du echt doof!"
     show oparty mad
     o "Aber niemals so doof wie du."
-    a "Du hast gerade bewiesen, dass es dümmer geht als ich."
-    o "Also gibst du zu, dass du dumm bist?"
+    a "Du hast gerade bewiesen, dass es... noch doofer geht als ich."
+    o "Also gibst du zu, dass du doof bist?"
+    show aparty at center with MoveTransition(0.2)
     a "AAAAH!"
+    show fight with dissolve
     n "Oh man, wieder ein Streit. Aber diesmal gibt es einen Ausweg!"
+    hide fight with dissolve
     p "LEUTE! LEUTE! RUHIG!"
-    show oparty happy
-    show aparty n
+    "{color=#0099ff}Octavia::{/color} WAS IST?! \n{color=#0099ff}Anja:{/color} WAS WILLST DU?!"
     "...."
     p "Kuchen!"
     show oparty talk
     o "Wie bitte?"
-    a "Ich versteh‘s auch nicht."
+    a "Versteh ich nicht."
     p "Wir sind hier auf einer Party, wollen wir nicht mal etwas Kuchen essen?"
     o "Ich mein... Eigentlich schon."
     show oparty happy
     show aparty talk
     a "Kuchen hört sich gut an."
-    p "Dann auf zum Kuchen Mampfen." 
-    p "Sag mal, was hast du da vorhin eigentlich gesagt Anja." 
-    a "Das sagt mein Papa auch immer."
+    p "Dann auf zum Kuchen mampfen." 
+    p "Und du... Anja?"
+    show aparty n
+    a "Hmm?"
+    p "Wer ist denn Herr Gottsackerer?"
+    show aparty jabber
+    a "Hahaha."
+    a "Herrgott Sackerer!"
+    a "Weiß nich. Sagt mein Papa immer so."
+    show aparty n
     show oparty talk
     o "Ach sooo! Hab mich das auch schon gefragt."
-    p "???"
-    o "Mist, versprochen."
+    show aparty shock
+    p "Warte, was?"
+    show oparty vhappy
+    o "Ähh.. Ach so, hättest du das mal mich gefragt. Ich hätte das gewusst."
     n "Wir reden noch ein bisschen und spielen im Wald, es ist wohl doch wieder alles gut."
     
     p "ooof... Fertig"
