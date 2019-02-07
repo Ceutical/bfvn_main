@@ -166,7 +166,7 @@ transform flightright:
     yalign .4
 
 
-label start:
+label eves_ending:
     play music introtheme
     python:
         if not persistent.set_volumes:
@@ -193,85 +193,8 @@ label start:
     $ farbflug = False
     $ chaos = False
     $ attackgoblin = False
-    
-    init:
-        image odance:
-            "images/Characters/octavia/omusic clap.png"
-            pause 0.20
-            "images/Characters/octavia/omusic pause.png"
-            pause 0.17
-            "images/Characters/octavia/octa music.png"
-            pause 0.17
-            repeat
-            
-        image kdance:
-            "images/Characters/karin/kmusic left.png"
-            pause 0.269
-            "images/Characters/karin/kmusic happy.png"
-            pause 0.269
-            "images/Characters/karin/kmusic right.png"
-            pause 0.269
-            "images/Characters/karin/kmusic happy.png"
-            pause 0.269
-            repeat
-            
+    #############################
 
-    ##### AFFINITY SYSTEM INITIATE #####
-    $ octa_points = 0
-    $ eve_points = 0
-    $ anja_points = 0
-    $ mapa = "Bumpy" #Marschpartner
-    
-    ##### AFFINITY SYSTEM END #####
-
-    
-    ##### Szene 1 - Prolog #####
-label scene1:
-    scene bg grura with dissolve    
-    
-    python:
-        name = renpy.input("Gib dem Kind einen Namen.")
-        name= name.strip() or "P"
-        
-        
-    menu:
-        "Wird das Kind Junge oder als Mädchen gesehen?"
-        "Als Junge":
-            $ gender = "male"
-            
-        "Als Mädchen":
-            $ gender = "female"
-            
-            
-    
-    if gender == "male":
-        python:
-            pro = "sein"
-            pro2 = "er"
-            pro3 = "ihm"
-            pro4 = "Sohn"
-            pro5 = "ihn"
-            pro6 = "Junge"
-            suf = "en"
-            suf2 = "er"
-            suf3 = ""
-            suf4 = ""
-            ddd = "der"
-            pre = "mein"
-    else:
-        python:
-            pro = "ihr"
-            pro2 = "sie"
-            pro3 = "ihr"
-            pro4 = "Tochter"
-            pro5 = "sie"
-            pro6 = "Mädchen"
-            suf = "e"
-            suf2 = "e"
-            suf3 = "in"
-            pre = "meine"
-            suf4 = "e"
-            ddd = "die"
 
 label eves1:
     scene bg woods with dissolve
