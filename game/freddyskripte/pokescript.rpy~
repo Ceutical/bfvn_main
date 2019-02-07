@@ -12,11 +12,20 @@ define o = Character("Octavia1")
 
 
 transform protagonist:
-    xalign 0
+    xalign 0.0
     yalign 1.0
+  
 transform antagonist:
     xalign 0.95
     yalign 0.05
+
+transform pattack:
+    xalign 0.8
+    yalign 0.05
+    
+transform aattack:
+    xalign 0.15
+    yalign 1.0
 
 transform rotation:
     around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
@@ -25,10 +34,7 @@ transform rotation:
 
 ######################################
 label startbattle:
-    stop sound fadeout 1.0
-    stop music fadeout 1.0
-    pause 0.75
-    play music poketheme fadein 1.0
+    play music poketheme fadeout 1.0
     
     $ HP_dog = 100
     $ HP_stick = 100
@@ -46,7 +52,7 @@ label startbattle:
     default advantage = [("dog", "paper"), ("stick","bike"), ("street","garbage")]
     default disadvantage = [("dog", "bike"), ("stick","garbage"), ("street","bike")]
 
-    scene bg pokemon
+    scene bg pokemon with fade
     "Du wirst herausgefordert von [o]"
     
 label switch:
@@ -69,28 +75,73 @@ label switch:
     
     menu:
         "Dalmatiger" if HP_dog >= 0:
-            hide pokstreet with moveoutleft
-            hide poksticky with moveoutleft
-            $ active_a = "dog"
-            show pokdog at protagonist with moveinleft
-            p "Los Dalmatiger!"
-            $ activeHP_a = HP_dog
+            n "Hmm, Dalmatiger ist gut gegen Papiermonster aber schlecht gegen Fahrradmonster!"
+            menu:
+                n "Hmm, Dalmatiger ist gut gegen Papiermonster aber schlecht gegen Fahrradmonster!"
+                "Dalmatiger in den Kampf schicken!":
+                    if active_a = "stick":
+                        play sound pokout
+                        hide pogdog
+                        with moveoutleft
+                    elif active_a = "street":
+                        play sound pokout
+                        hide pokstreet
+                        with moveoutleft
+                    $ active_a = "dog"
+                    play sound pokin
+                    show pokdog at protagonist
+                    with moveinleft
+                    p "Los Dalmatiger!"
+                    $ activeHP_a = HP_dog
+                    
+                "Doch lieber ein anderes Monster..." if HP_stick >= 0 or HP_street >= 0:
+                    jump switch
         
         "Sticky" if HP_stick >= 0:
-            hide pokstreet with moveoutleft
-            hide pokdog with moveoutleft
-            $ active_a = "stick"
-            show poksticky at protagonist with moveinleft
-            p "Los Sticky!"
-            $ activeHP_a = HP_stick
+            n "Hmm, Sticky ist gut gegen Fahrradmonster aber schlecht gegen Müllmonster."
+            menu:
+                n "Hmm, Sticky ist gut gegen Fahrradmonster aber schlecht gegen Müllmonster."
+                "Sticky in den Kampf schicken!":
+                    if active_a = "dog":
+                        play sound pokout
+                        hide pogdog
+                        with moveoutleft
+                    elif active_a = "street":
+                        play sound pokout
+                        hide pokstreet
+                        with moveoutleft
+                    $ active_a = "stick"
+                    play sound pokin
+                    show poksticky at protagonist
+                    with moveinleft
+                    p "Los Sticky!"
+                    $ activeHP_a = HP_stick
+                    
+                "Doch lieber ein anderes Monster..." if HP_dog >= 0 or HP_street >= 0:
+                    jump switch
         
         "Roadeo" if HP_street >= 0:
-            hide pokdog with moveoutleft
-            hide poksticky with moveoutleft
-            $ active_a = "street"
-            show pokstreet at protagonist with moveinleft
-            p "Los Roadeo!"
-            $ activeHP_a = HP_street
+            n "Hmm, Roadeo ist gut gegen Müllmonster aber schlecht gegen Fahrradmonster."
+            menu:
+                n "Hmm, Roadeo ist gut gegen Müllmonster aber schlecht gegen Fahrradmonster."
+                "Roadeo in den Kampf schicken!":
+                    if active_a = "dog":
+                        play sound pokout
+                        hide pogdog
+                        with moveoutleft
+                    elif active_a = "stick":
+                        play sound pokout
+                        hide pokstreet
+                        with moveoutleft
+                    $ active_a = "street"
+                    play sound pokin
+                    show pokstreet at protagonist
+                    with moveinleft
+                    p "Los Roadeo!"
+                    $ activeHP_a = HP_street
+                    
+                "Doch lieber ein anderes Monster..." if HP_dog >= 0 or HP_stick >= 0:
+                    jump switch
         
     
 label kampf:
@@ -101,10 +152,19 @@ label kampf:
         $queued = "no"
         if active_o == "paper":
             "Paperknight läuft an zum Durchstoßen!"
+            show pokpaper at aattack with move
+            play sound whoosh3
+            show pokpaper at antagonist with move
         elif active_o == "garbage":
             "Güllor explodiert in einer Schlammbombe!"
+            show pokgarbage at aattack with move
+            play sound cardoor1
+            show pokgarbage at antagonist with move
         else:
             "Biclops ist bereit zum Überfahren!"
+            show pokbike at aattack with move
+            play sound bikebreak
+            show pokbike at antagonist with move
         if (active_a, active_o) in disadvantage:
             $ randomnum = renpy.random.randint(50,70)
             "Ein kritischer Treffer!"
@@ -123,10 +183,24 @@ label kampf:
     
     if activeHP_a <=0:
         "Dein Fightemon wurde besiegt!"
+        if active_a = "dog":
+            play sound pokout
+            hide pogdog
+            with moveoutleft
+        elif active_a = "street":
+            play sound pokout
+            hide pokstreet
+            with moveoutleft
+        elif active_a = "stick":
+            play sound pokout
+            hide poksticky
+            with moveoutleft
         jump switch
       
     if active_o == "empty":
+        play sound pokin
         show pokpaper at antagonist
+        with moveinright
         $ activeHP_b = HP_paper
         $ active_o = "paper"
         "[o] sendet Paperknight in den Kampf!"
@@ -134,8 +208,12 @@ label kampf:
         $ HP_paper = 0
         show pokpaper dead
         "Paperknight wurde besiegt."
-        hide pokpaper dead with moveoutright
-        show pokgarbage at antagonist with moveinright
+        play sound pokout
+        hide pokpaper dead
+        with moveoutright
+        play sound pokin
+        show pokgarbage at antagonist
+        with moveinright
         $ activeHP_b = HP_garb
         $ active_o = "garbage"
         o "LOS GÜLLOR!"
@@ -143,8 +221,12 @@ label kampf:
         $ HP_garb = 0
         show pokgarbage dead
         "Güllor wurde besiegt."
-        hide pokgarbage dead with moveoutright
-        show pokbike at antagonist with moveinright
+        play sound pokout
+        hide pokgarbage dead
+        with moveoutright
+        play sound pokin
+        show pokbike at antagonist
+        with moveinright
         $ activeHP_b = HP_bike
         $ active_o = "bike"
         o "Los Biclops!"
@@ -152,6 +234,9 @@ label kampf:
         $ HP_bike = 0
         show pokbike dead
         "Biclops wurde besiegt."
+        hide pokbike dead
+        play sound pokout
+        with moveoutright
         o "NEEEEEIIIIN!"
         jump switch
     else:
@@ -185,10 +270,19 @@ label kampf:
             
             if active_o == "paper":
                 "Paperknight läuft an zum Durchstoßen!"
+                show pokpaper at aattack with move
+                play sound whoosh3
+                show pokpaper at antagonist with move
             elif active_o == "garbage":
                 "Güllor explodiert in einer Schlammbombe!"
+                show pokgarbage at aattack with move
+                play sound cardoor1
+                show pokgarbage at antagonist with move
             else:
                 "Biclops ist bereit zum Überfahren!"
+                show pokbike at aattack with move
+                play sound bikebreak
+                show pokbike at antagonist with move
                 
             if (active_a, active_o) in disadvantage:
                 $ randomnum = renpy.random.randint(50,70)
@@ -231,10 +325,19 @@ label kampf:
             
             if active_o == "paper":
                 "Paperknight läuft an zum Durchstoßen!"
+                show pokpaper at aattack with move
+                play sound whoosh3
+                show pokpaper at antagonist with move
             elif active_o == "garbage":
                 "Güllor explodiert in einer Schlammbombe!"
+                show pokgarbage at aattack with move
+                play sound cardoor1
+                show pokgarbage at antagonist with move
             else:
                 "Biclops ist bereit zum Überfahren!"
+                show pokbike at aattack with move
+                play sound bikebreak
+                show pokbike at antagonist with move
             if (active_a, active_o) in disadvantage:
                 $ randomnum = renpy.random.randint(50,70)
                 "Ein kritischer Treffer!"
@@ -264,10 +367,19 @@ label kampf:
             
             if active_o == "paper":
                 "Paperknight läuft an zum Durchstoßen!"
+                show pokpaper at aattack with move
+                play sound whoosh3
+                show pokpaper at antagonist with move
             elif active_o == "garbage":
                 "Güllor explodiert in einer Schlammbombe!"
+                show pokgarbage at aattack with move
+                play sound cardoor1
+                show pokgarbage at antagonist with move
             else:
                 "Biclops ist bereit zum Überfahren!"
+                show pokbike at aattack with move
+                play sound bikebreak
+                show pokbike at antagonist with move
             if (active_a, active_o) in disadvantage:
                 $ randomnum = renpy.random.randint(50,70)
                 "Ein kritischer Treffer!"

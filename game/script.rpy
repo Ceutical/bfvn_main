@@ -100,7 +100,7 @@ define audio.draw = "music/sfx/Malgeräusche.ogg"
 define audio.foodplay = "music/sfx/Mit Essen Spielen.ogg"
 define audio.snackers = "music/sfx/snackers.ogg"
 define audio.street = "music/sfx/street.ogg"
-define audio.Whoosh3 = "music/sfx/Whoosh3.ogg"
+define audio.whoosh3 = "music/sfx/whoosh3.ogg"
 define audio.Chicken = "music/sfx/Hahnwecker.ogg"
 define audio.antiarmor = "music/sfx/Schutzausrüstung_ausziehen.ogg"
 define audio.bike = "music/sfx/Fahrrad.ogg"
@@ -108,6 +108,10 @@ define audio.chain = "music/sfx/Fahrrad_alteKette.ogg"
 define audio.bikebreak = "music/sfx/Fahrradbremse.ogg"
 define audio.scream = "music/sfx/Kinderschrei3.ogg"
 define audio.scream2 = "music/sfx/Kinderschrei1.ogg"
+define audio.whoosh1 = "music/sfx/Whoosh1.ogg"
+define audio.boing = "music/sfx/Boing.ogg"
+define audio.pokin = "music/sfx/PKMN-Einwurf.ogg"
+define audio.pokout = "music/sfx/PKMN-Tot.ogg"
 
 
 ######################################
@@ -2286,7 +2290,7 @@ label scene19:
                 window hide
                 $ renpy.pause ()
                 window auto
-                scene bg street with dissolve
+                scene bg black with fade
                 jump scene22
                 
             else:
@@ -2374,7 +2378,7 @@ label scene19f:
     window hide
     $ renpy.pause ()
     window auto
-    scene bg street with dissolve
+    scene bg black with fade
     jump scene22
     
 
@@ -2684,7 +2688,7 @@ label foto:
     window hide
     $ renpy.pause ()
     window auto
-    scene bg street with dissolve
+    scene bg black with fade
     jump scene22
     
     
@@ -2863,21 +2867,22 @@ label scene21:
     window hide
     $ renpy.pause ()
     window auto
-    scene bg street
-
-
+    scene bg black with fade
     jump scene22
     
 label scene22:
+    scene bg street
     play music maintheme fadeout 1.0
     show car at rightish
     show dad talk at leftish 
     with dissolve
-    "Papa:" "Hi, [name]! Lang nicht mehr gesehen."
+    v "Hi, [name]! Lang nicht mehr gesehen."
     p " PAPA!"
-    "Papa:" "Na, wie war die Feier? Cool, dass du schon neue Freunde gefunden hast."
-    p "Ich weiß nicht."
-    "Papa:" "Hmmmh, naja das wird schon. Im Kindergarten gibt es öfters mal was. Ich kann mich noch daran erinnern wie wir immer..."
+    v "Na, wie war die Feier? Cool, dass du schon neue Freunde gefunden hast."
+    p "Nur ein paar Freunde! Ich bin ja noch neu!"
+    p "Aber wir haben ein Gruppenfoto gemacht!"
+    v "Hmmmh, ach das wird schon. Ach ich erinner mich noch an meine Zeit im Kindergarten."
+    v "Damals, da haben wir immer ..."
     n "Papa erzählt gerne Geschichten von früher. Das ist meistens auch ganz spannend. Auf jeden Fall wird das keine langweilige Heimfahrt."
     
   
@@ -2887,45 +2892,52 @@ label scene22:
     
 label scenew2_0:
     scene bg black with fade
-    show mnd with fade
-    pause 1.5
-    hide mnd with fade
-    scene bg street
+    show mnd with dissolve
+    $ renpy.pause(0.6, hard = True)
+    scene bg court
     play sound cardoor2
-    show car at rightish
     show dad n at center
     with fade
-    n "Man, das Wochenende bei Papa war echt toll."
-    n "Irgendwie ist es komisch ihn nur noch am Wochenende zu sehen."
+    p "Ihh! Regen!"
+    v "Na nun hab dich nicht so, komm wir beeilen uns, dann bist du schneller im Trockenen!"
+    n "Irgendwie ist es komisch Papa nur noch am Wochenende zu sehen."
+    n "So, wie Papa jetzt ist, mag ich ihn fast lieber als früher."
+    n "Er hat jetzt viel mehr Zeit für mich."
+    n "Und ich seh ihn viel öfter... Auch wenn's nur am Wochenende ist."
+    n "Und sein Auto ist auch viel cooler!"
+    n "Trotzdem wäre es schön wenn er wieder bei uns einziehen könnte..."
+    n "Immerhin machen wir jetzt mehr zusammen."
     show bananasplit at center with dissolve
-    n "Immerhin machen wir jetzt mehr zusammen. Und das extra große Banana Split bei Waluigi’s war echt lecker."
+    n "Und das extra große Eis bei Maluigi’s war echt lecker."
     hide bananasplit
-    show dis gameboy with dissolve
-    n "Außerdem hab' ich jetzt ein Vega PlayGear und ich darf es sogar mit in den Kindergarten nehmen."
+    show dis gameboy 
+    with dissolve
+    n "Und ich hab' jetzt ein Vega PlayGear und ich darf es sogar mit in den Kindergarten nehmen."
     hide dis gameboy with dissolve
-    n "Oh, ich glaub wir sind schon da. Das ging ja schnell. Mit Mama dauert die Fahrt irgendwie länger." 
+    n "Damit kam mir die Fahrt auch ganz kurz vor."
+    n "Mit Mama dauert das irgendwie länger." 
     show dad talk
-    v "Na? Hat das Wochenende Spaß gemacht?"
+    v "Hat dir denn das Wochenende bei mir Spaß gemacht?"
     menu:
+        v "Hat dir denn das Wochenende bei mir Spaß gemacht?"
         "Es war super!":
-            p "JA! Das war voll cool! Der Mega Playgear macht voll viel Spaß!"
+            p "Ja! Das war voll cool! Der Mega Playgear macht voll viel Spaß!"
             v "Na das wusste ich doch dass der dir gefallen wird [pre] Klein[suf2]."
-            v "Du hast dir denn doch schon so lange gewünscht. Wenn du mal was anderes möchtest, dann sag’s mir einfach, okay?"
-            p "Mach ich!"
+            v "Du hast dir den doch schon so lange gewünscht. Wenn du mal was anderes möchtest, dann sag’s mir einfach, okay?"
+            p "Mach ich! Danke Papa!"
             
         "War ganz gut.":
-            p "Ja, danke Papa! Eigentlich bin ich lieber bei Mama, aber diesmal war es echt cool!"
-            v "Das freut mich, ich weiß ja dass du lieber bei deiner Mama bist. Aber dein alter Herr ist doch auch ganz cool, oder?"            
+            p "Ja, danke Papa! Eigentlich bin ich ja lieber bei Mama, aber diesmal war es echt cool!"
+            v "Das freut mich, ich weiß ja dass du lieber bei deiner Mama bist. Aber dein alter Herr ist doch auch ganz cool, oder?"
     
-    show dad n
-    n "So, wie Papa jetzt ist, mag ich ihn fast lieber als früher. Sein Auto ist auch viel cooler."
-    n "Trotzdem wäre es schöner wenn er wieder bei uns einziehen könnte..."
     
-    scene bg court
+    scene bg flur
     show dad talk at center
     with fade
-    v "Da wären wir, das ist also dein neuer Kindergarten… Du hast bestimmt viel Spaß, oder? Hast du denn schon neue Freunde gefunden?"
+    v "Da wären wir, das ist also dein neuer Kindergarten… Du hast bestimmt viel Spaß, oder?"
+    v "Hast du denn schon neue Freunde gefunden?"
     menu:
+        v "Hast du denn schon neue Freunde gefunden?"
         "Ja!":
             p  "Ja, ich mag die anderen, wir spielen ganz viel zusammen!"
             v "Das freut mich! Dann mal ab mit dir in den Kindergarten, viel Spaß mein Kleiner!"
@@ -2939,52 +2951,51 @@ label scenew2_0:
             v "Naja, du kennst die anderen Kinder ja wahrscheinlich auch noch nich so gut, ihr werdet euch bestimmt bald anfreunden."
             
     n "Papas Bart kratzt in letzter Zeit immer wenn er mir auf die Stirn küsst. Das nervt!"
+    v "Mach's gut mein Kleiner. Bis nächstes Mal!"
+    hide dad with moveoutleft
     n "Und weg ist er auch schon wieder. Ich freue mich irgendwie schon, Mama später wieder zu sehen."
     
     
 label scenew2_1:
-    stop music fadeout 1.0
-    pause 0.75
-    play music anjatheme fadein 1.0
-    scene bg flur
-    show anja hihi at center
-    with fade
+    play music playtheme1 fadeout 1.0
+    show anja hihi at center with moveinright
+    a "Hallo [name]!"
     a "Sag mal, deine Haare sind ja nass! Hattest du keine Zeit sie zu trocknen?"
-    p "Nein, ich…"
+    p "Nein, es regnet do…"
     a "Also ich werde gar nicht erst mit nassen Haaren aus dem Haus gelassen. Meine Eltern meinen, ich könnte mich erkälten, dabei ist es ja bloß der Weg zum Auto."
-    p "Ich hatte keine Zeit…"
+    p "Aber ich komme vom Au…"
     a "Apropos Auto, dein Papa hat ja voll die coole Karre. Ich habe euch gesehen, als ihr hier angekommen seid. Der scheint ja mega viel zu verdienen!"
     p "Ja, er…"
     a "Mein Papa verdient nicht so viel, aber trotzdem kauft er mir immer wieder schöne Geschenke, wie neulich, da hat er mir…"
     n "Mit Anja zu reden macht manchmal wirklich keinen Spaß. Randy sitzt da drüben so alleine. Vielleicht hat er was Spannenderes zu erzählen."
-    hide anja
     scene bg grura
-    show karin go at center with dissolve
+    show karin go at center
+    with fade
     n "Heute reden wir im Morgenkreis über Bauernhoftiere, wie z.B. Kühe, Schweine und Schafe."
     show dino at center with dissolve
-    n "Nur warum können wir nicht lieber über coole Tiere wie Dinosaurier reden? Wen interessiert denn schon, dass eine Kuh \"muh\" macht"
-    n "Ich will wissen was ein T-Rex für ein Geräusch macht: Bestimmt \"rawr\" oder sowas."
-    hide dino with dissolve
+    n "Nur warum können wir nicht lieber über coole Tiere wie Dinosaurier reden? Wen interessiert denn schon, dass eine Kuh \"muh\" macht?"
+    n "Ich will wissen was ein T-Rex für ein Geräusch macht: Bestimmt \"rawr\" oder sowas..."
     
 label scenew2_2:
     
-    hide karin
-    play music maintheme
+    scene bg black with fade
+    scene bg grura2 with dissolve
     n "Der Morgenkreis ist endlich vorbei!"
     n "Ich will endlich Fightë Møn weiter spielen! Ich mach die Arenen heute fertig!"
     n "Eigentlich will ich mir aber auch noch Maltipps von Eveylnn holen."
     n "Ich kann ja auch zu Hause weiter spielen."
     n "Hmmmh"
     menu:
-        "Konsole spielen":
+        n "Also, was tun?"
+        "Fightë Møn!":
             $ octa_points += 2
+            play music octatheme fadeout 2.0
             n "Malen kann ich ja immer noch wann anders lernen."
             n "Erst sollte ich alle Arenen erledigen, wenn ich schon damit angefangen habe!"
             n "Außerdem hör ich eh schon die Musik..."
             n "Moment, die ist ja sogar da hinten wo Octavia sitzt."
-            play music octatheme
-            show octa happy
-            n "Sie hat einen Blattsilbernen limitierten PlayGear!"
+            show octa happy with dissolve
+            n "Sie hat einen blattsilbernen, limitierten PlayGear!"
             n "Ich zeig ihr mal meinen!"
             p "Hey Octavia!"
             show dis gameboy with dissolve
@@ -2993,12 +3004,41 @@ label scenew2_2:
             p "Ja."
             o "Weißt du..."
             p "Ja?"
-            o "Es gibt schon Fightë Møn 2" 
+            o "Das hab ich schon viel länger als du. Also bin ich auch besser." 
             p "Doch ich möchte [ddd] beste Ausbilder[suf3] der Welt werden! Genau wie im Fernsehen."
             o "Ich brauch nur noch eine handvoll an Monstern, dann bin ich das zuerst!"
-            p "Du bist doch nicht deswegen besser!"
+            p "Du bist doch nicht besser nur weil du mehr Monster hast!"
             o "Ich beweis es dir! LOS, LASS KÄMPFEN!"
-            n "Ich kann es kaum sehen, aber Octavia steckt ein Kabel in mein Gerät und an ihres. Wie es aussieht muss ich wohl kämpfen."
+            n "Und schon hat Octavia ein Kabel in unsere PlayGears gesteckt. Um den Kampf komm ich wohl nicht drumrum."
+            o "Warte."
+            o "Wie lange hast du das Spiel schon?"
+            p "Erst seit Randys Geburtstag..."
+            o "Dann weißt du doch noch garnicht wie man gegen andere Spieler kämpft!"
+            menu:
+                o "Dann weißt du doch noch garnicht wie man gegen andere Spieler kämpft!"
+                
+                "Doch das weiß ich!":
+                    o "Ach na dann..."
+                    
+                "Ähh...":
+                    label monstererklärung:
+                        o "..."
+                        o "Dann lass es dir nochmal von der besten Ausbilderin erklären."
+                        o "Das läuft ein bisschen anders als wenn du alleine spielst."
+                        o "Zuerst musst du natürlich ein Monster zum Kampf aussuchen."
+                        o "Und dann sagst du ihm was es tun soll."
+                        o "\"Angriff\" ist angreifen. Nicht so stark aber zuverlässig."
+                        o "\"Starker Angriff\" ist ein rücksichtloser Angriff. Der macht zwar mehr Schaden aber tut auch deinem Monster weh."
+                        o "\"Verteidigen\" heißt du bekommst von meinem nächsten Angriff weniger Schaden. Aber du greifst auch nicht an."
+                        o "Und mit \"Wechseln\" wechselst du dein Monster aus."
+                        o "Alles klar soweit?"
+                        menu:
+                            o "Alles klar soweit?"
+                            "Na klar!":
+                                o "Na dann..."
+                                
+                            "Nochmal von vorn...":
+                                jump monstererklärung
             o "LOS!"
             jump startbattle
             
@@ -3050,7 +3090,7 @@ label scenew2_2:
                     show octa smug
                     o "Alles klar, viel Spaß noch!"
                     
-        "Mit Evelynn malen":
+        "Mit Evelynn malen.":
             $ eve_points += 2
             n "Ich kann ja auch noch Nachmittag daheim spielen, erst einmal zu Evelynn!"
             n "Der Maltisch ist wohl heute wirklich voll. Randy hat sich wohl alle Brettspiele geschnappt."
@@ -3825,7 +3865,7 @@ label scenew2_8:
             p "Ich bin mir noch nicht wirklich sicher was ich machen will..."
             show randy shock
     
-    play sound Whoosh3
+    play sound whoosh3
     show papierflieger at flight with moveinleft
     hide papierflieger with moveoutright
     play sound ballhit1

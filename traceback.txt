@@ -1,22 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 120, in script
-    return
-Exception: Could not find return label (u"C:\\Users\\Kilian\\Desktop\\RenPy\\renpy-7.1.1-sdk\\Games\\Baby's First Visual Novel/game/script.rpy", 1547165259, 172).
+  File "game/freddyskripte/pokescript.rpy", line 82, in script
+    if active_a = "stick":
+SyntaxError: invalid syntax (game/freddyskripte/pokescript.rpy, line 82)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 120, in script
-    return
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1468, in execute
-    next_node(renpy.game.context().lookup_return(pop=True))
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\execution.py", line 664, in lookup_return
-    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
-Exception: Could not find return label (u"C:\\Users\\Kilian\\Desktop\\RenPy\\renpy-7.1.1-sdk\\Games\\Baby's First Visual Novel/game/script.rpy", 1547165259, 172).
+  File "game/freddyskripte/pokescript.rpy", line 82, in script
+    if active_a = "stick":
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1760, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1942, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 674, in py_compile
+    raise e
+SyntaxError: invalid syntax (game/freddyskripte/pokescript.rpy, line 82)
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 BFVN 1.0
-Wed Feb 06 23:28:07 2019
+Thu Feb 07 04:22:07 2019
