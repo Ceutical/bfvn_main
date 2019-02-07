@@ -1,26 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 3043, in script
-    $ octaannoyed += 1
-  File "game/script.rpy", line 3043, in <module>
-    $ octaannoyed += 1
-NameError: name 'octaannoyed' is not defined
+  File "game/freddyskripte/pokescript.rpy", line 261, in script
+    menu:
+  File "game/freddyskripte/pokescript.rpy", line 409, in <module>
+    "Wechseln" if switchpoints < 2:
+NameError: name 'switchpoints' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 3043, in script
-    $ octaannoyed += 1
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 882, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1913, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/script.rpy", line 3043, in <module>
-    $ octaannoyed += 1
-NameError: name 'octaannoyed' is not defined
+  File "game/freddyskripte/pokescript.rpy", line 261, in script
+    menu:
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1562, in execute
+    choice = renpy.exports.menu(choices, self.set)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\exports.py", line 878, in menu
+    if renpy.python.py_eval(condition) ]
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1944, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1937, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/freddyskripte/pokescript.rpy", line 409, in <module>
+    "Wechseln" if switchpoints < 2:
+NameError: name 'switchpoints' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 BFVN 1.0
-Thu Feb 07 04:54:45 2019
+Thu Feb 07 06:03:56 2019

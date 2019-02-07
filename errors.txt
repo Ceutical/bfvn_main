@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 2986: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-            "Fightë Møn!:
+File "game/freddyskripte/pokescript.rpy", line 313: expected ':' not found.
+    else jump kampf
+         ^
+
+File "game/freddyskripte/pokescript.rpy", line 369: expected ':' not found.
+    else jump kampf
+         ^
+
+File "game/freddyskripte/pokescript.rpy", line 399: expected ':' not found.
+    else jump kampf    
+         ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Thu Feb 07 03:19:31 2019
+Thu Feb 07 05:53:46 2019
