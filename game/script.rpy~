@@ -373,6 +373,7 @@ label start:
     $ tip = False
     $ farbflug = False
     $ chaos = False
+    $ octaannoyed = 0
     
     init:
         image odance:
@@ -3022,23 +3023,30 @@ label scenew2_2:
                     
                 "Ähh...":
                     label monstererklärung:
-                        o "..."
-                        o "Dann lass es dir nochmal von der besten Ausbilderin erklären."
-                        o "Das läuft ein bisschen anders als wenn du alleine spielst."
-                        o "Zuerst musst du natürlich ein Monster zum Kampf aussuchen."
-                        o "Und dann sagst du ihm was es tun soll."
-                        o "\"Angriff\" ist angreifen. Nicht so stark aber zuverlässig."
-                        o "\"Starker Angriff\" ist ein rücksichtloser Angriff. Der macht zwar mehr Schaden aber tut auch deinem Monster weh."
-                        o "\"Verteidigen\" heißt du bekommst von meinem nächsten Angriff weniger Schaden. Aber du greifst auch nicht an."
-                        o "Und mit \"Wechseln\" wechselst du dein Monster aus."
-                        o "Alles klar soweit?"
-                        menu:
+                        if octaannoyed < 2:
+                            o "..."
+                            o "Dann lass es dir nochmal von der besten Ausbilderin erklären."
+                            o "Das läuft ein bisschen anders als wenn du alleine spielst."
+                            o "Zuerst musst du natürlich ein Monster zum Kampf aussuchen."
+                            o "Und dann sagst du ihm was es tun soll."
+                            o "\"Angriff\" ist angreifen. Nicht so stark aber zuverlässig."
+                            o "\"Starker Angriff\" ist ein rücksichtloser Angriff. Der macht zwar mehr Schaden aber tut auch deinem Monster weh."
+                            o "\"Verteidigen\" heißt du bekommst von meinem nächsten Angriff weniger Schaden. Aber du greifst auch nicht an."
+                            o "Und mit \"Wechseln\" wechselst du dein Monster aus."
                             o "Alles klar soweit?"
-                            "Na klar!":
-                                o "Na dann..."
-                                
-                            "Nochmal von vorn...":
-                                jump monstererklärung
+                            menu:
+                                o "Alles klar soweit?"
+                                "Na klar!":
+                                    o "Na dann..."
+                                    
+                                "Nochmal von vorn...":
+                                    $ octaannoyed += 1
+                                    jump monstererklärung
+                        else:
+                            $ octa_points -= 1
+                            show octa mad
+                            o "Sag mal versuchst du hier eigentlich nur Zeit zu schinden?"
+                            o "Jetzt reicht es mir aber!"
             o "LOS!"
             jump startbattle
             
