@@ -114,6 +114,7 @@ define audio.pokin = "music/sfx/PKMN-Einwurf.ogg"
 define audio.pokout = "music/sfx/PKMN-Tot.ogg"
 define audio.purr = "music/sfx/Katzenschnurren.ogg"
 define audio.rain = "music/sfx/Regen.ogg"
+define audio.horror ="music/sfx/HorrorBGM.ogg"
 
 
 ######################################
@@ -379,6 +380,10 @@ label start:
     $ pnpstr = 0
     $ pnpdex = 0
     $ pnpint = 0
+    $ berry = False
+    $ powder = False
+    $ pnp1winpoints = 0
+    $ pnpplay = False
     
     
     init:
@@ -4291,10 +4296,10 @@ label scenew2_10:
     n "Laaaangweilig…"
     n "Vielleicht schau ich lieber mal nach, was die Anderen gerade so machen."
     scene bg flur with dissolve
-    n "Octavia ist vorhin direkt nach draußen gerannt und Anja ist da wahrscheinlich auch irgendwo Klettern. Nur wo Evelynn ist weiß ich gerade nicht, aber die malt bestimmt wieder."
+    n "Octavia ist vorhin direkt nach draußen gerannt und Anja ist da wahrscheinlich auch irgendwo klettern. Nur wo Evelynn ist weiß ich gerade nicht. Die malt bestimmt wieder."
     ##############################################################JUMPER
     menu:
-        n "Octavia ist vorhin direkt nach draußen gerannt und Anja ist da wahrscheinlich auch irgendwo Klettern. Nur wo Evelynn ist weiß ich gerade nicht, aber die malt bestimmt wieder."
+        n "Octavia ist vorhin direkt nach draußen gerannt und Anja ist da wahrscheinlich auch irgendwo klettern. Nur wo Evelynn ist weiß ich gerade nicht. Die malt bestimmt wieder."
         "Ich sollte mal nach Octavia schauen.":
             play music octatheme fadeout 1.0
             scene bg court with dissolve
@@ -4547,13 +4552,17 @@ label scenew2_10:
             show mum happy
             m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
             show pancakes
-            n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
+            n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung."
+            n "Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
             jump scenew2_12
             
                 
-                
+                #JUMPER
         "Ich glaub ich geh mal zu Anja.":
+            play music anjatheme fadeout 1.0
+            scene bg court with dissolve
             n "Heute ist es echt schön warm draußen!"
+            show anja happyb2 at topleft with dissolve
             n "Und natürlich hängt Anja wieder im Baum. Wie so einer dieser orangenen Affen. Die hab ich mal im Zoo gesehen."
             a "[name]! Draußen ist es doch echt am coolsten, oder?"
             a "Außerdem sagt meine Mama immer, dass frische Luft gesund ist. Nur die Luft auf dem Land soll noch besser sein. Meine Oma und mein Opa zum Beispiel wohnen auf dem Land. Die haben einen ganz eigenen Bauernhof!"
@@ -4571,15 +4580,22 @@ label scenew2_10:
                     $ anja_points -= 2
                     p "Ich fin-"
             
-            a "Aber die Luft finde ich da eigentlich nicht so toll. Vor allem im Schweinestall stinkt es immer voll. Aber das Stroh riecht gut!"
+            show anja madb2
+            a "Aber die Luft finde ich da eigentlich nicht so toll. Vor allem im Schweinestall stinkt es immer voll."
+            show anja happyb2
+            a "Aber das Stroh riecht gut!"
             p "Das ist natürlich-"
             a "Meine Oma und mein Opa haben aber auch ganz viele anderen Tiere. Mit denen darf ich auch immer spielen. Aber manchmal ist es alleine trotzdem..."
-            n "Ich finde es immer noch lustig, wie Anja ohne Pause reden kann. Mama würde sagen, sie labert wie ein Wasserfall. Auch wenn Wasserfälle doch eigentlich gar nich reden können."
+            n "Ich finde es immer noch lustig, wie Anja ohne Pause reden kann."
+            n "Mama würde sagen: \"Die labert wie ein Wasserfall!\""
+            n "Dabei können Wasserfälle doch eigentlich gar nich reden."
             n "Manchmal sagen Erwachsene schon echt komische Sachen..."
+            show anja whatb2
             n "Oh... Anja guckt mich plötzlich so komisch an."
             p "Was hast du gesagt?"
             a "Na, ob du mal mitkommen möchtest? Auf den Bauernhof? Dann kann ich dir unsere Hühnerbabies zeigen, die sind erst zwei Wochen alt und voll flauschig. Und eine Katze haben wir auch! Mama kann die bestimmt heut mitnehmen!"
             p "Äh...ich-"
+            show anja happyb2
             a "Meine Oma und mein Opa wohnen auch schon länger hier als wir. Wir sind deswegen dann auch hierher gezogen, damit wir sie ganz oft besuchen können. Und meine Oma backt dann immer Kirschkuchen mit Sahne."
             
             menu:
@@ -4593,6 +4609,7 @@ label scenew2_10:
                     
             a "Aber die Tiere sind trotzdem das Coolste! Ich will später auch mal irgendwas mit ganz viel Tieren machen. Aber nicht Bauer."
             a "Lieber Tierarzt oder so. Dann kann ich den ganzen Tieren helfen und dann werden die alle meine Freunde. Aber niemand wird ein besserer Freund als unsere Kuh Elsa. Die ist die Allerbesteste!"
+            show anja whatb2
             a "Was ist denn- Komm auch hoch! Das musst du sehen! Schnell!"
             menu:
                 "Ich kann da nicht hochklettern.":
@@ -4604,88 +4621,144 @@ label scenew2_10:
                     a "Jetzt komm schon! Du verpasst es!"
                     
             n "Was macht die denn für einen Wirbel? Die tut ja fast schon so, als wäre da oben ein Alien"
+            show anja madb2
             a "Schneller!"
             p "Jaa doch..."
             n "Wie war das nochmal? Erst hier hoch und dann..."
             n "Uff… das war knapp."
+            show anja whatb2
             a "Siehst du das? Da oben? Die alte Greiterhex!"
             p "Wo? Meinst du da am Fenster? Da dürfen wir doch eigentlich gar nicht hochgehen. Ich weiß nich ob wir-"
+            show anja vmadb2
             a "Du kannst ja auch gerne wieder runterklettern, du Spielverderber! Aber ich sag dir, mit der stimmt was nicht!"
             
             menu:
+                a "Du kannst ja auch gerne wieder runterklettern, du Spielverderber! Aber ich sag dir, mit der stimmt was nicht!"
                 "Oben bleiben":
                     $ anja_points += 2
+                    show anja madb2
+                    show ghost at center
+                    play music horror fadeout 2.0
                     n "Der Schatten hinter dem Vorhang sieht wirklich aus wie der von Heidenau. Nur irgendwie gruseliger… Das ist echt unheimlich."
+                    hide ghost
                     p "Was macht die denn da?"
+                    show anja whatb2
                     a "Keine Ahnung! Aber die läuft da schon die ganze Zeit im Kreis und siehst du da den Rauch aus dem Fenster kommen? Die kocht da jetzt bestimmt irgendeinen Zaubertrank!"
                     n "Das vielleicht nicht unbedingt, aber auf jeden Fall ist das komisch. Und da kommen auch ganz komische Geräusche aus dem Zimmer."
-                    n " Das klingt fast so, als würde jemand einer Eule am Schwanz ziehen. Und dann ist da noch irgendein seltsames Musik-Dingsbums oder so… so was ganz tiefes. Und die Bewegungen der Schatten werden auch immer komischer."
+                    n "Das klingt fast so, als würde jemand einer Eule am Schwanz ziehen. Und dann ist da noch irgendein seltsames Musik-Dingsbums oder so… so was ganz tiefes. Und die Bewegungen der Schatten werden auch immer komischer."
                     a "Die läuft rum, als wäre sie von einem Dämon besessen, wie in diesen Filmen!"
                     a "Achtung, sie kommt wieder zum Fenster!"
+                    play sound grassbump
+                    show anja what at left with dissolve
+                    hide anja with moveoutleft
                     n "Anja springt schnell runter vom Baum und eh ich mich versehe ist sie um den nächsten Busch geflitzt."
+                    show heide mad at right with dissolve
                     n "Plötzlich starrt mich Heidenau direkt an. Ihre Augen leuchten schon fast rot im dunklen Zimmer."
-                    h "Das ist doch… [name]! Was machen sie da oben auf dem Baum?! Sofort runter da! Und wo ist denn schon wieder diese unzuverlässige..."
+                    h "Das ist doch… [name]! Was macht ihr da oben auf dem Baum?! Sofort runter da! Und wo ist denn schon wieder diese unzuverlässige..."
+                    hide heide with dissolve
                     n "Heidenau schließt das Fenster wieder. Ich kletter auch lieber schnell runter. Und dann versteck ich mich mit bei Anja, bevor ich noch mehr Ärger bekomme."
+                    play music anjatheme fadeout 2.0
+                    show anja what at center with dissolve
                     
                 "Runter klettern":
                     $ anja_points -= 2
                     p "Lass uns was anderes Spielen. Das ist doof!"
+                    show anja vmadb2
                     a "Ist ja schon gut, aber ich sag‘s dir! Irgendwann wird sie dich fressen und dann bist du froh, wenn du mich hast!"
                     p "Das werden wir dann sehen!"
+                    play sound grassbump
+                    show anja what at left with dissolve
+                    show anja at center with move
                     n "Anja kommt jetzt auch runter und schaut mich kurz fragend an. Ich hab mir noch gar nichts überlegt, was wir stattdessen machen können..."
                     
             p "Lass uns doch lieber schnell wippen gehen."
             n "Die Schlangenwippe ist echt lustig. Aber irgendwie ist Anja nicht bei der Sache."
-            a "Weißt du, das da oben war schon echt seltsam. Und meine Mama sagt ja auch immer, dass Heidenau eine Greiterhex ist. Meinst du, die ist wirklich eine echte Hexe? Mit Besen und Allem?"
+            show anja schmoll
+            a "Weißt du, das da oben war schon echt seltsam. Und meine Mama sagt ja auch immer, dass Heidenau eine Greiterhex ist."
+            show anja what
+            a "Meinst du, die ist wirklich eine echte Hexe? Mit Besen und Allem?"
             
             menu:
+                a "Meinst du, die ist wirklich eine echte Hexe? Mit Besen und Allem?"
                 "Ja, das glaube ich auch!":
                     $ anja_points += 2
                     $ eve_points += 2
+                    show anja vmad
                     a "Wir sollten sie auf jeden Fall weiter beobachten!"
                     
                 "Hexen gibt es doch nicht in echt!":
                     $ anja_points -= 2
-                    a "Mmh… ich denke es gibt viel mehr als Erwachsene immer sagen. Auch Dinge wie Geister, die man vielleicht sogar gar nicht sehen kann. Und die klauen dann immer die Socken aus der Maschine!"
+                    show anja schmoll
+                    a "Mmh… ich denke es gibt viel mehr als Erwachsene immer sagen."
+                    show anja mad
+                    a "Auch Dinge wie Geister, die man vielleicht sogar gar nicht sehen kann."
+                    show anja vmad
+                    a "Und die klauen dann immer die Socken aus der Maschine!"
                     
 
+            show anja n
+            show mum n at left with moveinleft
+            
             m "[name]! Na, hattest du einen schönen Vormittag?"
-            n "Oh...schon wieder vorbei? Das ging ja schnell. Aber von Anjas Verdacht erzähl ich Mama lieber nichts. Die lacht mich sonst nur aus."
+            m "Ahh und hallo ... Anja?"
+            show anja happy
+            a "Hallo!"
+            n "Oh...schon wieder vorbei? Das ging ja schnell."
+            n "Aber von Anjas Verdacht erzähl ich Mama lieber nichts. Die lacht mich sonst nur aus."
             
             menu:
+                n "Aber von Anjas Verdacht erzähl ich Mama lieber nichts. Die lacht mich sonst nur aus."
                 "Nichts sagen.":
+                    show mum talk
                     m "Na, und freust du dich schon auf morgen? Da ist doch euer Wandertag!"
                     p "Oh jaa! Das wird bestimmt lustig!"
                     p "Gibt‘s heut eigentlich wieder Pfannkuchen?"
+                    show mum mad
                     m "Die hatten wir doch erst letzte Woche!"
                     p "Eben! Das ist schon wieder eine ganze Ewigkeit her!"
+                    show mum happy
                     m "Na gut. Aber nur, wenn du sie diesmal selber brätst."
                     n "Einmal hab ich schon einen Pfannkuchen ganz alleine gewendet. Aber ich brauch auf jeden Fall noch Übung. Irgendwann werde ich ein Pfannkuchen-Wende-Profikoch, dann kann ich sie mir jeden Tag selber machen!"
                     jump scenew2_12
                     
                 "Mama fragen, ob ich mit auf den Bauernhof darf.":
+                    show mum mad
                     m "Heute noch? Das muss ich dann aber erst mal mit Anjas Eltern besprechen, ob das denn wirklich in Ordnung ist."
+                    show anja jabber
                     a "Meine Oma hat gesagt, ich und meine Freunde sind immer willkommen."
                     p "Bitteee!"
+                    show anja n
+                    show mum happy
                     m "Ist ja schon gut. Aber ich würde trotzdem gerne mit Anjas Eltern sprechen."
                     n "Erwachsene… immer wollen die nur Reden..."
+                    scene bg farm
+                    show anja hihi at center
+                    with fade
                     n "Aber dann darf ich wirklich auf den Bauernhof! Und Anjas Oma und Opa sind echt nett."
                     n "Und Anja ist total aufgeregt und zeigt mir den ganzen Bauernhof. Elsa ist wirklich eine tolle Kuh! Und die Küken sind auch niedlich."
                     n "Sogar einen Hahn haben sie, aber der ist ziemlich eingebildet und stolziert immer über den Hof, wie diese Frauen in hohen Schuhen im Fernsehen."
+                    show anja happy
                     a "Und hier, das Heulager, das ist mein Lieblingsort. Da spiele ich immer verstecken. Nur der Hahn stört manchmal. Der krächzt dann Ewigkeiten als würde er bei einem Gesangswettbewerb mitmachen."
                     p "Dann ist er ja fast so schlimm wie du!"
+                    show anja jabber
                     a "Na warte! Das wirst du noch bereuen!"
                     n "Anja schnappt sich jetzt doch tatsächlich ein Büschel Stroh und stopft es mir hinten ins T-Shirt rein."
                     p "Ahhh, unfair! Du hattest Vorsprung!"
                     n "Schnell schnappe ich mir auch ein bisschen Stroh und werfe es in Anjas Richtung."
+                    show anja heu
                     n "Fast alles davon bleibt in Anjas Haaren hängen. Sie sieht fast so aus, wie ein Spaghettimonster."
+                    show anja htalk
                     a "Ey, ich kann gar nicht mehr sehen. Ich bin bliiind!"
+                    show anja heu
                     n "Ich glaub Anja kann wirklich nichts mehr sehen. So langsam wankt sie Richtung Treppe. Aber sie ist auch schon wieder ordentlich mit Heu bewaffnet."
+                    n "Hoffentlich fällt sie nicht gleich die Treppe runter!"
                     
                     menu:
+                        n "Hoffentlich fällt sie nicht gleich die Treppe runter!"
                         "Anja warnen.":
                             $ anja_points += 2
                             p "Vorsicht, da ist eine-"
+                            show anja htalk
                             a "Raaaaacheeee!"
                             p "Bah, voll ins Gesicht!"
                             n "Stroh schmeckt echt nicht gut."
@@ -4701,6 +4774,7 @@ label scenew2_10:
                         "Dem Heu ausweichen.":
                             $ anja_points -= 2
                             p "Ha, nicht erwischt!"
+                            show anja hmad
                             a "Irgendwann er-WOAH!"
                             n "Ohjeh! Jetzt fällt Anja doch noch die Stufe runter! Zum Glück ist ja alles gut mit Heu abgepolstert."
                             p "Hast du dir weh getan?"
@@ -4715,17 +4789,26 @@ label scenew2_10:
             
                             
         "Ich schau lieber mal, wo Evelynn ist.":
+            play music evetheme fadeout 1.0
+            scene grura2
+            show karin n at center
+            with dissolve
             n "Oh, Evelynn ist doch nicht am Maltisch. Komisch!"
             p "Karin! Hast du die Evelynn gesehen?"
             k "Ich glaub, die war zuletzt vorne in der Kuschelecke!"
             p "Oh danke!"
+            scene cuddle
+            show eve shy2
+            with fade
             n "Da ist sie ja wirklich! Warum ist sie denn so aufgeregt?"
+            show eve vhappy2
             e "[name]!"
             n "Jetzt springt sie sogar auf. So fröhlich hab ich sie noch nie gesehen."
             p "Hi!"
             p "Was machst du denn hier?"
             e "Mama und Papa haben mir heut ausnahmsweise mal erlaubt mein Spielbuch mitzunehmen. Das heißt \"Das blaue Auge\" und ist voll toll! Da kann man sich eigene Geschichten ausdenken!"
             p "Ah… ach so…"
+            show eve talk2
             e "Außerdem hat mein Papa jetzt Urlaub, da sind beide dann Zuhause und dann dürfen auch mal Leute mit zu mir zum Spielen kommen."
             n "Ich war noch nie mit bei Evelynn. Ich frag mich, wie ihr Zimmer aussieht. Bestimmt hat sie ganz viele Zeichnungen rumhängen."
             p "Darf ich auch kommen?"
@@ -4733,11 +4816,9 @@ label scenew2_10:
             p "Hä, was meinst du?"
             e "Na also guck das ist ganz einfach. Erst suchst du dir aus was für ein Wesen du sein willst."
             p "Hm…mal sehen was zur Auswahl steht…"
-            $ berry = False
-            $ powder = False
-            $ pnp1winpoints = 0
-             
             
+             
+            #JUMPER
             menu rassenwahl:
                 p "Hm…mal sehen was zur Auswahl steht…"
                 "Zwerg":

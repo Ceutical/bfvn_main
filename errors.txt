@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 4807: Menu does not contain any choices.
-    menu:
-         ^
-
-File "game/script.rpy", line 4810: expected statement.
-    "Dann will ich ein Bogenschießer sein!":
-                                           ^
+File "game/script.rpy", line 4655: could not parse statement.
+    play anjatheme fadeout 2.0
+                           ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Thu Feb 07 23:49:47 2019
+Fri Feb 08 00:23:11 2019
