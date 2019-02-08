@@ -567,11 +567,12 @@ label eves4:
             p "Ja! Voll erwischt!"
             scene bg caveentry with dissolve
             show eve pnp2 at rightish with dissolve
-            show bat dead
+            show bat dead with dissolve
             hide bat with moveoutbottom
             e "Der hat gesessen!"
             e "Dabei sah die Fledermaus eigentlich gar nicht so gefährlich aus... Ich glaube sie hatte einfach nur Angst."
             p "Wenn die Fledermaus Angst hatte, dann sind wir doch wohl hier richtig."
+            stop music fadeout 3.0
             e "Mmmmh."
             $ evesbpoints += 1
             
@@ -584,7 +585,7 @@ label eves4:
             e "Vorsicht, Sie greift an!"
             scene bg caveentry with dissolve
             show eve pnpask with dissolve
-            show bat angst at leftish with move
+            show bat angst at leftish with dissolve
             p "Aua!"
             p "Nochmal..."
             play sound Whoosh3
@@ -594,6 +595,7 @@ label eves4:
             e "Puh, sie ist weg!"
             e "Dabei sah die Fledermaus eigentlich gar nicht so gefährlich aus... Ich glaube sie hatte einfach nur Angst."
             p "Wenn die Fledermaus Angst hatte, dann sind wir doch wohl hier richtig."
+            stop music fadeout 3.0
             e "Mmmmh."
             $ evesbpoints -= 1
         
@@ -609,6 +611,7 @@ label eves4:
             show eve pnpask
             p "Ich glaub, die will uns gar nichts Böses. Die hat einfach nur Angst."
             e "Aber ich dachte..."
+            stop music fadeout 3.0
             p "Lass uns reingehen, pass aber auf."
             $ evesbpoints += 1
          
@@ -623,6 +626,7 @@ label eves4:
             p "Ja doch schon."
             e "Dabei sah die Fledermaus eigentlich gar nicht so gefährlich aus... Ich glaube sie hatte einfach nur Angst."
             p "Wenn die Fledermaus Angst hatte, dann sind wir doch wohl hier richtig."
+            stop music fadeout 3.0
             e "Mmmmh."
             $ evesbpoints -= 1
             
@@ -642,13 +646,13 @@ label eves4:
             show eve pnpask
             e "Woher wusstest du das?"
             p "Sag ich dir später. Aber siehst du, die hatte wahrscheinlich nur Angst und wenn die Fledermaus Angst hat, dann sind wir richtig."
+            stop music fadeout 3.0
             e "Mmmmh."
             $ evesbpoints += 1
             
     
 label eves5:
     scene bg cave with dissolve
-    stop music fadeout 3.0
     play music hoehletheme2 fadein 3.0
     show eve pnpn at leftish with dissolve
     p "Ich wusste gar nicht, dass es hier so gruselig ist. Dunkelheit macht mir Angst."
@@ -1076,8 +1080,8 @@ label eveboss:
         stop music
         scene bg hut with dissolve
         show eve mad
-        play music spookywald3 fadein 1.0
         e "DU IDIOT MUSST MIR ALLES RUINIEREN!"
+        play music spookywald3 fadein 1.0
         hide eve with moveoutright
         p "Evelynn..."
         e "BLEIB WEG!"
@@ -1105,6 +1109,7 @@ label eveboss:
         p "...ich bin müde..."
         m "Nanu, so kenn ich dich ja gar nicht! Hast du gar nichts Spannendes zu erzählen?"
         scene bg black with fade
+        stop music fadeout 4.0
         jump sceneevebad
              
         
@@ -1162,9 +1167,9 @@ label eveboss:
         p "Sag mal... ist das mit deinen Eltern real gewesen?"
         stop music fadeout 1.0
         scene bg hut with dissolve
-        play music evetheme fadein 1.0
         show eve talk2 with dissolve
         e "Wieso das denn?"
+        play music evetheme fadein 1.0
         p "Darfst du daheim echt nichts machen?"
         show eve mad
         e "Nein, ich darf auch nicht zu Freunden oder so. Da sind meine Eltern ganz streng."
@@ -1217,10 +1222,10 @@ label eveboss:
         show mum talk
         m "Also, von mir aus ja. Ich kann ja später mal ihre Eltern anrufen und fragen."
         scene bg black with fade
+        stop music fadeout 4.0
         jump sceneevegood
     
 label sceneevegood:
-    stop music fadeout 4.0
     scene eve goodend
     play music GoodEnd fadein 1.0
     n "Der Wandertag ist jetzt schon 3 Wochen her. Bald bin ich groß genug und darf in die Schule!"
@@ -1236,7 +1241,6 @@ label sceneevegood:
 
 
 label sceneevebad:
-    stop music fadeout 4.0
     scene eve badend
     play music BadEnd fadein 1.0
     n "Der Wandertag ist jetzt schon 3 Wochen her, aber Evelynn ist immernoch sauer auf mich."
