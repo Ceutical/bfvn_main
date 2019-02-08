@@ -1,0 +1,971 @@
+﻿##### SCRIPT START #####
+
+##### CHARACTER DEFINITIONS #####
+
+define m = Character("Mama")
+define v = Character("Papa")
+
+define p = Character("[name]") #Name of Player Character -- P = Protagonist
+define pt = Character("[name]", window_ypos=0.27) #ProtaTOP
+
+define n = Character(name=None, what_italic=True) #Narrator
+define nt = Character(name=None, window_ypos=0.27, what_italic=True) #NarratorTOP
+
+define a = Character("Anja")
+
+define e = Character("Evelynn")
+define et = Character("Evelynn", window_ypos=0.27) #EvelynnTOP
+
+define o = Character("Octavia")
+define O = Character("Octa")
+define h = Character("Frau Heidenau")
+define k = Character("Karin")
+
+define L = Character("Louis")
+define Lt = Character("Louis", window_ypos=0.27) #LouisTOP
+
+define r = Character("Randy")
+define rt = Character("Randy", window_ypos=0.27) #RandyTOP
+define emum = Character("Evelynns Mama")
+define edad = Character("Evelynns Papa")
+define omum = Character("Octavias Mama")
+define odad = Character("Octavias Papa")
+define rmum = Character("Randys Mama")
+define rdad = Character("Randys Papa")
+define nvln = Character(name=None, kind=nvl)
+define kg = Character("Kinder", what_italic=True) #Kindergartengruppe
+
+#define test = Character("Test", window_ypos=0.27) #TESTCHAR
+
+
+
+######################################
+
+##### MUSIC CHANNEL DEFINITIONS #####
+
+init python:
+    renpy.music.register_channel("music1", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("music2", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("music3", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound1", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound2", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound3", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound4", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+
+##### MUSIC DEFINITIONS #####
+
+define audio.introtheme = "music/soundtracks/introtheme.mp3"
+define audio.anjatheme = "music/soundtracks/anjatheme.mp3"
+define audio.evetheme = "music/soundtracks/evetheme.mp3"
+define audio.octatheme = "music/soundtracks/octatheme.mp3"
+define audio.maintheme = "music/soundtracks/maintheme.mp3"
+define audio.poketheme = "music/soundtracks/Pokemon_Minigame.ogg"
+define audio.dueltheme = "music/soundtracks/Dramatische_Duellmusik.ogg"
+define audio.bosstheme1 = "music/soundtracks/Fantasy_Boss1.ogg"
+define audio.bosstheme2 = "music/soundtracks/Fantasy_Boss2.ogg"
+define audio.fantheme1 = "music/soundtracks/Fantasy1.ogg"
+define audio.fantheme2 = "music/soundtracks/Fantasy2.ogg"
+define audio.happytheme1 = "music/soundtracks/Happy_Theme1.ogg"
+define audio.happytheme2 = "music/soundtracks/Happy_Theme2.ogg"
+define audio.playtheme1 = "music/soundtracks/Kinder_Beim_Spielen1.ogg"
+define audio.playtheme2 = "music/soundtracks/Kinder_Beim_Spielen2.ogg"
+define audio.opartytheme = "music/soundtracks/Kinder_Party_Theme1.ogg"
+define audio.apartytheme = "music/soundtracks/Kinder_Party_Theme2.ogg"
+define audio.epartytheme = "music/soundtracks/Kinder_Party_Theme3.ogg"
+define audio.racetheme = "music/soundtracks/Wettrennen1.ogg" ### wettrennen
+
+#JUMPER
+##### SFX DEFINITIONS #####
+
+define audio.treefall = "music/sfx/treefall.ogg"
+define audio.cardoor1 = "music/sfx/Autotür1.ogg"
+define audio.cardoor2 = "music/sfx/Autotür2.ogg"
+define audio.decke = "music/sfx/Decke.ogg"
+define audio.grassbump = "music/sfx/Aufprall_Rasen.ogg"
+define audio.ball = "music/sfx/Ball.ogg"
+define audio.ball2 = "music/sfx/Ball1.ogg"
+define audio.bal3l = "music/sfx/Ball2.ogg"
+define audio.ball4 = "music/sfx/Ball3.ogg"
+define audio.ball5 = "music/sfx/Ball4.ogg"
+define audio.ballhit1 = "music/sfx/Ball_Getroffen1.ogg"
+define audio.ballhit2 = "music/sfx/Ball_Getroffen2.ogg"
+define audio.ballhit3 = "music/sfx/Ball_Getroffen3.ogg"
+define audio.bell = "music/sfx/bell.ogg"
+define audio.child1 = "music/sfx/Kindergeräusche1.ogg"
+define audio.child2 = "music/sfx/Kindergeräusche2.ogg"
+define audio.kg = "music/sfx/Kinderklasse.ogg"
+define audio.pbutton1 = "music/sfx/KnöpfeDrücken1.ogg"
+define audio.pbutton2 = "music/sfx/KnöpfeDrücken2.ogg"
+define audio.pbutton3 = "music/sfx/KnöpfeDrücken3.ogg"
+define audio.draw = "music/sfx/Malgeräusche.ogg"
+define audio.foodplay = "music/sfx/Mit Essen Spielen.ogg"
+define audio.snackers = "music/sfx/snackers.ogg"
+define audio.street = "music/sfx/street.ogg"
+define audio.whoosh3 = "music/sfx/whoosh3.ogg"
+define audio.Chicken = "music/sfx/Hahnwecker.ogg"
+define audio.antiarmor = "music/sfx/Schutzausrüstung_ausziehen.ogg"
+define audio.bike = "music/sfx/Fahrrad.ogg"
+define audio.chain = "music/sfx/Fahrrad_alteKette.ogg"
+define audio.bikebreak = "music/sfx/Fahrradbremse.ogg"
+define audio.scream = "music/sfx/Kinderschrei3.ogg"
+define audio.scream2 = "music/sfx/Kinderschrei1.ogg"
+define audio.whoosh1 = "music/sfx/Whoosh1.ogg"
+define audio.boing = "music/sfx/Boing.ogg"
+define audio.pokin = "music/sfx/PKMN-Einwurf.ogg"
+define audio.pokout = "music/sfx/PKMN-Tot.ogg"
+
+
+######################################
+
+##### TRANSFORM DEFINITIONS #####
+
+transform slightleft:
+    xalign .35
+    yalign 1.0
+transform slightright:
+    xalign .68
+    yalign 1.0
+transform leftish:
+    xalign .26
+    yalign 1.0
+transform rightish:
+    xalign .76
+    yalign 1.0
+transform chicken:
+    xalign .68
+    yalign .5
+transform mic:
+    xalign .93
+    yalign .4
+transform topright:
+    xalign 1.0
+    yalign 0.0
+transform topleft:
+    xalign 0.0
+    yalign 0.0    
+transform topishleft:
+    xalign 0.0
+    yalign 0.5
+transform rotation:
+    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
+    rotate 10
+transform rotationreset:
+    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
+    rotate 0
+transform flight:
+    xalign .5
+    yalign .4
+transform flightright:
+    xalign .8
+    yalign .4
+    
+######################################
+
+
+label start:
+
+    python:
+        if not persistent.set_volumes:
+            persistent.set_volumes = True
+            _preferences.volumes['music'] *= .80 
+        renpy.music.set_volume(volume=0.5, channel='music1')
+    
+    ##### OTHER DEFINITIONS #####
+    $ seekwin = True
+    $ seekloss = True
+    $ grura = True
+    $ flur = True
+    $ court = True
+    $ kz = True
+    $ food = True
+    $ catch = 0
+    $ seekattempts = 0
+    $ climber = False
+    $ tookrandy = False
+    $ boomstickpoints = 0
+    $ dynamik = False
+    $ trade = False
+    $ tip = False
+    $ farbflug = False
+    $ chaos = False
+    $ octaannoyed = 0
+    $ win = "yes" ###variablenübernahme kein boolean
+    $ skillpoints = 0 ### für octapfad
+    
+    init:
+        image odance:
+            "images/Characters/octavia/omusic clap.png"
+            pause 0.20
+            "images/Characters/octavia/omusic pause.png"
+            pause 0.17
+            "images/Characters/octavia/octa music.png"
+            pause 0.17
+            repeat
+            
+        image kdance:
+            "images/Characters/karin/kmusic left.png"
+            pause 0.269
+            "images/Characters/karin/kmusic happy.png"
+            pause 0.269
+            "images/Characters/karin/kmusic right.png"
+            pause 0.269
+            "images/Characters/karin/kmusic happy.png"
+            pause 0.269
+            repeat
+            
+        image oadance:
+            "images/Characters/octavia/oparty vhappy.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.5
+            "images/Characters/octavia/oparty vhappy.png"
+            xalign 0.5 yalign 1.0
+            linear 1.0 xalign 1.0
+            repeat
+            
+        image aodance:
+            "images/Characters/anja/AParty/aparty jabber.png"
+            xalign 0.5 yalign 1.0
+            linear 1.0 xalign 1.0
+            "images/Characters/anja/AParty/aparty jabber.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.5
+            repeat    
+
+    ##### AFFINITY SYSTEM INITIATE #####
+    $ octa_points = 0
+    $ eve_points = 0
+    $ anja_points = 0
+    $ mapa = "Bumpy" #Marschpartner
+    
+    ##### AFFINITY SYSTEM END #####
+
+    
+    ##### Szene 1 - Prolog #####
+label scene1:
+    scene bg grura with dissolve    
+    
+    python:
+        name = renpy.input("Gib dem Kind einen Namen.")
+        name= name.strip() or "P"
+        
+        
+    menu:
+        "Wird das Kind Junge oder als Mädchen gesehen?"
+        "Als Junge":
+            $ gender = "male"
+            
+        "Als Mädchen":
+            $ gender = "female"
+            
+            
+    
+    if gender == "male":
+        python:
+            pro = "sein"
+            pro2 = "er"
+            pro3 = "ihm"
+            pro4 = "Sohn"
+            pro5 = "ihn"
+            pro6 = "Junge"
+            suf = "en"
+            suf2 = "er"
+            suf3 = ""
+            suf4 = ""
+            ddd = "der"
+            pre = "mein"
+    else:
+        python:
+            pro = "ihr"
+            pro2 = "sie"
+            pro3 = "ihr"
+            pro4 = "Tochter"
+            pro5 = "sie"
+            pro6 = "Mädchen"
+            suf = "e"
+            suf2 = "e"
+            suf3 = "in"
+            pre = "meine"
+            suf4 = "e"
+            ddd = "die"
+            
+
+label octas1:
+    scene bg woods with dissolve
+    show octa talk at rightish
+    o "Na komm, wir wollen doch nicht die letzten sein."
+    p "Ist ja gut. Ich komm ja schon. Mach mal langsam."
+    show octa mad
+    o "Nix da. Langsam ist schlecht."
+    n "Selbst beim wandern muss sie Tempo machen..."
+    show octa talk
+    o "Sag mal [name], du warst ja noch nie bei der Bernerhütte oder?"
+    p "Ja, wieso?"
+    show octa happy
+    o "Ach, nur so."
+    n "Was meint die denn damit wieder?"
+    n "Egal, hoffentlich sind wir bald an der Hütte. Wandern ist echt das langweiligste."
+    show louis really at leftish with moveinbottom
+    L "Hey Leute. Sagt mal, meint ihr die Heidenau hat das erstgemeint?"
+    n "???"
+    show louis talk
+    L "Na mit meiner Jacke?"
+    show octa talk
+    o "Ich glaub schon Louis. Du weißt doch selber, wenn die Heidenau was sagt, dann meint die das ernst."
+    show louis really
+    "Ja, aber darf die mir meine Jacke wegnehmen? Ich hab doch nur die eine."
+    p "Octavia hat recht, pass lieber auf."
+    show louis mad
+    L "Oh man. Verdammt!"
+    show octa shock
+    o "Pass doch auf Louis!"
+    p "Wir sollten einfach weitergehen..."
+    show louis n
+    show octa talk
+    o "Genau."
+    scene hut with dissolve
+    show octa shock
+    show karin happy at leftish with dissolve
+    k "So Kinder, hier wären wir!"
+    n "Das soll die Hütte sein? Sollte das nicht viel größer sein?"
+    p "Das ist ja lahm."
+    show octa talk at rightish with moveinbottom
+    o "Ja, die Hütte ist wirklich nicht so besonders."
+    show karin mad
+    k "Habt euch doch nicht so. Der Weg ist doch das Ziel."
+    p "Häh? Was soll das denn heißen? Das macht ja gar keinen Sinn."
+    show karin happy
+    o "Doch doch. Wenn du größer bist, dann verstehst du das schon."
+    p "Ich bin aber nicht größer!"
+    show karin talk
+    show randy talk with moveinbottom
+    r "Karin."
+    show karin go
+    k "Ja Randy?"
+    r "Die Anja hat gesagt, dass es hier gar keine Eidechsen gibt. Dabei gibt es hier doch Eidechsen oder?"
+    show karin talk
+    k "Äh, das weiß ich ehrlich gesagt nicht. Aber man kann ja suchen."
+    show randy shock
+    r "Aber, dass ist doch ein Wald. Da muss es doch Eidechsen geben!"
+    n "Moment, was hat das jetzt mit mir zu tun?"
+    "???" "Also, ich war schon häufiger im Wald und hab noch keine gesehen."
+    n "Was ist denn jetzt."
+    show anja jabber at leftish
+    show karin shock
+    a "Aber ich hab mal eine Schlange gesehen."
+    a "Papa meinte zwar, dass es keine Schlange sondern ein Wurm war."
+    a "Aber es sah wie eine Schlange aus."
+    show octa talk
+    o "Pssst... [name]"
+    hide octa talk with moveoutright
+    o "Komm mal mit, ich will dir was Zeigen."
+    n "Mir was zeigen?"
+    a "Außerdem..."
+    n "Na gut."
+    scene bg bike with dissolve
+    show octa smug at leftish with moveinleft
+    o "Hier!"
+    p "Was hier?"
+    show octa happy
+    o "Na hier, der Hang!"
+    p "Was ist so besonders an dem?"
+    show octa talk
+    o "Den kann man mit dem Fahrrad runter fahren."
+    p "Wie? Da soll ich einfach mit den Fahrrad runter fahren? Das ist doch mega steil!"
+    show octa smug
+    o "Ja eben, deswegen macht es ja gerade Spaß!"
+    p "Ich glaube nicht, dass man da runter fahren kann."
+    o "Doch! Ich bin da schon selber gefahren."
+    p "Wann?"
+    show octa mad
+    o "Na letzte Woche, bevor ich allein nach Hause gefahren bin."
+    p "Du darfst das?"
+    show octa shock
+    o "Dürfen? Natürlich nicht, aber meine Eltern Wissen doch nichts davon."
+    p "Echt!?"
+    show octa talk
+    o "Jap."
+    p "Hast du keinen Ärger bekommen?"
+    show octa smug
+    o "Das bedeutet, die Wissen nichts davon."
+    p "Wow, dass ist mutig. Ich würde mich so etwas nicht trauen."
+    show octa talk
+    o "Nur Schade, dass ich mein Fahrrad nicht mitnehmen durfte."
+    o "Ich hätte auch fahren können."
+    p "Wie? So weit hättest du mit den Fahrrad fahren können?"
+    show octa happy
+    o "Nein, moment."
+    hide octa with moveoutright
+    o "Siehst du das da?"
+    p "Der Weg von wo wir kamen?"
+    o "Nein, da weiter hinten die Straße."
+    p "Nein."
+    o "Egal, da unten wohne ich."
+    p "Aaaah!"
+    show octa talk at rightish with moveinright
+    o "Siehst du, dass hätte ich auch fahren können."
+    o "So... und nun?"
+    p "Hmmh, zurück zu den anderen da hinten?"
+    show octa smug
+    o "Ne keine Lust, ich weiß dass es hier nicht so viel spannendes gibt."
+    p "Hmmmh."
+    p "Hast du dein Playgear dabei?"
+    show octa happy
+    o "Klar, im Rucksack."
+    p "Super, ich hab auch meins dabei."
+    p "Sag es nur nicht meiner Mama, die mag nicht dass ich damit spiele."
+    show octa talk
+    o "Na klar, Pfadfinderehrenwort."
+    p "Wir sind aber noch keine Pfadfinder."
+    show octa happy
+    o "Sagt man halt so."
+    p "So, was wollte ich nochmal sagen?"
+    show octa smug
+    p "Ach ja genau!"
+    
+    if win == "yes":
+        p "Du wolltest doch eine Revanche in Fighte Mon."
+        show octa shock
+        o "Stimmt, hab ich ja gesagt."
+        show octa happy
+        o "Das können wir ja machen!"
+        show octa smug
+        o "Dies mal wirst du aber nicht nochmal gewinnen!"
+        p "Das werden wir ja sehen!"
+    
+    elif win == "no":
+        p "Ich will eine Revanche in Fighte Mon!"
+        show octa smug
+        o "Du weißt schon, dass du wieder verlieren wirst."
+        o "Aber gut, wenn es sein muss."
+        p "Das werden wir ja sehen!"
+    
+    else:
+        p "Hast du Fighte Mon?"
+        show octa happy
+        o "Klar, ich hab sogar das neue!"
+        p "Echt? hast du dann Lust auf nen Kampf?"
+        show octa talk
+        o "Wieso denn nicht."
+        o "Du weißt aber schon, dass du verlierst!"
+        show octa smug
+        o "Ich bin nämlich die beste Trainerin der Welt!"
+        p "Das werden wir ja sehen!"
+    
+label octas2:
+    
+    "Zweiter Fight kommt hier!"
+    
+    menu:
+        "win!":
+            $win2 = "yes"
+        "loss!":
+            $win2 = "no"
+    
+    scene bg bike with dissolve
+    
+    if win2 == "yes" and win == "yes":
+        show octa shock
+        p "Yeah, schon wieder gewonnen!"
+        p "Dann bin ICH wohl der Beste Trainer."
+        show octa mad
+        o "Das war doch wieder nur Glück!"
+        o "Außerdem ist das doch egal, ich wollte dir was zeigen und du kannst nichtmal richtig Fahrradfahren!"
+        p "Stimmt doch gar nicht."
+        o "Ich hab doch gesehen wie schlecht du fährst!"
+        o "Sogar geradeaus ist schwer für dich."
+        p "Klar kann ich das."
+        show octa smug
+        o "Dann beweis es doch. Fahr den Berg herunter!"
+        n "Mist, sie hat schon irgendwie recht... Ach was solls!"
+        show octa shock
+        p "Ich hab keine Angst!"
+        p "Den Berg fahr ich doch locker runter! Und schleer als du auch noch!"
+        
+    elif win2 == "yes":
+        p "Gewonnen!"
+        p "Dann bin ICH wohl der Beste Trainer."
+        show octa smug
+        o "War doch nur Glück!"
+        show octa mad
+        o "Außerdem ist das doch egal, ich wollte dir was zeigen und du kannst leider nichtmal richtig Fahrradfahren!"
+        p "Stimmt doch gar nicht."
+        show octa smug
+        o "Ich hab doch gesehen wie schlecht du fährst!"
+        o "Sogar geradeaus ist schwer für dich."
+        p "Klar kann ich das."
+        show octa talk
+        o "Dann beweis es doch. Fahr den Berg herunter!"
+        n "Mist, sie hat schon irgendwie recht... Ach was solls!"
+        show octa shock
+        p "Ich hab keine Angst!"
+        p "Den Berg fahr ich doch locker runter! Und schleer als du auch noch!"
+    
+    else:
+        p "Oh mist..."
+        show octa smug
+        o "Hab dir doch gesagt, dass du verlierst."
+        p "War aber mega knapp!"
+        show octa talk
+        o "Gewonnen ist gewonnen!"
+        p "Ist ja nur Fighte Mon."
+        show octa smug
+        o "Schade nur, dass du auch kein Fahrrad fahren kannst."
+        p "HEY!"
+        show octa vhappy
+        o "Und ein Angsthase bist du auch irgendwie."
+        p "Lüg doch nicht!"
+        show octa mad
+        o "Ich lüge doch nicht, du traust dich nichtmal den Berg runterzufahren!"
+        show octa shock
+        p "Ich hab keine Angst!"
+        p "Den Berg fahr ich doch locker runter! Und schleer als du auch noch!"
+    
+    show octa vhappy
+    o "Hahahaha"
+    n "..."
+    show octa talk
+    o "Oh, du meinst das ernst."
+    show octa smug
+    o "Du willst gegen mich ein Rennen fahren?"
+    p "Ja genau!"
+    o "Du kannst doch nicht mal richtig fahren, also ohne Stützräder."
+    p "Ich trainier und dann gewinne ich."
+    show octa shock
+    o "Ich glaub nicht, dass das jetzt noch hilft."
+    p "Doch, bestimmt!"
+    show octa talk
+    o "Okay, wir fahrein ein Rennen. Woche Freitag hier den Berg da runter."
+    o "Willst du denn immernoch?"
+    p "Aber wir kommen hier doch gar nicht mehr hin."
+    show octa smug
+    o "Ich hab dir doch gesagt, ich bin nicht weit weg."
+    o "Zu mir wird dich doch deine Mutter fahren oder?"
+    p "Aber wir dürfen doch nicht alleine."
+    show octa vmad
+    o "Bist du wohl doch ein Angsthase?"
+    show octa talk
+    o "Es ist wirklich nicht weit."
+    p "Alles klar, dann bis Freitag!"
+    "???" "[name]! Octavia!"
+    show octa shock
+    p "Oh man, ich glaube wir sollten zurück!"
+    o "Ich glaub du hast recht."
+
+label octas3:
+    scene hut with dissolve
+    show karin shock
+    k "Da seit ihr ja!"
+    p "Hey Karin."
+    k "Gott sei Dank! Wir haben schon überall nach euch gesucht! Ich dachte ich bekomme noch einen Herzinfakt!"
+    show karin mad
+    k "Wieso haut ihr einfach ab!"
+    o "Aber..."
+    k "Nichts aber! Wisst ihr eigentlich was los ist, wenn ich das euren Eltern erzählen müsste?!"
+    p "Entschuldigung."
+    o "Ja. Tut uns echt leid."
+    k "Seit nur froh, dass Frau Heidenau nichts mitbekommen hat."
+    p "Bitte sagen Sie ihr das nicht!"
+    show karin happy
+    k "Schon gut, schon gut. Aber ihr müsst mir was versprechen."
+    k "Macht so etwas nie wieder!"
+    p "Versprochen."
+    o "Ehrenwort."
+    k "Gut. Dann machen wir uns jetzt wieder auf dem Weg zum Bus und danach gehts heim..."
+    scene bg bedroom with dissolve
+    n "Hmmmh..."
+    n "Ich hab Octavia also zum Radfahren herausgefordert... Wie genau soll ich denn das machen?!"
+    n "Ich muss mir wohl was einfallen lassen."
+    m "Schatzi, Abendessen!"
+    scene bg kitchen with dissolve
+    show mum nett at rightish
+    p "Mama, ich hab eine Bitte."
+    show mum talk
+    m "Was denn?"
+    p "Haben wir ein Fahrrad für mich?"
+    show mum n
+    p "Mama?"
+    show mum mad
+    m "Dein Vater hätte eines, dass für dich gemacht ist. Wir haben doch mal versucht dich zum fahren zu bringen."
+    p "Oooh?"
+    show mum nett
+    m "Wieso aufeinmal das Interesse?"
+    p "Ich will es einfach können."
+    show mum talk
+    m "Dann ists ja gut!"
+    show mum n
+    m "Aber jetzt erst einmal Essen fassen!"
+    p "Gutten Appetit."
+    scene bg black with dissolve
+    n "Bis Freitag."
+    n "Wie schaff ich das nur bis Freitag?"
+    n "Ich muss erst einmal anfangen!"
+    scene mnd with dissolve
+    
+label octas4:
+    scene bg street with dissolve
+    show mum n at leftish
+    m "Und du bist dir sicher, dass dir das beigebracht wird?"
+    p "Ja. Danke Mama."
+    show mum nett
+    m "Nur vergiss nicht deinen Helm."
+    n "Oh."
+    m "So, jetzt kannst du gehen."
+    p "Und sei vorsichtig, ja?"
+    show mum happy
+    m "Danke, werd ich sein."
+    play sound cardoor1
+    hide mum with dissolve
+    n "Huch."
+    n "Was war das? Egal, erst mal in den Kindergarten."
+    scene bg court with dissolve
+    show anja talk at leftish
+    a "Die Farbe ist ja mega cool!"
+    p "Ja ich weiß, die Rennstreifen sind von meinem Papa draufgemalt. Damit fahr ich schneller."
+    show anja jabber
+    a "Von sowas hab ich schon mal gehört!"
+    show octa talk at rightish with moveinright
+    o "Na, was ist das denn?"
+    p "Na ein Fahrrad."
+    show octa mad
+    o "Weiß ich doch, bin ja nicht doof!"
+    show octa smug
+    o "Ich meinte eher die Farben, dass ist voll komisch."
+    show anja schmoll
+    a "Find ich gar nicht, du hast einfach keine Ahnung von Fahrrädern."
+    show octa vmad
+    o "Natürlich hab ich Ahnung, ich weiß viel mehr als du!"
+    a "Von wegen."
+    o "Doch!"
+    show anja mad
+    a "Gar nicht!"
+    o "Wohl Doch!"
+    a "Woher sollst du wissen, wieviel ich von Fahrrädern weiß. Außerdem..."
+    n "ich fang wohl lieber mal mit den trainieren an. Die streiten wohl eh den ganzen Tag."
+    scene tue with dissolve
+
+label octas5:
+    L "Vorsicht! Du musst bremsen!"
+    menu:
+        "Rücktrittbremse treten":
+            play sound chain
+            p "Woah!"
+        "Bremshebel am Lenker drücken":
+            $ skillpoints += 1
+            play sound bikebreak
+            p "Gut, ging doch."
+    
+    scene bg street with dissolve
+    show louis really at leftish
+    show randy happy at rightish
+    L "Du wackelst ja hin und her."
+    L "Bleib doch mal gerade!"
+    p "Versuch ich ja..."
+    L "Das ist doch nicht so schwer!"
+    show randy talk
+    r "Also, ich brauch ja auch noch Stützräder."
+    show louis talk
+    L "Weil ihr zwei auch noch Babies seit."
+    show randy mad
+    r "HEY!"
+    n "Louis nervt, der kann mir einfach keine richtige Hilfe geben."
+    k "Kinder! Was macht ihr da draußen!"
+    show randy shock
+    show louis n
+    p "Fahrrad fahren."
+    k "Kommt sofort wieder hier rein, sonst gibt es Ärger!"
+    p "Aber wir dürfen doch raus, wenn der Morgenkreis vorbei ist."
+    k "Aber doch nicht auf die Straße! Du stellst jetzt dein Fahrrad ab und kommst in den Gruppenraum!"
+    p "Okay..."
+    scene wed with dissolve
+
+label octas6:
+    scene bg court with dissolve
+    show anja jabber at leftish
+    a "Also meine Mama sagt immer, dass man es einfach nur solange probieren muss bis es klappt."
+    p "Ich probier doch schon!"
+    show anja mad
+    a "Schreien muss man auch nicht!"
+    a "Weißt du. Dir zu helfen macht keinen Spaß, ich gehe auf den Baum!"
+    hide anja with moveoutright
+    p "Ich brauch auch gar keine Hilfe, denn ich schaffe es eh nicht!"
+    n "Oh man, jetzt hab ich sie vergrault."
+    o "Hey, stell doch mal deinen Sitz ein."
+    n "Was?"
+    show octa talk at rightish with moveinright
+    o "Na du sitzt zu hoch. Wenn du nicht an alles kommst, dann klappt das auch nicht."
+    n "???"
+    o "Steig mal ab."
+    p "Äh... Okay."
+    show octa smug
+    o "Guck. Du masst den Hebel umlegen und dann kannst du den runter stellen."
+    show octa happy
+    o "Das hab ich von meinen Papa gelernt."
+    o "So, jetzt probier mal."
+    play sound bike
+    p "Woah!"
+    p "Das fühlt sich ja viel besser an."
+    stop sound
+    play sound bikebreak
+    o "Siehst du."
+    p "Aber warte, warum hilfst du mir denn?"
+    show octa shock
+    o "Weil du so schlecht bist."
+    p "Hä?"
+    show octa talk
+    o "Weißt du... Meine Mama spielt kein Skat mehr."
+    p "Was?"
+    show octa smug
+    o "Meine Mama hat mir mal erzählt, dass ihr der Skat-Abend keinen Spaß mehr macht."
+    o "Sie gewinnt immer und früher war das nicht so."
+    show octa talk
+    o "Da konnten ihre Freundinen auch gewinnen, die waren nämlich genau so gut."
+    p "Ist doch gut, wenn Sie immer gewinnt."
+    o "Ja, aber weißt du."
+    show octa happy
+    o "Wenn ich gegen dich Rennen fahre, will ich gegen jemand starken gewinnen."
+    p "Versteh ich nicht."
+    show octa smug
+    o "Kannst du auch nicht."
+    show octa talk
+    o "Außerdem, sitz mal nicht so kurmm."
+    menu:
+        "Nach vorne lehnen":
+            p "So?"
+            o "Nein. Genau anders rum, nicht so sehr über das Fahrrad beugen."
+            
+        "Nach hinten lehnen":
+            $ skillpoints += 1
+            p "So?"
+            o "Fast."
+    p "Jetzt besser?"
+    show octa happy
+    o "ich glaube schon, dass es jetzt richtig ist."
+    scene thr with dissolve
+
+label octas7:
+    play sound cardoor1
+    scene bg street with dissolve
+    show mum n at leftish
+    p "Danke Mama. Du bist die beste!"
+    m "Ja, ja... sei nur froh, dass ich dich hier her fahre und nicht Papa."
+    m "In seinen ach so tollen Sportwagen würde dein Fahrrad nicht reinpassen."
+    m "Aber ich muss dann mal los. Hab nen schönen Tag. Bis später!"
+    hide mum with moveoutleft
+    p "Bis dann!"
+    show octa talk at rightish with moveinright
+    o "Hast du schon mit deiner Mama geredet?"
+    p "Ja, ich darf heute selber heimfahren."
+    o "Super, dann steht uns nichts im Weg."
+    show octa smug
+    o "Außer eben dein Können."
+    p "Ist doch unfair. So schlecht bin ich doch gar nicht mehr."
+    o "Na gut, aber wir trainieren dann trotzdem später."
+    
+    scene bg flur with dissolve
+    n "Endlich ist der Morgenkreis vorbei. Karin soll lieber weiter alleine turnen!"
+    n "Ich muss wichtigeres machen, ab in den Hof..."
+    show anja talk at leftish with moveinleft
+    a "Hey [name]."
+    p "Hey."
+    a "Warum hast dus denn so eilig?"
+    p "Ich muss trainieren, Octavia wartet doch bestimmt schon."
+    show anja mad
+    a "Ist doch egal ob die wartet."
+    a "Warum hängst du überhaupt mit der ab?"
+    p "Warum nicht?"
+    a "Weil sie nervt?!"
+    p "Find ich nicht."
+    show anja schmoll
+    a "Das ist doch voll die Zicke! Ich versteh das nicht."
+    show anja talk
+    a "Es sei denn..."
+    n "???"
+    a "DU WILLST OCTAVIA HEIRATEN!"
+    a "so richtig eklig mit Knutschen und allem."
+    p "Überhaupt nicht!"
+    show anja happy
+    a "Ha, Lügner. Man sieht es dir doch an!"
+    p "Aber..."
+    show octa mad at rightish with moveinright
+    o "Hey [name], wo bleibst du denn? Ich hab im Hof gewartet."
+    a "Haha, eklig."
+    show octa shock
+    o "Was denn?"
+    a "Passt schon, ich geh mit Louis spielen."
+    show octa talk
+    o "Hmmh... Kommst du [name]?"
+    p "Ja klar."
+    
+    scene bg court with dissolve
+    show octa happy
+    
+    o "Nicht schlecht, du warst gestern noch viel langsamer!"
+    show octa smug
+    o "Aber mach mal schneller, sonst besiegst du mich nie!"
+    menu:
+        "Gang hochschalten":
+            $ skillpoints += 1
+            p "Siehst du, geht auch schneller!"
+            show octa shock
+            o "Stimmt."
+            
+        "Gang runterschalten":
+            p "So trete ich schneller."
+            show octa mad
+            o "Ach du Blödmann, du trittst zwar schneller aber dein Fahrrad wird langsamer!"
+            o "Gang hoch schalten für mehr Geschwindigkeit!"
+    n "Ich glaub ich hab ne echte Chance morgen..."
+    scene fri with dissolve
+    
+label octas8:
+    n "Es ist soweit!"
+    scene bg bike with dissolve
+    show octa vhappy
+    o "So, da wären wir also. Siehst du, ist gar nicht weit weg."
+    o "Du hast auch echt gut mitgehalten."
+    p "Du warst ja auch echt schnell, war schwer hinterher zu kommen."
+    show octa happy
+    o "Kannst du eigentlich noch? Wegen dem herrauffahren?"
+    p "Mmmh. Ja, bin topfit!"
+    show octa talk
+    o "Gut, da drüben ist der Pfad. Den müssen wir hoch und dann runterfahren."
+    
+    scene bg woods2 with dissolve ###weiß nicht welche transition für Strecke Sicht Abhang Runter ist
+    p "Oh, ganz schön steil."
+    o "Deswegen macht es ja so Spaß!"
+    show octa vhappy
+    p "Aber..."
+    show octa smug
+    o "Kein aber, du hast gesagt du gewinnst locker. Also streng dich mal an."
+    o "Ach übrigens, was bekomm ich egentlich wenn ich gewinne?"
+    p "Wie? Wieso solltest du was bekommen?"
+    show octa talk
+    o "Ist doch ein Rennen und wenn man solche gewinnt, dann bekommt man einen Preis."
+    p "Was willst du denn?"
+    o "Einen Pokal!"
+    show octa happy
+    p "Ich hab aber keinen, ich glaub das ist auch zu teuer."
+    show octa shock
+    o "Oh stimmt ja. "
+    show octa talk
+    o "Wie wäre es denn wenn du allen erzählst, dass ich die beste im Radfahren bin?"
+    o "Und du hörst auf mich zu hinterfragen."
+    p "Und wenn ich gewinne?"
+    show octa vhappy
+    o "Tust du doch eh nicht."
+    p "Aber wenn, dann will ich auch was." 
+    show octa talk
+    o "Eine Hochzeit vielleicht?"
+    n "..."
+    p "Das hast du von Anja oder?"
+    show octa shock
+    o "Ist doch egal, nimmst du das als Preis?"
+    p "Nur wenn ich nicht knutschen muss."
+    show octa vhappy
+    o "Hahaha, als ob. Ja das kann ausfallen."
+    show octa talk
+    o "So, sind wir dann bereit?"
+    p "Glaube schon."
+    o "Moment noch."
+    hide octa
+    show oschutz happy
+    n "Wenn die ihren Helm auf hat, dann wird es wohl echt ernst."
+    hide oschutz
+    show obike n at leftish
+    o "Wer zuerst unten beim Baumstumpf ist, hat gewonnen."
+    o "Also."
+    play music racetheme
+    o "Auf die Plätze..."
+    o "...fertig..."
+    o "...LOS!!!"
+    hide obike with moveoutright
+    
+    if skillpoints > 1:
+        n "Warum ist die so schnell!"
+        n "Ich darf einfach nur nicht runterfallen."
+        n "Eventuell in einer Kurve überholen..."
+        n "Moment, ich hatte das ja. Einfach nur nicht fallen, wenn ich mich treiben lasse und den Gang hochschalte."
+        n "Dann in der Kurve bremse und einfach nicht falle..."
+        n "Mist, sie kommt weiter vorne. Ich muss es in der nächsten probieren."
+        play sound bikebreak
+        show obike n with moveinright
+        hide obike n with moveoutleft
+        o "Was?"
+        n "Nurnoch ein paar meter und..."
+        p "ICH HABS GESCHAFFT! OH MEIN GOTT!"
+        jump obikewin
+    
+    else:
+        n "Dann los!"
+        n "Warte, wieso ist die so schnell. Hat die keine Angst hinzufliegen?"
+        n "Da unten in der Kurve komm ich vielleicht vorbei."
+        n "Nein, leider nicht... Eventuell wenn ich, nein dann Fall ich nur."
+        n "Das gibt's doch nicht."
+        n "Die bekomm ich doch nie."
+        o "JAAA!"
+        n "Und das wars."
+        n "Och menno..."
+        jump obikeloss
+
+label obikewin:
+    p "Hast du das gesehen?"
+    p "Ich konnte das nur, weil du mir beigebracht hast wie ich schneller bin."
+    p "Und in der Kurve dann. Hast du das gesehen!"
+    show oschutz happy
+    o "Ach..."
+    p "Was ist denn?"
+    o "Ich hab verloren. Ich hab tatsächlich verloren!" ### es gibt keine traurigen oder weinenden Gesichter gerade.
+    p "Ach ja, tut mir leid..."
+    o "Ich habe Opa versprochen immer mein bestes zu geben und jetzt bist du besser als ich."
+    p "Hast du doch."
+    o "Aber es war nicht gut genug! Ich bin schlecht."
+    p "War doch gut genug!"
+    o "Wie, wie meinst du?"
+    p "Ohne deine Hilfe wüsste ich nicht wie der Gang funktioniert."
+    p "Ohne dich würde ich immernoch Stützräder verwenden."
+    p "Ohne dich hätte ich Angst gehabt vor dem Fallen."
+    p "Was sagst du da eigentlich? Das hast du mir doch beigebracht!"
+    o "Ich weiß, ist aber komisch."
+    p "Wie du weißt?"
+    o "Ich bin irgendwie froh darüber."
+    p "Aber du weinst doch."
+    o "Ich... Ich weiß auch nicht."
+    p "Hmmh... was machen wir jetzt?"
+    o "Keine Ahnung."
+    p "Willst du noch mal fahren?"
+    o "Was?"
+    p "War schon sehr schnell, hat Spaß gemacht."
+    o "Hahahaha, sieh dich jetzt mal an."
+    o "Aber diesmal mach ich dich fertig!"
+    p "Ja meine Frau."
+    o "Ach du... du meintest das ernst."
+    p "Ist ja wohl mein Preis oder."
+    o "Ja, ja das hab ich gesagt."
+    scene wedding with dissolve 
+    jump credits
+    
+
+label obikeloss:
+    o "Yeah! Ich bin die schnellste!"
+    o "Hast du gesehen wie ich den Berg runtergerast bin?"
+    p "Ja du bist schnell."
+    o "Und du langsam... Gaaanz laaangsam."
+    o "Hast du dich überhaupt angestrengt?"
+    p "Klar, war doch auch knapp."
+    o "Vielleicht brauchst du doch wieder Stützräder!"
+    p "Hey, das stimmt nicht!"
+    o "Na klar, du bist doch nur ein Baby das nichts kann."
+    p "Ach echt?"
+    p "Du bist eine Oberzicke, die niemand hier mag. Die meisten bewundern dich nur wegen deinen Sachen und weil sie damit spielen wollen."
+    p "Anja, Randy, Louis, niemand kann dich wirklich leiden. Doch ich mochte dich für ein bisschen."
+    p "Anja hat aber recht, du nervst und niemand mag dich."
+    o "Aber..."
+    p "Ich mag dich auch nicht..."
+    o "Dann geh doch du Verlierer!"
+    p "Tschau, Nervenzicke!"
+    ### dieses CG macht 0 sinn mit der story die geschrieben worden ist.
+    
+    
+    
+
+    return
