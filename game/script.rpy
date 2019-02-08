@@ -5054,7 +5054,7 @@ label scenew2_10:
                             menu:
                                 "Oh...danke!":
                                     $ eve_points += 2
-                                    $ powder = True
+                                    $ powder == True
                                     e "\"Aber wir können das gar nicht bezahlen\", sagte die Bardin."
                                     e "\"Keine Sorge!\", sagte der Händler. \"Das ist ein Geschenk. Wir Reisenden müssen zusammen halten.\" Er lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
                                     

@@ -412,14 +412,19 @@ label anjas_ending:
             p "Da sind wir in Sicherheit!"
             a "Okay, gute Idee!"
             p "Ja ja, komm schnell!"
-            #(Wieder an der Lichtung)
+            scene bg black with fade
+            scene bg woods2
+            show anja schmoll at center
+            with fade
             p "Puh... Wir sind da. Geschafft."
             a "Während wir gerannt sind hab' ich nachgedacht…"
             a "Wir dürfen bis nächste Woche nix erzählen."
             p "Aber warum?"
             a "Vertrau mir einfach. Ich hab ‘nen Plan!"
+            show anja vmad
             a "Am Montag erzählen wir’s den anderen."
             p "Na gut… Aber wir sollten auf jeden Fall Karin was sagen!"
+            show anja mad
             a "Nein, bloß nicht!"
             a "Was, wenn Karin auch ‘ne Hexe ist?"
             a "Wenn wir mit der reden weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
