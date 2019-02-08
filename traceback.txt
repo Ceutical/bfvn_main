@@ -3,7 +3,7 @@
 While running game code:
   File "renpy/common/00start.rpy", line 120, in script
     return
-Exception: Could not find return label (u"C:\\Users\\Kilian\\Desktop\\RenPy\\renpy-7.1.1-sdk\\Games\\Baby's First Visual Novel/game/Endingskripte/Anjas_Ending.rpy", 1549408271, 34).
+Exception: Could not find return label (u"C:\\Users\\Kilian\\Desktop\\RenPy\\renpy-7.1.1-sdk\\Games\\Baby's First Visual Novel/game/script.rpy", 1549571589, 4901).
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -14,9 +14,9 @@ Full traceback:
     next_node(renpy.game.context().lookup_return(pop=True))
   File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\execution.py", line 664, in lookup_return
     raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
-Exception: Could not find return label (u"C:\\Users\\Kilian\\Desktop\\RenPy\\renpy-7.1.1-sdk\\Games\\Baby's First Visual Novel/game/Endingskripte/Anjas_Ending.rpy", 1549408271, 34).
+Exception: Could not find return label (u"C:\\Users\\Kilian\\Desktop\\RenPy\\renpy-7.1.1-sdk\\Games\\Baby's First Visual Novel/game/script.rpy", 1549571589, 4901).
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 BFVN 1.0
-Fri Feb 08 05:26:24 2019
+Fri Feb 08 07:37:27 2019

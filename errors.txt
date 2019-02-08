@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/Endingskripte/Anjas_Ending.rpy", line 6: expected statement.
-    renpy.music.set_volume(volume=0.5, channel='sound4')
-                                                        ^
+File "game/Endingskripte/Anjas_Ending.rpy", line 799: expected 'image_name_component' not found.
+    show
+        ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Fri Feb 08 04:55:33 2019
+Fri Feb 08 07:22:49 2019

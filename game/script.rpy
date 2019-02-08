@@ -475,6 +475,58 @@ label start:
             
         image heidetalks 2:
             "images/Characters/heidenau/heide wn.png"
+            
+        image anjachaos:
+            "images/Characters/anja/anja vmad.png"
+            xalign 0.0 yalign 1.0
+            linear 1.0 xalign 1.0
+            "images/Characters/anja/anja vmad.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.0
+            repeat
+            
+        image octachaos:
+            "images/Characters/octavia/octa shock.png"
+            xalign .26 yalign 1.0
+            linear 1.0 xalign 1.0
+            "images/Characters/octavia/octa shock.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.0
+            "images/Characters/octavia/octa shock.png"
+            xalign 0.0 yalign 1.0
+            linear 1.0 xalign 0.26            
+            repeat
+            
+        image randychaos:
+            "images/Characters/randy/randy vmad.png"
+            xalign .5 yalign 1.0
+            linear 1.0 xalign 0.0
+            "images/Characters/randy/randy vmad.png"
+            xalign 0.0 yalign 1.0
+            linear 1.0 xalign 1.0
+            "images/Characters/randy/randy vmad.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.5            
+            repeat
+            
+        image evechaos:
+            "images/Characters/evelyn/eve mad.png"
+            xalign .76 yalign 1.0
+            linear 1.2 xalign 0.0
+            "images/Characters/evelyn/eve mad.png"
+            xalign 0.0 yalign 1.0
+            linear 1.2 xalign 1.0
+            "images/Characters/evelyn/eve mad.png"
+            xalign 1.0 yalign 1.0
+            linear 1.2 xalign 0.76            
+            repeat
+            
+        image louischaos:
+            "images/Characters/louis/louis really.png"
+            xalign 1.0 yalign 1.0
+            linear 40.0 xalign 2.0     
+            
+            
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -5478,23 +5530,21 @@ label scenew3_0:
     
     
 label credits:
+    play music playtheme2 fadeout 1.0
     scene bg bedroom with dissolve
-    nvln "Coding - VN\nKilian Petry"
-    nvln "Coding - Minigame\nFrederik Haas"
-    nvln "Art - Lead\nNatalie Kuhrt"
-    nvln "Art - Support\nFlorian Menzel"
-    nvln "Writing\nFrederik Haas, Florian Menzel, Sascha Fuchs\nFabian Pfannmüller, Kilian Petry"
-    nvln "Sounddesign\nLuca Pfeiffermann"
+    nvln "Fabian Pfannmüller\nProduct Owner, Lead Writer"
+    nvln "Kilian Petry\nLead Scenedesigner, Lead Coder"
+    nvln "Frederik Haas\nSCRUM Master, Minigame Coder"
+    nvln "Natalie Kuhrt\nLead Artist, Writer, Coder, Scenedesigner"
+    nvln "Florian Menzel \ \ \ \ \ Sascha Fuchs\nWriter\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -- \ Writer, PR"
+    nvln "Luca Pfeiffermann\nLead Sounddesigner"
     nvl clear
     nvln "Vielen Dank für's Spielen!"
-    stop music fadeout 2.0
-    nvln "Euer Team von Babys First Visual Novel"
-    "diojasppjdaps"
-    "diuashdsaoi"
-    "daosijdaos"
-    
-    
-    #"Testtest."
+    nvln "Euer Team von Baby's First Visual Novel"
+    window hide
+    scene cg selfiefriendo with fade
+    $ renpy.pause ()
+    window auto
         
 
     
