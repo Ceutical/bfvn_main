@@ -108,11 +108,11 @@ label sceneball:
     show karin go at leftish with moveinleft
     show osport vhappy at rightish with dissolve
     show asport mad at center with moveinleft
-    a "Ist doch egal, ob er gut spielt."
-    o "Ne, ist es nicht. Wenn er schlecht spielt, zieht er nur mein Team runter. Er muss mindestens so gut sein wie die aus der Axolotl-Gruppe."
+    a "Ist doch egal, ob [pro2] gut spielt."
+    o "Ne, ist es nicht. Wenn [pro2] schlecht spielt, zieht [pro2] nur mein Team runter. [name] muss mindestens so gut sein wie die aus der Axolotl-Gruppe."
     show asport n
     p "Also, ich-"
-    o "Dann nimm du ihn doch, wenn es dich nicht stört, Anja!"
+    o "Dann nimm [name] doch in dein Team, wenn es dich nicht stört, Anja!"
     show asport happy
     a "Mach ich auch!"
     o "Weil wir sowieso besser sind, dürft ihr Ausnahmsweise den Ball zuerst haben. Sonst wäre es zu einfach für mich."

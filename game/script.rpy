@@ -73,6 +73,7 @@ define audio.opartytheme = "music/soundtracks/Kinder_Party_Theme1.ogg"
 define audio.apartytheme = "music/soundtracks/Kinder_Party_Theme2.ogg"
 define audio.epartytheme = "music/soundtracks/Kinder_Party_Theme3.ogg"
 define audio.racetheme = "music/soundtracks/Wettrennen1.ogg" ### wettrennen
+define audio.spooky3 = "music/soundtracks/SpookyWald3.ogg"
 
 #JUMPER
 ##### SFX DEFINITIONS #####
@@ -109,6 +110,7 @@ define audio.chain = "music/sfx/Fahrrad_alteKette.ogg"
 define audio.bikebreak = "music/sfx/Fahrradbremse.ogg"
 define audio.scream = "music/sfx/Kinderschrei3.ogg"
 define audio.scream2 = "music/sfx/Kinderschrei1.ogg"
+define audio.scream3 = "music/sfx/Kinderschrei2.ogg"
 define audio.whoosh1 = "music/sfx/Whoosh1.ogg"
 define audio.boing = "music/sfx/Boing.ogg"
 define audio.pokin = "music/sfx/PKMN-Einwurf.ogg"
@@ -117,6 +119,10 @@ define audio.purr = "music/sfx/Katzenschnurren.ogg"
 define audio.rain = "music/sfx/Regen.ogg"
 define audio.horror ="music/sfx/HorrorBGM.ogg"
 define audio.letter = "music/sfx/Briefumschlag.ogg"
+define audio.woods1 = "music/sfx/Wald1.ogg"
+define audio.woods3 = "music/sfx/Wald3.ogg"
+define audio.woodcrack2 = "music/sfx/Ast_zerbricht_beim_drauftreten2.ogg"
+
 
 
 ######################################
@@ -347,6 +353,10 @@ transform duckfall:
     xalign 11.5
     yalign 14.0
     
+transform bagaway:
+    xalign -0.3
+    yalign .45
+    
 
 ######################################
 
@@ -447,7 +457,24 @@ label start:
             pause 0.1
             repeat
             
+        image randydance:
+            "images/Characters/randy/randy bugmad.png"
+            xalign .26 yalign 1.0
+            linear 0.2 xalign 0.16
+            "images/Characters/randy/randy bugmad.png"
+            xalign .16 yalign 1.0
+            linear 0.2 xalign .26
+            repeat
             
+        image heidetalks 1:
+            "images/Characters/heidenau/heide wn.png"
+            pause 0.1
+            "images/Characters/heidenau/heide woods.png"
+            pause 0.1
+            repeat
+            
+        image heidetalks 2:
+            "images/Characters/heidenau/heide wn.png"
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -2974,7 +3001,7 @@ label scenew2_0:
         "Es war super!":
             p "Ja! Das war voll cool! Der Mega Playgear macht voll viel Spaß!"
             v "Na das wusste ich doch dass der dir gefallen wird [pre] Klein[suf2]."
-            v "Du hast dir den doch schon so lange gewünscht. Wenn du mal was anderes möchtest, dann sag’s mir einfach, okay?"
+            v "Du hast dir den doch schon so lange gewünscht. Wenn du mal was Anderes möchtest, dann sag’s mir einfach, okay?"
             p "Mach ich! Danke Papa!"
             
         "War ganz gut.":
@@ -3866,7 +3893,7 @@ label scenew2_7:
         
     elif octa_points >= anja_points and octa_points >= eve_points:
         show karin go
-        k "[name] ist wirklich sehr ergeizig und gibt sich mit allem was er macht wirklich mühe."
+        k "[name] ist wirklich sehr ergeizig und gibt sich mit allem was er macht wirklich Mühe."
         k "Das ist schon bemerkenswert für [pro] Alter, deswegen wundert es mich auch nicht, dass [pro2] sich mit den, wie soll ich sagen, Musterkind Octavia angefreundet hat."
         show karin n
         show mum mad
@@ -3907,13 +3934,13 @@ label scenew2_7:
         jump secenew2_8
         
             
-    n "Ich versteh gar nichts mehr, wieso sind die soweit weg von der Tür aufeinmal."
+    n "Ich versteh gar nichts mehr, wieso sind die soweit weg von der Tür auf einmal."
     n "Ich schleich mal ein Stück näher ran."
     show mum talk
     m "Was ist denn am Freitag?"
     show karin talk
     show mum n
-    k "Ich dachte, Frau Heidenau hätte allen Eltern bescheid gegeben, dass wir zur Bernerhütte im Eichelgebirge fahren und dort im Wald wandern."
+    k "Ich dachte, Frau Heidenau hätte allen Eltern Bescheid gegeben, dass wir zur Bernerhütte im Eichelgebirge fahren und dort im Wald wandern."
     show mum talk
     m "Ein Wandertag also? Nein, davon habe ich nichts gehört."
     show karin shock
@@ -4243,8 +4270,9 @@ label wettbewerb:
     
 label scenew2_9:
     play music happytheme1
-    show bg street with dissolve
+    scene bg street
     show mum talk at rightish
+    with dissolve
     m "Hallo mein Schatz! Wie ist es denn gelaufen? Hattest du einen schönen Tag?"
     p "Ähhm. Ja."
     m "Was hast du denn heute so gemacht?"
@@ -4272,7 +4300,7 @@ label scenew2_9:
 
     show mum talk
     m "Naja, hört sich ja nach einer schönen Zeit an!"
-    m "Ich muss dir noch etwas sagen: Wusstest du, dass ihr am Freitag einen Wandertag habt?"
+    m "Ich muss dir noch etwas sagen: Wusstest du, dass ihr übermorgen einen Wandertag habt?"
     n "Ja! Aber Mama darf nich wissen, dass ich gelauscht hab..."
     p "Ähm, nein..."
     show mum happy
@@ -5116,7 +5144,7 @@ label scenew2_10:
                     e "\"Aua!\", sagt der Drache. \"Das ist unfair!\""
                     e "Aber noch ist der Drache nicht besiegt!"
                     
-                    if powder = True:
+                    if powder == True:
                         $ pnp1winpoints += 1
                         jump pnp1powdered
                         

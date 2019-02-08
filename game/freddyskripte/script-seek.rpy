@@ -92,7 +92,7 @@ label Gruppenraum:
     
     
     n "Wo sind die?"
-    n "Nicht Hier."
+    n "Nicht hier."
     n "Da auch nicht."
     n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
     hide screen grurahide
@@ -121,7 +121,7 @@ label Flur:
     show bg flur
     show screen flurhide()
     n "Wo sind die?"
-    n "Nicht Hier."
+    n "Nicht hier."
     n "Da auch nicht."
     n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
     hide screen flurhide
@@ -151,7 +151,7 @@ label Essenszimmer:
     show screen countdown
     show bg food
     n "Wo sind die?"
-    n "Nicht Hier."
+    n "Nicht hier."
     n "Da auch nicht."
     n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
     hide screen countdown
@@ -166,7 +166,7 @@ label Court:
     show bg court
     show screen courthide()
     n "Wo sind die?"
-    n "Nicht Hier."
+    n "Nicht hier."
     n "Da auch nicht."
     n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
     hide screen courthide
@@ -199,7 +199,7 @@ label Krankenzimmer:
     show screen countdown
     show bg health
     n "Wo sind die?"
-    n "Nicht Hier."
+    n "Nicht hier."
     n "Da auch nicht."
     n "Und hier scheint auch nichts zu sein. Ich sollte wohl weiter gehen"
     hide screen countdown
