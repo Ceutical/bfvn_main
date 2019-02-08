@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 5291: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-        n "Hey, sogar ganz hinten am Fenster! Da kann ich nebenbei aus dem Fenster schauen!
+File "game/Endingskripte/script_octaday.rpy", line 3: expected 'label_name_declare' not found.
+    label jump octas_ending:
+         ^
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Fri Feb 08 01:49:01 2019
+Fri Feb 08 02:57:28 2019

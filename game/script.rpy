@@ -72,6 +72,7 @@ define audio.playtheme2 = "music/soundtracks/Kinder_Beim_Spielen2.ogg"
 define audio.opartytheme = "music/soundtracks/Kinder_Party_Theme1.ogg"
 define audio.apartytheme = "music/soundtracks/Kinder_Party_Theme2.ogg"
 define audio.epartytheme = "music/soundtracks/Kinder_Party_Theme3.ogg"
+define audio.racetheme = "music/soundtracks/Wettrennen1.ogg" ### wettrennen
 
 #JUMPER
 ##### SFX DEFINITIONS #####
@@ -385,6 +386,8 @@ label start:
     $ powder = False
     $ pnp1winpoints = 0
     $ pnpplay = False
+    $ win = "yes" ###variablenübernahme kein boolean
+    $ skillpoints = 0 ### für octapfad
     
     
     init:

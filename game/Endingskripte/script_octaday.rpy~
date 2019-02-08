@@ -1,6 +1,295 @@
 ﻿##### SCRIPT START #####
 
-label octas_ending:
+##### CHARACTER DEFINITIONS #####
+
+define m = Character("Mama")
+define v = Character("Papa")
+
+define p = Character("[name]") #Name of Player Character -- P = Protagonist
+define pt = Character("[name]", window_ypos=0.27) #ProtaTOP
+
+define n = Character(name=None, what_italic=True) #Narrator
+define nt = Character(name=None, window_ypos=0.27, what_italic=True) #NarratorTOP
+
+define a = Character("Anja")
+
+define e = Character("Evelynn")
+define et = Character("Evelynn", window_ypos=0.27) #EvelynnTOP
+
+define o = Character("Octavia")
+define O = Character("Octa")
+define h = Character("Frau Heidenau")
+define k = Character("Karin")
+
+define L = Character("Louis")
+define Lt = Character("Louis", window_ypos=0.27) #LouisTOP
+
+define r = Character("Randy")
+define rt = Character("Randy", window_ypos=0.27) #RandyTOP
+define emum = Character("Evelynns Mama")
+define edad = Character("Evelynns Papa")
+define omum = Character("Octavias Mama")
+define odad = Character("Octavias Papa")
+define rmum = Character("Randys Mama")
+define rdad = Character("Randys Papa")
+define nvln = Character(name=None, kind=nvl)
+define kg = Character("Kinder", what_italic=True) #Kindergartengruppe
+
+#define test = Character("Test", window_ypos=0.27) #TESTCHAR
+
+
+
+######################################
+
+##### MUSIC CHANNEL DEFINITIONS #####
+
+init python:
+    renpy.music.register_channel("music1", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("music2", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("music3", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound1", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound2", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound3", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+    renpy.music.register_channel("sound4", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
+
+##### MUSIC DEFINITIONS #####
+
+define audio.introtheme = "music/soundtracks/introtheme.mp3"
+define audio.anjatheme = "music/soundtracks/anjatheme.mp3"
+define audio.evetheme = "music/soundtracks/evetheme.mp3"
+define audio.octatheme = "music/soundtracks/octatheme.mp3"
+define audio.maintheme = "music/soundtracks/maintheme.mp3"
+define audio.poketheme = "music/soundtracks/Pokemon_Minigame.ogg"
+define audio.dueltheme = "music/soundtracks/Dramatische_Duellmusik.ogg"
+define audio.bosstheme1 = "music/soundtracks/Fantasy_Boss1.ogg"
+define audio.bosstheme2 = "music/soundtracks/Fantasy_Boss2.ogg"
+define audio.fantheme1 = "music/soundtracks/Fantasy1.ogg"
+define audio.fantheme2 = "music/soundtracks/Fantasy2.ogg"
+define audio.happytheme1 = "music/soundtracks/Happy_Theme1.ogg"
+define audio.happytheme2 = "music/soundtracks/Happy_Theme2.ogg"
+define audio.playtheme1 = "music/soundtracks/Kinder_Beim_Spielen1.ogg"
+define audio.playtheme2 = "music/soundtracks/Kinder_Beim_Spielen2.ogg"
+define audio.opartytheme = "music/soundtracks/Kinder_Party_Theme1.ogg"
+define audio.apartytheme = "music/soundtracks/Kinder_Party_Theme2.ogg"
+define audio.epartytheme = "music/soundtracks/Kinder_Party_Theme3.ogg"
+define audio.racetheme = "music/soundtracks/Wettrennen1.ogg" ### wettrennen
+
+#JUMPER
+##### SFX DEFINITIONS #####
+
+define audio.treefall = "music/sfx/treefall.ogg"
+define audio.cardoor1 = "music/sfx/Autotür1.ogg"
+define audio.cardoor2 = "music/sfx/Autotür2.ogg"
+define audio.decke = "music/sfx/Decke.ogg"
+define audio.grassbump = "music/sfx/Aufprall_Rasen.ogg"
+define audio.ball = "music/sfx/Ball.ogg"
+define audio.ball2 = "music/sfx/Ball1.ogg"
+define audio.bal3l = "music/sfx/Ball2.ogg"
+define audio.ball4 = "music/sfx/Ball3.ogg"
+define audio.ball5 = "music/sfx/Ball4.ogg"
+define audio.ballhit1 = "music/sfx/Ball_Getroffen1.ogg"
+define audio.ballhit2 = "music/sfx/Ball_Getroffen2.ogg"
+define audio.ballhit3 = "music/sfx/Ball_Getroffen3.ogg"
+define audio.bell = "music/sfx/bell.ogg"
+define audio.child1 = "music/sfx/Kindergeräusche1.ogg"
+define audio.child2 = "music/sfx/Kindergeräusche2.ogg"
+define audio.kg = "music/sfx/Kinderklasse.ogg"
+define audio.pbutton1 = "music/sfx/KnöpfeDrücken1.ogg"
+define audio.pbutton2 = "music/sfx/KnöpfeDrücken2.ogg"
+define audio.pbutton3 = "music/sfx/KnöpfeDrücken3.ogg"
+define audio.draw = "music/sfx/Malgeräusche.ogg"
+define audio.foodplay = "music/sfx/Mit Essen Spielen.ogg"
+define audio.snackers = "music/sfx/snackers.ogg"
+define audio.street = "music/sfx/street.ogg"
+define audio.whoosh3 = "music/sfx/whoosh3.ogg"
+define audio.Chicken = "music/sfx/Hahnwecker.ogg"
+define audio.antiarmor = "music/sfx/Schutzausrüstung_ausziehen.ogg"
+define audio.bike = "music/sfx/Fahrrad.ogg"
+define audio.chain = "music/sfx/Fahrrad_alteKette.ogg"
+define audio.bikebreak = "music/sfx/Fahrradbremse.ogg"
+define audio.scream = "music/sfx/Kinderschrei3.ogg"
+define audio.scream2 = "music/sfx/Kinderschrei1.ogg"
+define audio.whoosh1 = "music/sfx/Whoosh1.ogg"
+define audio.boing = "music/sfx/Boing.ogg"
+define audio.pokin = "music/sfx/PKMN-Einwurf.ogg"
+define audio.pokout = "music/sfx/PKMN-Tot.ogg"
+
+
+######################################
+
+##### TRANSFORM DEFINITIONS #####
+
+transform slightleft:
+    xalign .35
+    yalign 1.0
+transform slightright:
+    xalign .68
+    yalign 1.0
+transform leftish:
+    xalign .26
+    yalign 1.0
+transform rightish:
+    xalign .76
+    yalign 1.0
+transform chicken:
+    xalign .68
+    yalign .5
+transform mic:
+    xalign .93
+    yalign .4
+transform topright:
+    xalign 1.0
+    yalign 0.0
+transform topleft:
+    xalign 0.0
+    yalign 0.0    
+transform topishleft:
+    xalign 0.0
+    yalign 0.5
+transform rotation:
+    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
+    rotate 10
+transform rotationreset:
+    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
+    rotate 0
+transform flight:
+    xalign .5
+    yalign .4
+transform flightright:
+    xalign .8
+    yalign .4
+    
+######################################
+
+
+label start:
+
+    python:
+        if not persistent.set_volumes:
+            persistent.set_volumes = True
+            _preferences.volumes['music'] *= .80 
+        renpy.music.set_volume(volume=0.5, channel='music1')
+    
+    ##### OTHER DEFINITIONS #####
+    $ seekwin = True
+    $ seekloss = True
+    $ grura = True
+    $ flur = True
+    $ court = True
+    $ kz = True
+    $ food = True
+    $ catch = 0
+    $ seekattempts = 0
+    $ climber = False
+    $ tookrandy = False
+    $ boomstickpoints = 0
+    $ dynamik = False
+    $ trade = False
+    $ tip = False
+    $ farbflug = False
+    $ chaos = False
+    $ octaannoyed = 0
+    $ win = "yes" ###variablenübernahme kein boolean
+    $ skillpoints = 0 ### für octapfad
+    
+    init:
+        image odance:
+            "images/Characters/octavia/omusic clap.png"
+            pause 0.20
+            "images/Characters/octavia/omusic pause.png"
+            pause 0.17
+            "images/Characters/octavia/octa music.png"
+            pause 0.17
+            repeat
+            
+        image kdance:
+            "images/Characters/karin/kmusic left.png"
+            pause 0.269
+            "images/Characters/karin/kmusic happy.png"
+            pause 0.269
+            "images/Characters/karin/kmusic right.png"
+            pause 0.269
+            "images/Characters/karin/kmusic happy.png"
+            pause 0.269
+            repeat
+            
+        image oadance:
+            "images/Characters/octavia/oparty vhappy.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.5
+            "images/Characters/octavia/oparty vhappy.png"
+            xalign 0.5 yalign 1.0
+            linear 1.0 xalign 1.0
+            repeat
+            
+        image aodance:
+            "images/Characters/anja/AParty/aparty jabber.png"
+            xalign 0.5 yalign 1.0
+            linear 1.0 xalign 1.0
+            "images/Characters/anja/AParty/aparty jabber.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.5
+            repeat    
+
+    ##### AFFINITY SYSTEM INITIATE #####
+    $ octa_points = 0
+    $ eve_points = 0
+    $ anja_points = 0
+    $ mapa = "Bumpy" #Marschpartner
+    
+    ##### AFFINITY SYSTEM END #####
+
+    
+    ##### Szene 1 - Prolog #####
+label scene1:
+    scene bg grura with dissolve    
+    
+    python:
+        name = renpy.input("Gib dem Kind einen Namen.")
+        name= name.strip() or "P"
+        
+        
+    menu:
+        "Wird das Kind Junge oder als Mädchen gesehen?"
+        "Als Junge":
+            $ gender = "male"
+            
+        "Als Mädchen":
+            $ gender = "female"
+            
+            
+    
+    if gender == "male":
+        python:
+            pro = "sein"
+            pro2 = "er"
+            pro3 = "ihm"
+            pro4 = "Sohn"
+            pro5 = "ihn"
+            pro6 = "Junge"
+            suf = "en"
+            suf2 = "er"
+            suf3 = ""
+            suf4 = ""
+            ddd = "der"
+            pre = "mein"
+    else:
+        python:
+            pro = "ihr"
+            pro2 = "sie"
+            pro3 = "ihr"
+            pro4 = "Tochter"
+            pro5 = "sie"
+            pro6 = "Mädchen"
+            suf = "e"
+            suf2 = "e"
+            suf3 = "in"
+            pre = "meine"
+            suf4 = "e"
+            ddd = "die"
+            
+
+label octas1:
     scene bg woods with dissolve
     show octa talk at rightish
     o "Na komm, wir wollen doch nicht die letzten sein."
@@ -652,10 +941,7 @@ label obikewin:
     o "Ach du... du meintest das ernst."
     p "Ist ja wohl mein Preis oder."
     o "Ja, ja das hab ich gesagt."
-    window hide
-    scene wedding with fade
-    $ renpy.pause ()
-    window auto
+    scene wedding with dissolve 
     jump credits
     
 
@@ -671,16 +957,12 @@ label obikeloss:
     o "Na klar, du bist doch nur ein Baby das nichts kann."
     p "Ach echt?"
     p "Du bist eine Oberzicke, die niemand hier mag. Die meisten bewundern dich nur wegen deinen Sachen und weil sie damit spielen wollen."
-    p "Niemand kann dich wirklich leiden. Doch ich mochte dich für ein bisschen."
-    p "Und Mama hat auch immer gesagt, dass Angeber blöd sind.."
+    p "Anja, Randy, Louis, niemand kann dich wirklich leiden. Doch ich mochte dich für ein bisschen."
+    p "Anja hat aber recht, du nervst und niemand mag dich."
     o "Aber..."
     p "Ich mag dich auch nicht..."
     o "Dann geh doch du Verlierer!"
     p "Tschau, Nervenzicke!"
-    window hide
-    scene octa badend with fade
-    $ renpy.pause ()
-    window auto
     ### dieses CG macht 0 sinn mit der story die geschrieben worden ist.
     
     
