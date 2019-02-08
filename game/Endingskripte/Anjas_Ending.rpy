@@ -405,6 +405,7 @@ label anjas_ending:
         
         "Lauf weg!":
             p "Wir müssen hier weg Anja!"
+            
             a "Aber wohin denn?"
             p "Na zurück zur Lichtung!"
             a "Aber da wird die Hexe uns doch finden!"
@@ -430,12 +431,16 @@ label anjas_ending:
             a "Wenn wir mit der reden weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
             a "Und dann verhext die uns damit wir nichts mehr sagen können!"
             p "Hm... Ja, vielleicht hast du ja Recht, aber das..."
+            show karin vhappy at right with moveinright
             k "Oh, hey, da seid ihr ja, ihr beiden!"
             k "Na? Spaß gehabt?"
             k "Wir müssen bald zurück zum Bus. Geht schon mal zu den anderen. Ich komm gleich nach."
+            show karin happy
             k "Ich warte noch auf die Frau Heidenau."
-            a "Okay, machen wir..."
-            #...
+            show anja what
+            a "Okay, machen wir ..."
+            scene bg woods2
+            show karin 
             p "Anja, schau! Die Heidenau!"
             a "Man, die schaut mega böse…"
             a "Guck! Die redet mit der Karin."

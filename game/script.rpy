@@ -5271,7 +5271,7 @@ label pnp1lost:
     jump pnp1bad
     
 label pnp1good:
-    play music evethem fadeout 1.0
+    play music evetheme fadeout 1.0
     show mum n at left with moveinleft
     m "Ach, da bist du!"
     p "Och nö, kann ich nicht noch weiter spielen? Nur noch ein ganz klein bisschen?"
