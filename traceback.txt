@@ -1,40 +1,44 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 3708, in script
-    play music playtheme fadeout 1.0
-  File "renpy/common/000statements.rpy", line 120, in execute_play_music
-    renpy.music.play(_audio_eval(p["file"]),
-  File "renpy/common/000statements.rpy", line 32, in _audio_eval
-    return eval(expr, locals=store.audio.__dict__)
-  File "game/script.rpy", line 3708, in <module>
-    play music playtheme fadeout 1.0
-NameError: name 'playtheme' is not defined
+  File "game/script.rpy", line 5304, in script
+    p "Woah, an den Sitzen ist ein Tisch?"
+IOError: Couldn't find file 'Briefumschlag.ogg'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 3708, in script
-    play music playtheme fadeout 1.0
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1859, in execute
-    self.call("execute")
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 1847, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\statements.py", line 179, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 120, in execute_play_music
-    renpy.music.play(_audio_eval(p["file"]),
-  File "renpy/common/000statements.rpy", line 32, in _audio_eval
-    return eval(expr, locals=store.audio.__dict__)
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1944, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\python.py", line 1937, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 3708, in <module>
-    play music playtheme fadeout 1.0
-NameError: name 'playtheme' is not defined
+  File "game/script.rpy", line 5304, in script
+    p "Woah, an den Sitzen ist ein Tisch?"
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ast.py", line 678, in execute
+    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\exports.py", line 1204, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\character.py", line 1031, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\character.py", line 823, in do_display
+    **display_args)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\character.py", line 572, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\ui.py", line 289, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\display\core.py", line 2662, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\display\core.py", line 3334, in interact_core
+    renpy.audio.audio.periodic()
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\audio\audio.py", line 993, in periodic_thread_main
+    periodic_pass()
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\audio\audio.py", line 937, in periodic_pass
+    c.periodic()
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\audio\audio.py", line 419, in periodic
+    topf = load(self.file_prefix + filename + self.file_suffix)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\audio\audio.py", line 71, in load
+    rv = renpy.loader.load(fn)
+  File "C:\Users\Kilian\Desktop\RenPy\renpy-7.1.1-sdk\renpy\loader.py", line 576, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'Briefumschlag.ogg'.
 
 Windows-8-6.2.9200
 Ren'Py 7.1.1.929
 BFVN 1.0
-Thu Feb 07 22:04:24 2019
+Fri Feb 08 01:47:38 2019

@@ -115,6 +115,7 @@ define audio.pokout = "music/sfx/PKMN-Tot.ogg"
 define audio.purr = "music/sfx/Katzenschnurren.ogg"
 define audio.rain = "music/sfx/Regen.ogg"
 define audio.horror ="music/sfx/HorrorBGM.ogg"
+define audio.letter = "music/sfx/Briefumschlag.ogg"
 
 
 ######################################
@@ -485,7 +486,10 @@ label scene1:
             suf2 = "er"
             suf3 = ""
             suf4 = ""
+            suf5 = "em"
+            suf6 = ""
             ddd = "der"
+            ddd2 = "dem"
             pre = "mein"
     else:
         python:
@@ -498,9 +502,12 @@ label scene1:
             suf = "e"
             suf2 = "e"
             suf3 = "in"
-            pre = "meine"
             suf4 = "e"
+            suf5 = "er"
+            suf6 = "in"
             ddd = "die"
+            ddd2 = "der"
+            pre = "meine"
 
     ##### Szene 2 CHILD #####
     menu:
@@ -3631,7 +3638,7 @@ label scenew2_5:
             show wizzard at cakehero
             show knight at cakehero
             show held at cakehero
-            with Movetransition(1.0)
+            with MoveTransition(1.0)
             Lt "Die Helden suchen Fürst Randolph auf, weil jeder weiß, dass er einen Teil des Schlüssels besitzt."
             Lt "Randolph will aber ihn aber nicht einfach so hergeben. Er stellt ihnen eine Aufgabe. Wenn sie ein Stück seines unglaublich trockenen Kuchen verspeisen können ohne zu Staub zu zerfallen, dann gibt er ihnen sein Schlüsselstück.."
             show sandkuchen2 
@@ -4790,14 +4797,15 @@ label scenew2_10:
                             
         "Ich schau lieber mal, wo Evelynn ist.":
             play music evetheme fadeout 1.0
-            scene grura2
+            scene bg grura2
             show karin n at center
             with dissolve
+            $ pnpplay = True
             n "Oh, Evelynn ist doch nicht am Maltisch. Komisch!"
             p "Karin! Hast du die Evelynn gesehen?"
             k "Ich glaub, die war zuletzt vorne in der Kuschelecke!"
             p "Oh danke!"
-            scene cuddle
+            scene bg cuddle
             show eve shy2
             with fade
             n "Da ist sie ja wirklich! Warum ist sie denn so aufgeregt?"
@@ -4806,14 +4814,20 @@ label scenew2_10:
             n "Jetzt springt sie sogar auf. So fröhlich hab ich sie noch nie gesehen."
             p "Hi!"
             p "Was machst du denn hier?"
-            e "Mama und Papa haben mir heut ausnahmsweise mal erlaubt mein Spielbuch mitzunehmen. Das heißt \"Das blaue Auge\" und ist voll toll! Da kann man sich eigene Geschichten ausdenken!"
+            e "Mama und Papa haben mir heut ausnahmsweise mal erlaubt mein Spielbuch mitzunehmen."
+            e "Das heißt \"Das blaue Auge\" und ist voll toll! Da kann man sich eigene Geschichten ausdenken!"
             p "Ah… ach so…"
             show eve talk2
             e "Außerdem hat mein Papa jetzt Urlaub, da sind beide dann Zuhause und dann dürfen auch mal Leute mit zu mir zum Spielen kommen."
             n "Ich war noch nie mit bei Evelynn. Ich frag mich, wie ihr Zimmer aussieht. Bestimmt hat sie ganz viele Zeichnungen rumhängen."
             p "Darf ich auch kommen?"
-            e "Klar! Ich wollte dich eh grade fragen. Dann können wir das Buch ausprobieren. Du musst dir nur noch vorher ausdenken, wen du spielen willst."
+            show eve shy2
+            e "Klar! Ich wollte dich eh grade fragen."
+            show eve happy2
+            e "Aber jetzt lass uns erstmal das Buch ausprobieren!"
+            e "Du musst dir nur noch vorher ausdenken, wen du spielen willst."
             p "Hä, was meinst du?"
+            show eve talk2
             e "Na also guck das ist ganz einfach. Erst suchst du dir aus was für ein Wesen du sein willst."
             p "Hm…mal sehen was zur Auswahl steht…"
             
@@ -4912,37 +4926,50 @@ label scenew2_10:
                         "Doch was anderes...":
                             jump klassenwahl
                     
+            show eve vhappy2
             e "Ich hab mir auch schon was ausgedacht. Aber das verrate ich dir noch nicht!"
             p "Wieso nicht? Du weißt doch auch, was ich bin, also sag schon!"
+            show eve talk2
             e "Ätschi-Bätsch! Das wirst du sehen, wenn wir spielen!"
             n "Wenn Evelynn mir nichts verrät dann macht es nur noch spannender."
+            show eve happy2
             e "Also, los geht's!"
+            play music fantheme2 fadeout 1.0
             e "Es war einmal, vor langer Zeit..."
             n "Evelynn ist sofort drin im Spiel. Was muss ich eigentlich machen?"
             e "... in einem Land namens Müramoor."
             e "Da lebten zwei Helden, die waren auf der Durchreise durch das Land, auf der Suche nach Abenteuern."
+            show pnp woods with dissolve
             e "Sie waren gerade gemütlich unterwegs im Wald auf dem Weg in das nächste Dorf, als sie auf dem Weg eine zwieli...zw... eine komische Person mit einem langen Mantel bemerkten."
-            e "Da sagte die mutige Bardin zu ihre[r/m] Freund[in] dem [race] [role]:"
+            e "Da sagte die mutige Bardin zu ihr[suf5] Freund[suf6] [ddd2] [race] [role][suf6]:"
             e "Was willst du tun? Das könnte ein Bandit sein. Sollen wir uns verstecken?"
-            n "Oh..."
+            n "Oh..." #JUMPER
             n "Ich glaub, ich soll jetzt was sagen."
            
             menu:
+                e "Sollen wir uns verstecken?"
                 "Äh...worum geht's?":
                     $ eve_points -= 2
+                    hide pnp with dissolve
+                    show eve mad
                     n "Ich glaub, das war falsch. Evelynn rollt mit den Augen."
                     e "\"Dann halt nicht\", sagt die Bardin. Aber lass uns schnell weitergehen, ich hab Hunger."
                     
                 "Ja, das wäre das Beste!":
+                    show pnp haendler with dissolve
                     e "Die beiden Helden verstecken sich hinter einem Baum. Leise warten sie da und beobachten die Person."
                     e " \"Vielleicht war es doch nur ein Händler\", sagte die Bardin. \"Aber sicher ist sicher.\" "
                     p "Woran erkennst du das?"
                     e "Sie trägt ganz viele Taschen mit Stoffen drin. Die will sie bestimmt verkaufen."
+                    show pnp berries with dissolve
                     e "Aber sieh nur, hier in dem Strauch neben den Baum sind lauter Beeren! Sollen wir welche mitnehmen?"
                     
                     menu:
+                        e "Aber sieh nur, hier in dem Strauch neben den Baum sind lauter Beeren! Sollen wir welche mitnehmen?"
                         "Vielleicht sind die giftig...":
                             p "Wir sollten sie lieber hier lassen. Mama sagt, man soll nix aus dem Wald in den Mund stecken."
+                            hide pnp with dissolve
+                            show eve happy2
                             e "Eure Frau Mutter scheint ein schlauer Mensch zu sein."
                             n "Was will Evelynn denn nur damit sagen?"
                             e "Die Helden lassen die Beeren also da."
@@ -4950,12 +4977,16 @@ label scenew2_10:
                         "Okay.":
                             $ berry = True
                             $ pnp1winpoints += 4
+                            hide pnp with dissolve
+                            show eve vhappy2
                             p "Ich hab noch Platz hier in meiner Tasche."
                             e "Beide Helden stecken sich ein paar der Beeren in die Beutel, essen sie aber nicht, weil sie nicht wissen, ob man das darf."
                             e "Dann bemerken sie, dass die komische Person nicht mehr zu sehen ist und kriechen wieder aus dem Gebüsch."    
                             
                         "Wieso mitnehmen und nicht gleich essen?":
                             $ eve_points -= 10
+                            hide pnp with dissolve
+                            show eve mad
                             n "Evelynn schaut mich komisch an."
                             e "Die Bardin sagte ihrem Heldenfreund, dass sie das für keine gute Idee hält."
                             p "Und der Heldenfreund sagt der Bardin, dass er ein Held ist und vor gar nix Angst hat. Schon gar nicht vor Beeren."
@@ -4963,14 +4994,15 @@ label scenew2_10:
                             e "Der Held hat Bauchschmerzen und kann nicht mehr kämpfen."
                             p "Hö...was?"
                             e "Tja, der Held hätte lieber erstmal der Bardin zuhören sollen."
-                            jump pnp1end
+                            jump pnp1bad
                             
                 "Vielleicht sollten wir ihr \"Hallo\" sagen?":
                     e "Du gehst voran!"
                     p "Äh...hallo?!"
+                    show pnp haendler with dissolve
                     e "Die Person dreht sich um. Nun könnt ihr sie besser sehen."
                     e "Ihr erkennt, dass sie aussieht, wie ein riesiger Panther. Er trägt viele Taschen mit Tüchern bei sich, die er wahrscheinlich verkaufen will."
-                    e "(mit verstellter Stimme)\"Grüß Somonoa, ihr Reisenden. Kann ich euch helfen?\" "
+                    e "Der Händler spricht zu den zwei Abenteuerern: \"Grüß Somonoa, ihr Reisenden. Kann ich euch helfen?\" "
                     
                     menu:
                         "Wir sind Helden auf der Suche nach Abenteuern!":
@@ -4983,6 +5015,7 @@ label scenew2_10:
                             
                         "Wir sind auf dem Weg ins nächste Dorf.":
                             $ eve_points += 3
+                            show pnp hhappy with dissolve
                             e "\"Oh...\" Der Händler schaut kurz komisch. \"Dann hab ich vielleicht was, was ihr gebrauchen könntet.\""
                             e "Er kramt in seiner Tasche und zieht anschließend ein Glas mit einem schwarzen Pulver raus."
                             e "\"Vertraut mir, ihr werdet es brauchen!\" "
@@ -4995,23 +5028,28 @@ label scenew2_10:
                                     e "\"Keine Sorge!\", sagte der Händler. \"Das ist ein Geschenk. Wir Reisenden müssen zusammen halten.\" Er lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
                                     
                                 "Nein, danke!":
+                                    show pnp haendler with dissolve
                                     p "Mama sagt, man nimmt nichts von Fremden an."
                                     e "\"Was mein Freund eigentlich sagen will\", sagte die Bardin,\"ist, dass wir kein Geld haben. Und wir können keine Geschenke annehmen.\""
                                     e "\"Das ist schade\", sagte der Händler, lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
                                     
                         "Wie soll ein Händler Helden helfen?":
                             $ eve_points -= 4
+                            hide pnp with dissolve
+                            show eve mad
                             n "Evelynn schaut mich böse an."
                             e "Der Händler ist beleidigt, dreht sich um und geht ohne auch nur ein Wort zu sagen."
                             e "Die Bardin guckt ihren Freund böse an."
                             e "Das hätte man besser machen können!"
                             
                 "Keine Sorge, mein Fräullein! Ich werde Euch beschützen!":
+                    show pnp haendler with dissolve
                     p "Ich bin ein mutiger Krieger und hab vor niemandem Angst! Kein Bandit kann mich besiegen!"
                     n "Irgendwie schaut Evelynn mich komisch an."
                     e "Der Held hat etwas zu laut gesprochen. Die komische Person hat das gehört und ist jetzt beleidigt."
                     e " \"Ihr wollt es mit mir aufnehmen?\", fragte der Panthermensch wütend. \"Ich bin Händler. Ich begegne oft Leuten wie dir und hab Übung im Kämpfen. Du bist keine Gefahr für mich.\""
                     p "Der Held hatte es nicht so gemei-"
+                    show pnphmad with dissolve
                     e "Der Händler zieht sein Schwert, entschlossen seine Sachen vor den beiden Fremden zu schützen."
                     e "\"Also, das darfst du jetzt alleine auslöffeln\", sagte die Bardin zu ihrem Heldenfreund."
                     
@@ -5032,9 +5070,15 @@ label scenew2_10:
                             
                         "Ich renne weg!":
                             $ eve_points -= 4
+                            hide pnp with dissolve
+                            show eve mad
                             n "Warum schaut sie mich denn so komisch an?"
                             e "Der Held rennt panisch davon. Die Bardin schaut ihm hinterher. \"Man, bist du peinlich...\", sagte sie und ging ihrem Freund dann schnell hinterher."
                             
+            
+            show eve talk2
+            show pnp village
+            with dissolve
             e "Die Beiden liefen weiter und sahen bald ein Dorf."
             e "Aber auch das Dorf war komisch. Die Häuser waren alle schwarz und hatten große Löcher."
             e "Die Bardin sah einen Bauer und sprach ihn darauf an."
@@ -5045,6 +5089,7 @@ label scenew2_10:
             e "Der Bauer schaut euch dankbar an."
             p "Und wo sollen wir den Drachen finden?"
             e "\"Ganz einfach\", sagte die Bardin. \"Wir folgen einfach den großen Füßabdrücken!\""
+            show pnp dragon with dissolve
             e "Nach gar nicht langer Zeit sahen sie den Drachen. Er lag unter einem Baum und hielt ein Mittagsschlaf, weil er so viel Kuchen gegessen hatte."
             e "Was sollen wir tun?"
              
@@ -5055,6 +5100,7 @@ label scenew2_10:
                 "Lass uns einfach angreifen!":
                     $ eve_points -= 4
                     e "Der Held rennt natürlich mal wieder einfach ohne nachzudenken auf den Drachen zu."
+                    show pnp dmad with dissolve
                     e "Der wird von dem Gebrüll natürlich wach und ist gar nicht glücklich, dass ihn jemand beim Schlafen stört."
                     e "Er steht auf und funkelt den Helden wütend an."
                     e "Du musst würfeln. Je niedriger, desto besser."
@@ -5063,6 +5109,7 @@ label scenew2_10:
                     e "Glück gehabt!"
                     e "Der Drache will Feuer nach dir spucken, aber spuckt aus Versehen vorbei."
                     e "Du tust ihm aber mit deinem Angriff etwas weh."
+                    show pnp dsad with dissolve
                     e "\"Aua!\", sagt der Drache. \"Das ist unfair!\""
                     e "Aber noch ist der Drache nicht besiegt!"
                     
@@ -5088,6 +5135,7 @@ label scenew2_10:
                         e "Das ist gut!"
                         e "Der Held schafft es dem Drachen die Beeren heimlich ins Maul zu stecken."
                         e "Der Drache wird davon wach, schluckt die Beeren aber trotzdem aus Versehen runter."
+                        show pnp dsad with dissolve
                         e "\"Aua!\", sagt der Drache. \"Mein Bauch! Das ist unfair!\""
                         e "Aber noch ist der Drache nicht besiegt!"
                         
@@ -5109,8 +5157,10 @@ label scenew2_10:
                         n "Okay, das muss doch..."
                         p "8!"
                         e "Glück gehabt!"
+                        show pnp dmad with dissolve
                         e "Der Drache wacht auf und will Feuer nach dir spucken, aber spuckt aus Versehen vorbei."
                         e "Du tust ihm aber mit deinem Angriff etwas weh."
+                        show pnp dsad with dissolve
                         e "\"Aua!\", sagt der Drache. \"Das ist unfair!\""
                         e "Aber noch ist der Drache nicht besiegt!"
                         
@@ -5127,6 +5177,7 @@ label pnp1gethit:
     n "Nur einmal noch..."
     p "..."
     e "Eine 15? Oh jeh..."
+    show pnp dmad with dissolve
     e "Der Drache wird langsam wütend und er kratzt dich einmal mit seiner Kralle am Arm."
     if pnp1winpoints == 0:
         jump pnp1lost
@@ -5156,48 +5207,69 @@ label pnp1powdered:
     
 label pnp1win:
     e "Der Drache schnaubt vor Wut, aber er sieht ein, dass ihr besser seid."
+    show pnp dsad with dissolve
     e "Er schnappt sich noch schnell einen Apfel vom Baum und läuft dann schnell nach Hause zu seiner Höhle, wo seine Mami auf ihn wartet."
+    show pnp village with dissolve
     e "Die Dorfbewohner haben alles gesehen und feiern ihre beiden Helden."
     e "Dafür veranstalten sie ein großes Fest mit viel Musik."
-    e "Aber die Helden können sich nicht lange ausruhen, denn direkt dort auf dem Fest, kommt plötzlich-"
+    e "Aber die Helden können sich nicht lange ausruhen, denn direkt dort auf dem Fest, kommt plötzlich ..."
+    hide pnp
+    show eve happy2
+    with dissolve
     jump pnp1good
     
 label pnp1patt:
     e "\"Das hat keinen Sinn!\" rief die Bardin. \"Er ist einfach zu mächtig.\""
     p "Och manno."
+    hide pnp
+    show eve happy2
+    with dissolve
     e "Du hast dir Mühe gegeben, aber wenn du ihn besiegen willst, sollten wir noch etwas trainieren."
     e "Wir sollten uns besser erstmal verstecken und später wieder kommen."
     p "Okay."
-    e "Aber das ist nicht schlimm. Bis dahin gibt es auch noch andere Abenteuer. Im anderen Dorf gibt es zum Beispiel-"
+    e "Aber das ist nicht schlimm. Bis dahin gibt es auch noch andere Abenteuer. In dem anderen Dorf gibt es zum Beispiel ..."
     jump pnp1good
     
 label pnp1lost:
     e "Du hast alles versucht, aber der Drache ist einfach zu stark."
     e "Und jetzt ist er erst recht wütend."
     e "Er packt dich am Kragen und schnippst dich bis rüber ins Nachbardorf, wo du in einem Misthaufen landest."
+    show pnp village with dissolve
     e "Die Leute da haben alles gesehen und lachen dich aus."
     p "Ich glaub, mehr muss ich gar nicht wissen..."
     jump pnp1bad
     
 label pnp1good:
+    play music evethem fadeout 1.0
+    show mum n at left with moveinleft
     m "Ach, da bist du!"
     p "Och nö, kann ich nicht noch weiter spielen? Nur noch ein ganz klein bisschen?"
     m "Wir haben es leider etwas eilig. Wir müssen noch einkaufen gehen. Aber du kannst doch morgen weiterspielen. Das läuft dir schon nicht weg."
     p "Okaaaay..."
-    n "Immer dann, wenn es am lustigsten wird, muss man aufhören. Das ist unfair. Wenn ich erst einmal groß bin, hör ich erst dann auf, wenn ich will."
+    p "Mach's gut Evelynn!"
+    e "Tschüss [name]."
+    n "Immer dann, wenn es am Lustigsten wird, muss man aufhören. Das ist unfair. Wenn ich erst einmal groß bin, hör ich erst dann auf, wenn ich will."
     jump scenew2_12
     
 label pnp1bad:
+    play music evetheme fadeout 1.0
+    hide pnp with dissolve
+    show eve mad
     n "Evelynn knallt das Buch zu."
     e "Du hast verloren."
     n "Sie sagt das so, wie jemand sagen würde \"Es regnet heute\". Ich bin mir nur nicht sicher, ob sie sauer oder enttäuscht ist."
     p "Können wir nicht noch weiterspielen?"
     e "Nein."
     e "Dafür musst du erst wieder eine neue Figur basteln und darauf hab ich jetzt keine Lust. Ich geh malen."
+    hide eve with moveoutleft
     n "Was hat die denn auf einmal? Jetzt stampft sie einfach mit dem Buch davon..."
+    scene bg flur
+    show mum n
+    with fade
     m "Na, mein Püpschen!"
     m "Wie war der Tag heut so?"
     p "Mhh..."
+    show mum mad
     m "Das klingt ja sehr begeistert. Freust du dich gar nicht auf den Wandertag?"
     p "Doch."
     n "Nicht so wirklich. Ich mag es nicht, wenn Evelynn auf mich sauer ist."
@@ -5206,44 +5278,50 @@ label pnp1bad:
     
     
 label scenew2_12:
-    play music happytheme1
-    scene bg street
+    play music happytheme1 fadeout 1.0
+    scene bg black with fade
+    show fri with dissolve
+    $ renpy.pause(0.6, hard = True)
+    scene bg street with dissolve
     n "Ja, endlich Wandertag!"
-    n "Ich war schon länger nicht mehr im Wald. Das letzte mal war im Winter, da ging es Papa aber nciht so gut."
+    n "Ich war schon länger nicht mehr im Wald. Das letzte mal war im Winter, da ging es Papa aber nicht so gut."
     n "Ich hoffe ich bekomme einen Fensterplatz, doch da muss ich schnell sein."
     n "Warte, die Tür geht schon auf!"
-    k "So, dann alle einsteigent."
+    k "So, dann alle einsteigen."
     n "Waaah!"
-    scene bus with dissolve
+    scene bg bus with dissolve
     n "Warum sind die alle so schnell? Jetzt ist ja schon alles besetzt."
-    n "Moment, noch 1 Platz HAHA!"
-    n "Ich hasse es am Gang zu sitzen, da kann man gar nicht richtig rausgucken."
-    #JUMPER
+    n "Moment, da ist noch was frei."
+    n "Hey, sogar ganz hinten am Fenster! Da kann ich nebenbei aus dem Fenster schauen!"
+    #JUMPER2
     if eve_points > anja_points and eve_points > octa_points:
         $ mapa = "Evelynn"
         n "Da kommt ja Evelynn."
-        show eve happy2 at rightish
+        show eve happy2 at rightish with dissolve
         e "Hallo [name], darf ich neben dir?"
         p "Gerne, setz dich hin!"
-        show eve happy2 at rightish
         n "..."
-        n "..."
-        n "Heute ist sie schon wieder so still, vielleicht kann ich ja."
+        e "..."
+        n "Heute ist sie schon wieder so still, vielleicht sollte ich was sa..."
         e "Hey, ich hab meine Malsachen dabei, wollen wir was malen?"
         p "Wo denn?"
         show eve mad
-        play sound "Briefumschlag.ogg"
+        e "Na gleich hier!"
+        play sound letter
         show eve happy2
-        p "Woah, an den Sitzen ist ein Tisch?"
-        e "Wir malen Draußen."
-        p "Wie Draußen?"
+        p "Und wo malen wir? Wir haben doch garkeine Tische."
+        n "Evelynn deutet auf ihre Knie."
+        p "Ohh... Okay!"
+        p "Aber was malen wir denn?"
+        e "Wir malen \"Draußen\"."
+        p "Wie \"Draußen\"?"
         show eve shy2
         e "Na, was draußen am Fenster ist. Der Bus fährt zwar schnell, aber das geht schon."
         e "Hier, Papier und Stifte!"
         p "Dankeschön!"
-        show eve happy2
-        play sound "Malgeäusche_Zackig.ogg"
-        n "So langsam komm ich rein ins malen."
+        show eve vhappy2
+        play sound draw
+        n "So langsam komm ich rein in's Malen."
         n "Welche Farben man nehmen soll, wie man eine Sonne malt, was Kontraste sind."
         n "Alles von Evelynn gelernt."
         n "Ich sollte ihr mal danken."
@@ -5251,7 +5329,7 @@ label scenew2_12:
     elif octa_points >= anja_points and octa_points >= eve_points:
         $ mapa = "Octavia"
         n "Hey, da ist ja Octavia! Da war wohl ich mal schneller."
-        show octa happy
+        show octa happy at rightish
         n "Sie setzt sich einfach hin."
         p "Meine Mama sagt, dass man erst etwas sagen soll bevor man sich hinsetzt."
         show octa talk
@@ -5259,14 +5337,15 @@ label scenew2_12:
         p "Hmmmh."
         n "Sie sagt ja kaum etwas. Will sie nicht neben mir sitzen?"
         show octa shock
-        p "Da vorne ist auch noch ein Platz, weil du willst bestimmt nicht neben mir"
-        o "Was? Nein, passt schon..."
+        p "Da vorne ist auch noch ein Platz, weil du willst bestimmt nicht neben mir!"
+        o "Was? Nein, ich sitz gern neben dir."
         show octa happy
         p "Hmmmh."
-        n "Wie ist die heute drauf?"
+        n "Wie ist die denn heute drauf?"
         show octa talk
-        o "Du [name]. Warst du schon mal im Wald? Also den hier jetzt?"
-        p "Ich bin doch neu hier. Aber ich war schon öfters im Wald, mit meinen Vater und so."
+        o "Du [name]. Warst du schon mal im Wald? Also in dem hier jetzt?"
+        p "Ich bin doch neu hier."
+        p "Aber ich war schon öfters in Wäldern, mit meinen Vater und so."
         show octa smug
         o "Dann muss ich dir was voll cooles zeigen!"
         n "Mir was cooles zeigen?"
@@ -5276,61 +5355,86 @@ label scenew2_12:
         $ mapa = "Anja"
         a "Hey [name]."
         p "Da ist ja Anja."
-        show anja talk
+        show anja talk at rightish with dissolve
         a "Ich setz mich mal neben dich. Macht dir ja nichts aus, oder?"
         show anja mad
         a "Die anderen Plätze sind schon belegt und ich will nicht vorne zu Frau Heidenau, weißt du?"
-        p "Gerne."
+        p "Hah! Na das kann ich verstehen!"
         show anja jabber
         a "Freust du dich auch schon so auf den Wandertag? So wie ich? Wir sollen außerdem in Zweiergruppen laufen, willst du mit mir?"
-        p "Ich freu mich aufjedenfall."
-        a "Dann ist das ja geklärt. Weißt du eigentlich wie lange wir fahren werden? Bei lange fahrten langweile ich mich."
+        p "Auf jeden Fall!"
+        a "Dann ist das ja geklärt. Weißt du eigentlich wie lange wir fahren werden? Bei langen Fahrten langweile ich mich."
         p "Bin doch auch neu, ich weiß es nicht."
-        a "Ach ja, stimmt ja. Willst du dann so lange etwas spielen?"
+        a "Ach ja, stimmt ja. Willst du dann so lange etwas spielen? Weißt du, bei langen Fahrten spiel ich sonst immer mit meinen Eltern so ein Spiel wo man ..."
         n "Sie redet schon wieder so schnell! Aber beim spielen langweile ich mich wenigstens nicht."
-        p "Was denn?"
+        show anja what
+        a "[name]?"
+        p "Ähh, ja?"
         show anja hihi
         a "Ich sehe was was du nicht siehst und es ist rot!"
         n "Es geht schon los? Das kann ja noch was werden mit ihr."
-        
-        show anja 
     
-    "end of week 2"
+
     
 
     
 label scenew3_0:
-
+    scene bg black with fade
+    scene bg bus
+    show karin talk at slightright
+    show heide n at slightleft
+    with dissolve
     kg "Brabbel"
+    show karin happy
     k "Kinder..."
     kg "Brabbel"
+    show karin vhappy
     k "Kinder wenn ich..."
     kg "Brabbel"
+    show heide mad
     h "KINDER! RUHE!"
+    show karin shock
     kg "..."
+    show heide n
     n "Wow das war laut! Sogar Anja ist ruhig."
+    show karin vhappy
     k "Tschuldigung, aber ich brauch nur mal kurz eure Aufmerksamkeit."
     k "Wir sind ja jetzt hier am Wald angekommen. Aber bevor wir aus dem Bus aussteigen und uns auf den Weg zur Bernerhütte machen, müssen wir noch einige Regeln klären."
+    show heide mad
     h "Also zuhören!"
+    show heide n
     k "Ja äh genau... also Regel 1."
+    show karin happy
     k "Regel 1 ist einfach. Ihr bleibt immer bei der Gruppe."
+    show karin talk
     k "Regel 2 ist, dass wir euch in Paare einteilen. Euer Sitznachbar ist auch euer ... äh wie hatten sie das nochmal genannt Frau Heidenau?"
+    show heide talk
     h "Marschpartner."
+    show heide n
     k "Genau euer Sitznachbar ist euer Marschpartner."
     n "Ahh, also ist [mapa] mein Marschpartner! Toll!"
+    show karin n
     k "Ach und Regel 3 ist das ihr nichts ohne unsere Erlaubnis im Wald sammelt. Das ist nämlich gefährlich."
+    show heide talk
     h "Wenn ich jemanden von euch etwas aufsammeln sehe dann gnade euch Gott."
     h "Denn ich werde nicht so gnädig sein. Verstanden?"
     kg "..."
+    show heide mad
+    show karin shock
     h "Verstanden?!"
-    kg "Ja."
+    kg "Ja Frau Heidenau!"
+    show heide talk
+    show karin talk
     h "Ich meine hier auch ganz explizit dich Louis."
+    show heide mad
     h "Wenn du nur daran denkst was in deine Jacke zu stecken, dann war es das letzte Mal, dass du deine Jacke gesehen hast."
-    show louis mad at left with moveinleft
+    show louis mad at right with moveinright
     L "..." 
-    hide louis with moveoutleft
+    hide louis with moveoutright
+    show karin vhappy
     k "Nun...äh...gut."
-    k "Dann mal los. Schnappt euren Marschpartner und folgt mir."
+    show karin go
+    k "Dann mal los. Schnappt euren Marschpartner und allesamt raus aus dem Bus!"
     
     if mapa == "Anja":
         jump anjas_ending

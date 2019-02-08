@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 4655: could not parse statement.
-    play anjatheme fadeout 2.0
-                           ^
+File "game/script.rpy", line 5291: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+        n "Hey, sogar ganz hinten am Fenster! Da kann ich nebenbei aus dem Fenster schauen!
 
 Ren'Py Version: Ren'Py 7.1.1.929
-Fri Feb 08 00:23:11 2019
+Fri Feb 08 01:49:01 2019
