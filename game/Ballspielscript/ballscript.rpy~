@@ -64,7 +64,20 @@ init:
 label startballgame:
     play music octatheme
 
-    
+###########################################################
+
+if gender == "male":
+        python:
+            pro7 = "Er"
+            ddd3 = "Der"
+            
+else:
+        python:
+            pro7 = "Sie"
+            ddd3 = "Die"
+           
+
+############################################################
 
 ##### Szene Ballspiel #####
 label scenetutorial:
@@ -106,16 +119,16 @@ label menu1_end:
     
 label sceneball:
     show karin go at leftish with moveinleft
-    show osport vhappy at rightish with dissolve
+    show osport vhappy at rightish with move
     show asport mad at center with moveinleft
-    a "Ist doch egal, ob er gut spielt."
-    o "Ne, ist es nicht. Wenn er schlecht spielt, zieht er nur mein Team runter. Er muss mindestens so gut sein wie die aus der Axolotl-Gruppe."
+    a "Ist doch egal, ob [pro2] gut spielt."
+    o "Ne, ist es nicht. Wenn [pro2] schlecht spielt, zieht [pro2] nur mein Team runter. [pro7] muss mindestens so gut sein wie die aus der Axolotl-Gruppe."
     show asport n
     p "Also, ich-"
-    o "Dann nimm du ihn doch, wenn es dich nicht stört, Anja!"
+    o "Dann nimm du [pro5] doch, wenn es dich nicht stört, Anja!"
     show asport happy
     a "Mach ich auch!"
-    o "Weil wir sowieso besser sind, dürft ihr Ausnahmsweise den Ball zuerst haben. Sonst wäre es zu einfach für mich."
+    o "Weil wir sowieso besser sind, dürft ihr ausnahmsweise den Ball zuerst haben. Sonst wäre es zu einfach für mich."
     hide asport n with dissolve
     n "Octavia tut zwar auf cool, ist aber wieder total angespannt. Warum nimmt die das alles immer so furchtbar ernst?"
     k "Soo, alle bereit?" 
@@ -311,7 +324,7 @@ label timedmenu4:
                 show oball mittelzielen
                 with dissolve
                 o "Jetzt mach ich dich fertig!"
-                n "Immer wenn Octavia den Ball in der Hand hat, ist das andere Team wie erstarrt. Nichtmal Anja bewegt sich."
+                n "Immer wenn Octavia den Ball in der Hand hat, ist unser Team wie erstarrt. Nichtmal Anja bewegt sich."
                     
                     
         "In die Mitte zielen":
@@ -349,7 +362,7 @@ label timedmenu4:
             with dissolve
             show oball mittelzielen with dissolve
             o "Jetzt mach ich dich fertig!"
-            n "Immer wenn Octavia den Ball in der Hand hat, ist das andere Team wie erstarrt. Nichtmal Anja bewegt sich."
+            n "Immer wenn Octavia den Ball in der Hand hat, ist unser Team wie erstarrt. Nichtmal Anja bewegt sich."
             
                 
         
@@ -391,7 +404,7 @@ label timedmenu4:
                 show oball mittelzielen
                 with dissolve
                 o "Jetzt geht es um alles!"
-                n "Immer wenn Octavia den Ball in der Hand hat, ist das andere Team wie erstarrt. Nichtmal Anja bewegt sich."
+                n "Immer wenn Octavia den Ball in der Hand hat, ist unser Team wie erstarrt. Nichtmal Anja bewegt sich."
                 
         
             else: 
@@ -419,7 +432,7 @@ label timedmenu5:
             show oball n with dissolve
             show prot gefangen
             p "Ha!"
-            o "Der schummelt doch!"
+            o "[ddd3] schummelt doch!"
         
         "Versuchen zu fangen":
             label menu5_slow:
@@ -469,10 +482,13 @@ label sceneverloren:
     show osport happy at center with moveinright
     show asport mad at rightish with moveinright
     o "Ja, ich hab gewonnen! Ich bin die Beste!"
+    hide karin with moveoutleft
+    show osport at left
+    show asport at right
+    with move
     a "Du hast meinen Spezialwurf geklaut! Das darfst du nicht!"
     o "Hah, nix geklaut! Das war mein eigener Spezialwurf. Ihr habt verloren, voll traurig für euch!"
-    n "Man, die hören ja wirklich nie auf."
-    hide karin with dissolve
+    n "Mann, die hören ja wirklich nie auf."
     jump scenenachball
     
 label scenegewonnen:
@@ -486,11 +502,15 @@ label scenegewonnen:
     show osport mad at center with moveinright
     show asport happy at rightish with moveinright
     a "Yuhuuuu!"
+    hide karin with moveoutleft
+    show osport at left
+    show asport at right
+    with move
     o "Ich hab voll mit Absicht nicht so hart gespielt. Schließlich ist [name] neu hier!"
+    show asport mad
     a "Von wegen! Du hast sogar meinen Spezialwurf geklaut!"
     o "Hah, nix geklaut! Das war mein eigener Spezialwurf. Ich hätte auch locker gewinnen können!"
-    n "Man, die hören ja wirklich nie auf."
-    hide karin with dissolve
+    n "Mann, die hören ja wirklich nie auf."
     jump scenenachball
     
 label sceneunentschieden:
@@ -504,61 +524,99 @@ label sceneunentschieden:
     show osport mad at center with moveinright
     show asport mad at rightish with moveinright
     o "Na warte! So leicht kommst du mir nicht davon."
+    hide karin with moveoutleft
+    show osport at left
+    show asport at right
+    with move
     o "Das gibt noch eine Revanche!"
     a "Worauf du dich verlassen kannst!"
-    hide karin with dissolve
+    n "Mann, die hören ja wirklich nie auf..."
     jump scenenachball
     
     
     
     
 label scenenachball:
-    show osport mad at leftish with dissolve
-    show asport mad at rightish with dissolve
-    o "Man, du bist so schlecht Anja!"
+    scene bg black with dissolve
+    a "Gar nicht wahr!"
+    scene bg court
+    show anja mad at leftish with moveinleft
+    show octa mad at rightish with moveinright
+    o "Dohoch, und überhaupt! Du bist so schlecht Anja!"
     a "Ich bin überhaupt nicht schlecht!"
+    show octa vmad
+    show anja vmad
     "{color=#0099ff}Octavia:{/color} Doch bist du! Außerdem strengst du dich gar nicht an. \n{color=#0099ff}Anja:{/color} Na und?! Dafür kannst du nicht klettern!"
     "{color=#0099ff}Octavia:{/color} Das stimmt doch gar nicht! \n{color=#0099ff}Anja:{/color} Stimmt wohl! Ich wette du kommst nicht mal den Baum hoch."
+    show octa shock
+    show anja schmoll
     o "D…doch das ist su..per einfach."
     n "Warum stottert sie denn jetzt. Kann Octa nicht klettern?"
+    show anja vmad
     a "Dann komm mit hoch. Ich Kletter schon mal vor."
+    show anja mad
     o "Ah...klar."
     
     menu:
         n "Was mach ich jetzt nur?"
         
         "Ich halt mich besser zurück...":
-            
+            hide anja with moveoutleft
+            show anja vmadb2 at left with dissolve
             a "Worauf wartest du dann? Los!"
+            show octa smug
+            show anja madb2
             o "Ja, ja ich mach ja gleich."
+            show octa shock at leftish with move
             n "Man das sieht nicht gut aus."
             o "So…erstmal…"
+            play sound treefall
+            play sound grassbump
             n "Verdammt hoffentlich hat sie sich nicht weh getan."
             o "Au…"
+            show karin shock at slightright with moveinright
             k "Was ist denn hier los?"
             k "Oh man Octa, was machst du denn?"
             o "Ich wollte doch nur…"
+            show karin mad
             k "Jetzt komm mal mit wir müssen das verarzten."
+            show karin mad at rightish with move
+            hide octa with moveoutright
             k "Und du Anja kommst auch mal mit."
+            show anja whatb2
             a "Aber…"
             k "Nix aber! Du kommst jetzt mit."
+            hide karin with moveoutright
+            show anja vmadb2
             n "Vielleicht hätte ich doch lieber im Sandkasten gespielt…"
             jump scenew2_6
             
         "Ich will auch klettern!":
+            show anja schmoll
             p "Hey, lass mich mal. Ich will auch auf den Baum!"
             $ octa_points += 1
             
             if climber == True:
-                n "Jetzt beim zweiten mal ist es echt nicht mehr so schwer."
+                n "Jetzt beim zweiten Mal ist es echt nicht mehr so schwer."
+                hide anja with moveoutleft
+                show anja vmadb2 at left with dissolve
                 a "Schau sogar [name] kann das."
+                show anja madb2
+                show octa smug at right with move
                 o "Ja, aber jetzt wo ihr da oben seid kann ich ja nicht mehr hoch. Da ist nämlich überhaupt kein Platz für 3."
                 o "Sonst würde ich das natürlich machen."
+                show anja vmadb2
+                show octa talk
                 a "Ja ja was auch immer! Feigling!"
                 a "Verzieh dich!"
+                show anja madb2
+                show octa mad
                 o "Pah!"
+                hide octa with moveoutright
                 n "Und weg ist sie…"
+                show anja vmadb2
                 a "Man die nervt! Bin ich froh, dass sie abgehauen ist."
+                show anja whatb2
                 a "Und du… sag mal was sollte das?"
                 
                 menu:
@@ -566,37 +624,60 @@ label scenenachball:
                     
                     "Na ich wollte halt hoch auf den Baum.":
                         $ anja_points -= 1
+                        show anja vmadb2
                         a "Ach lüg doch nicht!"
+                        show anja madb2
                         p "Was wieso?"
+                        show anja vmadb2
                         a "Du hast das doch nur gemacht damit sie sich nicht schlecht fühlt."
                         a "Weiß doch jeder, dass sie nicht klettert. Ich glaub sie hat Angst davor."
+                        show anja madb2
                         p "Na gut, vielleicht."
-                        a "Sag mal magst du die Octavia. Kann ich ja nicht wirklich verstehen."
+                        show anja whatb2
+                        a "Sag mal, magst du die Octavia? Kann ich ja nicht wirklich verstehen."
                         a"Die nervt doch immer nur."
+                        show anja madb2
                         p"Ja aber…"
                         jump axolotl
                         
                     "Octavia hat mir leid getan...":
                         $ anja_points += 2
+                        show anja whatb2
                         a "Ach so! Das hatte ich mir irgendwie schon gedacht."
+                        show anja happyb2
                         a "Gut dass du nicht gelogen hast."
+                        show anja whatb2
                         a "So richtig versteh ich das ja nicht. Octavia nervt doch immer nur."
                         p"Ja aber…"
                         jump axolotl
                         
                         
             else:
+                hide anja with moveoutleft
+                show octa shock at center with move
+                show anja vmadb2 at left with dissolve
                 n "So, ich  brauch nur ordentlich Schwung."
                 p "Au! Verdammt! Blöder Baum!"
+                show octa vhappy
                 o "Hahaha… was machst du denn für einen Blödsinn?"
+                show anja whatb2
                 a "[name]? Ist alles okay?"
+                show octa talk at slightright with move
                 p "Ja, ich glaub schon."
+                show anja happyb2
+                show octa at rightish with move
                 a "Gut. Das hat ganz schön gekracht. Dachte schon du hättest dir was gebrochen."
+                show octa at right with move
                 a "Aber egal. Dann kann ja jetzt Oc…"
+                hide octa with moveoutright
+                show anja whatb2
                 a "Hey, Moment! Wo ist sie denn?"
+                show anja vmadb2
                 a "Ist die einfach abgehauen?"
+                show anja madb2
                 p "Hm…sieht so aus."
                 a "Typisch."
+                show anja whatb2
                 a "Und du… sag mal was soll das eigentlich?"
                 
                 menu:
@@ -604,30 +685,42 @@ label scenenachball:
                     
                     "Na ich wollte halt hoch auf den Baum.":
                         $ anja_points -= 3
+                        show anja vmadb2
                         a "Ach lüg doch nicht!"
+                        show anja madb2
                         p "Was wieso?"
+                        show anja vmadb2
                         a "Letzte Woche wolltest du auch nicht klettern. Und jetzt plötzlich…"
                         a "Das glaub ich nicht."
+                        show anja madb2
                         p "Aber…"
+                        show anja vmadb2
                         a "Nix aber lügen ist blöd!"
                         a "Weiß doch jeder, dass sie nicht klettert. Ich glaub sie hat Angst davor."
+                        show anja madb2
                         p "Na gut, vielleicht."
+                        show anja vmadb2
                         a "Ja und deswegen hast du dich vorgedrängelt, damit sie nicht klettern muss."
                         a "Und weißt du was?"
                         a "Wenn du die blöde Octavia so magst, dann geh doch zu der statt rumzulügen!"
+                        show anja madb2
                         n "Ich geh besser. Sie ist echt sauer. Vielleicht hätte ich nicht lügen sollen, aber ich wollte doch nur dass sich Octa nicht weh tut…"
                         jump scenew2_6
                         
                     "Octavia hat mir leid getan...":
                         $ anja_points += 2
+                        show anja whatb2
                         a "Ach so! Das hatte ich mir irgendwie schon gedacht."
+                        show anja happyb2
                         a "Gut dass du nicht gelogen hast."
+                        show anja whatb2
                         a "So richtig versteh ich das ja nicht. Octavia nervt doch immer nur."
                         p"Ja aber…"
                         jump axolotl
                         
                         
 label axolotl:
+    show anja happyb2
     a "Weißt du eigentlich, dass der Lucas aus der Axolotl-Gruppe ein Handy bekommen hat?"
     p "Nö, wer ist Lu…"
     a "Ich meine so eins von diesen wo man Spiele drauf spielen kann. Voll krass!"

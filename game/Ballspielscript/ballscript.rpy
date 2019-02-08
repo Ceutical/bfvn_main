@@ -2,42 +2,6 @@
 
 ###### SCRIPT START #####
 
-##### CHARACTER DEFINITIONS #####
-
-define p = Character("[name]") #Name of Player Character -- P = Protagonist) 
-
-define n = Character(name=None, what_italic=True) #Narrator
-
-define a = Character("Anja")
-
-define o = Character("Octavia")
-define O = Character("Octa")
-define k = Character("Karin")
-
-define L = Character("Louis")
-define nvln = Character(name=None, kind=nvl)
-
-#define test = Character("Test", window_ypos=0.27) #TESTCHAR
-
-
-
-######################################
-
-##### MUSIC DEFINITIONS #####
-
-define audio.octatheme = "music/soundtracks/octatheme.mp3"
-
-######################################
-
-##### TRANSFORM DEFINITIONS #####
-
-
-transform leftish:
-    xalign .26
-    yalign 1.0
-transform rightish:
-    xalign .76
-    yalign 1.0
     
 ############################################################
 
