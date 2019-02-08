@@ -538,15 +538,15 @@ label eves3:
     p "Ich bin ja stark!"
     show eve pnp2
     e "Hast wohl Recht."
+    stop music fadeout 3.0
     p "ZUR HÖHLE!"
 
 label eves4:
     scene bg caveentry with dissolve
-    stop music fadeout 3.0
     play music hoehletheme1 fadein 3.0
+    show eve pnp2 at leftish with moveinleft
     e "Du [name], glaubst du das ist die Höhle?"
     p "Bestimmt."
-    show eve pnp2 with dissolve
     e "Wieso bist du dir so sicher?"
     p "Weil es hier unheimlich aussieht."
     e "Wir müssen vorsichtig sein, man weiß nie, was in der Dunkelheit lebt."
