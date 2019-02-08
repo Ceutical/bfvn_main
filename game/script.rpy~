@@ -72,6 +72,8 @@ define audio.playtheme2 = "music/soundtracks/Kinder_Beim_Spielen2.ogg"
 define audio.opartytheme = "music/soundtracks/Kinder_Party_Theme1.ogg"
 define audio.apartytheme = "music/soundtracks/Kinder_Party_Theme2.ogg"
 define audio.epartytheme = "music/soundtracks/Kinder_Party_Theme3.ogg"
+define audio.racetheme = "music/soundtracks/Wettrennen1.ogg" ### wettrennen
+define audio.spooky3 = "music/soundtracks/SpookyWald3.ogg"
 
 #JUMPER
 ##### SFX DEFINITIONS #####
@@ -108,6 +110,7 @@ define audio.chain = "music/sfx/Fahrrad_alteKette.ogg"
 define audio.bikebreak = "music/sfx/Fahrradbremse.ogg"
 define audio.scream = "music/sfx/Kinderschrei3.ogg"
 define audio.scream2 = "music/sfx/Kinderschrei1.ogg"
+define audio.scream3 = "music/sfx/Kinderschrei2.ogg"
 define audio.whoosh1 = "music/sfx/Whoosh1.ogg"
 define audio.boing = "music/sfx/Boing.ogg"
 define audio.pokin = "music/sfx/PKMN-Einwurf.ogg"
@@ -116,6 +119,10 @@ define audio.purr = "music/sfx/Katzenschnurren.ogg"
 define audio.rain = "music/sfx/Regen.ogg"
 define audio.horror ="music/sfx/HorrorBGM.ogg"
 define audio.letter = "music/sfx/Briefumschlag.ogg"
+define audio.woods1 = "music/sfx/Wald1.ogg"
+define audio.woods3 = "music/sfx/Wald3.ogg"
+define audio.woodcrack2 = "music/sfx/Ast_zerbricht_beim_drauftreten2.ogg"
+
 
 
 ######################################
@@ -346,6 +353,10 @@ transform duckfall:
     xalign 11.5
     yalign 14.0
     
+transform bagaway:
+    xalign -0.3
+    yalign .45
+    
 
 ######################################
 
@@ -385,6 +396,8 @@ label start:
     $ powder = False
     $ pnp1winpoints = 0
     $ pnpplay = False
+    $ win = "yes" ###variablenübernahme kein boolean
+    $ skillpoints = 0 ### für octapfad
     
     
     init:
@@ -443,6 +456,75 @@ label start:
             "images/Displayables/regen/splash3.png"
             pause 0.1
             repeat
+            
+        image randydance:
+            "images/Characters/randy/randy bugmad.png"
+            xalign .26 yalign 1.0
+            linear 0.2 xalign 0.16
+            "images/Characters/randy/randy bugmad.png"
+            xalign .16 yalign 1.0
+            linear 0.2 xalign .26
+            repeat
+            
+        image heidetalks 1:
+            "images/Characters/heidenau/heide wn.png"
+            pause 0.1
+            "images/Characters/heidenau/heide woods.png"
+            pause 0.1
+            repeat
+            
+        image heidetalks 2:
+            "images/Characters/heidenau/heide wn.png"
+            
+        image anjachaos:
+            "images/Characters/anja/anja vmad.png"
+            xalign 0.0 yalign 1.0
+            linear 1.0 xalign 1.0
+            "images/Characters/anja/anja vmad.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.0
+            repeat
+            
+        image octachaos:
+            "images/Characters/octavia/octa shock.png"
+            xalign .26 yalign 1.0
+            linear 1.0 xalign 1.0
+            "images/Characters/octavia/octa shock.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.0
+            "images/Characters/octavia/octa shock.png"
+            xalign 0.0 yalign 1.0
+            linear 1.0 xalign 0.26            
+            repeat
+            
+        image randychaos:
+            "images/Characters/randy/randy vmad.png"
+            xalign .5 yalign 1.0
+            linear 1.0 xalign 0.0
+            "images/Characters/randy/randy vmad.png"
+            xalign 0.0 yalign 1.0
+            linear 1.0 xalign 1.0
+            "images/Characters/randy/randy vmad.png"
+            xalign 1.0 yalign 1.0
+            linear 1.0 xalign 0.5            
+            repeat
+            
+        image evechaos:
+            "images/Characters/evelyn/eve mad.png"
+            xalign .76 yalign 1.0
+            linear 1.2 xalign 0.0
+            "images/Characters/evelyn/eve mad.png"
+            xalign 0.0 yalign 1.0
+            linear 1.2 xalign 1.0
+            "images/Characters/evelyn/eve mad.png"
+            xalign 1.0 yalign 1.0
+            linear 1.2 xalign 0.76            
+            repeat
+            
+        image louischaos:
+            "images/Characters/louis/louis really.png"
+            xalign 1.0 yalign 1.0
+            linear 40.0 xalign 2.0     
             
             
 
@@ -2971,7 +3053,7 @@ label scenew2_0:
         "Es war super!":
             p "Ja! Das war voll cool! Der Mega Playgear macht voll viel Spaß!"
             v "Na das wusste ich doch dass der dir gefallen wird [pre] Klein[suf2]."
-            v "Du hast dir den doch schon so lange gewünscht. Wenn du mal was anderes möchtest, dann sag’s mir einfach, okay?"
+            v "Du hast dir den doch schon so lange gewünscht. Wenn du mal was Anderes möchtest, dann sag’s mir einfach, okay?"
             p "Mach ich! Danke Papa!"
             
         "War ganz gut.":
@@ -3863,7 +3945,7 @@ label scenew2_7:
         
     elif octa_points >= anja_points and octa_points >= eve_points:
         show karin go
-        k "[name] ist wirklich sehr ergeizig und gibt sich mit allem was er macht wirklich mühe."
+        k "[name] ist wirklich sehr ergeizig und gibt sich mit allem was er macht wirklich Mühe."
         k "Das ist schon bemerkenswert für [pro] Alter, deswegen wundert es mich auch nicht, dass [pro2] sich mit den, wie soll ich sagen, Musterkind Octavia angefreundet hat."
         show karin n
         show mum mad
@@ -3904,13 +3986,13 @@ label scenew2_7:
         jump secenew2_8
         
             
-    n "Ich versteh gar nichts mehr, wieso sind die soweit weg von der Tür aufeinmal."
+    n "Ich versteh gar nichts mehr, wieso sind die soweit weg von der Tür auf einmal."
     n "Ich schleich mal ein Stück näher ran."
     show mum talk
     m "Was ist denn am Freitag?"
     show karin talk
     show mum n
-    k "Ich dachte, Frau Heidenau hätte allen Eltern bescheid gegeben, dass wir zur Bernerhütte im Eichelgebirge fahren und dort im Wald wandern."
+    k "Ich dachte, Frau Heidenau hätte allen Eltern Bescheid gegeben, dass wir zur Bernerhütte im Eichelgebirge fahren und dort im Wald wandern."
     show mum talk
     m "Ein Wandertag also? Nein, davon habe ich nichts gehört."
     show karin shock
@@ -4240,8 +4322,9 @@ label wettbewerb:
     
 label scenew2_9:
     play music happytheme1
-    show bg street with dissolve
+    scene bg street
     show mum talk at rightish
+    with dissolve
     m "Hallo mein Schatz! Wie ist es denn gelaufen? Hattest du einen schönen Tag?"
     p "Ähhm. Ja."
     m "Was hast du denn heute so gemacht?"
@@ -4269,7 +4352,7 @@ label scenew2_9:
 
     show mum talk
     m "Naja, hört sich ja nach einer schönen Zeit an!"
-    m "Ich muss dir noch etwas sagen: Wusstest du, dass ihr am Freitag einen Wandertag habt?"
+    m "Ich muss dir noch etwas sagen: Wusstest du, dass ihr übermorgen einen Wandertag habt?"
     n "Ja! Aber Mama darf nich wissen, dass ich gelauscht hab..."
     p "Ähm, nein..."
     show mum happy
@@ -5023,7 +5106,7 @@ label scenew2_10:
                             menu:
                                 "Oh...danke!":
                                     $ eve_points += 2
-                                    $ powder = True
+                                    $ powder == True
                                     e "\"Aber wir können das gar nicht bezahlen\", sagte die Bardin."
                                     e "\"Keine Sorge!\", sagte der Händler. \"Das ist ein Geschenk. Wir Reisenden müssen zusammen halten.\" Er lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
                                     
@@ -5113,7 +5196,7 @@ label scenew2_10:
                     e "\"Aua!\", sagt der Drache. \"Das ist unfair!\""
                     e "Aber noch ist der Drache nicht besiegt!"
                     
-                    if powder = True:
+                    if powder == True:
                         $ pnp1winpoints += 1
                         jump pnp1powdered
                         
@@ -5240,7 +5323,7 @@ label pnp1lost:
     jump pnp1bad
     
 label pnp1good:
-    play music evethem fadeout 1.0
+    play music evetheme fadeout 1.0
     show mum n at left with moveinleft
     m "Ach, da bist du!"
     p "Och nö, kann ich nicht noch weiter spielen? Nur noch ein ganz klein bisschen?"
@@ -5447,23 +5530,21 @@ label scenew3_0:
     
     
 label credits:
+    play music playtheme2 fadeout 1.0
     scene bg bedroom with dissolve
-    nvln "Coding - VN\nKilian Petry"
-    nvln "Coding - Minigame\nFrederik Haas"
-    nvln "Art - Lead\nNatalie Kuhrt"
-    nvln "Art - Support\nFlorian Menzel"
-    nvln "Writing\nFrederik Haas, Florian Menzel, Sascha Fuchs\nFabian Pfannmüller, Kilian Petry"
-    nvln "Sounddesign\nLuca Pfeiffermann"
+    nvln "Fabian Pfannmüller\nProduct Owner, Lead Writer"
+    nvln "Kilian Petry\nLead Scenedesigner, Lead Coder"
+    nvln "Frederik Haas\nSCRUM Master, Minigame Coder"
+    nvln "Natalie Kuhrt\nLead Artist, Writer, Coder, Scenedesigner"
+    nvln "Florian Menzel \ \ \ \ \ Sascha Fuchs\nWriter\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -- \ Writer, PR"
+    nvln "Luca Pfeiffermann\nLead Sounddesigner"
     nvl clear
     nvln "Vielen Dank für's Spielen!"
-    stop music fadeout 2.0
-    nvln "Euer Team von Babys First Visual Novel"
-    "diojasppjdaps"
-    "diuashdsaoi"
-    "daosijdaos"
-    
-    
-    #"Testtest."
+    nvln "Euer Team von Baby's First Visual Novel"
+    window hide
+    scene cg selfiefriendo with fade
+    $ renpy.pause ()
+    window auto
         
 
     
