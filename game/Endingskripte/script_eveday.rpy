@@ -654,7 +654,7 @@ label eves4:
 label eves5:
     scene bg cave with dissolve
     play music hoehletheme2 fadein 3.0
-    show eve pnpn at leftish with dissolve
+    show eve pnpn at leftish with moveinleft
     p "Ich wusste gar nicht, dass es hier so gruselig ist. Dunkelheit macht mir Angst."
     e "Und Hunger."
     p "Hunger macht mir auch Angst."
