@@ -385,7 +385,7 @@ label eves1:
 label eves2:
     scene bg pnpvillage with dissolve
     show eve pnpvhappy at rightish with dissolve
-    e "Wow! Sieh nur, wie viele Leute hier sind. Die haben bestimmt spannende Geschichten zu erzählen!"
+    e "Wow! Sieh nur, wie viele Leute hier wohnen. Die haben bestimmt spannende Geschichten zu erzählen!"
     p "Aber wir haben doch gar keine Zeit für sowas. Wir müssen wissen, wo unsere Hilfe gebraucht wird."
     show eve pnpask
     e "Also, die Helden aus meinen Büchern bekommen Aufträge meistens in Tavernen."
