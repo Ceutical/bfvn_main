@@ -48,6 +48,7 @@ label startbattle:
     $ active_o = "empty"
     $ defense = 2
     $ queued = "no"
+    $ switchpoints = 0
     
     default advantage = [("dog", "paper"), ("stick","bike"), ("street","garbage")]
     default disadvantage = [("dog", "bike"), ("stick","garbage"), ("street","bike")]
@@ -143,6 +144,10 @@ label switch:
                     
                 "Doch lieber ein anderes Monster..." if HP_dog >= 0 or HP_stick >= 0:
                     jump switch
+                    
+        "Doch nicht wechseln..." if active_a != "":
+            $ queued = "no"
+            jump kampf
         
     
 label kampf:
@@ -188,6 +193,7 @@ label kampf:
             play sound pokout
             hide p1 pokdog
             with moveoutleft
+            $ switchpoints += 1
             $ active_a = ""
             $ HP_dog = 0
             jump switch
@@ -195,6 +201,7 @@ label kampf:
             play sound pokout
             hide p1 pokstreet
             with moveoutleft
+            $ switchpoints += 1
             $ active_a = ""
             $ HP_street = 0
             jump switch
@@ -202,6 +209,7 @@ label kampf:
             play sound pokout
             hide p1 poksticky
             with moveoutleft
+            $ switchpoints +=1
             $ active_a = ""
             $ HP_stick = 0
             jump switch
@@ -256,7 +264,8 @@ label kampf:
 
     menu:
         "Angriff":
-
+            
+            
             if active_a == "dog":
                 "Dalmatiger wird agressiv mit einen \"Knochenbiss!\""
                 show p1 pokdog at pattack with move
@@ -271,7 +280,7 @@ label kampf:
                 "Roadeo bolstert sich auf für seinen \"Bordsteinkantenhieb!\""
                 show p1 pokstreet at pattack with move
                 play sound whoosh1
-                show p1 pokstreet at protagonist with move                
+                show p1 pokstreet at protagonist with move 
             if (active_a, active_o) in advantage:
                 $ randomnum = renpy.random.randint(50,70)
                 "Ein kritischer Treffer!"
@@ -296,33 +305,21 @@ label kampf:
                 show p2 pokpaper at aattack with move
                 play sound whoosh3
                 show p2 pokpaper at antagonist with move
+                jump dmgcalcatk
             elif active_o == "garbage" and HP_garb > 0: 
                 "Güllor explodiert in einer \"Schlammbombe\"!"
                 show p2 pokgarbage at aattack with move
                 play sound cardoor1
                 show p2 pokgarbage at antagonist with move
+                jump dmgcalcatk
             elif active_o == "bike" and HP_bike > 0:
                 "Biclops ist bereit zum \"Überfahren\"!"
                 show p2 pokbike at aattack with move
                 play sound bikebreak
                 show p2 pokbike at antagonist with move
-                
-            if (active_a, active_o) in disadvantage:
-                $ randomnum = renpy.random.randint(50,70)
-                "Ein kritischer Treffer!"
-            elif(active_a, active_o) in advantage:
-                $ randomnum = renpy.random.randint(25,35)
-                "Es scheint nicht sehr effektiv zu sein."
+                jump dmgcalcatk
             else:
-                $ randomnum = renpy.random.randint(35,45)
-                "Der Angriff sitzt."
-                
-            if defense <= 3:
-                $ activeHP_a -= randomnum/2
-            else:
-                $ activeHP_a -= randomnum
-            
-            jump kampf
+                jump kampf
         
         "Starker Angriff":
 
@@ -365,32 +362,21 @@ label kampf:
                 show p2 pokpaper at aattack with move
                 play sound whoosh3
                 show p2 pokpaper at antagonist with move
+                jump dmgcalcstratk
             elif active_o == "garbage" and HP_garb > 0: 
                 "Güllor explodiert in einer \"Schlammbombe\"!"
                 show p2 pokgarbage at aattack with move
                 play sound cardoor1
                 show p2 pokgarbage at antagonist with move
+                jump dmgcalcstratk
             elif active_o == "bike" and HP_bike > 0:
                 "Biclops ist bereit zum \"Überfahren\"!"
                 show p2 pokbike at aattack with move
                 play sound bikebreak
                 show p2 pokbike at antagonist with move
-            if (active_a, active_o) in disadvantage:
-                $ randomnum = renpy.random.randint(50,70)
-                "Ein kritischer Treffer!"
-            elif(active_a, active_o) in advantage:
-                $ randomnum = renpy.random.randint(25,35)
-                "Es scheint nicht sehr effektiv zu sein."
+                jump dmgcalcstratk
             else:
-                $ randomnum = renpy.random.randint(35,45)
-                "Der Angriff sitzt."
-
-            if defense <= 3:
-                $ activeHP_a -= randomnum/2
-            else:
-                $ activeHP_a -= randomnum
-            
-            jump kampf
+                jump kampf
             
         "Verteidigen":
             $ defense = 0
@@ -407,34 +393,24 @@ label kampf:
                 show p2 pokpaper at aattack with move
                 play sound whoosh3
                 show p2 pokpaper at antagonist with move
+                jump dmgcalcdef
             elif active_o == "garbage" and HP_garb > 0: 
                 "Güllor explodiert in einer \"Schlammbombe\"!"
                 show p2 pokgarbage at aattack with move
                 play sound cardoor1
                 show p2 pokgarbage at antagonist with move
+                jump dmgcalcdef
             elif active_o == "bike" and HP_bike > 0:
                 "Biclops ist bereit zum \"Überfahren\"!"
                 show p2 pokbike at aattack with move
                 play sound bikebreak
                 show p2 pokbike at antagonist with move
-            if (active_a, active_o) in disadvantage:
-                $ randomnum = renpy.random.randint(50,70)
-                "Ein kritischer Treffer!"
-            elif(active_a, active_o) in advantage:
-                $ randomnum = renpy.random.randint(25,35)
-                "Es scheint nicht sehr effektiv zu sein."
+                jump dmgcalcdef
             else:
-                $ randomnum = renpy.random.randint(35,45)
-                "Der Angriff sitzt."
-
-            if defense <= 3:
-                $ activeHP_a -= randomnum/2
-            else:
-                $ activeHP_a -= ramomnum
-                
-            jump kampf
+                jump kampf
+            
         
-        "Wechseln":
+        "Wechseln" if switchpoints < 2:
             $ queued = "yes"
             jump switch
 
@@ -451,4 +427,55 @@ label loss:
     o "Wacker geschlagen, aber noch nicht gut genug!"
     jump endbattle
 
+label dmgcalcdef:
+    if (active_a, active_o) in disadvantage:
+        $ randomnum = renpy.random.randint(50,70)
+        "Ein kritischer Treffer!"
+    elif(active_a, active_o) in advantage:
+        $ randomnum = renpy.random.randint(25,35)
+        "Es scheint nicht sehr effektiv zu sein."
+    else:
+        $ randomnum = renpy.random.randint(35,45)
+        "Der Angriff sitzt."
+    if defense <= 3:
+        $ activeHP_a -= randomnum/2
+    else:
+        $ activeHP_a -= ramomnum
+        
+    jump kampf
+    
+label dmgcalcatk:
+    if (active_a, active_o) in disadvantage:
+        $ randomnum = renpy.random.randint(50,70)
+        "Ein kritischer Treffer!"
+    elif(active_a, active_o) in advantage:
+        $ randomnum = renpy.random.randint(25,35)
+        "Es scheint nicht sehr effektiv zu sein."
+    else:
+        $ randomnum = renpy.random.randint(35,45)
+        "Der Angriff sitzt."
+                
+    if defense <= 3:
+        $ activeHP_a -= randomnum/2
+    else:
+        $ activeHP_a -= randomnum
+        
+    jump kampf
 
+label dmgcalcstratk:
+    if (active_a, active_o) in disadvantage:
+        $ randomnum = renpy.random.randint(50,70)
+        "Ein kritischer Treffer!"
+    elif(active_a, active_o) in advantage:
+        $ randomnum = renpy.random.randint(25,35)
+        "Es scheint nicht sehr effektiv zu sein."
+    else:
+        $ randomnum = renpy.random.randint(35,45)
+        "Der Angriff sitzt."
+
+    if defense <= 3:
+        $ activeHP_a -= randomnum/2
+    else:
+        $ activeHP_a -= randomnum
+            
+    jump kampf

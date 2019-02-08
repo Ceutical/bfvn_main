@@ -77,9 +77,9 @@ label switch:
     
     menu:
         "Dalmatiger" if HP_dog > 0 and active_a != "dog":
-            n "Hmm, Dalmatiger ist gut gegen Papiermonster aber schlecht gegen Fahrradmonster!"
+            n "Hmm, Dalmatiger ist gut gegen Papiermonster, aber schlecht gegen Fahrradmonster!"
             menu:
-                n "Hmm, Dalmatiger ist gut gegen Papiermonster aber schlecht gegen Fahrradmonster!"
+                n "Hmm, Dalmatiger ist gut gegen Papiermonster, aber schlecht gegen Fahrradmonster!"
                 "Dalmatiger in den Kampf schicken!":
                     if active_a == "stick":
                         play sound pokout
@@ -100,9 +100,9 @@ label switch:
                     jump switch
         
         "Sticky" if HP_stick > 0 and active_a != "stick":
-            n "Hmm, Sticky ist gut gegen Fahrradmonster aber schlecht gegen Müllmonster."
+            n "Hmm, Sticky ist gut gegen Fahrradmonster, aber schlecht gegen Müllmonster."
             menu:
-                n "Hmm, Sticky ist gut gegen Fahrradmonster aber schlecht gegen Müllmonster."
+                n "Hmm, Sticky ist gut gegen Fahrradmonster, aber schlecht gegen Müllmonster."
                 "Sticky in den Kampf schicken!":
                     if active_a == "dog":
                         play sound pokout
@@ -123,9 +123,9 @@ label switch:
                     jump switch
         
         "Roadeo" if HP_street > 0 and active_a != "street":
-            n "Hmm, Roadeo ist gut gegen Müllmonster aber schlecht gegen Fahrradmonster."
+            n "Hmm, Roadeo ist gut gegen Müllmonster, aber schlecht gegen Fahrradmonster."
             menu:
-                n "Hmm, Roadeo ist gut gegen Müllmonster aber schlecht gegen Fahrradmonster."
+                n "Hmm, Roadeo ist gut gegen Müllmonster, aber schlecht gegen Fahrradmonster."
                 "Roadeo in den Kampf schicken!":
                     if active_a == "dog":
                         play sound pokout

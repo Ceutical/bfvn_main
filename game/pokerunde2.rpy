@@ -1,0 +1,481 @@
+# The script of the game goes in this file.
+
+# Declare characters used by this game. The color argument colorizes the
+# name of the character.
+
+define p = Character("Protagonist")
+define o = Character("Octavia1")
+
+######################################
+
+##### TRANSFORM DEFINITIONS #####
+
+
+transform protagonist:
+    xalign 0.0
+    yalign 1.0
+  
+transform antagonist:
+    xalign 0.95
+    yalign 0.05
+
+transform pattack:
+    xalign 0.75
+    yalign 0.05
+    
+transform aattack:
+    xalign 0.15
+    yalign 1.0
+
+transform rotation:
+    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
+    rotate 10
+    
+
+######################################
+label startbattle2:
+    play music poketheme fadeout 1.0
+    
+    $ HP_trex = 100
+    $ HP_oculus = 100
+    $ HP_triclops = 100
+    $ HP_friendo = 100
+    $ HP_laser = 100
+    $ HP_fist = 100
+    $ activeHP_a = 100
+    $ activeHP_b = 100
+    $ active_a = ""
+    $ active_o = "empty"
+    $ defense = 2
+    $ queued = "no"
+    $ switchpoints = 0
+    
+    default advantage2 = [("fist", "oculus"), ("laser","friendo"), ("trex","triclops")]
+    default disadvantage2 = [("fist", "friendo"), ("laser","triclops"), ("trex","oculus")]
+
+    scene bg pokemon with fade
+    "Du wirst herausgefordert von [o]"
+    o "Hah, gegen meinen Oculus hast du keine Chance!"
+    
+label switch2:
+    
+  
+    if active_a == "fist":
+        $ HP_fist = activeHP_a
+    elif active_a == "laser":
+        $ HP_laser = activeHP_a
+    elif active_a == "trex":
+        $ HP_trex = activeHP_a
+
+    if HP_fist <= 0 and HP_laser <= 0 and HP_trex <= 0:
+        jump loss2
+    elif HP_oculus <= 0 and HP_triclops <= 0 and HP_friendo <= 0:
+        jump win2     
+    else:
+        "Welches Monster wirst du wählen?"
+        
+    
+    menu:
+        "Affenfaust" if HP_fist > 0 and active_a != "fist":
+            n "Hmm, Affenfaust ist gut gegen Augenmonster, aber schlecht gegen Katzenmonster!"
+            menu:
+                n "Hmm, Affenfaust ist gut gegen Augenmonster, aber schlecht gegen Katzenmonster!"
+                "Affenfaust in den Kampf schicken!":
+                    if active_a == "laser":
+                        play sound pokout
+                        hide p1 pokfist
+                        with moveoutleft
+                    elif active_a == "trex":
+                        play sound pokout
+                        hide p1 dalmaT-Rex
+                        with moveoutleft
+                    $ active_a = "fist"
+                    play sound pokin
+                    show p1 pokfist at protagonist
+                    with moveinleft
+                    p "Los Affenfaust!"
+                    $ activeHP_a = HP_fist
+                    
+                "Doch lieber ein anderes Monster..." if HP_laser >= 0 or HP_trex >= 0:
+                    jump switch2
+        
+        "Darth Laser" if HP_laser > 0 and active_a != "laser":
+            n "Hmm, Darth Laser ist gut gegen Katzenmonster, aber schlecht gegen Fahrradmonster."
+            menu:
+                n "Hmm, Darth Laser ist gut gegen Katzenmonster, aber schlecht gegen Fahrradmonster."
+                "Darth Laser in den Kampf schicken!":
+                    if active_a == "fist":
+                        play sound pokout
+                        hide p1 pokfist
+                        with moveoutleft
+                    elif active_a == "trex":
+                        play sound pokout
+                        hide p1 dalmaT-Rex
+                        with moveoutleft
+                    $ active_a = "laser"
+                    play sound pokin
+                    show p1 poklaser at protagonist
+                    with moveinleft
+                    p "Los Darth Laser!"
+                    $ activeHP_a = HP_laser
+                    
+                "Doch lieber ein anderes Monster..." if HP_fist >= 0 or HP_trex >= 0:
+                    jump switch2
+        
+        "Dalma T-Rex" if HP_trex > 0 and active_a != "trex":
+            n "Hmm, Dalma T-Rex ist die Weiterentwicklung von Dalmatiger und ist gut gegen Fahrradmonster, aber schlecht gegen Augenmonster."
+            menu:
+                n "Hmm, Dalma T-Rex ist die Weiterentwicklung von Dalmatiger und ist gut gegen Fahrradmonster, aber schlecht gegen Augenmonster."
+                "Dalma T-Rex in den Kampf schicken!":
+                    if active_a == "fist":
+                        play sound pokout
+                        hide p1 pokfist
+                        with moveoutleft
+                    elif active_a == "laser":
+                        play sound pokout
+                        hide p1 dalmaT-Rex
+                        with moveoutleft
+                    $ active_a = "trex"
+                    play sound pokin
+                    show p1 dalmaT-Rex at protagonist
+                    with moveinleft
+                    p "Los Dalma T-Rex!"
+                    $ activeHP_a = HP_trex
+                    
+                "Doch lieber ein anderes Monster..." if HP_fist >= 0 or HP_laser >= 0:
+                    jump switch2
+                    
+        "Doch nicht wechseln..." if active_a != "":
+            $ queued = "no"
+            jump kampf2
+        
+    
+label kampf2:
+    
+    $ defense += 1
+    
+    if queued == "yes":
+        $queued = "no"
+        if active_o == "oculus" and HP_oculus > 0:
+            "Oculus läd auf für \"Hundeblick\"!"
+            show p2 oculus at aattack with move
+            play sound whoosh3
+            show p2 oculus at antagonist with move
+        elif active_o == "triclops" and HP_triclops > 0: 
+            "Triclops ist bereit zum \"Überfahren\"!"
+            show p2 pokbike2 at aattack with move
+            play sound whoosh3
+            show p2 pokbike2 at antagonist with move
+        elif active_o == "friendo" and HP_friendo > 0:
+            "Cat Astrophe fährt \"UTube\" aus!"
+            show p2 pokcat at aattack with move
+            play sound whoosh3
+            show p2 pokcat at antagonist with move
+        if (active_a, active_o) in disadvantage2:
+            $ randomnum = renpy.random.randint(50,70)
+            "Ein kritischer Treffer!"
+        elif(active_a, active_o) in advantage2:
+            $ randomnum = renpy.random.randint(25,30)
+            "Es scheint nicht sehr effektiv zu sein."
+        else:
+            $ randomnum = renpy.random.randint(35,45)
+            "Der Angriff sitzt."
+
+        if defense <= 3:
+            $ activeHP_a -= randomnum/2
+        else:
+            $ activeHP_a -= randomnum  
+    
+    
+    if activeHP_a <=0:
+        "Dein Fightemon wurde besiegt!"
+        if active_a == "fist":
+            play sound pokout
+            hide p1 pokfist
+            with moveoutleft
+            $ switchpoints += 1
+            $ active_a = ""
+            $ HP_fist = 0
+            jump switch2
+        elif active_a == "trex":
+            play sound pokout
+            hide p1 dalmaT-Rex
+            with moveoutleft
+            $ switchpoints += 1
+            $ active_a = ""
+            $ HP_trex = 0
+            jump switch2
+        elif active_a == "laser":
+            play sound pokout
+            hide p1 poklaser
+            with moveoutleft
+            $ switchpoints +=1
+            $ active_a = ""
+            $ HP_laser = 0
+            jump switch2
+      
+    if active_o == "empty":
+        play sound pokin
+        show p2 oculus at antagonist behind p1
+        with moveinright
+        $ activeHP_b = HP_oculus
+        $ active_o = "oculus"
+        "[o] sendet Oculus in den Kampf!"
+    elif activeHP_b < 0 and active_o == "oculus":
+        $ HP_oculus = 0
+        show p2 oculus dead
+        "Oculus wurde besiegt."
+        play sound pokout
+        hide p2 oculus dead
+        with moveoutright
+        play sound pokin
+        show p2 pokbike2 at antagonist behind p1
+        with moveinright
+        $ activeHP_b = HP_triclops
+        $ active_o = "triclops"
+        o "LOS TRICLOPS!"
+    elif activeHP_b < 0 and active_o == "triclops":
+        $ HP_triclops = 0
+        show p2 pokbike2 dead
+        "Triclops wurde besiegt."
+        play sound pokout
+        hide p2 pokbike2 dead
+        with moveoutright
+        play sound pokin
+        show p2 pokcat at antagonist behind p1
+        with moveinright
+        $ activeHP_b = HP_friendo
+        $ active_o = "friendo"
+        o "Los Cat Astrophe!"
+    elif activeHP_b < 0 and active_o == "friendo":
+        $ HP_friendo = 0
+        show p2 pokcat
+        "Cat Astrophe wurde besiegt."
+        hide p2 pokcat
+        play sound pokout
+        with moveoutright
+        o "NEEEEEIIIIN!"
+        jump switch2
+    else:
+        "Dein Fightemon hat noch [activeHP_a] HP, der Gegner [activeHP_b]."
+        "Was wirst du als nächstes tun?"
+    
+    
+
+    menu:
+        "Angriff":
+            
+            
+            if active_a == "fist":
+                "Affenfaust fährt \"Stahlfaust\" aus!"
+                show p1 pokfist at pattack with move
+                play sound whoosh1
+                show p1 pokfist at protagonist with move
+            elif active_a == "laser":
+                "Darth Laser wird agressiv mit einem \"Rotpunkt\"!"
+                show p1 poklaser at pattack with move
+                play sound whoosh1
+                show p1 poklaser at protagonist with move
+            else:
+                "DalmaT-Rex rüstet sich mit \"Knochenbiss\"!"
+                show p1 dalmaT-Rex at pattack with move
+                play sound whoosh1
+                show p1 dalmaT-Rex at protagonist with move 
+            if (active_a, active_o) in advantage2:
+                $ randomnum = renpy.random.randint(50,70)
+                "Ein kritischer Treffer!"
+            elif(active_a, active_o) in disadvantage2:
+                $ randomnum = renpy.random.randint(20,30)
+                "Es scheint nicht sehr effektiv zu sein."
+            else:
+                $ randomnum = renpy.random.randint(30,40)
+                "Der Angriff sitzt."
+            
+            $ activeHP_b -= randomnum
+            if active_o == "oculus":
+                $ HP_oculus = activeHP_b
+            elif active_o == "triclops":
+                $ HP_triclops = activeHP_b
+            elif active_o == "friendo":
+                $ HP_friendo = activeHP_b
+        
+            
+            if active_o == "oculus" and HP_oculus > 0:
+                "Oculus läd auf für \"Hundeblick\"!"
+                show p2 oculus at aattack with move
+                play sound whoosh3
+                show p2 oculus at antagonist with move
+                jump dmgcalcatk2
+            elif active_o == "triclops" and HP_triclops > 0: 
+                "Triclops ist bereit zum \"Überfahren\"!"
+                show p2 pokbike2 at aattack with move
+                play sound whoosh3
+                show p2 pokbike2 at antagonist with move
+                jump dmgcalcatk2
+            elif active_o == "friendo" and HP_friendo > 0:
+                "Cat Astrophe fährt \"UTube\" aus!"
+                show p2 pokcat at aattack with move
+                play sound whoosh3
+                show p2 pokcat at antagonist with move
+                jump dmgcalcatk2
+            else:
+                jump kampf2
+        
+        "Starker Angriff":
+
+            if active_a == "fist":
+                "Oculus wird wild und setzt \"Hühneraugen\" ein!"
+                show p1 pokfist at pattack with move
+                play sound whoosh1
+                show p1 pokfist at protagonist with move
+            elif active_a == "laser":
+                "Darth Laser wird agressiv und fährt \"Schwertmodus\" aus!"
+                show p1 poklaser at pattack with move
+                play sound whoosh1
+                show p1 poklaser at protagonist with move
+            else:
+                "DalmaT-Rex holt aus für \"Urknall\"!"
+                show p1 dalmaT-Rex at pattack with move
+                play sound whoosh1
+                show p1 dalmaT-Rex at protagonist with move                
+            if (active_a, active_o) in advantage2:
+                $ randomnum = renpy.random.randint(70,90)
+                "Ein kritischer Treffer!"
+            elif(active_a, active_o) in disadvantage2:
+                $ randomnum = renpy.random.randint(30,50)
+                "Es scheint nicht sehr effektiv zu sein."
+            else:
+                $ randomnum = renpy.random.randint(40,60)
+                "Der Angriff sitzt."
+            $ activeHP_b -= randomnum
+            if active_o == "oculus":
+                $ HP_oculus = activeHP_b
+            elif active_o == "triclops":
+                $ HP_triclops = activeHP_b
+            elif active_o == "friendo":
+                $ HP_friendo = activeHP_b
+            $ activeHP_a -= 20
+            
+            
+            if active_o == "oculus" and HP_oculus > 0:
+                "Oculus läd auf für \"Hundeblick\"!"
+                show p2 oculus at aattack with move
+                play sound whoosh3
+                show p2 oculus at antagonist with move
+                jump dmgcalcstratk2
+            elif active_o == "triclops" and HP_triclops > 0: 
+                "Triclops ist bereit zum \"Überfahren\"!"
+                show p2 pokbike2 at aattack with move
+                play sound whoosh3
+                show p2 pokbike2 at antagonist with move
+                jump dmgcalcstratk2
+            elif active_o == "friendo" and HP_friendo > 0:
+                "Cat Astrophe fährt \"UTube\" aus!"
+                show p2 pokcat at aattack with move
+                play sound whoosh3
+                show p2 pokcat at antagonist with move
+                jump dmgcalcstratk2
+            else:
+                jump kampf2
+            
+        "Verteidigen":
+            $ defense = 0
+            
+            if active_a == "fist":
+                "Affenfaust begibt sich in Formation Stein!"
+            elif active_a == "laser":
+                "Darth Laser erzeugt ein Antigravitationsfeld!"
+            else:
+                "DalmaT-Rex begibt sich in Formation Fossil!"
+            
+            if active_o == "oculus" and HP_oculus > 0:
+                "Oculus läd auf für \"Hundeblick\"!"
+                show p2 oculus at aattack with move
+                play sound whoosh3
+                show p2 oculus at antagonist with move
+                jump dmgcalcdef2
+            elif active_o == "triclops" and HP_triclops > 0: 
+                "Triclops ist bereit zum \"Überfahren\"!"
+                show p2 pokbike2 at aattack with move
+                play sound whoosh3
+                show p2 pokbike2 at antagonist with move
+                jump dmgcalcdef2
+            elif active_o == "friendo" and HP_friendo > 0:
+                "Cat Astrophe fährt \"UTube\" aus!"
+                show p2 pokcat at aattack with move
+                play sound whoosh3
+                show p2 pokcat at antagonist with move
+                jump dmgcalcdef2
+            else:
+                jump kampf2
+            
+        
+        "Wechseln" if switchpoints < 2:
+            $ queued = "yes"
+            jump switch2
+
+
+label win2:
+    $ win2 = "yes"
+    "Du hast gegen [o] gewonnen!"
+    "Gratulation!"
+    jump endbattle2
+
+label loss2:
+    $ win = "no"
+    "[o] hat alle deine Monster besiegt!"
+    o "Wacker geschlagen, aber noch nicht gut genug!"
+    jump endbattle2
+
+label dmgcalcdef2:
+    if (active_a, active_o) in disadvantage2:
+        $ randomnum = renpy.random.randint(50,70)
+        "Ein kritischer Treffer!"
+    elif(active_a, active_o) in advantage2:
+        $ randomnum = renpy.random.randint(25,35)
+        "Es scheint nicht sehr effektiv zu sein."
+    else:
+        $ randomnum = renpy.random.randint(35,45)
+        "Der Angriff sitzt."
+    if defense <= 3:
+        $ activeHP_a -= randomnum/2
+    else:
+        $ activeHP_a -= ramomnum
+        
+    jump kampf2
+    
+label dmgcalcatk2:
+    if (active_a, active_o) in disadvantage2:
+        $ randomnum = renpy.random.randint(50,70)
+        "Ein kritischer Treffer!"
+    elif(active_a, active_o) in advantage2:
+        $ randomnum = renpy.random.randint(25,35)
+        "Es scheint nicht sehr effektiv zu sein."
+    else:
+        $ randomnum = renpy.random.randint(35,45)
+        "Der Angriff sitzt."
+                
+    if defense <= 3:
+        $ activeHP_a -= randomnum/2
+    else:
+        $ activeHP_a -= randomnum
+        
+    jump kampf2
+
+label dmgcalcstratk2:
+    if (active_a, active_o) in disadvantage2:
+        $ randomnum = renpy.random.randint(50,70)
+        "Ein kritischer Treffer!"
+    elif(active_a, active_o) in advantage2:
+        $ randomnum = renpy.random.randint(25,35)
+        "Es scheint nicht sehr effektiv zu sein."
+    else:
+        $ randomnum = renpy.random.randint(35,45)
+        "Der Angriff sitzt."
+
+    if defense <= 3:
+        $ activeHP_a -= randomnum/2
+    else:
+        $ activeHP_a -= randomnum
+            
+    jump kampf2

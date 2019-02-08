@@ -524,7 +524,55 @@ label start:
         image louischaos:
             "images/Characters/louis/louis really.png"
             xalign 1.0 yalign 1.0
-            linear 40.0 xalign 2.0     
+            linear 40.0 xalign 2.0
+            
+        image monstercrit 1:
+            "images/Characters/evelyns eltern/monster n.png"
+            xalign 0.5 yalign 1.0
+            linear 0.05 xalign 0.55
+            "images/Characters/evelyns eltern/monster n.png"
+            xalign 0.55 yalign 1.0
+            linear 0.1 xalign 0.45
+            "images/Characters/evelyns eltern/monster n.png"
+            xalign 0.45 yalign 1.0
+            linear 0.1 xalign 0.55
+            "images/Characters/evelyns eltern/monster n.png"
+            xalign 0.55 yalign 1.0
+            linear 0.1 xalign 0.45
+            "images/Characters/evelyns eltern/monster n.png"
+            xalign 0.45 yalign 1.0
+            linear 0.1 xalign 0.55
+            "images/Characters/evelyns eltern/monster n.png"
+            xalign 0.55 yalign 1.0
+            linear 0.1 xalign 0.45
+            "images/Characters/evelyns eltern/monster n.png"
+            xalign 0.45 yalign 1.0
+            linear 0.05 xalign 0.5
+            
+        image monstercrit 2:
+            "images/Characters/evelyns eltern/monster plants.png"
+            xalign 1.0 yalign 1.0
+            linear 0.05 xalign 1.05
+            "images/Characters/evelyns eltern/monster plants.png"
+            xalign 1.05 yalign 1.0
+            linear 0.1 xalign 0.95
+            "images/Characters/evelyns eltern/monster plants.png"
+            xalign 0.95 yalign 1.0
+            linear 0.1 xalign 1.05
+            "images/Characters/evelyns eltern/monster plants.png"
+            xalign 1.05 yalign 1.0
+            linear 0.1 xalign 0.95
+            "images/Characters/evelyns eltern/monster plants.png"
+            xalign 0.95 yalign 1.0
+            linear 0.1 xalign 1.05
+            "images/Characters/evelyns eltern/monster plants.png"
+            xalign 1.05 yalign 1.0
+            linear 0.1 xalign 0.95
+            "images/Characters/evelyns eltern/monster plants.png"
+            xalign 0.95 yalign 1.0
+            linear 0.1 xalign 1.0
+            
+            
             
             
 
@@ -601,6 +649,10 @@ label scene1:
         "Eves Ende.":
             stop music1
             jump eves_ending
+            
+        "Octas Ende.":
+            stop music1
+            jump octas_ending
             
         "Normal.":
             jump childlike
@@ -5530,8 +5582,8 @@ label scenew3_0:
     
     
 label credits:
-    play music playtheme2 fadeout 1.0
-    scene bg bedroom with dissolve
+    window hide
+    scene bg bedroom with fade
     nvln "Fabian Pfannmüller\nProduct Owner, Lead Writer"
     nvln "Kilian Petry\nLead Scenedesigner, Lead Coder"
     nvln "Frederik Haas\nSCRUM Master, Minigame Coder"
