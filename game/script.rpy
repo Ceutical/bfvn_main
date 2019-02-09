@@ -4936,6 +4936,7 @@ label scenew2_10:
             show karin n at center
             with dissolve
             $ pnpplay = True
+            $ pnpwin = False
             n "Oh, Evelynn ist doch nicht am Maltisch. Komisch!"
             p "Karin! Hast du die Evelynn gesehen?"
             k "Ich glaub, die war zuletzt vorne in der Kuschelecke!"
@@ -5184,7 +5185,7 @@ label scenew2_10:
                     e "Der Held hat etwas zu laut gesprochen. Die komische Person hat das gehört und ist jetzt beleidigt."
                     e " \"Ihr wollt es mit mir aufnehmen?\", fragte der Panthermensch wütend. \"Ich bin Händler. Ich begegne oft Leuten wie dir und hab Übung im Kämpfen. Du bist keine Gefahr für mich.\""
                     p "Der Held hatte es nicht so gemei-"
-                    show pnphmad with dissolve
+                    show pnp hmad with dissolve
                     e "Der Händler zieht sein Schwert, entschlossen seine Sachen vor den beiden Fremden zu schützen."
                     e "\"Also, das darfst du jetzt alleine auslöffeln\", sagte die Bardin zu ihrem Heldenfreund."
                     
@@ -5200,7 +5201,7 @@ label scenew2_10:
                             p "Tjaa...das hättste nicht gedacht, was?"
                             e "Der Held stolpert beim Ziehen seiner Waffe über seine eigenen Füße und fällt in eine Sumpfgrube neben dem Weg. Dabei geht auch noch seine Waffe kaputt und er kann nicht mehr kämpfen."  
                             p "Was? Wiesooo?! Das ist unfair!"
-                            e "Es ist schlecht Hohe Zahlen zu würfeln."
+                            e "Es ist schlecht hohe Zahlen zu würfeln."
                             jump pnp1bad
                             
                         "Ich renne weg!":
@@ -5342,6 +5343,7 @@ label pnp1powdered:
     
 label pnp1win:
     e "Der Drache schnaubt vor Wut, aber er sieht ein, dass ihr besser seid."
+    $ pnpwin = True
     show pnp dsad with dissolve
     e "Er schnappt sich noch schnell einen Apfel vom Baum und läuft dann schnell nach Hause zu seiner Höhle, wo seine Mami auf ihn wartet."
     show pnp village with dissolve
