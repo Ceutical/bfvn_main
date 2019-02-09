@@ -1,124 +1,29 @@
 ﻿##### SCRIPT START #####
 
-##### CHARACTER DEFINITIONS #####
-
-define m = Character("Mama")
-define v = Character("Papa")
-
-define p = Character("[name]") #Name of Player Character -- P = Protagonist
-define pt = Character("[name]", window_ypos=0.27) #ProtaTOP
-
-define n = Character(name=None, what_italic=True) #Narrator
-define nt = Character(name=None, window_ypos=0.27, what_italic=True) #NarratorTOP
-
-define a = Character("Anja")
-
-define e = Character("Evelynn")
-define et = Character("Evelynn", window_ypos=0.27) #EvelynnTOP
-
-define o = Character("Octavia")
-define O = Character("Octa")
-define h = Character("Frau Heidenau")
-define k = Character("Karin")
-
-define L = Character("Louis")
-define Lt = Character("Louis", window_ypos=0.27) #LouisTOP
-
-define r = Character("Randy")
-define rt = Character("Randy", window_ypos=0.27) #RandyTOP
-define emum = Character("Evelynns Mama")
-define edad = Character("Evelynns Papa")
-define omum = Character("Octavias Mama")
-define odad = Character("Octavias Papa")
-define rmum = Character("Randys Mama")
-define rdad = Character("Randys Papa")
-define nvln = Character(name=None, kind=nvl)
-define kg = Character("Kinder", what_italic=True) #Kindergartengruppe
-
-#define test = Character("Test", window_ypos=0.27) #TESTCHAR
-
-
-
-######################################
-
-##### MUSIC CHANNEL DEFINITIONS #####
-
-init python:
-    renpy.music.register_channel("music1", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
-    renpy.music.register_channel("music2", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
-    renpy.music.register_channel("music3", mixer=None, loop=True, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
-    renpy.music.register_channel("sound1", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
-    renpy.music.register_channel("sound2", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
-    renpy.music.register_channel("sound3", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
-    renpy.music.register_channel("sound4", mixer=None, loop=False, stop_on_mute=True, tight=False, file_prefix='', file_suffix='', buffer_queue=True, movie=False, framedrop=True)
 
 ##### MUSIC DEFINITIONS #####
 
-define audio.introtheme = "music/soundtracks/introtheme.mp3"
-define audio.anjatheme = "music/soundtracks/anjatheme.mp3"
-define audio.evetheme = "music/soundtracks/evetheme.mp3"
-define audio.octatheme = "music/soundtracks/octatheme.mp3"
-define audio.maintheme = "music/soundtracks/maintheme.mp3"
-define audio.poketheme = "music/soundtracks/Pokemon_Minigame.ogg"
-define audio.dueltheme = "music/soundtracks/Dramatische_Duellmusik.ogg"
-define audio.bosstheme1 = "music/soundtracks/Fantasy_Boss1.ogg"
-define audio.bosstheme2 = "music/soundtracks/Fantasy_Boss2.ogg"
-define audio.fantheme1 = "music/soundtracks/Fantasy1.ogg"
-define audio.fantheme2 = "music/soundtracks/Fantasy2.ogg"
+
 define audio.hoehletheme1 = "music/soundtracks/Fantasy_Höhle1.ogg"###new
 define audio.hoehletheme2 = "music/soundtracks/Fantasy_Höhle2.ogg"###new
 define audio.fantasyboss = "music/soundtracks/Fantasy_Boss1.ogg" ### new
 define audio.fantasyboss2 = "music/soundtracks/Fantasy_Boss2.ogg" ### new
 define audio.spookywald3 = "music/soundtracks/SpookyWald3.ogg" ### new
-define audio.happytheme1 = "music/soundtracks/Happy_Theme1.ogg"
-define audio.happytheme2 = "music/soundtracks/Happy_Theme2.ogg"
-define audio.playtheme1 = "music/soundtracks/Kinder_Beim_Spielen1.ogg"
-define audio.playtheme2 = "music/soundtracks/Kinder_Beim_Spielen2.ogg"
-define audio.opartytheme = "music/soundtracks/Kinder_Party_Theme1.ogg"
-define audio.apartytheme = "music/soundtracks/Kinder_Party_Theme2.ogg"
-define audio.epartytheme = "music/soundtracks/Kinder_Party_Theme3.ogg"
+
 define audio.GoodEnd = "music/soundtracks/GoodEnd.ogg"###new
 define audio.BadEnd = "music/soundtracks/BadEnd.ogg"###new
 
 
 ##### SFX DEFINITIONS #####
 
-define audio.treefall = "music/sfx/treefall.ogg"
-define audio.cardoor1 = "music/sfx/Autotür1.ogg"
-define audio.cardoor2 = "music/sfx/Autotür2.ogg"
-define audio.decke = "music/sfx/Decke.ogg"
-define audio.grassbump = "music/sfx/Aufprall_Rasen.ogg"
-define audio.ball = "music/sfx/Ball.ogg"
-define audio.ball2 = "music/sfx/Ball1.ogg"
-define audio.bal3l = "music/sfx/Ball2.ogg"
-define audio.ball4 = "music/sfx/Ball3.ogg"
-define audio.ball5 = "music/sfx/Ball4.ogg"
-define audio.ballhit1 = "music/sfx/Ball_Getroffen1.ogg"
-define audio.ballhit2 = "music/sfx/Ball_Getroffen2.ogg"
-define audio.ballhit3 = "music/sfx/Ball_Getroffen3.ogg"
-define audio.bell = "music/sfx/bell.ogg"
-define audio.child1 = "music/sfx/Kindergeräusche1.ogg"
-define audio.child2 = "music/sfx/Kindergeräusche2.ogg"
-define audio.kg = "music/sfx/Kinderklasse.ogg"
-define audio.pbutton1 = "music/sfx/KnöpfeDrücken1.ogg"
-define audio.pbutton2 = "music/sfx/KnöpfeDrücken2.ogg"
-define audio.pbutton3 = "music/sfx/KnöpfeDrücken3.ogg"
-define audio.draw = "music/sfx/Malgeräusche.ogg"
-define audio.foodplay = "music/sfx/Mit Essen Spielen.ogg"
-define audio.snackers = "music/sfx/snackers.ogg"
-define audio.street = "music/sfx/street.ogg"
-define audio.Whoosh3 = "music/sfx/Whoosh3.ogg"
-define audio.Whoosh5 = "music/sfx/Whoosh5.ogg" ###new
+
+define audio.whoosh5 = "music/sfx/whoosh5.ogg" ###new
 define audio.Magie1 = "music/sfx/Magie1.ogg" ###new
 define audio.Magie2 = "music/sfx/Magie2.ogg" ###new
 define audio.Magie3 = "music/sfx/Magie3.ogg" ###new
 define audio.Magie4 = "music/sfx/Magie4.ogg" ###new
 define audio.Aufprall = "music/sfx/Herzschlag.ogg" ###new
-define audio.Chicken = "music/sfx/Hahnwecker.ogg"
-define audio.antiarmor = "music/sfx/Schutzausrüstung_ausziehen.ogg"
-define audio.bike = "music/sfx/Fahrrad.ogg"
-define audio.chain = "music/sfx/Fahrrad_alteKette.ogg"
-define audio.bikebreak = "music/sfx/Fahrradbremse.ogg"
+
 define audio.bat = "music/sfx/Bat.ogg" ###new
 define audio.bossdeath = "music/sfx/Boss_death.ogg" ###new
 define audio.goblin1 = "music/sfx/Goblin1.ogg" ###new
@@ -129,45 +34,6 @@ define audio.goblin2 = "music/sfx/Goblin2.ogg" ###new
 
 ##### TRANSFORM DEFINITIONS #####
 
-transform slightleft:
-    xalign .35
-    yalign 1.0
-transform slightright:
-    xalign .68
-    yalign 1.0
-transform leftish:
-    xalign .26
-    yalign 1.0
-transform rightish:
-    xalign .76
-    yalign 1.0
-transform chicken:
-    xalign .68
-    yalign .5
-transform mic:
-    xalign .93
-    yalign .4
-transform topright:
-    xalign 1.0
-    yalign 0.0
-transform topleft:
-    xalign 0.0
-    yalign 0.0    
-transform topishleft:
-    xalign 0.0
-    yalign 0.5
-transform rotation:
-    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
-    rotate 10
-transform rotationreset:
-    around (.5, .5) alignaround (.5, .5) xalign .5 yalign .5
-    rotate 0
-transform flight:
-    xalign .5
-    yalign .4
-transform flightright:
-    xalign .8
-    yalign .4
 transform steinposition:
     xalign 0.6
     yalign 0
@@ -178,32 +44,6 @@ transform steinposition:
 
 
 label eves_ending:
-    play music introtheme
-    python:
-        if not persistent.set_volumes:
-            persistent.set_volumes = True
-            _preferences.volumes['music'] *= .80 
-        renpy.music.set_volume(volume=0.5, channel='music')
-    
-    ##### OTHER DEFINITIONS #####
-    $ seekwin = True
-    $ seekloss = True
-    $ grura = True
-    $ flur = True
-    $ court = True
-    $ kz = True
-    $ food = True
-    $ catch = 0
-    $ seekattempts = 0
-    $ climber = False
-    $ tookrandy = False
-    $ boomstickpoints = 0
-    $ dynamik = False
-    $ trade = False
-    $ tip = False
-    $ farbflug = False
-    $ chaos = False
-    #############################
 
 
 label eves1:
@@ -366,7 +206,7 @@ label eves1:
     e "Unser Abenteuer beginnt  ganz in der Nähe des Königspalastes von Müramoor."
     e "Wir sind Helden, die gerufen wurden, und müssen uns in Richtung einer Stadt aufmachen!"
     e "Erst am frühen Morgen, als die Sonne gerade aufgeht, können wir die Stadtmauern von Burenia erblicken."
-    e "Wir machen dort kurz auf einem Hügel Rast um uns zu Erholen und Frühstücken."
+    e "Wir machen dort kurz auf einem Hügel Rast um uns zu erholen und zu frühstücken."
     n "Evelynn erzählt total toll! Ich kann mir ganz genau vorstellen, wie die Stadt aussehen würde."
     scene bg castle with dissolve
     p "Alles voll bunt und fröhlich hier. Was ist denn das auf deinem Rücken?"
@@ -380,7 +220,7 @@ label eves1:
     show eve pnpask
     e "Auch wenn es schön ist, hier ist nicht viel los. Außerdem sollen wir doch in die Stadt gehen und Abenteuer machen."
     p "Ob es da fiese Monster gibt, die wir bekämpfen können?"
-    e "Mit Sicherheit"
+    e "Mit Sicherheit."
 
 label eves2:
     scene bg pnpvillage with dissolve
@@ -533,8 +373,8 @@ label eves3:
         hide narr with moveoutright
    
     show eve pnpask
-    e "Du [name], glaubst du wirklich,dass wir das Monster besiegen können?"
-    p "Bestimt, wir sollten es auf jeden Fall versuchen."
+    e "Du [name], glaubst du wirklich, dass wir das Monster besiegen können?"
+    p "Bestimmt, wir sollten es auf jeden Fall versuchen."
     p "Ich bin ja stark!"
     show eve pnp2
     e "Hast wohl Recht."
@@ -561,7 +401,7 @@ label eves4:
     menu:
         "Angreifen" if pnpstr >= 4:
             n "Einfach Augen zu und draufhauen!"
-            play sound Whoosh3
+            play sound whoosh3
             scene bg black with dissolve
             play sound bat
             p "Ja! Voll erwischt!"
@@ -579,7 +419,7 @@ label eves4:
             
         "Sich wehren" if pnpstr < 4:
             n "Einfach Augen zu und draufhauen!"
-            play sound Whoosh3
+            play sound whoosh3
             scene bg black with dissolve
             play sound bat
             e "Vorsicht, Sie greift an!"
@@ -588,7 +428,7 @@ label eves4:
             show bat angst at leftish with dissolve
             p "Aua!"
             p "Nochmal..."
-            play sound Whoosh3
+            play sound whoosh3
             hide bat with moveoutleft
             e "Aaah..."
             show eve pnp2
@@ -616,7 +456,7 @@ label eves4:
             $ evesbpoints += 1
          
         "Sich ducken" if pnpdex < 4:
-            play sound Whoosh3
+            play sound whoosh3
             p "Au!"
             show eve pnpask
             play sound bat
@@ -816,7 +656,7 @@ label eves5:
             
             if pnpstr >= 4:
                 p "Nimm das, du hässliches Ding!"
-                play sound Whoosh3
+                play sound whoosh3
                 hide goblin1 with moveoutbottom
                 play sound goblin2
                 show goblin1 mad with moveinbottom
@@ -842,7 +682,7 @@ label eves5:
             
             if pnpstr < 4:
                 p "Nimm das, du hässliches Ding!"
-                play sound Whoosh3
+                play sound whoosh3
                 hide goblin1 with moveoutbottom
                 play sound goblin1
                 show goblin1 mad with moveinbottom
@@ -876,7 +716,7 @@ label eveboss:
     show eve pnp2
     p "Wie tief sind wir jetzt eigentlich in dieser Höhle?"
     e "Ich weiß nicht, aber ich kann kaum noch was sehen..."
-    play sound Whoosh5
+    play sound whoosh5
     p "Hast du was gesagt?"
     show eve pnpask
     e "Nein. Vielleicht war es wieder nur eine Fledermaus..."
@@ -895,7 +735,7 @@ label eveboss:
     p "Aber, du redest doch mit mir."
     e "Aber nicht bei mir Zuhause. Ich will lieber hier bleiben. Hier darf ich wenigstens draußen spielen."
     p "Aber, daheim ist es doch schön. Da kann man Fernsehen, und hat seine Spielsachen."
-    play sound Whoosh5
+    play sound whoosh5
     show eve pnpmad
     e "Darf ich doch nicht! Meine Mama sagt immer, das macht dumm."
     p "Gar nichts?"
@@ -1046,8 +886,12 @@ label eveboss:
         "Schwachstelle angreifen" if secret == True:
             p  "Hier, nimm das!"
             play sound Aufprall
+            hide monster
+            show monstercrit 1
             play sound bossdeath
             p  "Voll auf die Zwölf!"
+            hide monstercrit
+            show monster n
             e "Jaaaa!"
             e "Ich glaub das hat ihm weh getan."
             e "Jetzt hat er bestimmt genug."
@@ -1094,7 +938,7 @@ label eveboss:
         n "Sie hat nicht ein Wort mehr mit mir geredet. Dabei hat es doch soviel Spaß gemacht!"
         show emum n at slightright
         show edad n at right
-        show mad at rightish
+        show eve mad at rightish
         with moveinright
         n "Sogar jetzt guckt sie mich nur böse an"
         show mum nett
@@ -1136,13 +980,16 @@ label eveboss:
         show monster plants at right with dissolve
         "Königsfüßler" "Evelynn, das darfst du nicht!!!"
         e "Jetzt greif ihn an, wo er nicht geschützt ist!"
-        play sound Whoosh3
+        play sound whoosh3
         p "Mitten ins Gesicht!"
+        hide monster
+        show monstercrit 2
         play sound bossdeath
         "Königsfüßler" "EVELYNN!!!!"
-        show monster dead with dissolve
+        hide monstercrit
+        show monster dead at right
+        with dissolve
         e "..."
-        hide monster with dissolve
         stop music fadeout 4.0
         e "...wir...."
         play music fantheme2 fadein 1.0
@@ -1162,7 +1009,7 @@ label eveboss:
         p "Moment mal!"
         show eve pnpask
         e "Was ist denn?"
-        p "Ich muss dich jetzt was Fragen, bevor ich's vergesse."
+        p "Ich muss dich jetzt was fragen, bevor ich's vergesse."
         e "Hmmmh?"
         p "Sag mal... ist das mit deinen Eltern real gewesen?"
         stop music fadeout 1.0
@@ -1187,7 +1034,7 @@ label eveboss:
         e "Das wiederholen wir so schnell wie möglich."
         p "Dann aber bei mir und mit Randy!"
         e "Das klingt gut!"
-        k "So Kinder, packt mal langsam wieder euer Zueg zusammen!"
+        k "So Kinder, packt mal langsam wieder euer Zeug zusammen!"
         scene bg street
         play sound cardoor2
         show mum talk at leftish with dissolve
@@ -1235,7 +1082,9 @@ label sceneevegood:
     n "Eigentlich sogar fast alles, weil Octavia sich andauernd mit Anja streitet, ob Elfen oder Zwerge besser im Kämpfen sind."
     n "Und einmal haben wir dann an einem Wochenende alle bei Evelynn Zuhause gespielt. Da gabs dann auch wieder Riesenpizza."
     n "Und diesmal sogar ganz in echt!"
-    stop music fadeout 1.0
+    window hide
+    $ renpy.pause()
+    window auto
     jump credits
 
 
@@ -1249,7 +1098,9 @@ label sceneevebad:
     n "Und bei den anderen Ausflügen war sie auch nicht mehr mit dabei..."
     n "Aber bald bin ich schon groß und darf ich die Schule!"
     n "Vielleicht finde ich ja da Freunde..."
-    stop music fadeout 1.0
+    window hide
+    $ renpy.pause()
+    window auto
     jump credits
     
     

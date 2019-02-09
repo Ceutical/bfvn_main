@@ -990,6 +990,7 @@ label eveboss:
         show monster dead at right
         with dissolve
         e "..."
+        hide monster dead with moveoutbottom
         stop music fadeout 4.0
         e "...wir...."
         play music fantheme2 fadein 1.0
