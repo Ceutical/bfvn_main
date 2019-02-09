@@ -1,9 +1,11 @@
 ﻿##### SCRIPT START #####
 
 label octas_ending:
+    stop music
+    play music octatheme fadein 1.0
     scene bg woods with dissolve
     show octa talk at rightish
-    o "Na komm, wir wollen doch nicht die letzten sein."
+    o "Na komm, wir wollen doch nicht die Letzten sein."
     p "Ist ja gut. Ich komm ja schon. Mach mal langsam."
     show octa mad
     o "Nix da. Langsam ist schlecht."
@@ -14,7 +16,7 @@ label octas_ending:
     show octa happy
     o "Ach, nur so."
     n "Was meint die denn damit wieder?"
-    n "Egal, hoffentlich sind wir bald an der Hütte. Wandern ist echt das langweiligste."
+    n "Egal, hoffentlich sind wir bald an der Hütte. Wandern ist echt das Langweiligste."
     show louis really at leftish with moveinbottom
     L "Hey Leute. Sagt mal, meint ihr die Heidenau hat das erstgemeint?"
     n "???"
@@ -33,7 +35,7 @@ label octas_ending:
     show louis n
     show octa talk
     o "Genau."
-    scene hut with dissolve
+    scene bg hut with dissolve
     show octa shock
     show karin happy at leftish with dissolve
     k "So Kinder, hier wären wir!"
@@ -104,10 +106,10 @@ label octas_ending:
     o "Ich hätte auch fahren können."
     p "Wie? So weit hättest du mit den Fahrrad fahren können?"
     show octa happy
-    o "Nein, moment."
+    o "Nein, Moment."
     hide octa with moveoutright
     o "Siehst du das da?"
-    p "Der Weg von wo wir kamen?"
+    p "Der Weg von wo wir gekommen sind?"
     o "Nein, da weiter hinten die Straße."
     p "Nein."
     o "Egal, da unten wohne ich."
@@ -260,16 +262,16 @@ label octas2:
     "???" "[name]! Octavia!"
     show octa shock
     p "Oh man, ich glaube wir sollten zurück!"
-    o "Ich glaub du hast recht."
+    o "Ich glaub du hast Recht."
 
 label octas3:
-    scene hut with dissolve
+    scene bg hut with dissolve
     show karin shock
     k "Da seit ihr ja!"
     p "Hey Karin."
     k "Gott sei Dank! Wir haben schon überall nach euch gesucht! Ich dachte ich bekomme noch einen Herzinfakt!"
     show karin mad
-    k "Wieso haut ihr einfach ab!"
+    k "Wieso haut ihr einfach ab?!"
     o "Aber..."
     k "Nichts aber! Wisst ihr eigentlich was los ist, wenn ich das euren Eltern erzählen müsste?!"
     p "Entschuldigung."
