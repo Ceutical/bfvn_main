@@ -1270,7 +1270,7 @@ label scene9:
     p "Eine Ente!"
     m "Fast! Aber mit dem hier kommst du bestimmt leichter aus den Federn."
     scene bg street with dissolve
-    n "Dieser Hahn wie Mama die Ente nennt, ist echt nervig. Wie soll mir das denn beim Aufstehen helfen?"
+    n "Dieser Hahn ist echt nervig. Wie soll mir das denn beim Aufstehen helfen?"
     n "Ich glaube Mama will sich nur über mich lustig machen."
     n "Aber, eigentlich sieht die Ente ja ganz lustig aus. Naja, auf zum Morgenkreis."
     scene bg grura
@@ -3672,7 +3672,7 @@ label scenew2_5:
             Lt "Meinst du das Ernst?"
             pt "Also ja..."
             Lt "Ach egal."
-            Lt "auf ihrem Weg zur [burg] treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
+            Lt "Auf ihrem Weg zur [burg] treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
             Lt "Nach einem harten Kampf, schaffen die Helden es der Ente das Halsband mit dem Teil des Schlüssels abzunehmen."
 
         "den gefährlichen Fluss des Verderbens überqueren.":
@@ -4396,7 +4396,7 @@ label scenew2_9:
         p "Alle gefunden!"
         
     else:
-        p "Wir haben heute alle zusammen verstecken gespielt und ich musste suchen." 
+        p "Wir haben heute alle zusammen Verstecken gespielt und ich musste suchen." 
         p "Ich musste die Augen zu machen, dann drei mal bis 20 zählen und dann suchen."
         show mum n
         p "Konnte sie aber nicht alle erwischen, ich war zu langsam und dann sind sie aus ihren Verstecken gekommen."
@@ -4413,7 +4413,7 @@ label scenew2_9:
     p "Du hast mich angemeldet?"
     p "Und wenn ich garkeine Lust habe?"
     show mum talk
-    m "Sei mal nicht so. Wandertage sind immer schön, durch die gegen mit deinen Freunden laufen, ein bisschen Erkunden und spielen!"
+    m "Sei mal nicht so. Wandertage sind immer schön, durch dieGegend mit deinen Freunden laufen, ein bisschen Erkunden und spielen!"
     m "Ich mochte die immer."
     show mum happy
     p "Ich mach ja auch nur Spaß, ich freu mich schon auf morgen!"
@@ -5224,7 +5224,7 @@ label scenew2_10:
             e "Wir werden mit ihm reden und mit ihm schimpfen! Dann werdet ihr keine Angst mehr vor ihm haben müssen."
             e "Der Bauer schaut euch dankbar an."
             p "Und wo sollen wir den Drachen finden?"
-            e "\"Ganz einfach\", sagte die Bardin. \"Wir folgen einfach den großen Füßabdrücken!\""
+            e "\"Ganz einfach\", sagte die Bardin. \"Wir folgen einfach den großen Fußabdrücken!\""
             show pnp dragon with dissolve
             e "Nach gar nicht langer Zeit sahen sie den Drachen. Er lag unter einem Baum und hielt ein Mittagsschlaf, weil er so viel Kuchen gegessen hatte."
             e "Was sollen wir tun?"

@@ -168,11 +168,9 @@ label octas2:
     
     "Zweiter Fight kommt hier!"
     
-    menu:
-        "win!":
-            $win2 = "yes"
-        "loss!":
-            $win2 = "no"
+    jump startbattle2
+    
+label endbattle2:
     
     scene bg bike with dissolve
     

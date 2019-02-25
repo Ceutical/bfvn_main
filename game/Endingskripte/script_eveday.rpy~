@@ -299,7 +299,7 @@ label eves3:
     show wirt mad
     "Wirt" "Mit Verlaub, ich weiß nicht ob ich euch das sagen sollte. Nicht dass ihr Bälger dann noch euer Leben unnötig verwirkt. Dies scheint mir dann doch eine Nummer zu groß für Euch zu sein."
     show wirt n
-    e "Wir sind mutige Helden und von Weitem hergereist, nur um hier Abenteuer zu meistern. Können wir Sie gar nicht vom Gegenteil überzeugen?"
+    e "Wir sind mutige Helden und von Weitem hergereißt, nur um hier Abenteuer zu meistern. Können wir Sie gar nicht vom Gegenteil überzeugen?"
     p "Warte, Evelynn. Ich hab da eine Idee!"
     
     menu:
@@ -585,7 +585,7 @@ label eves5:
             show eve pnpsad
             e "Das war aber ganz schön knapp...wenn das Monster viel stärker ist, könnte es gefährlich werden…"
             $ evesbpoints -= 1
-            hide eve pnp2 with moveoutright
+            hide eve pnp2
 
             
             
@@ -926,10 +926,6 @@ label eveboss:
         show eve mad
         e "DU IDIOT MUSST MIR ALLES RUINIEREN!"
         play music spookywald3 fadein 1.0
-        show randy bug at rightish with moveinright
-        r "Was macht ih da?"
-        e "HALT DIE KLAPPE RANDY!"
-        show randy bugshock
         hide eve with moveoutright
         p "Evelynn..."
         e "BLEIB WEG!"
@@ -1009,24 +1005,17 @@ label eveboss:
         show eve pnp2
         p "Wollen wir unsere Belohnung von der Stadt abholen?"
         e "Gerne können wir das noch machen."
-        stop music fadeout 1.0
-        scene bg hut with dissolve
-        show eve happy2 with dissolve
-        show randy bug at rightish with moveinright
-        r "Die Heidenau hat gesagt, wir sollen alle sofort wieder zurück kommen."
-        p "Och mennö..."
-        show randy bugshock
-        r "Und sie hat gesagt, wer trödelt muss die Badfliesen mit einer Zahnbürste sauberschrubben."
-        show eve mad
-        e "Jaja, wir packen ja schon zusammen."
-        hide randy with moveoutright
+        scene bg caveentry with dissolve
+        show eve pnp2
         p "Moment mal!"
-        show eve happy2
+        show eve pnpask
         e "Was ist denn?"
         p "Ich muss dich jetzt was fragen, bevor ich's vergesse."
         e "Hmmmh?"
         p "Sag mal... ist das mit deinen Eltern real gewesen?"
-        show eve talk2 
+        stop music fadeout 1.0
+        scene bg hut with dissolve
+        show eve talk2 with dissolve
         e "Wieso das denn?"
         play music evetheme fadein 1.0
         p "Darfst du daheim echt nichts machen?"

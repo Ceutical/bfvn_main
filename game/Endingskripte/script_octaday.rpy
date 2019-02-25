@@ -25,7 +25,7 @@ label octas_ending:
     show octa talk
     o "Ich glaub schon Louis. Du weißt doch selber, wenn die Heidenau was sagt, dann meint die das ernst."
     show louis really
-    "Ja, aber darf die mir meine Jacke wegnehmen? Ich hab doch nur die eine."
+    L "Ja, aber darf die mir meine Jacke wegnehmen? Ich hab doch nur die eine."
     p "Octavia hat recht, pass lieber auf."
     show louis mad
     L "Oh man. Verdammt!"
