@@ -299,7 +299,7 @@ label eves3:
     show wirt mad
     "Wirt" "Mit Verlaub, ich weiß nicht ob ich euch das sagen sollte. Nicht dass ihr Bälger dann noch euer Leben unnötig verwirkt. Dies scheint mir dann doch eine Nummer zu groß für Euch zu sein."
     show wirt n
-    e "Wir sind mutige Helden und von Weitem hergereißt, nur um hier Abenteuer zu meistern. Können wir Sie gar nicht vom Gegenteil überzeugen?"
+    e "Wir sind mutige Helden und von Weitem hergereist, nur um hier Abenteuer zu meistern. Können wir Sie gar nicht vom Gegenteil überzeugen?"
     p "Warte, Evelynn. Ich hab da eine Idee!"
     
     menu:
@@ -585,7 +585,7 @@ label eves5:
             show eve pnpsad
             e "Das war aber ganz schön knapp...wenn das Monster viel stärker ist, könnte es gefährlich werden…"
             $ evesbpoints -= 1
-            hide eve pnp2
+            hide eve pnp2 with moveoutright
 
             
             
