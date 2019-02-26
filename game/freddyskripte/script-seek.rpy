@@ -70,6 +70,7 @@ label location:
     
     n "Wo sollte ich wohl suchen? Sobald ich loslauf muss ich schnell sein!"
     menu:
+        n "Wo sollte ich wohl suchen? Sobald ich loslauf muss ich schnell sein!"
         "Gruppenraum" if grura == True:
             jump Gruppenraum
         "Flur" if flur == True:
@@ -228,7 +229,7 @@ label seekwinner:
     k "Deine Mutter wartet schon auf dich!"
     k "Los, du kannst dich ja mittlerweile schon alleine anziehen!"
     n "Hmmh, dann muss ich wohl laus."
-    p "Wenn meine mama wartet, dann tschau Leute."
+    p "Wenn meine Mama wartet, dann tschau Leute."
     o "Tschüss."
     a "Servus."
     r "Auf Wiedersehen."
@@ -239,7 +240,7 @@ label seekloser:
     $ octa_points -= 2
     show bg grura2
     n "Ich kann nicht mehr!"
-    p "So leute, ich gebe auf, ihr könnt aus euren verstecken!"
+    p "So leute, ich gebe auf, ihr könnt aus euren Verstecken!"
     show randy talk at rightish
     show octa smug
     show anja jabber at leftish
@@ -256,7 +257,7 @@ label seekloser:
     k "Deine Mutter wartet schon auf dich!"
     k "Los, du kannst dich ja mittlerweile schon alleine anziehen!"
     n "Hmmh, dann muss ich wohl laus."
-    p "Wenn meine mama wartet, dann tschau Leute."
+    p "Wenn meine Mama wartet, dann tschau Leute."
     o "Tschüss."
     a "Servus."
     r "Auf Wiedersehen."

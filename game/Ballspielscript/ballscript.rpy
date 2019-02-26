@@ -114,8 +114,8 @@ label sceneball:
     $ spielpunkte = 0
 
 label timedmenu2:
-    $ time = 2
-    $ timer_range = 2
+    $ time = 1.5
+    $ timer_range = 1.5
     $ timer_jump = 'menu2_slow'
     show oball links
     show lrechts links
@@ -194,8 +194,8 @@ label timedmenu2:
         
                 
 label timedmenu3:
-    $ time = 1.8
-    $ timer_range = 1.8
+    $ time = 1.35
+    $ timer_range = 1.35
     $ timer_jump = 'menu3_slow'
     pause 0.5
     show screen countdown
@@ -243,8 +243,8 @@ label timedmenu3:
 label timedmenu4:
     show oball rechts with dissolve
     pause 0.5
-    $ time = 1.6
-    $ timer_range = 1.6
+    $ time = 1.2
+    $ timer_range = 1.2
     $ timer_jump = 'menu4_slow'
     show screen countdown
     
@@ -384,8 +384,8 @@ label timedmenu4:
 label timedmenu5:
     show oball tiefzielen with dissolve
     pause 0.5
-    $ time = 1.4
-    $ timer_range = 1.4
+    $ time = 1.05
+    $ timer_range = 1.05
     $ timer_jump = 'menu5_slow'
     show screen countdown
     

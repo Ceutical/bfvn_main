@@ -371,8 +371,8 @@ label start:
         renpy.music.set_volume(volume=0.5, channel='music1')
     
     ##### OTHER DEFINITIONS #####
-    $ seekwin = True
-    $ seekloss = True
+    $ seekwin = False
+    $ seekloss = False
     $ grura = True
     $ flur = True
     $ court = True
@@ -398,6 +398,7 @@ label start:
     $ pnpplay = False
     $ win = "yes" ###variablenübernahme kein boolean
     $ skillpoints = 0 ### für octapfad
+    $ credits = False
     
     
     init:
@@ -575,6 +576,7 @@ label start:
             
             
             
+            
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -653,6 +655,10 @@ label scene1:
         "Octas Ende.":
             stop music1
             jump octas_ending
+            
+        "Credits.":
+            stop music1
+            jump credits
             
         "Normal.":
             jump childlike
@@ -1074,8 +1080,8 @@ label scene6:
             show eve happy2
             e "Wir haben zu Hause ein Buch mit ganz vielen Bildern und da ist auch so ein Leuchtturm drin."
             e "Ich mag das Buch. Immer wenn mir was gefällt mal ich das dann hier. Mama sagt ich darf nicht so viel nach draußen also male ich gerne."
-            e "Und Leuchttürme haben so tolle rote Streifen! Aber ich fänd viel toller wenn sie goldene und violette Streifen hätten."
-            e "Also mach ich meine so, weil die sind ja dann viel schöner."
+            e "Und Leuchttürme haben so tolle rote Streifen! Rot und Weiß sieht so schön zusammen aus. Das liegt bestimmt am Kontrast!"
+            e "Also mach ich meine auch so, weil die sind ja dann sind die genauso schön."
             p "Ich kann garnicht so toll malen wie du. Zeig mir das!"
             show eve draw
             e "Hmm... Nein."
@@ -2107,8 +2113,7 @@ label scene15:
     p "Wieso?"
     r "Es ist heute, aber wir kannten uns ja nicht und Anja hat gesagt, dass du mitmachen willst."
     show randy happy
-    r "Ich hoffe du kannst trotzdem kommen... Wie heißt du eigentlich genau?"
-    p "[name]."
+    r "Ich hoffe du kannst trotzdem kommen!"
     r "Frag einfach deine Mama, die wird bestimmt nichts dagegen haben. Musst du sowieso fragen, sonst sagt meine Mama, du darfst nicht kommen."
     p "Mach ich. Anja hat mir erzählt, dass du Monsterfilme anschauen darfst."
     show randy talk
@@ -3464,7 +3469,7 @@ label scenew2_3:
     m "Schau aber ja nicht zu lange in diese Dinger, sonst werden deine Augen noch rechteckig."
     p "So viele Spiele hab ich auch nicht."
     n "Mama gefällt wohl mein Geschenk nicht. Wenn man so alt wird, spielt man mit so etwas auch nicht mehr hat mir mal jemand gesagt."
-    m "Egal, jetzt gehts erst mal heim!"
+    m "Egal, jetzt gehts erst mal Heim!"
     scene bg black with dissolve
     play sound cardoor1
     n "..."
@@ -3560,11 +3565,13 @@ label scenew2_5:
     Lt "Oh, hi [name], willst du mitmachen?"
     pt "Ja! Viel besser als Ball spielen! Moment ..."
     pt "Bei was denn?"
-    Lt "Na, wir spielen Geschichten erzählen."
-    pt "Wie spielt man denn etwas zu erzählen?"
+    Lt "Na, wir spielen \"Geschichten erzählen.\""
+    pt "Wie spielt man denn etwas zu erzählen? Dann erzählt man doch nur!"
     Lt "Wie, das weißt du nicht?"
     Lt "Na gut, okay ich erklärs."
-    Lt "Also ich fange einen Satz an und du vervollständigst den dann. Und da wird dann eine Geschichte draus."
+    Lt "Also ich sag einen Satz. Aber ich sag ihn nicht zu Ende!"
+    Lt "Das machst du dann. Du denkst dir aus wie der Satz weitergeht."
+    Lt "Und da wird dann eine Geschichte draus."
     Lt "Schau ich hab hier zum Beispiel ein Schloss gebaut."
     nt "Naja, ob das wie ein Schloss aussieht... Wie hat er es überhaupt geschafft, dass das so schief steht."
     nt "Ist das ... Haargel in dem Sand?"
@@ -3954,7 +3961,7 @@ label scenew2_7:
 #JUMPER
     if anja_points >= eve_points and anja_points > octa_points:
         show karin talk
-        k "Ihr{suf4] [name] ist hier gut aufgehoben und passt wunderbar in unsere bunte Gruppe."
+        k "Ihr [suf4] [name] ist hier gut aufgehoben und passt wunderbar in unsere bunte Gruppe."
         k "Am meisten ist [name] mit Anja unterwegs."
         k "Die Beiden sind ständig am Quatschen!"
         k "Wobei Anja ehrlich gesagt viel mehr redet als [name]."
@@ -3976,7 +3983,7 @@ label scenew2_7:
             
     elif eve_points > anja_points and eve_points > octa_points:
         show karin talk
-        k "Ihr{suf4] [name] ist ein wirklich kreatives Kind, weswegen es kein Wunder ist, dass [pro2] sich so gut mit Evelynn versteht."
+        k "Ihr [suf4] [name] ist ein wirklich kreatives Kind, weswegen es kein Wunder ist, dass [pro2] sich so gut mit Evelynn versteht."
         k "Die Beiden sind ständig am Maltisch und produzieren ihre kleinen Kunstwerke."
         show karin go
         k "Evelynn ist ein Naturtalent und manchmal frag ich mich, ob sie besser malen kann als ich. Zumindest was Schattierungen angeht."
@@ -5583,26 +5590,26 @@ label scenew3_0:
         jump eves_ending
     
     
-label credits:
-    window hide
-    scene bg bedroom with fade
-    nvln "Fabian Pfannmüller\nProduct Owner, Lead Writer"
-    nvln "Kilian Petry\nLead Scenedesigner, Lead Coder"
-    nvln "Frederik Haas\nSCRUM Master, Minigame Coder"
-    nvln "Natalie Kuhrt\nLead Artist, Writer, Coder, Scenedesigner"
-    nvln "Florian Menzel \ \ \ \ \ Sascha Fuchs\nWriter\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -- \ Writer, PR"
-    nvln "Luca Pfeiffermann\nLead Sounddesigner"
-    nvl clear
-    nvln "Vielen Dank für's Spielen!"
-    nvln "Euer Team von Baby's First Visual Novel"
-    window hide
-    scene cg selfiefriendo with fade
-    $ renpy.pause ()
-    window auto
+
+    #window hide
+    #scene bg bedroom with fade
+    #nvln "Fabian Pfannmüller\nProduct Owner, Lead Writer"
+    #nvln "Kilian Petry\nLead Scenedesigner, Lead Coder"
+    #nvln "Frederik Haas\nSCRUM Master, Minigame Coder"
+    #nvln "Natalie Kuhrt\nLead Artist, Writer, Coder, Scenedesigner"
+    #nvln "Florian Menzel \ \ \ \ \ Sascha Fuchs\nWriter\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -- \ Writer, PR"
+    #nvln "Luca Pfeiffermann\nLead Sounddesigner"
+    #nvl clear
+    #nvln "Vielen Dank für's Spielen!"
+    #nvln "Euer Team von Baby's First Visual Novel"
+    #window hide
+    #scene cg selfiefriendo with fade
+    #$ renpy.pause ()
+    #window auto
         
 
     
     
     # This ends the game.
 
-    return
+

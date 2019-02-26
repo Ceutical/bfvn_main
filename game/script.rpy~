@@ -867,7 +867,7 @@ label scene4:
     show louis really at slightright behind octa
     show randy happy at slightleft behind octa
     with moveinbottom
-    k "Gut, dann legen wir mal los... Wir spielen wieder das Käfergruppenlied! Holt doch alle schonmal eure Instrumente aus der Kiste."
+    k "Gut, dann legen wir mal los... Wir spielen wieder das Käfergruppenlied! Holt doch alle schon mal eure Instrumente aus der Kiste."
     n "Hä? Was sollen wir machen? Warum gibt mir das Mädchen ein Stück Holz?"
     hide anja
     hide randy
@@ -886,7 +886,7 @@ label scene4:
             
         "Ähm, nein ... Nicht wirklich ...":
             o "Was, du kannst das garnicht?"
-            o "Die anderen sagen das ist voll schwer. Find ich nicht. Ich bin die Beste damit!"
+            o "Die Anderen sagen, das ist voll schwer. Find ich nicht. Ich bin die Beste damit!"
     
     n "Sie nimmt das aber Ernst. Ist doch nur der Morgenkreis. Kann man da überhaupt die Beste drin sein?"
     o "Und du weißt auch wozu die Klanghölzer gut sind?"
@@ -905,7 +905,7 @@ label scene4:
             
     o "Wie willst du überhaupt vernünftig mitmachen?"
     o "Du kennst doch unser Käfergruppenlied noch garnicht."
-    o "Am Ende versaust du noch alles ..."
+    o "Am Ende versaust du noch Alles ..."
     o "Und dann muss ich, als die Beste natürlich, alles wieder gutmachen!"
     
     menu:
@@ -1127,7 +1127,7 @@ label scene6:
     
     hide eve with dissolve
     n "Wow… die kann mega toll malen. Ich will das auch können."
-    n "Wenn ich öfter mit ihr zusammen male bin ich vielleicht auch irgendwann mal so gut."
+    n "Wenn ich öfter mit ihr zusammen male, bin ich vielleicht auch irgendwann mal so gut."
 label meantoeve:
     hide eve with dissolve
     n "Oh… da ist ja Mama? Ist es schon Nachmittag? Aber es war doch gerade noch Morgenkreis und jetzt ist schon wieder Schluss?"
@@ -1270,7 +1270,7 @@ label scene9:
     p "Eine Ente!"
     m "Fast! Aber mit dem hier kommst du bestimmt leichter aus den Federn."
     scene bg street with dissolve
-    n "Dieser Hahn wie Mama die Ente nennt, ist echt nervig. Wie soll mir das denn beim Aufstehen helfen?"
+    n "Dieser Hahn ist echt nervig. Wie soll mir das denn beim Aufstehen helfen?"
     n "Ich glaube Mama will sich nur über mich lustig machen."
     n "Aber, eigentlich sieht die Ente ja ganz lustig aus. Naja, auf zum Morgenkreis."
     scene bg grura
@@ -1283,12 +1283,12 @@ label scene9:
     show octa mad at slightleft with moveinleft
     o "Öhhhh!"
     show randy mad at left with moveinleft
-    r "Wir haben doch gestern schon gesungen!"
+    "???" "Wir haben doch gestern schon gesungen!"
     o "Genau, wir haben keine Lust!"
     p "Schon wieder singen. Mega doof!"
     show karin mad
     k "Aber jetzt hab ich doch extra den Recorder für euch mitgebra..."
-    r "Aber singen ist blöd."
+    "???" "Aber singen ist blöd."
     show karin n
     k "In Ordnung ... Und was wollt ihr dann machen?"
     show octa smug
@@ -1409,7 +1409,7 @@ label scene11:
     scene bg court with fade    
     n "Eigentlich will ich mich nur hinlegen und etwas in der Sonne dösen. Da auf der Wiese siehts gut aus."
     n "Wer schreit denn da?"
-    n "Ich guck besser mal nach. Nicht das ich was verpasse."
+    n "Ich guck besser mal nach. Nicht, dass ich was verpasse."
     n "Sitzt da Anja im Baum? Wer ist den der Junge da?"
     show anja vmadb2 at topleft with dissolve
     a "Is doch a völligs Gschmarre wos du dou verzüllst."
@@ -1681,7 +1681,7 @@ label scene13:
     odad "Ich bin mir immer noch nicht so sicher."
     odad "Willst du wirklich nicht, dass wir dich abholen?"
     odad "Jetzt wo hier keine Stützräder mehr dran sind kannst du dich wirklich verletzen."
-    o "Ihr müsst doch zum Arzt, ich schaff es schon alleine Heim, ihr habt mir ja den Weg gezeigt."
+    o "Ihr müsst doch zum Arzt, ich schaff es schon alleine heim, ihr habt mir ja den Weg gezeigt."
     show odad at right
     show oschutz at center
     with move
@@ -2051,7 +2051,7 @@ label scene15:
     
     a "Gar nicht wahr!"
     n "Ich hör sie sogar jetzt."
-    a "Mit den Hula Hoop Reifen bin ich viel besser als du!"
+    a "Mit den Hula Hoop Reifen bin ich viel besser als wie du!"
     n "Was is da los? Ich sollte mal nachschauen."
     scene bg court
     show anja mad at rightish
@@ -2069,14 +2069,14 @@ label scene15:
     a "Aber du kannst das nicht!"
     o "Kann ich wohl!"
     hide fight with dissolve
-    n "Irgendwie blick ich nicht durch, aber Hula Hoop hört sich lustig an"
+    n "Irgendwie blick ich nicht durch, aber Hula Hoop hört sich lustig an."
     p "Darf ich vielleicht den Reifen haben?"
     "{color=#0099ff}Octavia:{/color} Du erst recht nicht! \n{color=#0099ff}Anja:{/color} Gerade nicht!"
     n "Wie es aussieht bin ich hier nicht erwünscht. Ich sollte wohl einfach gehen."
     scene bg grura2 with fade
-    n "Och man, was soll ich dann machen... Murmelbahn vielleicht? Auch langweilig..."
+    n "Och man, was soll ich dann machen... Murmel spielen vielleicht? Auch langweilig..."
     n "Hmmh..."
-    n "Was solls, auf zur Murmelbahn!"
+    n "Was solls, auf zu den Murmeln!"
     window hide
     scene cg marble with fade
     $ renpy.pause ()
@@ -2379,7 +2379,7 @@ label scene18:
     hide geschenk with dissolve
     p "Mach ich!"
     n "Ich lege das Geschenk auf den Tisch und dreh mich um. Ich sehe nichts Besonderes, auf was hat Randy geschaut?"
-    hide rparty happy
+    hide rparty happy with dissolve
     if costume == "moth":
         jump scene19
     elif costume == "wolp":
@@ -2582,7 +2582,7 @@ label scene20:
     e "Ich wollte doch erst raten."
     p "Genau! Können wir uns nicht erst hinsetzen?"
     show rparty vhappy
-    r "Nein. Ihr seid die Neuen, ihr dürft gleich starten."
+    r "Nein. Neues Schwein, muss es sein!"
     menu:
         "Ich möchte anfangen.":
             $ eve_points += 2
@@ -3123,7 +3123,7 @@ label scenew2_0:
         v "Hast du denn schon neue Freunde gefunden?"
         "Ja!":
             p  "Ja, ich mag die anderen, wir spielen ganz viel zusammen!"
-            v "Das freut mich! Dann mal ab mit dir in den Kindergarten, viel Spaß mein Kleiner!"
+            v "Das freut mich! Dann mal ab mit dir in den Kindergarten, viel Spaß mein[suf4] Klein[suf2]!"
             
         "Ein paar.":
             p "Ähm… ein paar schon, ja…"
@@ -3134,7 +3134,7 @@ label scenew2_0:
             v "Naja, du kennst die anderen Kinder ja wahrscheinlich auch noch nich so gut, ihr werdet euch bestimmt bald anfreunden."
             
     n "Papas Bart kratzt in letzter Zeit immer wenn er mir auf die Stirn küsst. Das nervt!"
-    v "Mach's gut mein Kleiner. Bis nächstes Mal!"
+    v "Mach's gut mein[suf4] Klein[suf2]. Bis nächstes Mal!"
     hide dad with moveoutleft
     n "Und weg ist er auch schon wieder. Ich freue mich irgendwie schon, Mama später wieder zu sehen."
     
@@ -3464,7 +3464,7 @@ label scenew2_3:
     m "Schau aber ja nicht zu lange in diese Dinger, sonst werden deine Augen noch rechteckig."
     p "So viele Spiele hab ich auch nicht."
     n "Mama gefällt wohl mein Geschenk nicht. Wenn man so alt wird, spielt man mit so etwas auch nicht mehr hat mir mal jemand gesagt."
-    m "Egal, jetzt gehts erst mal Heim!"
+    m "Egal, jetzt gehts erst mal heim!"
     scene bg black with dissolve
     play sound cardoor1
     n "..."
@@ -3502,7 +3502,7 @@ label scenew2_4:
     k "So, die dritte Übung ist die Folgende..."
     k "..."
     k "Genau, so wie bei Octavia!"
-    o "ist auch voll leicht."
+    o "Ist auch voll leicht."
     k "Nun, weiter..."
     n "..."
     play music maintheme fadeout 1.0
@@ -3672,7 +3672,7 @@ label scenew2_5:
             Lt "Meinst du das Ernst?"
             pt "Also ja..."
             Lt "Ach egal."
-            Lt "auf ihrem Weg zur [burg] treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
+            Lt "Auf ihrem Weg zur [burg] treffen sie auf eine riesige Ente, die einen Teil des Schlüssels um ihren Hals trägt."
             Lt "Nach einem harten Kampf, schaffen die Helden es der Ente das Halsband mit dem Teil des Schlüssels abzunehmen."
 
         "den gefährlichen Fluss des Verderbens überqueren.":
@@ -3954,12 +3954,12 @@ label scenew2_7:
 #JUMPER
     if anja_points >= eve_points and anja_points > octa_points:
         show karin talk
-        k "Ihr [name] ist hier gut aufgehoben und passt wunderbar in unsere bunte Gruppe."
+        k "Ihr{suf4] [name] ist hier gut aufgehoben und passt wunderbar in unsere bunte Gruppe."
         k "Am meisten ist [name] mit Anja unterwegs."
-        k "Die beiden sind ständig am Quatschen!"
+        k "Die Beiden sind ständig am Quatschen!"
         k "Wobei Anja ehrlich gesagt viel mehr redet als [name]."
         show mum happy
-        k "Aber die beiden zusammen wirken recht augeweckt."
+        k "Aber die Beiden zusammen wirken recht augeweckt."
         show karin n
         m "Und was ist diese Anja für ein Typ?"
         k "Oh Anja. Das ist eine ga... und außerdem..."
@@ -3969,17 +3969,17 @@ label scenew2_7:
         show mum mad at leftish
         show karin go at rightish
         with fade
-        k "Nun, sie --- relativ neu. Es macht Sinn, dass die beiden --- kommunikativ und gut im Zuhören."
+        k "Nun, sie --- relativ neu. Es macht Sinn, dass die Beiden --- kommunikativ und gut im Zuhören."
         k "Am Freitag werde---"
         show mum happy
         show karin n
             
     elif eve_points > anja_points and eve_points > octa_points:
         show karin talk
-        k "Ihr [name] ist ein wirklich kreatives Kind, weswegen es kein WUnder ist, dass [pro2] sich so gut mit Evelynn versteht."
-        k "Die beiden sind ständig am Maltisch und produzieren ihre kleinen Kunstwerke."
+        k "Ihr{suf4] [name] ist ein wirklich kreatives Kind, weswegen es kein Wunder ist, dass [pro2] sich so gut mit Evelynn versteht."
+        k "Die Beiden sind ständig am Maltisch und produzieren ihre kleinen Kunstwerke."
         show karin go
-        k "Evelynn ist ein Naturtalent und manchmal frag ich mich, ob Sie besser malen kann als ich. Zumindest was Beleuchtung angeht."
+        k "Evelynn ist ein Naturtalent und manchmal frag ich mich, ob sie besser malen kann als ich. Zumindest was Schattierungen angeht."
         k "[name] hat sich deshalb auch unter ihrer Kritik künstlerisch stark verbessert."
         show mum happy
         m "Das ist ja gut. Und was für ein Typ ist diese Evelynn?"
@@ -3990,15 +3990,15 @@ label scenew2_7:
         show mum mad at leftish
         show karin go at rightish
         with fade
-        k "Leider ein --- zurück--- Mädchen. Beidenehmen---Freundschaft mit, denn--- Kokon heraus."
+        k "Leider ein --- zurück--- Mädchen. Beide nehmen---Freundschaft mit, denn--- Kokon heraus."
         k "Am Freitag werde..."
         show mum happy
         show karin n
         
     elif octa_points >= anja_points and octa_points >= eve_points:
         show karin go
-        k "[name] ist wirklich sehr ergeizig und gibt sich mit allem was er macht wirklich Mühe."
-        k "Das ist schon bemerkenswert für [pro] Alter, deswegen wundert es mich auch nicht, dass [pro2] sich mit den, wie soll ich sagen, Musterkind Octavia angefreundet hat."
+        k "[name] ist wirklich sehr ergeizig und gibt sich mit Allem was [pro2] macht wirklich Mühe."
+        k "Das ist schon bemerkenswert für [pro]s Alter, deswegen wundert es mich auch nicht, dass [pro2] sich mit dem, wie soll ich sagen, Musterkind Octavia angefreundet hat."
         show karin n
         show mum mad
         m "Hmmmh..."
@@ -4011,7 +4011,7 @@ label scenew2_7:
         show mum mad at leftish
         show karin go at rightish
         with fade
-        k "...deshalb ist es gut, dass [name] jetzt hier ist --- jemandern der [pro2] fordert."
+        k "...deshalb ist es gut, dass [name] jetzt hier ist --- jemandern der [pro5] fordert."
         k "Deshalb, werde ich am Freitag..."
         show mum happy
         show karin n
@@ -4097,7 +4097,7 @@ label scenew2_8:
     o "Wenn du willst, dann darfst du auch Einen zurückwerfen. Oder wir machen einen Wettbewerb daraus!"
     o "Meine Papierflieger sind eh die Besten."
     show randy talk
-    r "Wenn du willst, kannst du auch versuchen gegen Sie zu gewinnen!"
+    r "Wenn du willst, kannst du auch versuchen gegen sie zu gewinnen!"
     n "Hmmh, Papierflieger basteln oder verstecken spielen?"
     
     menu:
@@ -4131,7 +4131,7 @@ label wettbewerb:
     scene bg bastel with dissolve
 
     n "Ich will unbedingt einen besseren Flieger als Octavia bauen!"
-    n "Doch wie soll mein Papierflieger am besten aussehen, damit ich Sie besiege?"
+    n "Doch wie soll mein Papierflieger am besten aussehen, damit ich sie besiege?"
     n "Wie falte ich so ein Ding überhaupt?"
     
     menu:
@@ -4396,10 +4396,10 @@ label scenew2_9:
         p "Alle gefunden!"
         
     else:
-        p "Wir haben heute alle zusammen verstecken gespielt und ich musste suchen." 
+        p "Wir haben heute alle zusammen Verstecken gespielt und ich musste suchen." 
         p "Ich musste die Augen zu machen, dann drei mal bis 20 zählen und dann suchen."
         show mum n
-        p "Konnte Sie aber nicht alle erwischen, ich war zu langsam und dann sind Sie aus ihren Verstecken gekommen."
+        p "Konnte sie aber nicht alle erwischen, ich war zu langsam und dann sind sie aus ihren Verstecken gekommen."
         p "Leider verloren."
 
     show mum talk
@@ -4413,7 +4413,7 @@ label scenew2_9:
     p "Du hast mich angemeldet?"
     p "Und wenn ich garkeine Lust habe?"
     show mum talk
-    m "Sei mal nicht so. Wandertage sind immer schön, durch die gegen mit deinen Freunden laufen, ein bisschen Erkunden und spielen!"
+    m "Sei mal nicht so. Wandertage sind immer schön, durch dieGegend mit deinen Freunden laufen, ein bisschen Erkunden und spielen!"
     m "Ich mochte die immer."
     show mum happy
     p "Ich mach ja auch nur Spaß, ich freu mich schon auf morgen!"
@@ -5224,7 +5224,7 @@ label scenew2_10:
             e "Wir werden mit ihm reden und mit ihm schimpfen! Dann werdet ihr keine Angst mehr vor ihm haben müssen."
             e "Der Bauer schaut euch dankbar an."
             p "Und wo sollen wir den Drachen finden?"
-            e "\"Ganz einfach\", sagte die Bardin. \"Wir folgen einfach den großen Füßabdrücken!\""
+            e "\"Ganz einfach\", sagte die Bardin. \"Wir folgen einfach den großen Fußabdrücken!\""
             show pnp dragon with dissolve
             e "Nach gar nicht langer Zeit sahen sie den Drachen. Er lag unter einem Baum und hielt ein Mittagsschlaf, weil er so viel Kuchen gegessen hatte."
             e "Was sollen wir tun?"
