@@ -1,0 +1,485 @@
+Ankunft Brotzeitpause:
+
+k "Alle mal aufpassen! Wir machen hier unsere Brotzeitpause!"
+
+    k "Bitte nicht weglaufen, setzt euch her. Hier liegen ein paar große Baumstämme, da könnt ihr euch draufsetzen."
+
+    show heide mad
+
+    h "Hört auf Karin. Hier geht keiner ohne Erlaubnis weg, ja?"
+
+    show heide n
+
+    
+o "Man, ernsthaft?"
+
+p "Was...was ist denn?"
+
+o "Müssen wir unbedingt Pause machen?"
+
+o "Ist doch echt nur noch ein ganz kleines Stück bis zur Hütte."
+
+p "Na wenn die Karin das sagt dann..."
+
+o "Ist ja gut."
+
+o "Aber das ist mega lahm hier."
+
+n "Eigentlich bin ganz froh mal kurz was essen zu können..."
+
+o "Na egal..."
+
+o "Und was hast du so dabei?"
+
+p "Na ein paar Brote halt."
+
+p "Eins mit Schinken..."
+
+p "und Eins mit Ei."
+
+p "Und du?"
+
+o "Ach ein paar Onigiri und Maki."
+
+p "Oni...Maki...was?"
+
+p "Was soll das denn sein?"
+
+o "Na so Reis mit Zutaten."
+
+o "Guck hier. Das ist mit rotem Ingwer!"
+
+p "Ihhh!"
+
+p "Ingwer tut meine Mama manchmal ins Essen."
+
+p "Und dann schmeckt das furchtbar scharf!"
+
+o "Ach jetzt hab dich nicht so."
+
+p "Ne, das kann doch keiner essen!"
+
+o "Klar kann man das!"
+
+o "Hier..."
+
+o "Trau dich!"
+
+
+Auswahl:
+
+A: "Okay vielleicht ein Bissen..." (+1 Fahrradskill)
+
+B: "Ne, lass mal stecken..." (+0 Fahrradskill)
+
+
+Wenn A:
+
+o "Und war's so schlimm?"
+
+p "Ne. War ja ganz okay."
+
+p "Ein bisschen sal..."
+
+p "Moment!"
+
+p "Ahhhhhh!"
+
+p "Das brennt!"
+
+o "Hä? Was ist denn?"
+
+o "Du bist ja ganz rot."
+
+p "Das ist mega scharf!"
+
+p "Mein ganzer Mund brennt!"
+
+p "Das gehört verboten!"
+
+p "Essen darf nicht so scharf sein!"
+
+o "Ach, jetzt sei mal nicht so 'ne Memme!"
+
+o "Das ist vielleicht ein ganz kleines bisschen scharf."
+
+o "Mehr auch nicht."
+
+p "Dann iss du doch mal was davon!"
+
+o "Ja, und?"
+
+n "Die hat das einfach so gegessen..."
+
+n "Was ist denn bei der falsch?"
+
+n "Hat die einen Mund aus Stahl oder so?"
+
+p "Aber?"
+
+p "Aber das..."
+
+p "Was zum?"
+
+o "Hab doch gesagt, du sollst dich nicht so haben."
+
+r "Wollt ihr tauschen?"
+
+p "Hä...was?"
+
+r "Na, ich hab so ne blöde Banane von Mama eingepackt bekommen."
+
+r "Und Bananen sind doof!"
+
+p "Ach so!"
+
+p "Essen!"
+
+o "Hier kannst ein Maki für..."
+
+r "Ne, Octavia. Deine Brotzeit ist immer mega komisch."
+
+r "Sorry, aber nicht mein Geschmack."
+
+o "Pah... ich wollte die Banane eh nicht!"
+
+o "Die ist eh schon ganz braun!"
+
+r "Stimmt gar nicht!"
+
+p "Siehste!"
+
+p "Auch Randy mag das nicht."
+
+p "Und Anja sowieso nicht."
+
+o "Ach ihr habt doch alle keine Ahnung."
+
+p "Hier Randy!"
+
+p "Kannst die Hälfte von meinem Schinkenbrot haben."
+
+r "Oh danke!"
+
+r "Hier die Bana..."
+
+p "Ne lass mal. Die ist doch schon ganz braun."
+
+o "Hahaha!"
+
+r "Hey!"
+
+r "Stimmt gar nicht!"
+
+a "Was stimmt gar nicht?"
+
+o "Na, der Randy hat ne braune Banane dabei."
+
+a "Ach so. Aber das stimmt doch!"
+
+r "Nein!"
+
+r "Lasst mich in Ruhe!"
+
+r "Ihr könnt mich mal!"
+
+o "Hahaha"
+
+p "Hahaha"
+
+a "Was ist denn mit dem los!?"
+
+a "Was für eine Laus ist dem denn über die beleidigte Leberwurst gelaufen?"
+
+o "Keine Ahnung..."
+
+a "Und warum bist du so rot Prota?"
+
+p "Also die Octavia die hat so..."
+
+o "Weil er ne Memme ist!"
+
+p "Hey, bin ich nicht!"
+
+p "Das war voll scharf!"
+
+a "Was ist voll scharf?"
+
+o "Ach, der meint die Onigiri."
+
+a "Oni...was?"
+
+o "Sagt mal, seid ihr alle doof oder was?"
+
+o "REIS MIT ZUTATEN!"
+
+o "Das heißt halt so."
+
+o "Hier."
+
+o "Das sind welche mit rotem Ingwer."
+
+a "Sieht gar nicht so schlecht aus."
+
+o "Willst du ein Stück?"
+
+a "ich weiß ja nicht. Ich mag scharf nicht so..."
+
+
+
+Wenn B:
+
+
+o "Ach, jetzt sei mal nicht so 'ne Memme!"
+
+o "Das ist kein bisschen scharf."
+
+p "Dann iss du doch mal was davon!"
+
+o "Ja, und?"
+
+n "Die hat das einfach so gegessen..."
+
+n "Vielleicht war es ja doch nicht so scharf."
+
+o "Siehste."
+
+o "Gar nicht scharf."
+
+r "Wollt ihr tauschen?"
+
+p "Hä...was?"
+
+r "Na, ich hab so ne blöde Banane von Mama eingepackt bekommen."
+
+r "Und Bananen sind doof!"
+
+p "Ach so!"
+
+p "Essen!"
+
+o "Hier kannst ein Maki für..."
+
+r "Ne, Octavia. Deine Brotzeit ist immer mega komisch."
+
+r "Sorry, aber nicht mein Geschmack."
+
+o "Pah... ich wollte die Banane eh nicht!"
+
+o "Die ist sowieso schon ganz braun!"
+
+r "Stimmt gar nicht!"
+
+p "Schau!"
+
+p "Auch Randy mag das nicht."
+
+p "Und Anja sowieso nicht."
+
+o "Ach ihr habt doch alle keine Ahnung."
+
+p "Hier Randy!"
+
+p "Kannst die Hälfte von meinem Schinkenbrot haben."
+
+r "Oh danke!"
+
+r "Hier die Bana..."
+
+p "Ne lass mal. Die ist doch schon ganz braun."
+
+o "Hahaha!"
+
+r "Hey!"
+
+r "Stimmt gar nicht!"
+
+a "Was stimmt gar nicht?"
+
+o "Na, der Randy hat ne braune Banane dabei."
+
+a "Ach so. Aber das stimmt doch!"
+
+r "Nein!"
+
+r "Lasst mich in Ruhe!"
+
+r "IHR KÖNNT MICH MAL!"
+
+o "Hahaha"
+
+p "Hahaha"
+
+a "Was ist denn los!?"
+
+a "Was für eine Laus ist dem denn über die beleidigte Leberwurst gelaufen?"
+
+o "Keine Ahnung..."
+
+a "Was hast du denn da?"
+
+p "Na, belegte Brote."
+
+a "Nicht du."
+
+o "Ach, du meinst die Onigiri."
+
+a "Oni...was?"
+
+o "Sagt mal, seid ihr alle doof oder was?"
+
+o "REIS MIT ZUTATEN!"
+
+o "Das heißt halt so."
+
+o "Hier."
+
+o "Das sind welche mit rotem Ingwer."
+
+a "Sieht gar nicht so schlecht aus."
+
+o "Willst du ein Stück?"
+
+a "Ich weiß ja nicht. Ich mag scharf nicht so..."
+
+
+Auswahl:
+A: Nichts sagen... (Fahrradskill +0)
+B: Anja überzeugen... (Fahrradskill +1)
+C: Anja warnen... (Fahrradskill -1)
+
+Wenn A:
+
+a "Ach, warum nicht."
+
+n "Oh... ich seh's schon..."
+
+n "So rot war Anja noch nie."
+
+a "Kruzifix nochmoi..."
+
+a "Ze fix..."
+
+a "Wia..."
+
+a "HOASS, HOASS, HOASSSSSSS!"
+
+o "Hahaha"
+
+p "Man, jetzt hast du sie verschreckt."
+
+o "Ja super oder?"
+
+o "Wie die geflucht hat!"
+
+o "Ich hab zwar nix verstanden..."
+
+o "...aber voll lustig!"
+
+
+Wenn B:
+
+p "Na komm schon!"
+
+p "Man muss alles einmal probieren."
+
+p "Sagt meine Mama immer."
+
+a "Na gut. Gib her!"
+
+n "Oh... ich seh's schon..."
+
+n "So rot war Anja noch nie."
+
+a "Kruzifix nochmoi..."
+
+a "Ze fix..."
+
+a "Wia..."
+
+a "HOASS, HOASS, HOASSSSSSS!"
+
+o "Hahaha"
+
+p "Man, jetzt haben wir sie verschreckt."
+
+o "Ja super oder?"
+
+o "Wie die geflucht hat!"
+
+o "Ich hab zwar nix verstanden..."
+
+o "...aber voll lustig!"
+
+p "Okay."
+
+p "Ein bisschen lustig war's schon."
+
+o "Eben!"
+
+
+Wenn C:
+
+p "Ne lass das lieber!"
+
+p "Ingwer ist super scharf."
+
+o "Hey!"
+
+o "Spielverderber!"
+
+o "Jetzt traut die sich doch nie."
+
+a "Stimmt doch gar nicht!"
+
+o "Stimmt wohl!"
+
+a "Ach ja?!"
+
+a "Dann gib mal her deine Oni...Dinger!"
+
+n "Oh... ich seh's schon..."
+
+n "So rot war Anja noch nie."
+
+a "Ze fix..."
+
+a "Kruzifix nochmoi..."
+
+a "Wia...wos?!"
+
+a "HOASS, HOASS, HOASSSSSSS!"
+
+o "Hahaha"
+
+p "Man, jetzt hast du sie verschreckt."
+
+o "Ja super oder?"
+
+o "Wie die geflucht hat!"
+
+o "Ich hab zwar nix verstanden..."
+
+o "...aber voll lustig!"
+
+
+Danach:
+
+k "Okay Kinder! Die Pause ist gleich vorbei! Esst noch alle auf wenn ihr noch nicht fertig seid, dann laufen wir weiter!"
+            kg "Okay Karin!"
+            show karin go
+            k "Sind alle fertig? Weiter geht's! So weit ist es nicht mehr bis zu der Lichtung."
+            hide karin with moveoutright
+
+
+
+
+
+
+
+
+
+
+
+
+
