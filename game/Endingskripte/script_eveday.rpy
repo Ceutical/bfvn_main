@@ -309,31 +309,31 @@ label eves3:
             show wirt happy
             "Wirt" "Oh...ich bitte um Vergebung. Von einem Halblingstal höre ich zum ersten Mal."
         
-        "Den Wirt überzeugen" if pnpint < 4:
+        "Den Wirt überreden" if pnpint < 4:
             p "Stimmt doch gar nicht! Wir sind schon mega erwachsen!"
             show wirt mad
             "Wirt" "Ihr scheint mir ja  ein ganz schöner Schwätzer zu sein..."
         
-        "Mit den Muskeln beeindrucken" if pnpstr >= 4:
+        "Den Wirt bedrohen" if pnpstr >= 4:
             $ secret = True
-            p "Seht her! Mit meinen Oberarmen kann ich es mit jedem Monster aufnehmen!"
+            p "Seht her! Mit meinen Oberarmen kann ich es mit jedem Monster aufnehmen! Und auch mit jedem Wirt!"
         
-        "Sich vor dem Wirt aufplustern" if pnpstr < 4:
+        "Den Wirt bedrohen" if pnpstr < 4:
             p "Schau Wirt! Meine dicken Arme!"
             show wirt happy
             "Wirt" "Da sind meine ja größer. Und ich steh den ganzen Tag nur hinter der Theke."
         
-        "Einen Becher auf der Nase balancieren" if pnpdex >= 4:
+        "Den Wirt aufmuntern" if pnpdex >= 4:
             $ secret = True
-            p "Seht her, wie geschickt ich bin!"
+            p "Seht her, wie geschickt ich bin! Ich kann einen Becher auf meiner Nase balancieren!"
             p "Na? Beeindruckend, oder?"
         
-        "Mit Krügen jonglieren" if pnpdex < 4:
+        "Den Wirt aufmuntern" if pnpdex < 4:
             p "Schau her wie mit den Krügen jongliere…"
             p "Ups...sorry!"
             show wirt mad
             "Wirt" "Also wirklich! Die bezahlt ihr aber!"
-            e "Natürlich werter Herr! Es tut uns leid."
+            e "Natürlich werter Herr! Es tut uns Leid."
         
             
     if secret == True:
@@ -399,12 +399,13 @@ label eves4:
     e "Schnell, mach was [name]!"
 
     menu:
-        "Angreifen" if pnpstr >= 4:
+        "Waffe ziehen" if pnpstr >= 4:
             n "Einfach Augen zu und draufhauen!"
             play sound whoosh3
             scene bg black with dissolve
             play sound bat
             p "Ja! Voll erwischt!"
+            p "Aber Mist, ich glaube meine Waffe hat auch ein bisschen was abbekommen..."
             scene bg caveentry with dissolve
             show eve pnp2 at rightish with dissolve
             show bat dead with dissolve
@@ -415,9 +416,10 @@ label eves4:
             stop music fadeout 3.0
             e "Mmmmh."
             $ evesbpoints += 1
+            $ pnpstr -=1
             
             
-        "Sich wehren" if pnpstr < 4:
+        "Waffe ziehen" if pnpstr < 4:
             n "Einfach Augen zu und draufhauen!"
             play sound whoosh3
             scene bg black with dissolve
@@ -433,11 +435,13 @@ label eves4:
             e "Aaah..."
             show eve pnp2
             e "Puh, sie ist weg!"
+            p "Aber Mist, ich glaube meine Waffe hat auch ein bisschen was abbekommen..."
             e "Dabei sah die Fledermaus eigentlich gar nicht so gefährlich aus... Ich glaube sie hatte einfach nur Angst."
             p "Wenn die Fledermaus Angst hatte, dann sind wir doch wohl hier richtig."
             stop music fadeout 3.0
             e "Mmmmh."
             $ evesbpoints -= 1
+            $ pnpstr -=1
         
         "Ausweichen" if pnpdex >= 4:
             p "Haha, du triffst mich nicht!"
@@ -455,7 +459,7 @@ label eves4:
             p "Lass uns reingehen, pass aber auf."
             $ evesbpoints += 1
          
-        "Sich ducken" if pnpdex < 4:
+        "Ausweichen" if pnpdex < 4:
             play sound whoosh3
             p "Au!"
             show eve pnpask
@@ -490,6 +494,23 @@ label eves4:
             e "Mmmmh."
             $ evesbpoints += 1
             
+        "Tot stellen" if pnpint <4:
+            p "Wir müssen einfach ganz leise sein, dann übersieht sie uns."
+            e "Ist es dafür nicht schon zu sp-"
+            play sound whoosh3
+            p "Au!"
+            show eve pnpask
+            play sound bat
+            hide bat with moveoutleft
+            e "Hey, ist alles okay?"
+            e "Die hat dich ganz schön erwischt, oder?"
+            p "Ja doch schon."
+            e "Dabei sah die Fledermaus eigentlich gar nicht so gefährlich aus... Ich glaube sie hatte einfach nur Angst."
+            p "Wenn die Fledermaus Angst hatte, dann sind wir doch wohl hier richtig."
+            stop music fadeout 3.0
+            e "Mmmmh."
+            $ evesbpoints -= 1
+            
     
 label eves5:
     scene bg cave with dissolve
@@ -514,6 +535,9 @@ label eves5:
     show eve pnpmad
     e "NEIN!"
     n "Woah. Was ist auf einmal mit ihr los, ist doch nur Pizza. Egal, sie hat es auch hergezaubert."
+    p "Wollen wir uns vielleicht kurz hier hinsetzen?"
+    e "Hier liegen aber überalle Kieselsteine rum...das pickst."
+    p "Ich kann die ja ein wenig zur Seite schieben und dann können wir in Ruhe essen."
     hide pizza
     show pizza2
     show eve pnp2
@@ -540,8 +564,8 @@ label eves5:
     e "Was sollen wir denn jetzt tun?"
     
     menu:
-        "Mit Pizza ablenken"  if pnpint >= 4:
-            n "Ich glaub ich habe Essen gehört!"
+        "Die Pizza benutzen"  if pnpint >= 4:
+            n "Ich glaub ich habe Essen gehört! Vielleicht können wir sie damit ablenken..."
             hide pizzastueck with moveouttop
             p "FANG!"
             "Goblins" "Nicht das Essen!"
@@ -556,10 +580,10 @@ label eves5:
             
             
             
-        "Mit Pizza bewerfen" if pnpint < 4:
+        "Die Pizza benutzen" if pnpint < 4:
             n "Ich glaub ich habe Essen gehört!"
             hide pizzastueck with dissolve
-            p "DA!"
+            p "Nimm das! Voll ins Gesicht!"
             show goblin1 mad
             show goblin2 mad
             play sound goblin2
@@ -590,7 +614,7 @@ label eves5:
             
             
             
-        "Falle auslösen" if pnpdex >= 4:
+        "Steine benutzen" if pnpdex >= 4:
             p "Warte, ich versuch den Tropfstein da oben abzuwerfen!"
             e "Bist du sicher, dass du so gut zielen kannst?"
             p "Mooment…"
@@ -621,7 +645,7 @@ label eves5:
             hide eve with moveoutright
             
             
-        "Falle auslösen" if pnpdex < 4:
+        "Steine benutzen" if pnpdex < 4:
             p "Warte, ich versuch den Tropfstein da oben abzuwerfen!"
             e "Bist du sicher, dass du so gut zielen kannst?"
             p "Mooment…"
@@ -649,7 +673,7 @@ label eves5:
             $ evesbpoints -= 1
             hide eve with moveoutright
             
-        "Angreifen":
+        "Waffe benutzen":
             p "Keine Zeit, wir müssen angreifen."
             show goblin1 mad
             show goblin2 mad
@@ -661,6 +685,7 @@ label eves5:
                 play sound goblin2
                 show goblin1 mad with moveinbottom
                 p "Ha! Voll auf die Mütze!"
+                p "Ohje, meine Waffe ist dabei ganz kaputt gegangen..."
                 p "Eve, schnell noch einen Zauber..."
                 show eve pnpsing
                 show goblin1 mad 
@@ -687,6 +712,7 @@ label eves5:
                 play sound goblin1
                 show goblin1 mad with moveinbottom
                 p "AAAUU!"
+                p "Ohje, meine Waffe ist dabei ganz kaputt gegangen..."
                 p "Eve, einen Zauber..."
                 show eve pnpsing
                 show goblin1 mad 
@@ -759,9 +785,10 @@ label eveboss:
 #Bossfight runde 1### 
    
     menu:
-        "Angreifen":
+        "Waffe benutzen":
             $kampfuse = True
             e "Schlag ihn!"
+            p "Aber ich kann mit meiner Waffe doch gar nichts gegen ihn machen..."
             play sound Aufprall    
             "Königsfüßler" "TSSS TSS"
             play sound cardoor2
@@ -780,7 +807,7 @@ label eveboss:
             $ evesbpoints -= 1
             
         
-        "Angriffszauber!": 
+        "Angriffszauber einsetzen": 
             $ambossuse = True
             p "Eveylnn, wir brauchen nochmal deine Magie!"
             e "Sofort!"
@@ -799,9 +826,10 @@ label eveboss:
             
             
     menu:
-        "Angreifen" if kampfuse == False:
+        "Waffe benutzen" if kampfuse == False:
             $kampfuse = True
             e "Schlag ihn!"
+            p "Aber ich kann mit meiner Waffe doch gar nichts gegen ihn machen..."
             play sound Aufprall    
             "Königsfüßler" "TSSS TSS"
             play sound cardoor2
@@ -820,7 +848,7 @@ label eveboss:
             $ evesbpoints -= 1
             
         
-        "Angriffszauber!" if ambossuse == False: 
+        "Angriffszauber einsetzen" if ambossuse == False: 
             $ambossuse = True
             p "Eveylnn, wir brauchen nochmal deine Magie!"
             e "Sofort!"
@@ -843,64 +871,95 @@ label eveboss:
     if secret == True:
         n "Moment!"
         n "Der Wirt hat doch irgendwas von einer weichen Stelle erzählt…"
-        n "Vielleicht hat er ja die Stirn gemeint?"
-            
-    menu:
-        "Angreifen" if kampfuse == False:
-            $kampfuse = True
-            e "Schlag ihn!"
-            play sound Aufprall    
-            "Königsfüßler" "TSSS TSS"
-            play sound cardoor2
-            p "WAAAAH! Das tut unglaublich weh."
-            $ evesbpoints -= 1
         
-        "Pizza" if pizzause == False:
-            $pizzause = True
-            p "Vielleicht will er auch Pizza essen?"
-            play sound Magie4
-            "Königsfüßler" "TSSS TSS"
-            n "Wie kann man nur keine Pizza mögen?"
-            play sound cardoor2
-            e "WAAAH!"
-            p "EVELYNN!"
-            $ evesbpoints -= 1
+        menu:
+            "Auf den Bauch zielen":
+                p "Bestimmt kommt man da am Bauch irgendwo durch den Panzer!"
+                p  "Hier, nimm das!"
+                play sound Aufprall    
+                "Königsfüßler" "TSSS TSS"
+                play sound cardoor2
+                p "Mist, das muss die falsche Stelle gewesen sein..."
+                e "[name]!"
+                $ evesbpoints -= 1
+                jump evebossfightend
+                
+            "Auf die Stirn zielen":
+                p "Das muss die Schwachstelle sein! Ich bin mir ganz sicher!"
+                p "Hier, nimm das!"
+                play sound Aufprall
+                hide monster
+                show monstercrit 1
+                play sound bossdeath
+                p  "Voll auf die Zwölf!"
+                hide monstercrit
+                show monster n
+                e "Jaaaa!"
+                e "Ich glaub das hat ihm weh getan."
+                e "Jetzt hat er bestimmt genug."
+                "Königsfüßler" "TSSS TSS"
+                p "Verdammt!"
+                $ evesbpoints += 1
+                jump evebossfightend
+               
+            "Auf die Arme zielen":
+                p "Wenn ihm seine Arme wehtun, kann er sich vielleicht nicht mehr so gut wehren...!"
+                p "Hier, nimm das!"
+                play sound Aufprall    
+                "Königsfüßler" "TSSS TSS"
+                play sound cardoor2
+                p "Mist, das muss die falsche Stelle gewesen sein..."
+                e "[name]!"
+                $ evesbpoints -= 1
+                jump evebossfightend
+        
+    if secret == False:
+        menu:
+            "Waffe benutzen" if kampfuse == False:
+                $kampfuse = True
+                e "Schlag ihn!"
+                p "Aber ich kann mit meiner Waffe doch gar nichts gegen ihn machen..."
+                play sound Aufprall  
+                "Königsfüßler" "TSSS TSS"
+                play sound cardoor2
+                p "WAAAAH! Das tut unglaublich weh."
+                $ evesbpoints -= 1
+                jump evebossfightend
+        
+            "Pizza" if pizzause == False:
+                $pizzause = True
+                p "Vielleicht will er auch Pizza essen?"
+                play sound Magie4
+                "Königsfüßler" "TSSS TSS"
+                n "Wie kann man nur keine Pizza mögen?"
+                play sound cardoor2
+                e "WAAAH!"
+                p "EVELYNN!"
+                $ evesbpoints -= 1
+                jump evebossfightend
             
         
-        "Angriffszauber!" if ambossuse == False: 
-            $ambossuse = True
-            p "Eveylnn, wir brauchen nochmal deine Magie!"
-            e "Sofort!"
-            play sound Magie3
-            show amboss with moveintop
-            play sound Aufprall
-            "Königsfüßler" "TSSS TSS"
-            play sound cardoor2
-            hide amboss with moveoutbottom
-            p "Ausweichen."
-            e "Ouch!"
-            p "Warum klappt das nicht?"
-            $ evesbpoints -= 1
+            "Angriffszauber einsetzen" if ambossuse == False:
+                $ambossuse = True
+                p "Eveylnn, wir brauchen nochmal deine Magie!"
+                e "Sofort!"
+                play sound Magie3
+                show amboss with moveintop
+                play sound Aufprall
+                "Königsfüßler" "TSSS TSS"
+                play sound cardoor2
+                hide amboss with moveoutbottom
+                p "Ausweichen."
+                e "Ouch!"
+                p "Warum klappt das nicht?"
+                $ evesbpoints -= 1
+                jump evebossfightend
         
             
-        "Schwachstelle angreifen" if secret == True:
-            p  "Hier, nimm das!"
-            play sound Aufprall
-            hide monster
-            show monstercrit 1
-            play sound bossdeath
-            p  "Voll auf die Zwölf!"
-            hide monstercrit
-            show monster n
-            e "Jaaaa!"
-            e "Ich glaub das hat ihm weh getan."
-            e "Jetzt hat er bestimmt genug."
-            "Königsfüßler" "TSSS TSS"
-            p "Verdammt!"
-            $ evesbpoints += 1
 
  ####FINALE###              
-   
+label evebossfightend:
+ 
     e "Hey, mach irgendwas!"
     play sound Magie1
     p "Ich kann mich nicht bewegen!"
@@ -927,7 +986,7 @@ label eveboss:
         e "DU IDIOT MUSST MIR ALLES RUINIEREN!"
         play music spookywald3 fadein 1.0
         show randy bug at rightish with moveinright
-        r "Was macht ih da?"
+        r "Was macht ihr da?"
         e "HALT DIE KLAPPE RANDY!"
         show randy bugshock
         hide eve with moveoutright
