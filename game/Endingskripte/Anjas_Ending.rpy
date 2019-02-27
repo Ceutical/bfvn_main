@@ -741,8 +741,14 @@ label anjas_ending:
             k "Na kommt!"
             k "Ich glaube wir müssen den anderen Kindern mal was erklären."
             p "Na gut... Nicht dass die anderen Angst haben..."
-            window hide
             scene anja goodend with fade
+            n "Ich bin echt froh, dass wir nicht so großen Ärger bekommen haben."
+            n "Auch die anderen Kinder waren uns gar nicht so sehr sauer, obwohl das ja gar nicht wahr war, was wir ihnen erzählt haben."
+            n "Obwohl..."
+            n "Vielleicht gibt es ja doch irgendwo Hexen."
+            n "Nicht unbedingt in unserem Kindergarten. Aber irgendwo bestimmt."
+            n "Aber Anja und ich werden es schon mit ihnen aufnehmen. Sie ist meine allerbeste Freundin und zusammen schaffen wir Alles!"
+            window hide
             $ renpy.pause ()
             window auto
             jump credits
@@ -851,8 +857,14 @@ label anjas_ending:
             show randy vmad
             r "Aber das ist sie nicht! Ihr habt uns angelogen!"
             "Alle Kinder" "LÜGNER"
-            window hide
             scene anja badend with fade
+            n "Die Anderen sind echt sauer auf uns. Dabei war das Alles doch gar keine Absicht!"
+            n "Ich hab mich auch entschuldigt, aber sie wollen trotzdem nicht mehr mit mir oder Anja spielen."
+            n "Und jetzt ist Anja deswegen auch noch auf mich sauer."
+            n "Sie ist ja auch noch nicht so lange hier und das ärgert sie jetzt natürlich, dass niemand mehr mit ihr was machen will."
+            n "Dabei wollte ich das doch gar nicht... aber nicht immer zugelabert zu werden, ist vielleicht auch ganz okay."
+            n "Außerdem komm ich ja dann auch bald in die Schule. Da finde ich dann vielleicht Freunde."
+            window hide
             $ renpy.pause ()
             window auto
             jump credits
