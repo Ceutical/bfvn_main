@@ -58,7 +58,7 @@ label eves1:
     p "..."
     e "Du, [name]?"
     p "Ja?"
-    e "Hast du Lust Das Blaue Auge zu spielen, wenn wir bei der Hütte sind?"
+    e "Hast du Lust \"Das Blaue Auge\" zu spielen, wenn wir bei der Hütte sind?"
     p "Na klar, gerne!"
     show eve happy2
     e "Super!"
@@ -215,7 +215,7 @@ label eves1:
     p "Baden?"
     p "Und wieso Werkzeug? Kannst du damit bauen?"
     show eve pnpn
-    e "Ne, die kann mit Musik zaubern.."
+    e "Nee, die kann mit Musik zaubern.."
     p "Das ist auch cool."
     show eve pnpask
     e "Auch wenn es schön ist, hier ist nicht viel los. Außerdem sollen wir doch in die Stadt gehen und Abenteuer machen."
@@ -241,7 +241,7 @@ label eves2:
     e "Können Sie mir sagen, wo wir die örtliche Taverne finden, gnädiger Herr?"
     n "Was ist los mit ihr?"
     show cat talk
-    "Passant" "Ähm, Selbstverständlich, gnädiges Fräulein. Hinter dem Brunnen links und dann immer den Geruch nach."
+    "Passant" "Ähm, selbstverständlich, gnädiges Fräulein. Hinter dem Brunnen links und dann immer den Geruch nach."
     "Passant" "Möchten Sie wohl dort ein Ständchen singen?"
     show cat n
     show eve pnpvhappy
@@ -339,7 +339,7 @@ label eves3:
     if secret == True:
         show wirt happy
         "Wirt" "Nun gut, Ihr habt mich überzeugt."
-        "Wirt" "Ist ja eigentlich nur ein Gerücht. Man sagt jedoch, dass es einen harten Panzer und unzählige Beine besitzt.. Wenn es also eine weiche, unbepanzerte Stelle besitzt, dann sollte man wohl dort angreifen."
+        "Wirt" "Ist ja eigentlich nur ein Gerücht. Man sagt jedoch, dass es einen harten Panzer und unzählige Beine besitzt. Wenn es also eine weiche, unbepanzerte Stelle besitzt, dann sollte man wohl dort angreifen."
         show eve pnpask
         e "Und wo genau ist diese Höhle von dem Monster?"
         show wirt talk
@@ -536,7 +536,7 @@ label eves5:
     e "NEIN!"
     n "Woah. Was ist auf einmal mit ihr los, ist doch nur Pizza. Egal, sie hat es auch hergezaubert."
     p "Wollen wir uns vielleicht kurz hier hinsetzen?"
-    e "Hier liegen aber überalle Kieselsteine rum...das pickst."
+    e "Hier liegen aber überalle Kieselsteine rum...das piekst."
     p "Ich kann die ja ein wenig zur Seite schieben und dann können wir in Ruhe essen."
     hide pizza
     show pizza2
@@ -759,8 +759,8 @@ label eveboss:
     show eve pnpask
     e "Ich kann daheim mit niemanden reden."
     p "Aber, du redest doch mit mir."
-    e "Aber nicht bei mir Zuhause. Ich will lieber hier bleiben. Hier darf ich wenigstens draußen spielen."
-    p "Aber, daheim ist es doch schön. Da kann man Fernsehen, und hat seine Spielsachen."
+    e "Aber nicht bei mir zu Hause. Ich will lieber hier bleiben. Hier darf ich wenigstens draußen spielen."
+    p "Aber, daheim ist es doch schön. Da kann man fernsehen, und hat seine Spielsachen."
     play sound whoosh5
     show eve pnpmad
     e "Darf ich doch nicht! Meine Mama sagt immer, das macht dumm."
