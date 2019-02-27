@@ -228,7 +228,7 @@ label anjas_ending:
             show anja at center
             
     show anja hihi
-    a "Alsoa gut, die Erkundung beginnt!"
+    a "Also gut, schau ma uns a mal um!"
     
     if tookrandy == True:
         scene bg woods 
@@ -337,7 +337,7 @@ label anjas_ending:
     p "WAS!? Bist du verrückt?"
     p "Was wenn sie uns verhext?"
     show anja vmad
-    a "Aber wir müssen es wissen! Wir müssen doch wissen wo ihre Hexenhütte ist!"
+    a "Zefix, Wir müssen es wissen! Wir müssen doch wissen wo ihre Hexenhütte ist!"
     hide anja with moveoutright
     n "Verdammt! Die soll nicht einfach weg rennen."
     scene bg woods2 with fade
@@ -451,11 +451,11 @@ label anjas_ending:
             show heide n at rightish
             with fade
             p "Anja, schau! Die Heidenau!"
-            a "Man, die schaut mega böse…"
+            a "Greiterhex..."
             show heide mad
             a "Guck! Die redet mit der Karin."
             a "Bestimmt über uns!"
-            a "Mist!"
+            a "Dreck!"
             show karin shock
             a "Karin ist bestimmt auch ‘ne Hexe!"
             hide heide with moveoutright
@@ -583,10 +583,10 @@ label anjas_ending:
     hide heide with dissolve
     show anja schmoll
     a "Ja, die sehen sich voll ähnlich oder?"
-    a "Aber das ist noch nicht alles!"
+    a "Schau a mal weiter!"
     p "Wow! Sammelt die da auch Pilze!? Oh mein Gott!"
     show anja vmad
-    a "Und wie ich’s im Wald gesagt habe: Die hat ein Buch dabei für all ihre Tränke!"
+    a "Und wai ich’s damals verzüllt hab: Die hat ein Buch dabei für all ihre Tränke!"
     a "Wegen dem Buch hier weiß ich das nämlich auch alles!"
     p "Okay, dann stimmt das alles ja!"
     p "Die Heidenau ist wirklich ‘ne Hexe!"
@@ -670,7 +670,7 @@ label anjas_ending:
             h "Ihr plant doch irgendwas."
             h "Warum herrscht hier so ein Chaos?"
             show anja vmad at left with moveinleft
-            a "SIE SIND EINE HEXE!"
+            a "SIE SAN A HEX!"
             show heide mad
             h "Ich bin bitte WAS?"
             p "EINE HEXE!"
@@ -679,7 +679,7 @@ label anjas_ending:
             p "Und in ihrem Buch da ist die Anleitung dafür!"
             show witchbook dissolve
             show anja mad
-            a "Ja GENAU! Und HIER in meinem Buch steht das genau so drin!"
+            a "Ja GENAU! Und HIER in meim Buch steht das genau so drin!"
             show anja vmad
             a "WIR HABEN BEWEISE!"
             hide witchbook with dissolve
@@ -797,7 +797,7 @@ label anjas_ending:
             p "Genau, sie hatten das Buch dabei mit der Anleitung dafür!"
             a "JA! Und HIER in meinem Buch steht das genau so drin!"
             show anja vmad
-            a "WIr HABEN BEWEISE!"
+            a "WIR HABEN BEWEISE!"
             show heide laugh
             h "Aaaahahahahahahahaha! Buahaaaahahahaha!"
             h "Hahaaaaaaaaahahaha! Ich kann nicht mehr!"

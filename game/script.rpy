@@ -576,7 +576,7 @@ label start:
             
             
             
-            
+
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -662,6 +662,7 @@ label scene1:
             
         "Normal.":
             jump childlike
+            
 label childlike:
     scene mnd with fade
     $ renpy.pause(0.6, hard = True)
@@ -1434,7 +1435,7 @@ label scene11:
             show anja vmadb2
             a "UGHHH!"
             show anja madb2
-            a "Hey. Du! [name]! Schoko oder Vanilleeis!? Du entscheidest das jetzt."
+            a "Hey. Du! [name]! Schoko oder Vanilleeis!? Verzüll mal."
             menu:
                 p "Ähm... Ich glaube ..."
                 
@@ -1454,7 +1455,7 @@ label scene11:
                     show randy vhappy
                     "???" "Ha! Siehst du, ist doch nur Geschmackssache! Selbst dein neuer Freund stimmt mir zu!"
                     a "Ich mein, ... ja ... also ... [name], fall mir doch nicht einfach in den Rücken!"
-                    a "Egal. Dafür kannst du immer noch nicht klettern Randy."
+                    a "Dafür kannst nird immernu nird hier hoch kraxeln."
                     show randy mad
                     r "Ach, lass mich doch in Ruhe..."
                     hide randy with moveoutright
@@ -1547,7 +1548,7 @@ label scene11:
             show anja madb2
             a "Hey! Was soll das? Wo willst du hin?"
             show anja vmadb2
-            a "NA TOLL! Dann geh doch!"
+            a "Dann schleicht di doch!"
             n "Verdammt jetzt ist sie sauer… Ich will doch bloß jetzt grad nicht mit ihr spielen."
             jump scene12
             
@@ -2064,7 +2065,7 @@ label scene15:
     show octa mad at leftish
     with fade
     o "Ich kann ihn 32 mal drehen bis er runterfällt."
-    a "Stimmt doch gar nicht. So schnell kann man nicht mal zählen!"
+    a "A gschmarre! So schnell kann man nicht mal zählen."
     show octa smug
     o "Du vielleicht nicht. Ich kann das schon!"
     a "Lügnerin!"
@@ -2447,15 +2448,15 @@ label scene19:
             p "Was?"
             a "Louis hat‘s mir gesagt. Du versprichst ihm Knappers und bringst sie ihm dann nicht mit!"
             p "Ich konnte noch keine..."
-            a "Mach so etwas NIE WIEDER!"
+            a "Und wennst nu amal surwos machst... Host mi!"
             a "Versprechen bricht man nicht und die Anderen finden das auch dumm."
 
             if anjatreat == True:
                 p "Aber, du hattest doch auch nichts dagegen, als ich sie mit dir geteilt hab!"
                 show aparty shock
-                a "Was?"
+                a "Wos?"
                 show aparty mad
-                a "DU VOLLIDIOT HAST EINEM SHERIFF GESTOHLENES ESSEN GEGEBEN?!"
+                a "DU HADERLUMP HAST EINEM SHERIFF GESTOHLENES ESSEN GEGEBEN?!"
                 a "Ich dachte das wäre deins gewesen du Lügner!"
                 hide aparty mad with moveoutright
                 n "Irgendwie kommt es mir so vor, als würde mich jeder anschauen."
@@ -2988,9 +2989,9 @@ label scene21:
     o "Ihr beide hattet ja echt mega Angst."
     o "Ihr seid ja wirklich erstarrt!"
     show aparty mad at slightleft with move
-    a "Wieso machst du sowas!"
+    a "Sappererlot. Wieso machst du sowas!"
     o "Ruhig, ist doch eine Monsterparty"
-    a "Manchmal bist du echt doof!"
+    a "Manchmal bist du echt a doofes Saumadl!"
     show oparty mad
     o "Aber niemals so doof wie du."
     a "Du hast gerade bewiesen, dass es... noch doofer geht als ich."
@@ -3961,7 +3962,7 @@ label scenew2_7:
 #JUMPER
     if anja_points >= eve_points and anja_points > octa_points:
         show karin talk
-        k "Ihr [suf4] [name] ist hier gut aufgehoben und passt wunderbar in unsere bunte Gruppe."
+        k "Ihr[suf4] [name] ist hier gut aufgehoben und passt wunderbar in unsere bunte Gruppe."
         k "Am meisten ist [name] mit Anja unterwegs."
         k "Die Beiden sind ständig am Quatschen!"
         k "Wobei Anja ehrlich gesagt viel mehr redet als [name]."
@@ -3983,7 +3984,7 @@ label scenew2_7:
             
     elif eve_points > anja_points and eve_points > octa_points:
         show karin talk
-        k "Ihr [suf4] [name] ist ein wirklich kreatives Kind, weswegen es kein Wunder ist, dass [pro2] sich so gut mit Evelynn versteht."
+        k "Ihr[suf4] [name] ist ein wirklich kreatives Kind, weswegen es kein Wunder ist, dass [pro2] sich so gut mit Evelynn versteht."
         k "Die Beiden sind ständig am Maltisch und produzieren ihre kleinen Kunstwerke."
         show karin go
         k "Evelynn ist ein Naturtalent und manchmal frag ich mich, ob sie besser malen kann als ich. Zumindest was Schattierungen angeht."
@@ -4779,10 +4780,10 @@ label scenew2_10:
             a "Siehst du das? Da oben? Die alte Greiterhex!"
             p "Wo? Meinst du da am Fenster? Da dürfen wir doch eigentlich gar nicht hochgehen. Ich weiß nich ob wir-"
             show anja vmadb2
-            a "Du kannst ja auch gerne wieder runterklettern, du Spielverderber! Aber ich sag dir, mit der stimmt was nicht!"
+            a "Du kannst ja auch gerne wieder runterklettern, du Goaßschädel! Aber ich sag dir, mit der stimmt was nicht!"
             
             menu:
-                a "Du kannst ja auch gerne wieder runterklettern, du Spielverderber! Aber ich sag dir, mit der stimmt was nicht!"
+                a "Du kannst ja auch gerne wieder runterklettern, du Goaßschädel! Aber ich sag dir, mit der stimmt was nicht!"
                 "Oben bleiben":
                     $ anja_points += 2
                     show anja madb2
@@ -4842,7 +4843,7 @@ label scenew2_10:
                     show anja mad
                     a "Auch Dinge wie Geister, die man vielleicht sogar gar nicht sehen kann."
                     show anja vmad
-                    a "Und die klauen dann immer die Socken aus der Maschine!"
+                    a "Und die stibitzen immer die Socken aus der Maschine!"
                     
 
             show anja n
@@ -4927,7 +4928,7 @@ label scenew2_10:
                             a "Irgendwann er-WOAH!"
                             n "Ohjeh! Jetzt fällt Anja doch noch die Stufe runter! Zum Glück ist ja alles gut mit Heu abgepolstert."
                             p "Hast du dir weh getan?"
-                            a "Du Blödian! Hättest du mir nicht was sagen können?! Du weißt genau, dass ich nix sehe!"
+                            a "Du Verrecker! Hättest du mir nicht was sagen können?! Du weißt genau, dass ich nix sehe!"
                             p "Tut mir Lei-"
                             a "Ist das das Danke dafür, dass ich dich eingeladen hab?! Ich hätte auch Randy mitnehmen können, der ist sowieso viel coolerer als du! Und der hätte mich bestimmt nicht verraten!"
                             p "Tut mir wirkl-"
@@ -5591,25 +5592,22 @@ label scenew3_0:
     
     
 
-    #window hide
-    #scene bg bedroom with fade
-    #nvln "Fabian Pfannmüller\nProduct Owner, Lead Writer"
-    #nvln "Kilian Petry\nLead Scenedesigner, Lead Coder"
-    #nvln "Frederik Haas\nSCRUM Master, Minigame Coder"
-    #nvln "Natalie Kuhrt\nLead Artist, Writer, Coder, Scenedesigner"
-    #nvln "Florian Menzel \ \ \ \ \ Sascha Fuchs\nWriter\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -- \ Writer, PR"
-    #nvln "Luca Pfeiffermann\nLead Sounddesigner"
-    #nvl clear
-    #nvln "Vielen Dank für's Spielen!"
-    #nvln "Euer Team von Baby's First Visual Novel"
-    #window hide
-    #scene cg selfiefriendo with fade
-    #$ renpy.pause ()
-    #window auto
-        
+    window hide
+    scene bg bedroom with fade
+    nvln "Fabian Pfannmüller\nProduct Owner, Lead Writer"
+    nvln "Kilian Petry\nLead Scenedesigner, Lead Coder"
+    nvln "Frederik Haas\nSCRUM Master, Minigame Coder"
+    nvln "Natalie Kuhrt\nLead Artist, Writer, Coder, Scenedesigner"
+    nvln "Florian Menzel \ \ \ \ \ Sascha Fuchs\nWriter\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -- \ Writer, PR"
+    nvln "Luca Pfeiffermann\nLead Sounddesigner"
+    nvl clear
+    nvln "Vielen Dank für's Spielen!"
+    nvln "Euer Team von Baby's First Visual Novel"
+    window hide
+    scene cg selfiefriendo with fade
+    $ renpy.pause ()
+    window auto
 
-    
-    
-    # This ends the game.
+
 
 

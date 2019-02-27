@@ -348,9 +348,9 @@ label octas4:
     a "Von wegen."
     o "Doch!"
     show anja mad
-    a "Gar nicht!"
+    a "Gschmarre!"
     o "Wohl Doch!"
-    a "Woher sollst du wissen, wieviel ich von Fahrrädern weiß. Außerdem..."
+    a "Woher willst du wissen, wieviel ich von Fahrrädern weiß. Außerdem..."
     n "ich fang wohl lieber mal mit den trainieren an. Die streiten wohl eh den ganzen Tag."
     scene tue with dissolve
 
@@ -484,7 +484,7 @@ label octas7:
     a "Ist doch egal ob die wartet."
     a "Warum hängst du überhaupt mit der ab?"
     p "Warum nicht?"
-    a "Weil sie nervt?!"
+    a "Weil die a Saumadl ist?!"
     p "Find ich nicht."
     show anja schmoll
     a "Das ist doch voll die Zicke! Ich versteh das nicht."
@@ -492,7 +492,7 @@ label octas7:
     a "Es sei denn..."
     n "???"
     a "DU WILLST OCTAVIA HEIRATEN!"
-    a "so richtig eklig mit Knutschen und allem."
+    a "so richtig eklig mit nen Bussi und allem."
     p "Überhaupt nicht!"
     show anja happy
     a "Ha, Lügner. Man sieht es dir doch an!"
