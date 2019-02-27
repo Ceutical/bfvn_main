@@ -18,34 +18,10 @@ screen credits():
         vbox:
             label "Credits"
 
-            null height 20
-
-            hbox:
-                text "Role 2"
-                text "NAME 2"
-                
-            hbox:
-                text "Role 2"
-                text "NAME 2"
-                
-            hbox:
-                text "Role 2"
-                text "NAME 2"
-                
-            hbox:
-                text "Role 2"
-                text "NAME 2"
-                
-            hbox:
-                text "Role 2"
-                text "NAME 2"
-                
-            hbox:
-                text "Role 2"
-                text "NAME 2"
-                
-            hbox:
-                image "images/Backgrounds/bg titel.png"
+            image "images/Backgrounds/bg titel.png"
+            text "Krams"
+            
+            
                 
 hide screen credits
 jump credits
