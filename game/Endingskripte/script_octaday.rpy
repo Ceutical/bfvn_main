@@ -58,7 +58,7 @@ label octas_ending:
     show karin talk
     k "Äh, das weiß ich ehrlich gesagt nicht. Aber man kann ja suchen."
     show randy shock
-    r "Aber, dass ist doch ein Wald. Da muss es doch Eidechsen geben!"
+    r "Aber, das ist doch ein Wald. Da muss es doch Eidechsen geben!"
     n "Moment, was hat das jetzt mit mir zu tun?"
     "???" "Also, ich war schon häufiger im Wald und hab noch keine gesehen."
     n "Was ist denn jetzt."
@@ -93,7 +93,7 @@ label octas_ending:
     o "Na letzte Woche, bevor ich allein nach Hause gefahren bin."
     p "Du darfst das?"
     show octa shock
-    o "Dürfen? Natürlich nicht, aber meine Eltern Wissen doch nichts davon."
+    o "Dürfen? Natürlich nicht, aber meine Eltern wissen doch nichts davon."
     p "Echt!?"
     show octa talk
     o "Jap."
@@ -165,8 +165,6 @@ label octas_ending:
         p "Das werden wir ja sehen!"
     
 label octas2:
-    
-    "Zweiter Fight kommt hier!"
     
     jump startbattle2
     
@@ -296,7 +294,7 @@ label octas3:
     show mum n
     p "Mama?"
     show mum mad
-    m "Dein Vater hätte eines, dass für dich gemacht ist. Wir haben doch mal versucht dich zum fahren zu bringen."
+    m "Dein Vater hätte Eines, das für dich gemacht ist. Wir haben doch mal versucht dich zum fahren zu bringen."
     p "Oooh?"
     show mum nett
     m "Wieso aufeinmal das Interesse?"
@@ -340,7 +338,7 @@ label octas4:
     show octa mad
     o "Weiß ich doch, bin ja nicht doof!"
     show octa smug
-    o "Ich meinte eher die Farben, dass ist voll komisch."
+    o "Ich meinte eher die Farben, das ist voll komisch."
     show anja schmoll
     a "Find ich gar nicht, du hast einfach keine Ahnung von Fahrrädern."
     show octa vmad
@@ -348,9 +346,9 @@ label octas4:
     a "Von wegen."
     o "Doch!"
     show anja mad
-    a "Gschmarre!"
+    a "Gar nicht!"
     o "Wohl Doch!"
-    a "Woher willst du wissen, wieviel ich von Fahrrädern weiß. Außerdem..."
+    a "Woher sollst du wissen, wieviel ich von Fahrrädern weiß. Außerdem..."
     n "ich fang wohl lieber mal mit den trainieren an. Die streiten wohl eh den ganzen Tag."
     scene tue with dissolve
 
@@ -375,7 +373,7 @@ label octas5:
     show randy talk
     r "Also, ich brauch ja auch noch Stützräder."
     show louis talk
-    L "Weil ihr zwei auch noch Babies seit."
+    L "Weil ihr Zwei auch noch Babies seit."
     show randy mad
     r "HEY!"
     n "Louis nervt, der kann mir einfach keine richtige Hilfe geben."
@@ -430,7 +428,7 @@ label octas6:
     o "Sie gewinnt immer und früher war das nicht so."
     show octa talk
     o "Da konnten ihre Freundinen auch gewinnen, die waren nämlich genau so gut."
-    p "Ist doch gut, wenn Sie immer gewinnt."
+    p "Ist doch gut, wenn sie immer gewinnt."
     o "Ja, aber weißt du."
     show octa happy
     o "Wenn ich gegen dich Rennen fahre, will ich gegen jemand starken gewinnen."
@@ -438,7 +436,7 @@ label octas6:
     show octa smug
     o "Kannst du auch nicht."
     show octa talk
-    o "Außerdem, sitz mal nicht so kurmm."
+    o "Außerdem, sitz mal nicht so krumm."
     menu:
         "Nach vorne lehnen":
             p "So?"
@@ -484,7 +482,7 @@ label octas7:
     a "Ist doch egal ob die wartet."
     a "Warum hängst du überhaupt mit der ab?"
     p "Warum nicht?"
-    a "Weil die a Saumadl ist?!"
+    a "Weil sie nervt?!"
     p "Find ich nicht."
     show anja schmoll
     a "Das ist doch voll die Zicke! Ich versteh das nicht."
@@ -492,7 +490,7 @@ label octas7:
     a "Es sei denn..."
     n "???"
     a "DU WILLST OCTAVIA HEIRATEN!"
-    a "so richtig eklig mit nen Bussi und allem."
+    a "So richtig eklig mit Knutschen und Allem."
     p "Überhaupt nicht!"
     show anja happy
     a "Ha, Lügner. Man sieht es dir doch an!"
@@ -648,12 +646,18 @@ label obikewin:
     p "War schon sehr schnell, hat Spaß gemacht."
     o "Hahahaha, sieh dich jetzt mal an."
     o "Aber diesmal mach ich dich fertig!"
-    p "Ja meine Frau."
+    p "Ja, meine Frau."
     o "Ach du... du meintest das ernst."
     p "Ist ja wohl mein Preis oder."
     o "Ja, ja das hab ich gesagt."
-    window hide
     scene wedding with fade
+    n "Octavia ist wirklich cool, auch wenn sie mal nicht gewinnen will."
+    n "Ich bin total gerne mit ihr verheiratet und ich will für immer mit ihr befreundet sein!"
+    n "Und es wird nie langweilig, weil sie dauernd neue Ideen für Wettkämpfe hat."
+    n "Auch auf unserer Hochzeit haben wir ein Wettessen gemacht. Da war Anja auch gar nicht so schlecht drin."
+    n "Am Ende hat Octavia sie glaub ich sogar gewinnen lassen. Sie hat gesagt, dass das besser ist, weil Anja dann weniger reden kann, wenn sie den Gewinnerkuchen bekommt und dann mit Essen beschäftigt ist."
+    n "Das war der lustigste Tag überhaupt!"
+    window hide
     $ renpy.pause ()
     window auto
     jump credits
@@ -677,8 +681,15 @@ label obikeloss:
     p "Ich mag dich auch nicht..."
     o "Dann geh doch du Verlierer!"
     p "Tschau, Nervenzicke!"
-    window hide
     scene octa badend with fade
+    n "Octavia ist echt nervig!"
+    n "Aber blöd ist es trotzdem, dass wir jetz nicht mehr befreundet sind."
+    n "Ich hab mit ihr immer mehr gespielt, als mit allen Anderen."
+    n "Außerdem hat sie den Anderen irgendwas komisches über mich erzählt und ihnen gesagt, dass sie nicht mehr mit ihren Sachen spielen dürfen, wenn sie mit mir reden."
+    n "Selbst Anja redet jetzt nicht mehr mit mir."
+    n "Aber das ist mir doch egal! Sollen sie halt mit der blöden Octavia spielen!"
+    n "Bald komm ich eh in die Schule und dann finde ich da ganz viele andere tolle Freunde!"
+    window hide
     $ renpy.pause ()
     window auto
     ### dieses CG macht 0 sinn mit der story die geschrieben worden ist.

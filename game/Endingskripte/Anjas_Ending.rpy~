@@ -60,6 +60,7 @@ label anjas_ending:
         a "Hey, wollen wir uns da hinten hinsetzten? Auf den Stamm da?"
         
         "Ja, können wir machen!":
+            $ kaeferscene = False
             a "Alles klar!"
             scene bg woods
             show anja n at center
@@ -117,7 +118,7 @@ label anjas_ending:
             hide anja with moveoutright
             
         "Nein, lass uns doch zu den anderen setzen.":
-            
+            $ kaeferscene = True
             show anja schmoll
             a "Na gut, dann gehen wir eben zu den anderen..."
             r "HEY! SCHAUT MAL HER!"
@@ -213,6 +214,11 @@ label anjas_ending:
             a "Hmm... Aber wir wollen tief in den Wald laufen."
             a "Du darfst nur mitkommen wenn du dich traust!"
             r "Äh... Okay! Ich komme mit! Ich bin mutig!"
+           
+            if kaeferscene == False:
+                a "Was hast du da eigentlich auf der Nase?"
+                r "Das ist Rüdigär, der tollste Käfer der Welt! Den nehm ich jetzt überall hin mit!"
+                a "...okay..."
             
         "Nein.":
             p "Naja... Eigentlich wollten nur Anja und ich zusammen laufen... Tut mir leid."
