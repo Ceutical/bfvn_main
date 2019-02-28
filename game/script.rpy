@@ -689,7 +689,7 @@ label childlike:
     play sound decke
     show bg bedroom2 with fade
     n "Nein… nicht die warme Decke…"
-    n "Mann, muss alles so hell sein…"
+    n "Man, muss alles so hell sein…"
     show bg bedroom with dissolve
     show mum talk with moveinright
     m "Guten Morgen mein kleiner Spatz!"
@@ -705,11 +705,10 @@ label childlike:
     show mum talk
     hide pancakes
     with dissolve
-    m "Freust du dich schon deine neuen Freunde kennenzulernen?"
-    
+    m "Freust du dich schon, deine neuen Freunde kennenzulernen?"
     
     menu:
-        m "Freust du dich schon deine neuen Freunde kennenzulernen?"
+        m "Freust du dich schon, deine neuen Freunde kennenzulernen?"
         
         "Jaaaaaa!":
             $ octa_points += 1
@@ -725,8 +724,8 @@ label childlike:
             n "So wirklich Lust hab ich ja nicht."
             m "Ach Spätzchen... Bist du doch noch so traurig, dass du deine alten Freunde nicht mehr siehst?"
             n "Ja, das ist echt blöd."
-            m "Du kommst heute bestimmt ein eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
-            n "Wenn sie mir so durch die Haare wuschelt fühle ich mich schon wieder besser."
+            m "Du kommst heute bestimmt in eine Gruppe mit ganz tollen Kindern, wirst schon sehen!"
+            n "Wenn sie mir so durch die Haare wuschelt, fühle ich mich schon wieder besser."
     
         
 
@@ -741,10 +740,10 @@ label scene3:
         renpy.music.set_volume(volume=1.0, delay=1.2, channel='music')
     if happytogo == True:
         n "Ich bin total aufgeregt. Dabei ist das doch nur ein Kindergartentag wie sonst auch.."
-        n "Aber irgendwie auch nicht. Vielleicht finde ich da ja neue noch bessere Freunde als in meinem alten Kindergarten. "
+        n "Aber irgendwie auch nicht. Vielleicht finde ich da ja neue, noch bessere Freunde als in meinem alten Kindergarten. "
         m "Das wird ein ganz toller Tag, glaub mir!"
     else:
-        n "Mann, ich will nicht. Muss das sein? Mein alter Kindergarten war doch super. Warum muss ich jetzt hier hin?"
+        n "Man, ich will nicht. Muss das sein? Mein alter Kindergarten war doch super. Warum muss ich jetzt hier hin?"
         n "Naja, wenigstens ist Mama da."
         m "Gleich sind wir da. Keine Angst, das wird schon! Du wirst bestimmt viele neue Freunde finden."
         n "Mein alter Kindergarten ist definitiv schöner als das hässliche Haus da."
@@ -774,8 +773,8 @@ label scene3:
             show heide talk 
             h "Ihr Kind ist bei uns bestens aufgehoben. So \"[name]\", deine Gruppe ist die Käfergruppe, die Karin kümmert sich um dich."
             h "Mitkommen!"
-            n "Warum zieht sie mich am Ärmel. Ich will das nicht."
-            n "Ich wäre auch so mit gekommen. Warum ist diese komische alte Frau so grob. Meine Oma ist auch alt, aber die würde sowas nie machen."
+            n "Warum zieht sie mich am Ärmel? Ich will das nicht."
+            n "Ich wäre auch so mit gekommen. Warum ist diese komische alte Frau so grob? Meine Oma ist auch alt, aber die würde sowas nie machen."
             scene bg grura
             show karin n at slightleft
             with fade
@@ -813,8 +812,8 @@ label scene3:
 
         
 
-    n "Wer ist die Frau? Ist das diese Karin von der die Alte erzählt hat?"
-    k "Ahh, hallo sie Beide. Danke, dass Sie ihr Kind gebracht habe. Sie können unbesorgt sein, wir kümmern uns ganz wunderprächtig um [pro5]."
+    n "Wer ist die Frau? Ist das diese Karin, von der die Alte erzählt hat?"
+    k "Ahh, hallo sie Beide. Danke, dass Sie ihr Kind gebracht haben. Sie können unbesorgt sein, wir kümmern uns ganz wunderprächtig um [pro5]."
     k "Also willkommen dann, in der Käfergruppe!"
     show karin go
     k "Kinder, kommt mal alle zusammen, wir haben Neuzugang bekommen!"
@@ -825,10 +824,10 @@ label scene3:
     show louis really at slightright behind octa
     show randy happy at slightleft behind octa
     with moveinbottom
-    k "Das sind deine neuen Freunde! Stell dich uns Allen doch mal vor, wir wissen ja noch gar nicht wie du heißt."
+    k "Das sind deine neuen Freunde! Stell dich uns allen doch mal vor, wir wissen ja noch gar nicht wie du heißt."
     
     menu:
-        k "Das sind deine neuen Freunde! Stell dich uns Allen doch mal vor, wir wissen ja noch gar nicht wie du heißt."
+        k "Das sind deine neuen Freunde! Stell dich uns allen doch mal vor, wir wissen ja noch gar nicht wie du heißt."
         "Vorstellen.":
             $ octa_points += 1
             $ anja_points += 1
@@ -864,22 +863,21 @@ label scene3:
             
             
     
-    ##### Szene 4 #####
-label scene4:
+    label scene4:
     play music octatheme fadeout 1.0
     scene bg grura
     show karin talk at slightright
     show mum talk at slightleft
     with fade
     k "Sie können Ihr Kind dann jetzt auch bei uns lassen. Wir kümmern uns bis sie zum Abholen vorbeikommen."
-    m "Rufen Sie mich einfach sofort an falls irgendwas sein sollte."
+    m "Rufen Sie mich einfach sofort an, falls irgendwas sein sollte."
     k "Natürlich, natürlich. Überhaupt keine Frage."
     m "Na dann [name]. Viel Spaß an deinem großen Tag. Und jetzt lass dich noch mal knuddeln!"
     p "Tschüss Mama, ich hab dich lieb!"
     hide mum with moveoutleft
     show karin mtalk at center with move
     k "Dann fangen wir doch jetzt auch gleich mal an."
-    k "Wir machen jetzt Morgenkreis. Stell dich einfach da hin und warte ab. Brav sein!"
+    k "Wir machen jetzt einen Morgenkreis. Stell dich einfach da hin und warte ab. Brav sein!"
     n "Ah… Morgenkreis. Wie im alten Kindergarten. Ob wir hier auch nur singen?"
     k "Sind alle da?"
     hide karin with dissolve
@@ -898,7 +896,7 @@ label scene4:
     show octa music
     with dissolve
     o "Hallo!"
-    o "Ich bin Octavia. Das sind Klanghölzer, weißt du oder?"
+    o "Ich bin Octavia. Das sind Klanghölzer, weißt du, oder?"
     o "Damit kannst du umgehen, oder?"
     menu:
         o "Damit kannst du umgehen, oder?"
@@ -910,7 +908,7 @@ label scene4:
             o "Was, du kannst das garnicht?"
             o "Die Anderen sagen, das ist voll schwer. Find ich nicht. Ich bin die Beste damit!"
     
-    n "Sie nimmt das aber Ernst. Ist doch nur der Morgenkreis. Kann man da überhaupt die Beste drin sein?"
+    n "Sie nimmt das aber ernst. Ist doch nur der Morgenkreis. Kann man da überhaupt die Beste drin sein?"
     o "Und du weißt auch wozu die Klanghölzer gut sind?"
     menu:
         o "Und du weißt auch wozu die Klanghölzer gut sind?"
@@ -927,7 +925,7 @@ label scene4:
             
     o "Wie willst du überhaupt vernünftig mitmachen?"
     o "Du kennst doch unser Käfergruppenlied noch garnicht."
-    o "Am Ende versaust du noch Alles ..."
+    o "Am Ende versaust du noch alles ..."
     o "Und dann muss ich, als die Beste natürlich, alles wieder gutmachen!"
     
     menu:
@@ -937,9 +935,9 @@ label scene4:
             $ boomstickpoints += 1
             p "Das ist garkein Problem! Ich lerne ganz schnell, sagt Mama immer."
             o "Dann klingt es am Anfang immernoch furchtbar."
-            p "Na dann hör ich dir zu und dann mach ich das was du machst."
+            p "Na dann hör ich dir zu und dann mach ich das, was du machst."
             o "Willst du mich etwa nachmachen?"
-            p "Du hast doch gesagt du bist die Beste!"
+            p "Du hast doch gesagt, du bist die Beste!"
             o "Natürlich bin ich die Beste!"
         
         "Wird schon schiefgehen ...":
@@ -962,7 +960,7 @@ label scene4:
     n "Klingt total toll ..."
     n "Und die Klanghölzer machen voll Spaß!"
     n "..."
-    n "Ohh, sieht so aus als wären wir gleich fertig..."
+    n "Ohh, sieht so aus, als wären wir gleich fertig..."
     n "Schade..."
     window hide
     $ renpy.pause ()
@@ -973,7 +971,7 @@ label scene4:
         show octa talk at center
         with fade
         $ octa_points += 3
-        o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
+        o "Das hat Spaß gemacht! Aber ich war die Einzige. die alles richtig gemacht hat."
         o "Aber ... du warst auch garnicht schlecht!"
         p "Ohh dankesch..."
         show octa smug
@@ -985,7 +983,7 @@ label scene4:
         show octa talk at center
         with fade
         $ octa_points -= 3
-        o "Das hat Spaß gemacht! Aber ich war die Einzige die alles richtig gemacht hat."
+        o "Das hat Spaß gemacht! Aber ich war die Einzige, die alles richtig gemacht hat."
         if boomstickpoints == 1 or boomstickpoints == 2:
             $ octa_points += 1
             show octa smug
@@ -1027,7 +1025,7 @@ label scene5:
     p "Also, ich-..."
     a "Ich find die blöd… Die anderen Erzieherinnen sind eigentlich echt nett."
     p "Ja, die ist gru-..."
-    a "Aber wenn die Frau Heidenau auf uns aufpasst macht es keinen Spaß. Mama sagt das is ne Greiterhex, keiner mag die."
+    a "Aber wenn die Frau Heidenau auf uns aufpasst, macht es keinen Spaß. Mama sagt das is ne Greiterhex, keiner mag die."
     p "Was ist eine Grei-..."
     a "Und kennst du schon Evelynn ? Die sitzt immer nur da und malt, find ich voll langweilig."
     p "Nein die-..."
@@ -1035,7 +1033,7 @@ label scene5:
     p "Die kenn ich scho-..."
     
     if menu_choice3 == "yes":
-        a "Du heißt [name] oder? Ich bin Anja!"
+        a "Du heißt [name], oder? Ich bin Anja!"
         
     elif menu_choice3 == "no":
         a "Du bist neu, oder? Wie heißt du überhaupt?"
@@ -1045,13 +1043,13 @@ label scene5:
     else:
         a "Wieso hast du dich denn beim Morgenkreis so komisch vorgestellt?"
         p "Ich..."
-        a "Das fand ich voll lustig wie du so komisch geredet hast. Du bist [name] oder? Ich bin Anja."
+        a "Das fand ich voll lustig, wie du so komisch geredet hast. Du bist [name], oder? Ich bin Anja."
         
     a "Kletterst du? Bestimmt."
-    a "Wir können auch mal zusammen klettern wenn du willst. Ich kletter immer wenn wir auf den Hof dürfen auf meinen Kletterbaum."
-    a "Also du kannst ja klettern. Wenn nicht bring ich's dir bei. Mama und ich gehen auch immer zusammen in den Kletterwald."
+    a "Wir können auch mal zusammen klettern, wenn du willst. Ich kletter immer, wenn wir auf den Hof dürfen, auf meinen Kletterbaum."
+    a "Also du kannst ja klettern. Wenn nicht, bring ich's dir bei. Mama und ich gehen auch immer zusammen in den Kletterwald."
     a "Da hat Mama auch mal die Greiterhex gesehen. Ich nicht. Aber Mama."
-    a "Naja, einmal wäre ich fast vom Kletterbaum gefallen weil ich nicht aufgepasst hab’, aber dann hab’ ich mich doch noch festgehalten, das war voll knapp!"
+    a "Naja, einmal wäre ich fast vom Kletterbaum gefallen, weil ich nicht aufgepasst hab’, aber dann hab’ ich mich doch noch festgehalten, das war voll knapp!"
     a "Klettern ist nämlich gefährlich, weißt du? Meine Mama sagt mir auch immer, dass ich vorsichtig sein soll, aber ich bin noch nie irgendwo runtergefallen, und du?"
     n "Man sie redet ja ohne Punkt und Komma. Ihre Geschichten sind zwar echt interessant…"
     n "Aber so langsam könnte sie auch mal wieder aufhören."
@@ -1081,7 +1079,7 @@ label scene6:
     hide eve
     show dis leuchtturm
     with dissolve
-    e "Schau, hier. Das hab ich gemalt."
+    e "Schau hier. Das hab ich gemalt."
     
     menu:
         e "Wie findest du das Bild?"
@@ -1095,10 +1093,10 @@ label scene6:
             e "Dankeschön!"
             show eve happy2
             e "Wir haben zu Hause ein Buch mit ganz vielen Bildern und da ist auch so ein Leuchtturm drin."
-            e "Ich mag das Buch. Immer wenn mir was gefällt mal ich das dann hier. Mama sagt ich darf nicht so viel nach draußen also male ich gerne."
+            e "Ich mag das Buch. Immer, wenn mir was gefällt, mal ich das dann hier. Mama sagt, ich darf nicht so viel nach draußen, also male ich gerne."
             e "Und Leuchttürme haben so tolle rote Streifen! Rot und Weiß sieht so schön zusammen aus. Das liegt bestimmt am Kontrast!"
-            e "Also mach ich meine auch so, weil die sind ja dann sind die genauso schön."
-            p "Ich kann garnicht so toll malen wie du. Zeig mir das!"
+            e "Also mach ich meine auch so, weil die sind ja dann genauso schön."
+            p "Ich kann gar nicht so toll malen wie du. Zeig mir das!"
             show eve draw
             e "Hmm... Nein."
             p "Doch!"
@@ -1109,22 +1107,22 @@ label scene6:
             hide dis leuchtturm
             show eve mad
             with dissolve
-            e "Weißt du denn garnicht was ein Leuchtturm ist?"
+            e "Weißt du denn gar nicht, was ein Leuchtturm ist?"
             menu:
-                e "Weißt du denn garnicht was ein Leuchtturm ist?"
+                e "Weißt du denn gar nicht, was ein Leuchtturm ist?"
                 "Nein...":
                     $ eve_points += 1
                     show eve shy2
                     p "Nein, weiß ich nicht. Aber ich mag dein Bild!"
                     e "Ich hab auch noch nie einen Echten gesehen."
                     show eve happy2
-                    e "Aber wir haben zu Hause ein Buch da ist einer drin."
-                    e "Das ist der aus dem Buch. Nur anders. Also weil ich ihn male."
+                    e "Aber wir haben zu Hause ein Buch, da ist einer drin."
+                    e "Das ist der aus dem Buch. Nur anders. Also, weil ich ihn male."
                     e "Weil ... ich kann das noch nicht so ... Aber ich übe!"
                     show eve draw
                     p "Aber das sieht doch toll aus!"
                     e "Aber nicht so wie es soll!"
-                    e "Aber jetzt weißt du was das ist. Dann kannst du auch einen malen!"
+                    e "Aber jetzt weißt du, was das ist. Dann kannst du auch einen malen!"
                     
                 "Leuchttürme sehen ganz anders aus.":
                     $ eve_points -= 2
@@ -1156,7 +1154,7 @@ label meantoeve:
     n "Das ging ja echt schnell."
     show mum happy at center with moveinleft
     m "Hallo Püpschen!"
-    m "Komm lass dich drücken! Hattest du heute viel Spaß?"
+    m "Komm, lass dich drücken! Hattest du heute viel Spaß?"
     p "Jaaa! Ich hab gemalt und gespielt und Klangholz gespielt und ..."
     m "Haha, so viel also! Komm, erzähl mir den Rest auf dem Weg nach Hause."
     p "Okay Mami."
@@ -1223,7 +1221,7 @@ label scene8:
             p "Aber warum denn mit deinem Essen... Das ist doch ekelig."
             show eve foodmad
             e "Gar nicht wahr. Das ist schön, guck doch mal."
-            p "Jetzt hast du Alles an den Fingern kleben."
+            p "Jetzt hast du alles an den Fingern kleben."
             p "Malen macht man mit Stiften, nicht mit Essen."
             show eve foodplay
             e "Mir macht das aber Spaß."
@@ -1264,13 +1262,13 @@ label scene8:
             scene cg food with dissolve
             $ renpy.pause ()
             window auto
-            p "Nein ... nein ich esse lieber ganz normal. Ich will mich nicht schmutzig machen."
+            p "Nein ... nein, ich esse lieber ganz normal. Ich will mich nicht schmutzig machen."
             e "Dann nicht ..."
 
 stop sound fadeout 1.0
     ##### TAG 2 ENDE #####
     
-    ##### TAG 3 BEGINN #####
+     ##### TAG 3 BEGINN #####
     ##### Szene 9 #####
 label scene9:
     play music maintheme fadeout 1.0
@@ -1293,15 +1291,15 @@ label scene9:
     m "Fast! Aber mit dem hier kommst du bestimmt leichter aus den Federn."
     scene bg street with dissolve
     n "Dieser Hahn ist echt nervig. Wie soll mir das denn beim Aufstehen helfen?"
-    n "Ich glaube Mama will sich nur über mich lustig machen."
-    n "Aber, eigentlich sieht die Ente ja ganz lustig aus. Naja, auf zum Morgenkreis."
+    n "Ich glaube, Mama will sich nur über mich lustig machen."
+    n "Aber eigentlich sieht die Ente ja ganz lustig aus. Naja, auf zum Morgenkreis."
     scene bg grura
     show karin talk at slightright
     show dis mikro at mic
     with fade
     k "Also Kinder, ich hab euch heute etwas mitgebracht."
     show karin happy
-    k "Das ist ein Radio, mit Mikrofon! Damit können wir singen und uns anhören was wir gesungen haben."
+    k "Das ist ein Radio, mit Mikrofon! Damit können wir singen und uns anhören, was wir gesungen haben."
     show octa mad at slightleft with moveinleft
     o "Öhhhh!"
     show randy mad at left with moveinleft
@@ -1310,7 +1308,7 @@ label scene9:
     p "Schon wieder singen. Mega doof!"
     show karin mad
     k "Aber jetzt hab ich doch extra den Recorder für euch mitgebra..."
-    "???" "Aber singen ist blöd."
+    "???" "Aber Singen ist blöd."
     show karin n
     k "In Ordnung ... Und was wollt ihr dann machen?"
     show octa smug
@@ -1347,7 +1345,7 @@ label scene10:
     L "Mein Name ist Louis."
     p "Wieso?"
     show louis really
-    L "Vielleicht weil ich Louis heiße?"
+    L "Vielleicht, weil ich Louis heiße?"
     p "Nein... Also ... Wegen dem Apfel ..."
     show louis happy
     L "Hahaha, ach so!"
@@ -1364,7 +1362,7 @@ label scene10:
     show louis talk at slightleft with move
     show dis snackers3 at chicken with dissolve
     L "Ich mag eigentlich einfach keine Erdnüsse aber ich hab hier 3 Snackers."
-    L "Du kannst die haben wenn du mir bis Freitags zwei Knappers mitbringst."
+    L "Du kannst die haben, wenn du mir bis Freitag zwei Knappers mitbringst."
     p "Aber das ist doch unfair. Oder?"
     L "Knappers sind wirklich etwas besser..." 
     L "Okay, weil du neu bist, musst du mir nur ein Knappers mitbringen."
@@ -1414,8 +1412,8 @@ label scene10:
             show louis really
             L "Schon gut, schon gut!"
             show louis smug
-            L "Aber hey, ich kann dank meinen Freunden in der Schule eigentlich fast alle Süßigkeiten besorgen."
-            L "Wenn du es dir mal anders überlegst komm zu mir mit 2 Knappers."
+            L "Aber hey, ich kann, dank meinen Freunden in der Schule, eigentlich fast alle Süßigkeiten besorgen."
+            L "Wenn du es dir mal anders überlegst, komm zu mir mit 2 Knappers."
             L "Ich muss jetzt weg. Irgendwer tauscht schon. Dein Pech!"
             hide louis with moveoutright
             p "... Was für ein komischer Kerl."
@@ -1426,7 +1424,7 @@ label scene10:
 label scene11:    
     show karin happy at center with moveinright
     $ gone = False
-    k "Kinder, schaut mal an wie schön es draußen ist! Wenn ihr fertig gegessen habt, dann zieht euch an und geht auf den Hof zum spielen."
+    k "Kinder, schaut mal an wie schön es draußen ist! Wenn ihr fertig gegessen habt, dann zieht euch an und geht auf den Hof zum Spielen."
     play music anjatheme fadeout 1.0
     scene bg court with fade    
     n "Eigentlich will ich mich nur hinlegen und etwas in der Sonne dösen. Da auf der Wiese siehts gut aus."
@@ -1434,9 +1432,9 @@ label scene11:
     n "Ich guck besser mal nach. Nicht, dass ich was verpasse."
     n "Sitzt da Anja im Baum? Wer ist den der Junge da?"
     show anja vmadb2 at topleft with dissolve
-    a "Is doch a völligs Gschmarre wos du dou verzüllst."
+    a "Is doch a völligs Gschmarre, wos du dou verzüllst."
     show randy vmad at right with dissolve
-    "???" "Gibt doch viel Besseres, was man damit machen kann. Also wieso Eis!?"
+    "???" "Gibt doch viel Besseres, was man damit machen kann. Also, wieso Eis!?"
     
     menu:
         
