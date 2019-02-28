@@ -448,15 +448,17 @@ label eves4:
             show eve pnpask
             e "Was machst du denn da?"
             p "Wenn ich der lange genug ausweiche geht die von alleine weg..."
+            p "Au, sie hat mich am Arm erwischt..."
             show eve pnpmad
             e "Spinnst du? Wieso sollte..."
             play sound bat
             hide bat with moveoutleft
             show eve pnpask
-            p "Ich glaub, die will uns gar nichts Böses. Die hat einfach nur Angst."
-            e "Aber ich dachte..."
+            p "Ich glaub, die will uns gar nichts Böses. Die hat einfach nur Angst. Aber mein Arm tut trotzdem etwas weh..."
+            e "Ich dachte..."
             stop music fadeout 3.0
             p "Lass uns reingehen, pass aber auf."
+            $ pnpdex -= 1
             $ evesbpoints += 1
          
         "Ausweichen" if pnpdex < 4:
@@ -467,11 +469,12 @@ label eves4:
             hide bat with moveoutleft
             e "Hey, ist alles okay?"
             e "Die hat dich ganz schön erwischt, oder?"
-            p "Ja doch schon."
+            p "Ja doch schon. Tut etwas weh, wenn ich mich bewege."
             e "Dabei sah die Fledermaus eigentlich gar nicht so gefährlich aus... Ich glaube sie hatte einfach nur Angst."
             p "Wenn die Fledermaus Angst hatte, dann sind wir doch wohl hier richtig."
             stop music fadeout 3.0
             e "Mmmmh."
+            $ pnpdex -= 1
             $ evesbpoints -= 1
             
                

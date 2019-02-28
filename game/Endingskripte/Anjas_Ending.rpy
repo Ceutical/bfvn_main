@@ -742,6 +742,7 @@ label anjas_ending:
             k "Ich glaube wir müssen den anderen Kindern mal was erklären."
             p "Na gut... Nicht dass die anderen Angst haben..."
             scene anja goodend with fade
+            play music GoodEnd fadein 1.0
             n "Ich bin echt froh, dass wir nicht so großen Ärger bekommen haben."
             n "Auch die anderen Kinder waren uns gar nicht so sehr sauer, obwohl das ja gar nicht wahr war, was wir ihnen erzählt haben."
             n "Obwohl..."
@@ -858,6 +859,7 @@ label anjas_ending:
             r "Aber das ist sie nicht! Ihr habt uns angelogen!"
             "Alle Kinder" "LÜGNER"
             scene anja badend with fade
+            play music BadEnd fadein 1.0
             n "Die Anderen sind echt sauer auf uns. Dabei war das Alles doch gar keine Absicht!"
             n "Ich hab mich auch entschuldigt, aber sie wollen trotzdem nicht mehr mit mir oder Anja spielen."
             n "Und jetzt ist Anja deswegen auch noch auf mich sauer."

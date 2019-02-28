@@ -228,7 +228,7 @@ label anjas_ending:
             show anja at center
             
     show anja hihi
-    a "Alsoa gut, die Erkundung beginnt!"
+    a "Also gut, schau ma uns a mal um!"
     
     if tookrandy == True:
         scene bg woods 
@@ -337,7 +337,7 @@ label anjas_ending:
     p "WAS!? Bist du verrückt?"
     p "Was wenn sie uns verhext?"
     show anja vmad
-    a "Aber wir müssen es wissen! Wir müssen doch wissen wo ihre Hexenhütte ist!"
+    a "Zefix. Wir müssen es wissen! Wir müssen doch wissen wo ihre Hexenhütte ist!"
     hide anja with moveoutright
     n "Verdammt! Die soll nicht einfach weg rennen."
     scene bg woods2 with fade
@@ -451,11 +451,11 @@ label anjas_ending:
             show heide n at rightish
             with fade
             p "Anja, schau! Die Heidenau!"
-            a "Man, die schaut mega böse…"
+            a "Greiterhex…"
             show heide mad
             a "Guck! Die redet mit der Karin."
             a "Bestimmt über uns!"
-            a "Mist!"
+            a "Dreck!"
             show karin shock
             a "Karin ist bestimmt auch ‘ne Hexe!"
             hide heide with moveoutright
@@ -517,8 +517,8 @@ label anjas_ending:
             a "Am Montag erzählen wir’s den anderen."
             p "Na gut… Aber wir sollten auf jeden Fall Karin was sagen!"
             show anja mad
-            a "Nein, bloß nicht!"
-            a "Was, wenn Karin auch ‘ne Hexe ist?"
+            a "Blouß nird!"
+            a "Was, wenn die Karin auch ‘ne Hexe ist?"
             a "Wenn wir mit der reden weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
             a "Und dann verhext die uns damit wir nichts mehr sagen können!"
             p "Hm... Ja, vielleicht hast du Recht…"
@@ -586,7 +586,7 @@ label anjas_ending:
     a "Aber das ist noch nicht alles!"
     p "Wow! Sammelt die da auch Pilze!? Oh mein Gott!"
     show anja vmad
-    a "Und wie ich’s im Wald gesagt habe: Die hat ein Buch dabei für all ihre Tränke!"
+    a "Und wer ich’s damals verzüllt hab: Die hat ein Buch dabei für all ihre Tränke!"
     a "Wegen dem Buch hier weiß ich das nämlich auch alles!"
     p "Okay, dann stimmt das alles ja!"
     p "Die Heidenau ist wirklich ‘ne Hexe!"
@@ -670,7 +670,7 @@ label anjas_ending:
             h "Ihr plant doch irgendwas."
             h "Warum herrscht hier so ein Chaos?"
             show anja vmad at left with moveinleft
-            a "SIE SIND EINE HEXE!"
+            a "SIE SAN A HEX!"
             show heide mad
             h "Ich bin bitte WAS?"
             p "EINE HEXE!"
@@ -741,8 +741,14 @@ label anjas_ending:
             k "Na kommt!"
             k "Ich glaube wir müssen den anderen Kindern mal was erklären."
             p "Na gut... Nicht dass die anderen Angst haben..."
-            window hide
             scene anja goodend with fade
+            n "Ich bin echt froh, dass wir nicht so großen Ärger bekommen haben."
+            n "Auch die anderen Kinder waren uns gar nicht so sehr sauer, obwohl das ja gar nicht wahr war, was wir ihnen erzählt haben."
+            n "Obwohl..."
+            n "Vielleicht gibt es ja doch irgendwo Hexen."
+            n "Nicht unbedingt in unserem Kindergarten. Aber irgendwo bestimmt."
+            n "Aber Anja und ich werden es schon mit ihnen aufnehmen. Sie ist meine allerbeste Freundin und zusammen schaffen wir Alles!"
+            window hide
             $ renpy.pause ()
             window auto
             jump credits
@@ -797,7 +803,7 @@ label anjas_ending:
             p "Genau, sie hatten das Buch dabei mit der Anleitung dafür!"
             a "JA! Und HIER in meinem Buch steht das genau so drin!"
             show anja vmad
-            a "WIr HABEN BEWEISE!"
+            a "WIR HABEN BEWEISE!"
             show heide laugh
             h "Aaaahahahahahahahaha! Buahaaaahahahaha!"
             h "Hahaaaaaaaaahahaha! Ich kann nicht mehr!"
@@ -851,8 +857,14 @@ label anjas_ending:
             show randy vmad
             r "Aber das ist sie nicht! Ihr habt uns angelogen!"
             "Alle Kinder" "LÜGNER"
-            window hide
             scene anja badend with fade
+            n "Die Anderen sind echt sauer auf uns. Dabei war das Alles doch gar keine Absicht!"
+            n "Ich hab mich auch entschuldigt, aber sie wollen trotzdem nicht mehr mit mir oder Anja spielen."
+            n "Und jetzt ist Anja deswegen auch noch auf mich sauer."
+            n "Sie ist ja auch noch nicht so lange hier und das ärgert sie jetzt natürlich, dass niemand mehr mit ihr was machen will."
+            n "Dabei wollte ich das doch gar nicht... aber nicht immer zugelabert zu werden, ist vielleicht auch ganz okay."
+            n "Außerdem komm ich ja dann auch bald in die Schule. Da finde ich dann vielleicht Freunde."
+            window hide
             $ renpy.pause ()
             window auto
             jump credits

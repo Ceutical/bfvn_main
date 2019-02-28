@@ -806,6 +806,7 @@ label obikewin:
     p "Ist ja wohl mein Preis oder."
     o "Ja, ja das hab ich gesagt."
     scene wedding with fade
+    play music GoodEnd fadein 1.0
     n "Octavia ist wirklich cool, auch wenn sie mal nicht gewinnen will."
     n "Ich bin total gerne mit ihr verheiratet und ich will für immer mit ihr befreundet sein!"
     n "Und es wird nie langweilig, weil sie dauernd neue Ideen für Wettkämpfe hat."
@@ -837,6 +838,7 @@ label obikeloss:
     o "Dann geh doch du Verlierer!"
     p "Tschau, Nervenzicke!"
     scene octa badend with fade
+    play music BadEnd fadein 1.0
     n "Octavia ist echt nervig!"
     n "Aber blöd ist es trotzdem, dass wir jetz nicht mehr befreundet sind."
     n "Ich hab mit ihr immer mehr gespielt, als mit allen Anderen."
@@ -847,6 +849,7 @@ label obikeloss:
     window hide
     $ renpy.pause ()
     window auto
+    jump credits
     ### dieses CG macht 0 sinn mit der story die geschrieben worden ist.
     
     

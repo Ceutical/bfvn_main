@@ -166,7 +166,7 @@ label octas_ending:
             a "Was für eine Laus ist dem denn über die beleidigte Leberwurst gelaufen?"
             show octa talk
             o "Keine Ahnung..."
-            a "Und warum bist du so rot Prota?"
+            a "Und warum bist du so rot [name]?"
             p "Also die Octavia die hat so..."
             show octa smug
             o "Weil er ne Memme ist!"
@@ -192,7 +192,6 @@ label octas_ending:
             "test"
     
     scene bg hut with dissolve
-    show octa shock
     show karin happy at leftish with dissolve
     k "So Kinder, hier wären wir!"
     n "Das soll die Hütte sein? Sollte das nicht viel größer sein?"
@@ -502,9 +501,9 @@ label octas4:
     a "Von wegen."
     o "Doch!"
     show anja mad
-    a "Gar nicht!"
+    a "Gschmarre!"
     o "Wohl Doch!"
-    a "Woher sollst du wissen, wieviel ich von Fahrrädern weiß. Außerdem..."
+    a "Woher willst du wissen, wieviel ich von Fahrrädern weiß. Außerdem..."
     n "ich fang wohl lieber mal mit den trainieren an. Die streiten wohl eh den ganzen Tag."
     scene tue with dissolve
 
@@ -638,7 +637,7 @@ label octas7:
     a "Ist doch egal ob die wartet."
     a "Warum hängst du überhaupt mit der ab?"
     p "Warum nicht?"
-    a "Weil sie nervt?!"
+    a "Weil die a Saumadl is?!"
     p "Find ich nicht."
     show anja schmoll
     a "Das ist doch voll die Zicke! Ich versteh das nicht."
@@ -646,7 +645,7 @@ label octas7:
     a "Es sei denn..."
     n "???"
     a "DU WILLST OCTAVIA HEIRATEN!"
-    a "So richtig eklig mit Knutschen und Allem."
+    a "So richtig eklig mit nen Bussi und surwos."
     p "Überhaupt nicht!"
     show anja happy
     a "Ha, Lügner. Man sieht es dir doch an!"
@@ -656,7 +655,7 @@ label octas7:
     a "Haha, eklig."
     show octa shock
     o "Was denn?"
-    a "Passt schon, ich geh mit Louis spielen."
+    a "Passt schon, ich geh mit Louis spielen. Füll Spaß beim Radeln."
     show octa talk
     o "Hmmh... Kommst du [name]?"
     p "Ja klar."

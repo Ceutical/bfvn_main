@@ -82,7 +82,7 @@ label eves1:
         e "Na, Punkte für deine Fertigkeiten."
         e "Wie beim letzten Mal."
         
-        if pnp == win:
+        if pnpwin == True:
             e "Und weil du dich da so gut geschlagen hast, bekommst du auf jeden Wert +1!"
             $ pnpstr += 1
             $ pnpdex += 1
