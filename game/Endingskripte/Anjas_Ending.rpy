@@ -16,17 +16,17 @@ label anjas_ending:
     show louis really at slightleft with moveinleft
     L "Äh...was ist eine Lichtung?"
     show karin happy
-    k "Oh, gute Frage Louis!"
+    k "Oh, gute Frage, Louis!"
     show karin go
     k "Das ist ein Ort, mitten im Wald. Aber da stehen keine Bäume, da ist nur Wiese oder Waldboden."
-    k "Im Wald ist es ja meistens ziemlich dunkel wegen den vielen Bäumen."
+    k "Im Wald ist es ja meistens ziemlich dunkel, wegen den vielen Bäumen."
     show karin talk
-    k "Aber bei einer Lichtung ist es heller weil ja dort keine Bäume sind."
+    k "Aber bei einer Lichtung ist es heller, weil ja dort keine Bäume sind."
     k "Deswegen heißt es nämlich auch Lichtung, das kommt von Licht, verstehst du?"
     show louis talk
     L "Äh, ja... Ich glaub' schon..."
     show anja hihi at left with moveinleft
-    a "Also ich glaub' nicht, hihi."
+    a "Also, ich glaub nicht, hihi."
     hide anja with moveoutleft
     show louis mad
     L "Hey!"
@@ -69,14 +69,14 @@ label anjas_ending:
             
             
             menu:
-                "Was hast du denn als Brotzeit dabei Anja?":
+                "Was hast du denn als Brotzeit dabei, Anja?":
                     show anja what
                     a "Meine Mama hat mir 2 Brote gemacht, eins mit Schinken und eins mit Salami und Käse."
                     show anja talk
                     a "Ich liebe Schinken, weißt du?"
                     show anja what
                     a "Einen Apfel hat sie mir auch eingepackt!"
-                    a "Mama sagt immer ich soll mehr Obst essen, aber ich mag Äpfel eigentlich nicht so..."
+                    a "Mama sagt immer, ich soll mehr Obst essen, aber ich mag Äpfel eigentlich nicht so..."
                     a "Magst du meinen Apfel haben?"
                     menu:
                         a "Magst du meinen Apfel haben?"
@@ -94,24 +94,24 @@ label anjas_ending:
                             
                 "Glaubst du, hier gibt's Wildschweine?":
                     show anja what
-                    a "Hier gibt's glaube ich keine... Aber ich will heute unbedingt Rehe sehen!"
+                    a "Hier gibt's ,glaube ich, keine... Aber ich will heute unbedingt Rehe sehen!"
                     show anja n
                     a "Aber die gibts nur tief im Wald. Vielleicht finden wir ja noch andere Tiere!"
                     show anja happy
                     a "Hey, weißt du was?"
                     show anja hihi
                     a "Lass uns doch mal gucken gehen."
-                    p "Aber die Karin hat doch gesagt wir sollen nicht weg gehen."
+                    p "Aber die Karin hat doch gesagt, wir sollen nicht weg gehen."
                     show anja what
                     a "Ja schon..."
                     show anja talk
-                    a "Aber zu zweit finden wir bestimmt wieder zurück bevor die es überhaupt bemerkt..."
+                    a "Aber zu zweit finden wir bestimmt wieder zurück, bevor die es überhaupt bemerkt..."
                     
             show anja hihi
             a "Boah, glaubst du hier im Wald ist die Hexenhütte von der Frau Heidenau? Hihi..."
             p "Meinst du wirklich?"
             a "Naja..."
-            k "Okay Kinder! Die Pause ist gleich vorbei! Esst noch alle auf wenn ihr noch nicht fertig seid, dann laufen wir weiter!"
+            k "Okay Kinder! Die Pause ist gleich vorbei! Esst noch alle auf, wenn ihr noch nicht fertig seid, dann laufen wir weiter!"
             k "Sind alle fertig? Weiter geht's! So weit ist es nicht mehr bis zu der Lichtung."
             show anja what
             a "Ahh! Schnell, wir müssen hinterher!"
@@ -133,7 +133,7 @@ label anjas_ending:
             show anja jabber at left behind octa with moveinleft
             "{color=#0099ff}Anja:{/color} Cool!\n{color=#0099ff}Evelynn:{/color} Der ist aber schön!\n{color=#0099ff}Octavia:{/color} Der kann bestimmt voll schnell fliegen!\n{color=#0099ff}[name]:{/color} Woah!"
             show anja talk
-            a "Der Käfer ist echt voll schön Randy!"
+            a "Der Käfer ist echt voll schön, Randy!"
             show eve shy2
             e "Wir sollten ihn mitnehmen!"
             show eve talk2
@@ -212,7 +212,7 @@ label anjas_ending:
             p "Na klar Randy, kommt mit!"
             $ tookrandy = True
             a "Hmm... Aber wir wollen tief in den Wald laufen."
-            a "Du darfst nur mitkommen wenn du dich traust!"
+            a "Du darfst nur mitkommen, wenn du dich traust!"
             r "Äh... Okay! Ich komme mit! Ich bin mutig!"
            
             if kaeferscene == False:
@@ -223,7 +223,7 @@ label anjas_ending:
         "Nein.":
             p "Naja... Eigentlich wollten nur Anja und ich zusammen laufen... Tut mir leid."
             $ tookrandy = False
-            r "Och Schade... Aber na gut, dann lauf' ich wo anders mit..."
+            r "Och Schade... Aber na gut, dann lauf ich wo anders mit..."
             hide randy with moveoutleft
             show anja at center
             
@@ -239,7 +239,7 @@ label anjas_ending:
         show anja what
         a "WOAH!"
         show anja happy
-        a "Da guck mal die Spinne! Die ist voll groß!"
+        a "Da, guck mal, die Spinne! Die ist voll groß!"
         play sound scream3 fadeout 50.0 loop
         hide randy bug
         show randydance
@@ -247,7 +247,7 @@ label anjas_ending:
         r "WÄÄÄÄH! SPINNEEE!"
         r "ICH HASSE SPINNEN! ICH HAB ANGST VOR SPINNEN!"
         show anja mad
-        a "Jetzt schrei doch mal nicht so rum! Das ist nur 'ne Spinne... Die tut uns doch nichts."
+        a "Jetzt schrei doch mal nicht so rum! Das ist nur ne Spinne... Die tut uns doch nichts."
         r "DIE IST BESTIMMT GIFTIG!"
         r "ICH WILL NICHT STERBEN!"
         hide randydance with moveoutleft
@@ -256,8 +256,8 @@ label anjas_ending:
         show anja vmad at center with move
         a "RANDY!"
         show anja what
-        a "Hmm... Ich glaub' der kommt nicht wieder..."
-        p "Oh Mann..."
+        a "Hmm... Ich glaub, der kommt nicht wieder..."
+        p "Oh Man..."
     else:
         scene bg woods
         show anja n at center
@@ -292,16 +292,16 @@ label anjas_ending:
     
     show anja jabber
     a "Aber wir dürfen unsere Mission nicht vergessen! Ich will noch tiefer in den Wald!"
-    p "Bist du sicher? Ich meine wir sind ja schon ganz schön weit gelaufen..."
+    p "Bist du sicher? Ich meine, wir sind ja schon ganz schön weit gelaufen..."
     show anja what
-    a "Klar bin ich sicher! Es gibt so viel zu entdecken hier!"
+    a "Klar, bin ich sicher! Es gibt so viel zu entdecken hier!"
     p "Hmm... Ich weiß nicht..."
     show anja mad
     a "Stell dich nicht so an. Komm, wir müssen weiter!"
     p "Naja okay..."
     scene bg river with fade
     show anja what at left with moveinleft    
-    p "Puh, also langsam sollten wir wirklich umdrehen Anja!"
+    p "Puh, also langsam sollten wir wirklich umdrehen, Anja!"
     show anja schmoll
     a "Jaja, wir laufen bald zurück."
     show anja happy
@@ -335,7 +335,7 @@ label anjas_ending:
     show anja mad at center with move
     a "Wir müssen ihr folgen! Komm!"
     p "WAS!? Bist du verrückt?"
-    p "Was wenn sie uns verhext?"
+    p "Was, wenn sie uns verhext?"
     show anja vmad
     a "Zefix. Wir müssen es wissen! Wir müssen doch wissen wo ihre Hexenhütte ist!"
     hide anja with moveoutright
@@ -355,7 +355,7 @@ label anjas_ending:
     show heidetalks 2 at left with moveinleft
     show heidetalks at rightish with move
     show anja mad at left with moveinleft
-    p "Da!"
+     p "Da!"
     p "Sie hat gestoppt."
     show anja what
     a "Ja, aber warum?"
@@ -364,14 +364,14 @@ label anjas_ending:
     a "Oh nein! Die sind bestimmt giftig!"
     show anja vmad
     a "Ich habs dir doch gesagt, die will uns vergiften!"
-    p "Ich glaub du hast Recht!"
+    p "Ich glaub, du hast Recht!"
     show anja mad
     a "Du auch!"
     p "Wie, ich auch?"
     show anja schmoll
-    a "Ja! Du hast doch vorhin gesagt, dass wir das den Anderen erzählen müssen!"
+    a "Ja! Du hast doch vorhin gesagt, dass wir das den anderen erzählen müssen!"
     p "Schau! Die hat ein Buch dabei."
-    p "Da stehen bestimmt alle Zutaten für ‘nen Vergiftungstrank drin!"
+    p "Da stehen bestimmt alle Zutaten für nen Vergiftungstrank drin!"
     show anja vmad
     a "Ja! So ein Buch haben doch alle Hexen! Da stehen alle möglichen Tränke drin."
     a "Schnell! Die Heidenau geht weiter!"
@@ -388,20 +388,20 @@ label anjas_ending:
             hide anja with moveoutbottom
             a "Woah, warte! Da ist ‘ne Spinne am Felsen! Cool!"
             a "Der ganze Wald ist voller Spinnen!"
-            p "Boah Anja, jetzt komm' hinter den Felsen! Die sieht dich noch!"
+            p "Boah Anja, jetzt komm hinter den Felsen! Die sieht dich noch!"
             
         "Hinter dem Baumstamm!":
             a "Okay, dann los!"
             hide anja with moveoutbottom
-            p "Ja ja ja, ich mach' ja schon!"
+            p "Ja ja ja, ich mach ja schon!"
             play sound woodcrack2
             p "Mist..."
-            a "Was machst du denn!? Pass doch auf wo du hintrittst!"
+            a "Was machst du denn!? Pass doch auf, wo du hintrittst!"
     
     show heidetalks 1 at leftish with MoveTransition(0.3)
     h "HEY! Wer ist da!?"
     h "Komm raus!"
-    h "Ach ihr Kinder seid das nur!"
+    h "Ach, ihr Kinder seid das nur!"
     h "Ihr sollt doch nicht so weit weg laufen, könnt ihr denn nie zu hören!?"
     h "Diese nichtsnutzige Karin!"
     h "Kann euch nicht mal ein paar Minuten unter Kontrolle halten."
@@ -416,7 +416,7 @@ label anjas_ending:
             a "Aber wohin denn?"
             p "Na zurück zur Lichtung!"
             a "Aber da wird die Hexe uns doch finden!"
-            p "Ja, aber da sind doch Karin und die Anderen."
+            p "Ja, aber da sind doch Karin und die anderen."
             p "Da sind wir in Sicherheit!"
             a "Okay, gute Idee!"
             p "Ja ja, komm schnell!"
@@ -425,18 +425,18 @@ label anjas_ending:
             show anja schmoll at center
             with fade
             p "Puh... Wir sind da. Geschafft."
-            a "Während wir gerannt sind hab' ich nachgedacht…"
+            a "Während wir gerannt sind, hab ich nachgedacht…"
             a "Wir dürfen bis nächste Woche nix erzählen."
             p "Aber warum?"
-            a "Vertrau mir einfach. Ich hab ‘nen Plan!"
+            a "Vertrau mir einfach. Ich hab nen Plan!"
             show anja vmad
             a "Am Montag erzählen wir’s den anderen."
             p "Na gut… Aber wir sollten auf jeden Fall Karin was sagen!"
             show anja mad
-            a "Nein, bloß nicht!"
-            a "Was, wenn Karin auch ‘ne Hexe ist?"
-            a "Wenn wir mit der reden weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
-            a "Und dann verhext die uns damit wir nichts mehr sagen können!"
+            a "Blouß nird!"
+            a "Was, wenn Karin auch ne Hexe ist?"
+            a "Wenn wir mit der reden, weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
+            a "Und dann verhext die uns, damit wir nichts mehr sagen können!"
             p "Hm... Ja, vielleicht hast du ja Recht, aber das..."
             show karin vhappy at right with moveinright
             k "Oh, hey, da seid ihr ja, ihr beiden!"
@@ -470,7 +470,7 @@ label anjas_ending:
             show heide n
             k "Ja, sieht gut aus."
             show heide mad
-            h "Also los! Auf zum Bus, ich bin froh wenn ich wieder zu Hause bin."
+            h "Also los! Auf zum Bus, ich bin froh, wenn ich wieder zu Hause bin."
             
         "Hervorkommen...":
             a "Oh nein! Ich will nicht vergiftet werden!"
@@ -485,7 +485,7 @@ label anjas_ending:
             show anja schmoll
             a "So weit ist die Lichtung doch gar nicht."
             show anja what
-            a "Aber wir haben uns glaube ich verlaufen, oder?"
+            a "Aber wir haben uns ,glaube ich, verlaufen, oder?"
             p "Hm… Ja genau! Wir haben uns verlaufen!"
             show heidetalks 1
             h "Verlaufen habt ihr euch also…"
@@ -503,24 +503,24 @@ label anjas_ending:
             h "So, ihr geht jetzt zu den anderen."
             h "Ich muss noch ein Wörtchen mit Karin wechseln."
             h "Wegen euch sind wir nämlich schon hinter dem Zeitplan."
-            p "Tut uns leid Frau Heidenau..."
+            p "Tut uns leid, Frau Heidenau..."
             h "Ja ja, jetzt geht!"
             scene bg woods2
             show anja schmoll at center
             with fade
             a "Du, [name]...."
-            a "Während wir gerannt sind hab' ich nachgedacht…"
+            a "Während wir gerannt sind, hab ich nachgedacht…"
             a "Wir dürfen bis nächste Woche nix erzählen."
             p "Aber warum?"
-            a "Vertrau mir einfach. Ich hab ‘nen Plan!"
+            a "Vertrau mir einfach. Ich hab nen Plan!"
             show anja vmad
             a "Am Montag erzählen wir’s den anderen."
             p "Na gut… Aber wir sollten auf jeden Fall Karin was sagen!"
             show anja mad
-            a "Blouß nird!"
-            a "Was, wenn die Karin auch ‘ne Hexe ist?"
-            a "Wenn wir mit der reden weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
-            a "Und dann verhext die uns damit wir nichts mehr sagen können!"
+            a "Nein, bloß nicht!"
+            a "Was, wenn Karin auch ne Hexe ist?"
+            a "Wenn wir mit der reden, weiß die ja, dass wir das mit der Heidenau rausgefunden haben."
+            a "Und dann verhext die uns, damit wir nichts mehr sagen können!"
             p "Hm... Ja, vielleicht hast du Recht…"
             scene bg woods2
             show karin n at leftish
@@ -533,7 +533,7 @@ label anjas_ending:
             a "Bestimmt über uns!"
             a "Mist!"
             show karin shock
-            a "Karin ist bestimmt auch ‘ne Hexe!"
+            a "Karin ist bestimmt auch ne Hexe!"
             hide heide with moveoutright
             show karin mad at center with move
             k "Kinder! Sind alle wieder da?"
@@ -546,7 +546,7 @@ label anjas_ending:
             show heide n
             k "Ja, sieht gut aus."
             show heide mad
-            h "Also los! Auf zum Bus, ich bin froh wenn ich wieder zu Hause bin."
+            h "Also los! Auf zum Bus, ich bin froh, wenn ich wieder zu Hause bin."
     
     stop sound3
     stop sound4
@@ -555,8 +555,8 @@ label anjas_ending:
     scene bg bus
     show anja schmoll at rightish
     with fade
-    a "Also pass auf: Ich hab' zuhause ein Buch, da geht's auch um eine Hexe."
-    a "Das bring' ich am Montag mit und wir lesen das dann okay?"
+    a "Also pass auf: Ich hab zu Hause ein Buch, da geht's auch um eine Hexe."
+    a "Das bring ich am Montag mit und wir lesen das dann, okay?"
     p "Okay, gut! Dann können wir alle anderen Kinder warnen und beschützen!"
     scene bg black with fade
     show mnd with dissolve
@@ -564,8 +564,8 @@ label anjas_ending:
     scene bg grura2
     show anja n at center
     with fade
-    a "Hey, hey! Ich hab' das Buch dabei!"
-    a "Und du wirst nicht glauben was man darin sieht!"
+    aa "Hey, hey! Ich hab das Buch dabei!"
+    a "Und du wirst nicht glauben, was man darin sieht!"
     a "Lass uns in die Ecke setzen, dann schauen wir es gemeinsam an!"
     p "Okay."
     p "Mega spannend!"
@@ -587,12 +587,12 @@ label anjas_ending:
     p "Wow! Sammelt die da auch Pilze!? Oh mein Gott!"
     show anja vmad
     a "Und wer ich’s damals verzüllt hab: Die hat ein Buch dabei für all ihre Tränke!"
-    a "Wegen dem Buch hier weiß ich das nämlich auch alles!"
+    a "Wegen dem Buch hier, weiß ich das nämlich auch alles!"
     p "Okay, dann stimmt das alles ja!"
-    p "Die Heidenau ist wirklich ‘ne Hexe!"
+    p "Die Heidenau ist wirklich ne Hexe!"
     show randy happy at right with moveinbottom
     r "Hey... Was macht ihr da?"
-    p "Oh, hi Randy. Das ist jetzt voll wichtig okay?"
+    p "Oh, Hi Randy. Das ist jetzt voll wichtig, okay?"
     p "Du musst die anderen Kinder schnell her holen! Kannst du das machen?"
     show anja mad
     a "Es geht um ein Geheimnis, sag ihnen das!"
@@ -649,8 +649,8 @@ label anjas_ending:
     r "Vorsicht! Die Hexe kommt!"
     show heide talk
     h "Sagt mal... Die Karin hat gerade mit mir geredet..."
-    h "Und ich glaube ich muss mal ein Wörtchen mit Anja und [name] reden!"
-    h "Ihr seid mir auf dem Wandertag nämlich schon aufgefallen ihr beiden!"
+    h "Und ich glaube, ich muss mal ein Wörtchen mit Anja und [name] reden!"
+    h "Ihr seid mir auf dem Wandertag nämlich schon aufgefallen, ihr beiden!"
     h "Kommt doch mal mit!"
     
     menu:
@@ -706,14 +706,14 @@ label anjas_ending:
             show karin talk
             k "Wie kommt ihr 2 denn bitte auf so etwas?"
             show heide talk
-            h "Ich war am Wandertag doch Pilze sammeln, du weist schon, an dem Bach."
+            h "Ich war am Wandertag doch Pilze sammeln, du weißt schon, an dem Bach."
             show heide laugh
-            h "Und die zwei hier haben mich dabei wohl \"erwischt\" und denken ich will alle vergiften."
+            h "Und die zwei hier, haben mich dabei wohl \"erwischt\" und denken ich will alle vergiften."
             show karin vhappy
             k "Ach Gottchen, hihi!"
             show heide mad
             show karin happy
-            h "Also gut, passt auf ihr 2 Quatschköpfe."
+            h "Also gut, passt auf, ihr 2 Quatschköpfe."
             show heide talk
             h "Wisst ihr, ich sammle einfach gerne Pilze und Kräuter."
             h "Daheim koche ich daraus dann immer ein leckeres Gericht."
@@ -723,24 +723,24 @@ label anjas_ending:
             show heide talk
             h "Das ist ein Pilzalmanach!"
             h "Ein Buch über Pilze."
-            h "Wenn man Pilze sammelt muss man nämlich ganz genau aufpassen, dass man nur die Essbaren mitnimmt."
+            h "Wenn man Pilze sammelt, muss man nämlich ganz genau aufpassen, dass man nur die essbaren mitnimmt."
             h "Manchmal, wenn ich mir bei einem Pilz nicht sicher bin, schau ich in mein Buch."
             show heide n
             p "..."
             a "..."
             show anja schmoll
-            a "Das... heißt das stimmt alles garnicht?"
+            a "Das... heißt, das stimmt alles garnicht?"
             show anja mad
             a "Aber in meinem Buch..."
             show karin talk
-            k "Ach Anja... Das ist nur ein Märchen. Das ist erfunden!"
+            k "Ach, Anja... Das ist nur ein Märchen. Das ist erfunden!"
             k "Ihr müsst also keine Angst vor uns oder irgendwem sonst hier haben. Es gibt keine Hexen!"
             show anja schmoll
             a "Hm..."
             show karin happy
             k "Na kommt!"
             k "Ich glaube wir müssen den anderen Kindern mal was erklären."
-            p "Na gut... Nicht dass die anderen Angst haben..."
+            p "Na gut... Nicht, dass die anderen Angst haben..."
             scene anja goodend with fade
             play music GoodEnd fadein 1.0
             n "Ich bin echt froh, dass wir nicht so großen Ärger bekommen haben."
@@ -748,7 +748,7 @@ label anjas_ending:
             n "Obwohl..."
             n "Vielleicht gibt es ja doch irgendwo Hexen."
             n "Nicht unbedingt in unserem Kindergarten. Aber irgendwo bestimmt."
-            n "Aber Anja und ich werden es schon mit ihnen aufnehmen. Sie ist meine allerbeste Freundin und zusammen schaffen wir Alles!"
+            n "Aber Anja und ich werden es schon mit ihnen aufnehmen. Sie ist meine allerbeste Freundin und zusammen schaffen wir alles!"
             window hide
             $ renpy.pause ()
             window auto
@@ -792,7 +792,7 @@ label anjas_ending:
             show heide mad at leftish
             with fade
             k "SO! Und jetzt..."
-            h "JETZT ERKLÄRT MIR MAL WAS IN EUCH GEFAHREN IST!"
+            h "JETZT ERKLÄRT MIR MAL, WAS IN EUCH GEFAHREN IST!"
             "Alle Kinder" "HEXE! HEXE!"
             h "Bitte WAS? ICH!?"
             show eve mad at right with moveinright
@@ -804,7 +804,7 @@ label anjas_ending:
             p "Genau, sie hatten das Buch dabei mit der Anleitung dafür!"
             a "JA! Und HIER in meinem Buch steht das genau so drin!"
             show anja vmad
-            a "WIR HABEN BEWEISE!"
+            a "WIr HABEN BEWEISE!"
             show heide laugh
             h "Aaaahahahahahahahaha! Buahaaaahahahaha!"
             h "Hahaaaaaaaaahahaha! Ich kann nicht mehr!"
@@ -812,9 +812,9 @@ label anjas_ending:
             show karin talk
             k "Wie kommt ihr 2 denn bitte auf so etwas?"
             show heide talk
-            h "Ich war am Wandertag doch Pilze sammeln, du weist schon, an dem Bach."
+            h "Ich war am Wandertag doch Pilze sammeln, du weißt schon, an dem Bach."
             show heide mad
-            h "Also gut, passt auf ihr 2 Quatschköpfe."
+            h "Also gut, passt auf, ihr 2 Quatschköpfe."
             show heide talk
             h "Wisst ihr, ich sammle einfach gerne Pilze und Kräuter."
             h "Daheim koche ich daraus dann immer ein leckeres Gericht."
@@ -825,17 +825,17 @@ label anjas_ending:
             show heide talk
             h "Das ist ein Pilzalmanach!"
             h "Ein Buch über Pilze."
-            h "Wenn man Pilze sammelt muss man nämlich ganz genau aufpassen, dass man nur die Essbaren mitnimmt."
+            h "Wenn man Pilze sammelt, muss man nämlich ganz genau aufpassen, dass man nur die essbaren mitnimmt."
             h "Manchmal, wenn ich mir bei einem Pilz nicht sicher bin, schau ich in mein Buch."
             show heide n
             p "..."
             show anja schmoll
             a "..."
             show randy shock at right with moveinright
-            r "Das... heißt das stimmt alles garnicht?"
+            r "Das... heißt, das stimmt alles garnicht?"
             a "Aber in meinem Buch..."
             show karin happy
-            k "Ach Anja... Das ist nur ein Märchen. Das ist erfunden!"
+            k "Ach, Anja... Das ist nur ein Märchen. Das ist erfunden!"
             show karin talk
             k "Ihr müsst also keine Angst vor uns oder irgendwem sonst hier haben. Es gibt keine Hexen!"
             k "So und jetzt geht spielen! Wir müssen hier erst mal wieder aufräumen."
@@ -854,13 +854,13 @@ label anjas_ending:
             r "HAB ICH DOCH GESAGT!"
             show randy mad
             a "Das wollten wir doch nicht!"
-            p "Wir wollten euch warnen! Wir dachten wirklich die Heidenau ist eine Hexe!"
+            p "Wir wollten euch warnen! Wir dachten wirklich, die Heidenau ist eine Hexe!"
             show randy vmad
             r "Aber das ist sie nicht! Ihr habt uns angelogen!"
             "Alle Kinder" "LÜGNER"
             scene anja badend with fade
             play music BadEnd fadein 1.0
-            n "Die Anderen sind echt sauer auf uns. Dabei war das Alles doch gar keine Absicht!"
+            n "Die anderen sind echt sauer auf uns. Dabei war das alles doch gar keine Absicht!"
             n "Ich hab mich auch entschuldigt, aber sie wollen trotzdem nicht mehr mit mir oder Anja spielen."
             n "Und jetzt ist Anja deswegen auch noch auf mich sauer."
             n "Sie ist ja auch noch nicht so lange hier und das ärgert sie jetzt natürlich, dass niemand mehr mit ihr was machen will."
