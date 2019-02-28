@@ -18,23 +18,179 @@ label octas_ending:
     n "Was meint die denn damit wieder?"
     n "Egal, hoffentlich sind wir bald an der Hütte. Wandern ist echt das Langweiligste."
     show louis really at leftish with moveinbottom
-    L "Hey Leute. Sagt mal, meint ihr die Heidenau hat das erstgemeint?"
+    L "Hey Leute. Sagt mal, meint ihr die Heidenau hat das ernst gemeint?"
     n "???"
     show louis talk
     L "Na mit meiner Jacke?"
     show octa talk
     o "Ich glaub schon Louis. Du weißt doch selber, wenn die Heidenau was sagt, dann meint die das ernst."
     show louis really
-    "Ja, aber darf die mir meine Jacke wegnehmen? Ich hab doch nur die eine."
+    L "Ja, aber darf die mir meine Jacke wegnehmen? Ich hab doch nur die eine."
     p "Octavia hat recht, pass lieber auf."
     show louis mad
-    L "Oh man. Verdammt!"
+    L "Oh Mann. Verdammt!"
     show octa shock
     o "Pass doch auf Louis!"
     p "Wir sollten einfach weitergehen..."
     show louis n
     show octa talk
     o "Genau."
+    scene bg woods2
+    show karin vhappy at rightish
+    show heide n at leftish
+    with fade
+    k "Alle mal aufpassen! Wir machen hier unsere Brotzeitpause!"
+    k "Bitte nicht weglaufen, setzt euch her. Hier liegen ein paar große Baumstämme, da könnt ihr euch draufsetzen."
+    show heide mad
+    h "Hört auf Karin. Hier geht keiner ohne Erlaubnis weg, ja?"
+    hide karin with moveoutright
+    hide heide with moveoutleft
+    show octa mad at center with moveinbottom
+    o "Man, ernsthaft?"
+    p "Was...was ist denn?"
+    o "Müssen wir unbedingt Pause machen?"
+    show octa smug
+    o "Ist doch echt nur noch ein ganz kleines Stück bis zur Hütte."
+    p "Na wenn die Karin das sagt dann..."
+    show octa vmad
+    o "Ist ja gut."
+    show octa happy
+    o "Aber das ist mega lahm hier."
+    n "Eigentlich bin ganz froh mal kurz was essen zu können..."
+    show octa smug
+    o "Na egal..."
+    show octa talk
+    o "Und was hast du so dabei?"
+    p "Na ein paar Brote halt."
+    p "Eins mit Schinken..."
+    p "...und Eins mit Ei."
+    p "Und du?"
+    show octa smug
+    o "Ach ein paar Onigiri und Maki."
+    p "Oni...Maki...was?"
+    p "Was soll das denn sein?"
+    show octa talk
+    o "Na so Reis mit Zutaten."
+    o "Guck hier. Das ist mit rotem Ingwer!"
+    p "Ihhh!"
+    p "Ingwer tut meine Mama manchmal ins Essen."
+    p "Und dann schmeckt das furchtbar scharf!"
+    show octa smug
+    o "Ach jetzt hab dich nicht so."
+    p "Ne, das kann doch keiner essen!"
+    o "Klar kann man das!"
+    o "Hier..."
+    o "Trau dich!"
+    menu:
+        o "Trau dich!"
+        
+        "Okay, vielleicht einen Bissen...":
+            o "Und war's so schlimm?"
+            p "Nee. War ja ganz okay."
+            p "Ein bisschen sal..."
+            p "Moment!"
+            show octa shock
+            p "Ahhhhhh!"
+            p "Das brennt!"
+            o "Hä? Was ist denn?"
+            o "Du bist ja ganz rot."
+            p "Das ist mega scharf!"
+            p "Mein ganzer Mund brennt!"
+            p "Das gehört verboten!"
+            p "Essen darf nicht so scharf sein!"
+            show octa mad
+            o "Ach, jetzt sei mal nicht so 'ne Memme!"
+            show octa smug
+            o "Das ist vielleicht ein ganz kleines bisschen scharf."
+            o "Mehr auch nicht."
+            p "Dann iss du doch mal was davon!"
+            o "Ja, und?"
+            n "Die hat das einfach so gegessen..."
+            n "Was ist denn bei der falsch?"
+            n "Hat die einen Mund aus Stahl oder so?"
+            p "Aber?"
+            p "Aber das..."
+            p "Was zum?"
+            show octa happy
+            o "Hab doch gesagt, du sollst dich nicht so haben."
+            show randy bug at rightish with moveinright
+            r "Wollt ihr tauschen?"
+            p "Hä...was?"
+            show randy bugshock
+            r "Na, ich hab so ne blöde Banane von Mama eingepackt bekommen."
+            show randy bugmad
+            r "Und Bananen sind doof!"
+            p "Ach so!"
+            p "Essen!"
+            show octa smug
+            o "Hier kannst ein Maki für..."
+            show randy bugshock
+            r "Ne, Octavia. Deine Brotzeit ist immer mega komisch."
+            r "Garnicht nicht mein Geschmack."
+            show octa mad
+            o "Pah... ich wollte die Banane eh nicht!"
+            o "Die ist eh schon ganz braun!"
+            show randy bugmad
+            r "Stimmt gar nicht!"
+            p "Siehste!"
+            p "Auch Randy mag das nicht."
+            p "Und Anja sowieso nicht."
+            show octa vmad
+            o "Ach ihr habt doch alle keine Ahnung."
+            p "Hier Randy!"
+            p "Kannst die Hälfte von meinem Schinkenbrot haben."
+            show randy bug
+            r "Oh danke!"
+            show banana
+            r "Hier die Bana..."
+            p "Ne lass mal. Die ist doch schon ganz braun."
+            hide banana
+            show octa vhappy
+            o "Hahaha!"
+            show randy bugmad
+            r "Hey!"
+            r "Stimmt gar nicht!"
+            show anja what at leftish with moveinleft
+            a "Was stimmt gar nicht?"
+            show octa smug
+            o "Na, der Randy hat ne braune Banane dabei."
+            a "Ach so. Aber das stimmt doch!"
+            r "Nein!"
+            r "Lasst mich in Ruhe!"
+            r "Ihr seid alle doof!"
+            hide randy with moveoutright
+            show octa vhappy
+            o "Hahaha"
+            p "Hahaha"
+            a "Was ist denn mit dem los!?"
+            a "Was für eine Laus ist dem denn über die beleidigte Leberwurst gelaufen?"
+            show octa talk
+            o "Keine Ahnung..."
+            a "Und warum bist du so rot Prota?"
+            p "Also die Octavia die hat so..."
+            show octa smug
+            o "Weil er ne Memme ist!"
+            p "Hey, bin ich nicht!"
+            p "Das war voll scharf!"
+            a "Was ist voll scharf?"
+            o "Ach, der meint die Onigiri."
+            a "Oni...was?"
+            show octa mad
+            o "Sagt mal, seid ihr alle doof oder was?"
+            show octa vmad
+            o "REIS MIT ZUTATEN!"
+            show octa happy
+            o "Das heißt halt so."
+            show onigiri
+            o "Hier."
+            o "Das sind welche mit rotem Ingwer."
+            a "Sieht gar nicht so schlecht aus."
+            o "Willst du ein Stück?"
+            a "Ich weiß ja nicht. Ich mag scharf nicht so..."
+        
+        "Nee, wirklich nicht.":
+            "test"
+    
     scene bg hut with dissolve
     show octa shock
     show karin happy at leftish with dissolve
@@ -58,7 +214,7 @@ label octas_ending:
     show karin talk
     k "Äh, das weiß ich ehrlich gesagt nicht. Aber man kann ja suchen."
     show randy shock
-    r "Aber, dass ist doch ein Wald. Da muss es doch Eidechsen geben!"
+    r "Aber, das ist doch ein Wald. Da muss es doch Eidechsen geben!"
     n "Moment, was hat das jetzt mit mir zu tun?"
     "???" "Also, ich war schon häufiger im Wald und hab noch keine gesehen."
     n "Was ist denn jetzt."
@@ -93,7 +249,7 @@ label octas_ending:
     o "Na letzte Woche, bevor ich allein nach Hause gefahren bin."
     p "Du darfst das?"
     show octa shock
-    o "Dürfen? Natürlich nicht, aber meine Eltern Wissen doch nichts davon."
+    o "Dürfen? Natürlich nicht, aber meine Eltern wissen doch nichts davon."
     p "Echt!?"
     show octa talk
     o "Jap."
@@ -165,8 +321,6 @@ label octas_ending:
         p "Das werden wir ja sehen!"
     
 label octas2:
-    
-    "Zweiter Fight kommt hier!"
     
     jump startbattle2
     
@@ -296,7 +450,7 @@ label octas3:
     show mum n
     p "Mama?"
     show mum mad
-    m "Dein Vater hätte eines, dass für dich gemacht ist. Wir haben doch mal versucht dich zum fahren zu bringen."
+    m "Dein Vater hätte Eines, das für dich gemacht ist. Wir haben doch mal versucht dich zum fahren zu bringen."
     p "Oooh?"
     show mum nett
     m "Wieso aufeinmal das Interesse?"
@@ -340,7 +494,7 @@ label octas4:
     show octa mad
     o "Weiß ich doch, bin ja nicht doof!"
     show octa smug
-    o "Ich meinte eher die Farben, dass ist voll komisch."
+    o "Ich meinte eher die Farben, das ist voll komisch."
     show anja schmoll
     a "Find ich gar nicht, du hast einfach keine Ahnung von Fahrrädern."
     show octa vmad
@@ -375,7 +529,7 @@ label octas5:
     show randy talk
     r "Also, ich brauch ja auch noch Stützräder."
     show louis talk
-    L "Weil ihr zwei auch noch Babies seit."
+    L "Weil ihr Zwei auch noch Babies seit."
     show randy mad
     r "HEY!"
     n "Louis nervt, der kann mir einfach keine richtige Hilfe geben."
@@ -430,7 +584,7 @@ label octas6:
     o "Sie gewinnt immer und früher war das nicht so."
     show octa talk
     o "Da konnten ihre Freundinen auch gewinnen, die waren nämlich genau so gut."
-    p "Ist doch gut, wenn Sie immer gewinnt."
+    p "Ist doch gut, wenn sie immer gewinnt."
     o "Ja, aber weißt du."
     show octa happy
     o "Wenn ich gegen dich Rennen fahre, will ich gegen jemand starken gewinnen."
@@ -438,7 +592,7 @@ label octas6:
     show octa smug
     o "Kannst du auch nicht."
     show octa talk
-    o "Außerdem, sitz mal nicht so kurmm."
+    o "Außerdem, sitz mal nicht so krumm."
     menu:
         "Nach vorne lehnen":
             p "So?"
@@ -492,7 +646,7 @@ label octas7:
     a "Es sei denn..."
     n "???"
     a "DU WILLST OCTAVIA HEIRATEN!"
-    a "so richtig eklig mit Knutschen und allem."
+    a "So richtig eklig mit Knutschen und Allem."
     p "Überhaupt nicht!"
     show anja happy
     a "Ha, Lügner. Man sieht es dir doch an!"
@@ -648,12 +802,18 @@ label obikewin:
     p "War schon sehr schnell, hat Spaß gemacht."
     o "Hahahaha, sieh dich jetzt mal an."
     o "Aber diesmal mach ich dich fertig!"
-    p "Ja meine Frau."
+    p "Ja, meine Frau."
     o "Ach du... du meintest das ernst."
     p "Ist ja wohl mein Preis oder."
     o "Ja, ja das hab ich gesagt."
-    window hide
     scene wedding with fade
+    n "Octavia ist wirklich cool, auch wenn sie mal nicht gewinnen will."
+    n "Ich bin total gerne mit ihr verheiratet und ich will für immer mit ihr befreundet sein!"
+    n "Und es wird nie langweilig, weil sie dauernd neue Ideen für Wettkämpfe hat."
+    n "Auch auf unserer Hochzeit haben wir ein Wettessen gemacht. Da war Anja auch gar nicht so schlecht drin."
+    n "Am Ende hat Octavia sie glaub ich sogar gewinnen lassen. Sie hat gesagt, dass das besser ist, weil Anja dann weniger reden kann, wenn sie den Gewinnerkuchen bekommt und dann mit Essen beschäftigt ist."
+    n "Das war der lustigste Tag überhaupt!"
+    window hide
     $ renpy.pause ()
     window auto
     jump credits
@@ -677,8 +837,15 @@ label obikeloss:
     p "Ich mag dich auch nicht..."
     o "Dann geh doch du Verlierer!"
     p "Tschau, Nervenzicke!"
-    window hide
     scene octa badend with fade
+    n "Octavia ist echt nervig!"
+    n "Aber blöd ist es trotzdem, dass wir jetz nicht mehr befreundet sind."
+    n "Ich hab mit ihr immer mehr gespielt, als mit allen Anderen."
+    n "Außerdem hat sie den Anderen irgendwas komisches über mich erzählt und ihnen gesagt, dass sie nicht mehr mit ihren Sachen spielen dürfen, wenn sie mit mir reden."
+    n "Selbst Anja redet jetzt nicht mehr mit mir."
+    n "Aber das ist mir doch egal! Sollen sie halt mit der blöden Octavia spielen!"
+    n "Bald komm ich eh in die Schule und dann finde ich da ganz viele andere tolle Freunde!"
+    window hide
     $ renpy.pause ()
     window auto
     ### dieses CG macht 0 sinn mit der story die geschrieben worden ist.

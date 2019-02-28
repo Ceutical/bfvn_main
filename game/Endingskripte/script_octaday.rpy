@@ -18,7 +18,7 @@ label octas_ending:
     n "Was meint die denn damit wieder?"
     n "Egal, hoffentlich sind wir bald an der Hütte. Wandern ist echt das Langweiligste."
     show louis really at leftish with moveinbottom
-    L "Hey Leute. Sagt mal, meint ihr die Heidenau hat das erstgemeint?"
+    L "Hey Leute. Sagt mal, meint ihr die Heidenau hat das ernst gemeint?"
     n "???"
     show louis talk
     L "Na mit meiner Jacke?"
@@ -28,15 +28,170 @@ label octas_ending:
     L "Ja, aber darf die mir meine Jacke wegnehmen? Ich hab doch nur die eine."
     p "Octavia hat recht, pass lieber auf."
     show louis mad
-    L "Oh man. Verdammt!"
+    L "Oh Mann. Verdammt!"
     show octa shock
     o "Pass doch auf Louis!"
     p "Wir sollten einfach weitergehen..."
     show louis n
     show octa talk
     o "Genau."
+    scene bg woods2
+    show karin vhappy at rightish
+    show heide n at leftish
+    with fade
+    k "Alle mal aufpassen! Wir machen hier unsere Brotzeitpause!"
+    k "Bitte nicht weglaufen, setzt euch her. Hier liegen ein paar große Baumstämme, da könnt ihr euch draufsetzen."
+    show heide mad
+    h "Hört auf Karin. Hier geht keiner ohne Erlaubnis weg, ja?"
+    hide karin with moveoutright
+    hide heide with moveoutleft
+    show octa mad at center with moveinbottom
+    o "Man, ernsthaft?"
+    p "Was...was ist denn?"
+    o "Müssen wir unbedingt Pause machen?"
+    show octa smug
+    o "Ist doch echt nur noch ein ganz kleines Stück bis zur Hütte."
+    p "Na wenn die Karin das sagt dann..."
+    show octa vmad
+    o "Ist ja gut."
+    show octa happy
+    o "Aber das ist mega lahm hier."
+    n "Eigentlich bin ganz froh mal kurz was essen zu können..."
+    show octa smug
+    o "Na egal..."
+    show octa talk
+    o "Und was hast du so dabei?"
+    p "Na ein paar Brote halt."
+    p "Eins mit Schinken..."
+    p "...und Eins mit Ei."
+    p "Und du?"
+    show octa smug
+    o "Ach ein paar Onigiri und Maki."
+    p "Oni...Maki...was?"
+    p "Was soll das denn sein?"
+    show octa talk
+    o "Na so Reis mit Zutaten."
+    o "Guck hier. Das ist mit rotem Ingwer!"
+    p "Ihhh!"
+    p "Ingwer tut meine Mama manchmal ins Essen."
+    p "Und dann schmeckt das furchtbar scharf!"
+    show octa smug
+    o "Ach jetzt hab dich nicht so."
+    p "Ne, das kann doch keiner essen!"
+    o "Klar kann man das!"
+    o "Hier..."
+    o "Trau dich!"
+    menu:
+        o "Trau dich!"
+        
+        "Okay, vielleicht einen Bissen...":
+            o "Und war's so schlimm?"
+            p "Nee. War ja ganz okay."
+            p "Ein bisschen sal..."
+            p "Moment!"
+            show octa shock
+            p "Ahhhhhh!"
+            p "Das brennt!"
+            o "Hä? Was ist denn?"
+            o "Du bist ja ganz rot."
+            p "Das ist mega scharf!"
+            p "Mein ganzer Mund brennt!"
+            p "Das gehört verboten!"
+            p "Essen darf nicht so scharf sein!"
+            show octa mad
+            o "Ach, jetzt sei mal nicht so 'ne Memme!"
+            show octa smug
+            o "Das ist vielleicht ein ganz kleines bisschen scharf."
+            o "Mehr auch nicht."
+            p "Dann iss du doch mal was davon!"
+            o "Ja, und?"
+            n "Die hat das einfach so gegessen..."
+            n "Was ist denn bei der falsch?"
+            n "Hat die einen Mund aus Stahl oder so?"
+            p "Aber?"
+            p "Aber das..."
+            p "Was zum?"
+            show octa happy
+            o "Hab doch gesagt, du sollst dich nicht so haben."
+            show randy bug at rightish with moveinright
+            r "Wollt ihr tauschen?"
+            p "Hä...was?"
+            show randy bugshock
+            r "Na, ich hab so ne blöde Banane von Mama eingepackt bekommen."
+            show randy bugmad
+            r "Und Bananen sind doof!"
+            p "Ach so!"
+            p "Essen!"
+            show octa smug
+            o "Hier kannst ein Maki für..."
+            show randy bugshock
+            r "Ne, Octavia. Deine Brotzeit ist immer mega komisch."
+            r "Garnicht nicht mein Geschmack."
+            show octa mad
+            o "Pah... ich wollte die Banane eh nicht!"
+            o "Die ist eh schon ganz braun!"
+            show randy bugmad
+            r "Stimmt gar nicht!"
+            p "Siehste!"
+            p "Auch Randy mag das nicht."
+            p "Und Anja sowieso nicht."
+            show octa vmad
+            o "Ach ihr habt doch alle keine Ahnung."
+            p "Hier Randy!"
+            p "Kannst die Hälfte von meinem Schinkenbrot haben."
+            show randy bug
+            r "Oh danke!"
+            show banana
+            r "Hier die Bana..."
+            p "Ne lass mal. Die ist doch schon ganz braun."
+            hide banana
+            show octa vhappy
+            o "Hahaha!"
+            show randy bugmad
+            r "Hey!"
+            r "Stimmt gar nicht!"
+            show anja what at leftish with moveinleft
+            a "Was stimmt gar nicht?"
+            show octa smug
+            o "Na, der Randy hat ne braune Banane dabei."
+            a "Ach so. Aber das stimmt doch!"
+            r "Nein!"
+            r "Lasst mich in Ruhe!"
+            r "Ihr seid alle doof!"
+            hide randy with moveoutright
+            show octa vhappy
+            o "Hahaha"
+            p "Hahaha"
+            a "Was ist denn mit dem los!?"
+            a "Was für eine Laus ist dem denn über die beleidigte Leberwurst gelaufen?"
+            show octa talk
+            o "Keine Ahnung..."
+            a "Und warum bist du so rot Prota?"
+            p "Also die Octavia die hat so..."
+            show octa smug
+            o "Weil er ne Memme ist!"
+            p "Hey, bin ich nicht!"
+            p "Das war voll scharf!"
+            a "Was ist voll scharf?"
+            o "Ach, der meint die Onigiri."
+            a "Oni...was?"
+            show octa mad
+            o "Sagt mal, seid ihr alle doof oder was?"
+            show octa vmad
+            o "REIS MIT ZUTATEN!"
+            show octa happy
+            o "Das heißt halt so."
+            show onigiri
+            o "Hier."
+            o "Das sind welche mit rotem Ingwer."
+            a "Sieht gar nicht so schlecht aus."
+            o "Willst du ein Stück?"
+            a "Ich weiß ja nicht. Ich mag scharf nicht so..."
+        
+        "Nee, wirklich nicht.":
+            "test"
+    
     scene bg hut with dissolve
-    show octa shock
     show karin happy at leftish with dissolve
     k "So Kinder, hier wären wir!"
     n "Das soll die Hütte sein? Sollte das nicht viel größer sein?"
