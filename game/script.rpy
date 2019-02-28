@@ -1441,14 +1441,14 @@ label scene11:
         "Stumm abwarten.":
             $ daze = False
             show randy mad
-            "???" "Ist doch einfach Geschmackssache und ich will das Eis essen, dass ich essen will."
+            "???" "Ist doch einfach Geschmackssache und ich will das Eis essen, das ich essen will."
             show anja madb2
-            a "Aber das schmeckt doch nur wenn noch was dazugegeben wird."
+            a "Aber das schmeckt doch nur, wenn noch was dazugegeben wird."
             "???" "Es schmeckt immer besser!"
             show anja vmadb2
             a "UGHHH!"
             show anja madb2
-            a "Hey. Du! [name]! Schoko oder Vanilleeis!? Verzüll mal.."
+            a "Hey. Du! [name]! Schoko oder Vanilleeis!? Verzüll mal."
             menu:
                 p "Ähm... Ich glaube ..."
                 
@@ -1456,7 +1456,7 @@ label scene11:
                     $ anja_points += 1
                     show anja happyb2
                     a "HAH! Da hast's, Randy! Jetzt sind wir schon 2."
-                    r "Ist doch egal, wenn's Geschmackssache ist. Jetzt macht's aber eh keinen Sinn mehr da noch zu reden."
+                    r "Ist doch egal, wenn's Geschmackssache ist. Jetzt macht's aber eh keinen Sinn mehr, da noch zu reden."
                     r "Ich geh jetzt, macht doch was ihr wollt ..."
                     hide randy with moveoutright
                     p "Warum habt ihr euch denn jetzt eigentlich gezankt?"
@@ -1468,7 +1468,7 @@ label scene11:
                     show randy vhappy
                     "???" "Ha! Siehst du, ist doch nur Geschmackssache! Selbst dein neuer Freund stimmt mir zu!"
                     a "Ich mein, ... ja ... also ... [name], fall mir doch nicht einfach in den Rücken!"
-                    a "Dafür kannst immernu nird hier hoch kraxeln."
+                    a "Egal. Dafür kannst immernu nird hier hoch kraxeln, Randy."
                     show randy mad
                     r "Ach, lass mich doch in Ruhe..."
                     hide randy with moveoutright
@@ -1496,9 +1496,9 @@ label scene11:
             a "Hast du ja toll gemacht, [name]."
             p "Warte mal, worum ging es eigentlich?"
             show anja happyb2
-            a "Hehe, du hast also nicht alles gehört? Dann sag ich auch's nicht."
+            a "Hehe, du hast also nicht alles gehört? Dann sag ich's auch nicht."
             p "Komm schon!"
-            a "Erst wenn du hier hoch kommst!"
+            a "Erst, wenn du hier hoch kommst!"
 
 
     
@@ -1512,26 +1512,26 @@ label scene11:
             a "Probier's doch wenigstens."
             p "Ich trau mich nicht ... Ich kann das nicht!"
             show anja happyb2
-            a "Komm schon, ich zeig's dir auch wie's geht."
+            a "Komm schon, ich zeig dir auch wie's geht."
             menu:
                 "Lieber nicht...":
                     $ anja_points -= 2
                     $ gone = True
                     $ anjatreat = False
                     $ climber = False
-                    p "Nein! Nein, nein! Ich ... ich guck mal wo dein Freund ist."
+                    p "Nein! Nein, nein! Ich ... ich guck mal, wo dein Freund ist."
                     show anja madb2
                     a "Dann schleich di doch!"
-                    n "Verdammt jetzt ist sie sauer… Ich will doch bloß nicht auf diesen Baum. Da fall ich bestimmt nur runter."
+                    n "Verdammt, jetzt ist sie sauer… Ich will doch bloß nicht auf diesen Baum. Da fall ich bestimmt nur runter."
                     jump scene12
                     
                 "Na gut.":
                     $ climber = True
                     $ anja_points += 3
-                    p "Okay, aber wenn mir was passiert bist du Schuld!"
+                    p "Okay, aber, wenn mir was passiert, bist du Schuld!"
                     a "Jeder kann klettern, ist nur eine Frage der Technik!"
                     p "Ich hoffe ... "
-                    a "Warte ich komm erstmal runter ..."
+                    a "Warte, ich komm erstmal runter ..."
                     play sound grassbump
                     show anja hihi at left with dissolve
                     a "So. Schau erst a mal mir zou."
@@ -1550,7 +1550,7 @@ label scene11:
                     p "Also Hände ... Beine und ..."
                     p "ICH BIN OBEN!"
                     a "SAUBER!"
-                    p "Ich glaubs nicht! Danke!"
+                    p "Ich glaub's nicht! Danke!"
             
  ########################################################STNAND RECHTSCHREIBKORREKTUR#################################################################################################################           
         "Wortlos gehen.":
