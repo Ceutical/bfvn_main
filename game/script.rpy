@@ -575,7 +575,7 @@ label start:
             
         image partyfight:
             "images/CGs/mofpaanimation/mofpa1.png"
-            pause 0.15R
+            pause 0.15
             "images/CGs/mofpaanimation/mofpa2.png"
             pause 0.15
             "images/CGs/mofpaanimation/mofpa1.png"
@@ -2552,11 +2552,12 @@ label scene19f:
     a "2"
     a "1"
     a "Los!"
+    #JUMPER
     show rparty vmad
     r "WAAAAH!"
     scene partyfight
     window hide
-    $ renpy.pause ()
+    $ renpy.pause()
     window auto
     scene bg party
     show rparty vhappy at leftish
