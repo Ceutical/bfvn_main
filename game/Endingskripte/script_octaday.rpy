@@ -196,7 +196,99 @@ label octas_ending:
     a "Sieht gar nicht so schlecht aus."
     o "Willst du ein Stück?"
     a "Ich weiß ja nicht. Ich mag scharf nicht so..."
-    
+    menu:
+        a "Ich weiß ja nicht. Ich mag scharf nicht so..."
+        
+        "Nichts sagen...":
+            a "Ach, warum nicht."
+            hide onigiri with dissolve
+            n "Oh... ich seh's schon..."
+            show anja hot
+            show octa shock
+            n "So rot war Anja noch nie."
+            a "Kruzifix nochmoi..."
+            a "Ze fix..."           
+            a "Wia..."
+            a "HOASS, HOASS, HOASSSSSSS!"
+            show octa vhappy
+            hide anja with moveoutleft
+            o "Hahaha"
+            p "Man, jetzt hast du sie verschreckt."
+            o "Ja super oder?"
+            o "Wie die geflucht hat!"
+            o "Ich hab zwar nix verstanden..."
+            o "...aber voll lustig!"
+        
+        "Anja überzeugen...":
+            $ skillpoints += 1
+            p "Na komm schon!"
+            p "Man muss alles einmal probieren."
+            p "Sagt meine Mama immer."
+            show anja happy
+            a "Na gut. Gib her!"
+            hide onigiri with dissolve
+            n "Oh... ich seh's schon..."
+            show anja hot
+            show octa shock
+            n "So rot war Anja noch nie."
+            a "Kruzifix nochmoi..."
+            a "Ze fix..."
+            a "Wia..."
+            a "HOASS, HOASS, HOASSSSSSS!"
+            show octa vhappy
+            hide anja with moveoutleft
+            o "Hahaha"
+            p "Man, jetzt haben wir sie verschreckt."
+            o "Ja super oder?"
+            o "Wie die geflucht hat!"
+            o "Ich hab zwar nix verstanden..."
+            o "...aber voll lustig!"
+            p "Okay."
+            p "Ein bisschen lustig war's schon."
+            show octa happy
+            o "Eben!"
+                
+        
+        "Anja warnen...":
+            $ skillpoints -= 1
+            p "Ne lass das lieber!"
+            p "Ingwer ist super scharf."
+            show octa mad
+            o "Hey!"
+            o "Spielverderber!"
+            show octa vmad
+            o "Jetzt traut die sich doch nie."
+            show anja mad
+            a "Stimmt doch gar nicht!"
+            o "Stimmt wohl!"
+            show anja vmad
+            a "Ach ja?!"
+            a "Dann gib mal her deine Oni...Dinger!"
+            hide onigiri with dissolve
+            n "Oh... ich seh's schon..."
+            show anja hot
+            show octa shock
+            n "So rot war Anja noch nie."
+            a "Ze fix..."
+            a "Kruzifix nochmoi..."
+            a "Wia...wos?!"
+            a "HOASS, HOASS, HOASSSSSSS!"
+            show octa vhappy
+            hide anja with moveoutleft
+            o "Hahaha"
+            p "Man, jetzt hast du sie verschreckt."
+            o "Ja super oder?"
+            o "Wie die geflucht hat!"
+            o "Ich hab zwar nix verstanden..."
+            show octa happy
+            o "...aber voll lustig!"
+            
+    show karin vhappy at right with moveinright
+    k "Okay Kinder! Die Pause ist gleich vorbei! Esst noch alle auf wenn ihr noch nicht fertig seid, dann laufen wir weiter!"
+    kg "Okay Karin!"
+    show karin go
+    k "Sind alle fertig? Weiter geht's! So weit ist es nicht mehr bis zu der Lichtung."
+    hide karin with moveoutright
     scene bg hut with dissolve
     show karin happy at leftish with dissolve
     k "So Kinder, hier wären wir!"
@@ -741,7 +833,7 @@ label octas8:
     show oschutz happy
     n "Wenn die ihren Helm auf hat, dann wird es wohl echt ernst."
     hide oschutz
-    show obike n at leftish
+    show obike nhelm at leftish
     o "Wer zuerst unten beim Baumstumpf ist, hat gewonnen."
     o "Also."
     play music racetheme
@@ -758,8 +850,8 @@ label octas8:
         n "Dann in der Kurve bremse und einfach nicht falle..."
         n "Mist, sie kommt weiter vorne. Ich muss es in der nächsten probieren."
         play sound bikebreak
-        show obike n with moveinright
-        hide obike n with moveoutleft
+        show obike nhelm with moveinright
+        hide obike nhelm with moveoutleft
         o "Was?"
         n "Nurnoch ein paar meter und..."
         p "ICH HABS GESCHAFFT! OH MEIN GOTT!"

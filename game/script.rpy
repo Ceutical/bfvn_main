@@ -5481,8 +5481,10 @@ label scenew2_12:
         p "Wie \"Draußen\"?"
         show eve shy2
         e "Na, was draußen am Fenster ist. Der Bus fährt zwar schnell, aber das geht schon."
+        show pencils at chicken
         e "Hier, Papier und Stifte!"
         p "Dankeschön!"
+        hide pencils
         show eve vhappy2
         play sound draw
         n "So langsam komm ich rein in's Malen."
