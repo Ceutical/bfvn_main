@@ -573,9 +573,20 @@ label start:
             xalign 0.95 yalign 1.0
             linear 0.1 xalign 1.0
             
-            
-            
-            
+        image partyfight:
+            "images/CGs/mofpaanimation/mofpa1.png"
+            pause 0.15R
+            "images/CGs/mofpaanimation/mofpa2.png"
+            pause 0.15
+            "images/CGs/mofpaanimation/mofpa1.png"
+            pause 0.15
+            "images/CGs/mofpaanimation/mofpa3.png"
+            pause 0.15
+            "images/CGs/mofpaanimation/mofpa1.png"
+            pause 0.15
+            "images/CGs/mofpaanimation/mofpa4.png"
+            pause 0.15
+            repeat
 
 
     ##### AFFINITY SYSTEM INITIATE #####
@@ -2543,6 +2554,10 @@ label scene19f:
     a "Los!"
     show rparty vmad
     r "WAAAAH!"
+    scene partyfight
+    window hide
+    $ renpy.pause ()
+    window auto
     scene bg party
     show rparty vhappy at leftish
     show aparty jabber at rightish 
@@ -5592,22 +5607,22 @@ label scenew3_0:
     
     
 
-    window hide
-    scene bg bedroom with fade
-    nvln "Fabian Pfannmüller\nProduct Owner, Lead Writer"
-    nvln "Kilian Petry\nLead Scenedesigner, Lead Coder"
-    nvln "Frederik Haas\nSCRUM Master, Minigame Coder"
-    nvln "Natalie Kuhrt\nLead Artist, Writer, Coder, Scenedesigner"
-    nvln "Florian Menzel \ \ \ \ \ Sascha Fuchs\nWriter\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -- \ Writer, PR"
-    nvln "Luca Pfeiffermann\nLead Sounddesigner"
-    nvl clear
-    nvln "Vielen Dank für's Spielen!"
-    nvln "Euer Team von Baby's First Visual Novel"
-    window hide
-    scene cg selfiefriendo with fade
-    $ renpy.pause ()
-    window auto
+    #window hide
+    #scene bg bedroom with fade
+    #nvln "Fabian Pfannmüller\nProduct Owner, Lead Writer"
+    #nvln "Kilian Petry\nLead Scenedesigner, Lead Coder"
+    #nvln "Frederik Haas\nSCRUM Master, Minigame Coder"
+    #nvln "Natalie Kuhrt\nLead Artist, Writer, Coder, Scenedesigner"
+    #nvln "Florian Menzel \ \ \ \ \ Sascha Fuchs\nWriter\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -- \ Writer, PR"
+    #nvln "Luca Pfeiffermann\nLead Sounddesigner"
+    #nvl clear
+    #nvln "Vielen Dank für's Spielen!"
+    #nvln "Euer Team von Baby's First Visual Novel"
+    #window hide
+    #scene cg selfiefriendo with fade
+    #$ renpy.pause ()
+    #window auto
 
 
-
+return
 
