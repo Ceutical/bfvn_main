@@ -246,7 +246,7 @@ label kampf:
         with moveinright
         $ activeHP_b = HP_bike
         $ active_o = "bike"
-        o "Los Biclops!"
+        o "Los, Biclops!"
     elif activeHP_b < 0 and active_o == "bike":
         $ HP_bike = 0
         show p2 pokbike dead

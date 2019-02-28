@@ -157,7 +157,7 @@ label kampf2:
     if queued == "yes":
         $queued = "no"
         if active_o == "oculus" and HP_oculus > 0:
-            "Oculus läd auf für \"Hundeblick\"!"
+            "Oculus lädt auf für \"Hundeblick\"!"
             show p2 oculus at aattack with move
             play sound whoosh3
             show p2 oculus at antagonist with move

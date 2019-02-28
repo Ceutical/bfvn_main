@@ -133,7 +133,7 @@ label timedmenu2:
             show prot geworfen
             with dissolve
             show ball links with zoomin
-            a "Haha! Und schon ist die aus der anderen Gruppe draußen!"
+            a "Haha! Und schon ist die, aus der anderen Gruppe, draußen!"
             $ spielpunkte += 1
             o "Anfängerglück!"
             hide prot
@@ -232,10 +232,10 @@ label timedmenu3:
                 o "Du bist draußen!"
                 hide ball iyf
                 p "Hey, das gildet nicht, ich war ja noch gar nicht richtig drinnen und..."
-                o "Nix da! Getroffen ist getroffen, also raus mit dir!"
+                o "Nix da! Getroffen ist Getroffen, also raus mit dir!"
                 p "Jaja, ich geh ja schon!"
                 o "So, wer ist als nächstes dran?"
-                n "Danach hat Octavia einen nach dem Anderen wie Federn vom Spielfeld gepustet."
+                n "Danach hat Octavia einen nach dem anderen, wie Federn, vom Spielfeld gepustet."
                 jump sceneverloren
                 
 
@@ -288,7 +288,7 @@ label timedmenu4:
                 show oball mittelzielen
                 with dissolve
                 o "Jetzt mach ich dich fertig!"
-                n "Immer wenn Octavia den Ball in der Hand hat, ist unser Team wie erstarrt. Nichtmal Anja bewegt sich."
+                n "Immer, wenn Octavia den Ball in der Hand hat, ist unser Team wie erstarrt. Nichtmal Anja bewegt sich."
                     
                     
         "In die Mitte zielen":
@@ -312,7 +312,7 @@ label timedmenu4:
             show ball mittellinks with zoomin
             
             if enemyname == "plinksdrin":
-                a "Haha! Und schon ist die aus der anderen Gruppe draußen!"
+                a "Haha! Und schon ist die, aus der anderen Gruppe, draußen!"
                 o "So ein Mist aber auch!"
                 $ spielpunkte += 1
                 
@@ -326,7 +326,7 @@ label timedmenu4:
             with dissolve
             show oball mittelzielen with dissolve
             o "Jetzt mach ich dich fertig!"
-            n "Immer wenn Octavia den Ball in der Hand hat, ist unser Team wie erstarrt. Nichtmal Anja bewegt sich."
+            n "Immer, wenn Octavia den Ball in der Hand hat, ist unser Team wie erstarrt. Nichtmal Anja bewegt sich."
             
                 
         
@@ -368,7 +368,7 @@ label timedmenu4:
                 show oball mittelzielen
                 with dissolve
                 o "Jetzt geht es um alles!"
-                n "Immer wenn Octavia den Ball in der Hand hat, ist unser Team wie erstarrt. Nichtmal Anja bewegt sich."
+                n "Immer, wenn Octavia den Ball in der Hand hat, ist unser Team wie erstarrt. Nichtmal Anja bewegt sich."
                 
         
             else: 
@@ -408,7 +408,7 @@ label timedmenu5:
                 k "[name] ! Du bist raus!"
                 p "Jaja, ich geh ja schon!"
                 o "So, wer ist als nächstes dran?"
-                n "Danach hat Octavia Einen nach dem Anderen wie Federn vom Spielfeld gepustet."
+                n "Danach hat Octavia einen nach dem anderen, wie Federn, vom Spielfeld gepustet."
                 jump sceneverloren
         
         "Hoch springen":
@@ -452,7 +452,7 @@ label sceneverloren:
     with move
     a "Du hast meinen Spezialwurf geklaut! Das darfst du nicht!"
     o "Hah, nix geklaut! Das war mein eigener Spezialwurf. Ihr habt verloren, voll traurig für euch!"
-    n "Mann, die hören ja wirklich nie auf."
+    n "Man, die hören ja wirklich nie auf."
     jump scenenachball
     
 label scenegewonnen:
@@ -474,7 +474,7 @@ label scenegewonnen:
     show asport mad
     a "Von wegen! Du hast sogar meinen Spezialwurf geklaut!"
     o "Hah, nix geklaut! Das war mein eigener Spezialwurf. Ich hätte auch locker gewinnen können!"
-    n "Mann, die hören ja wirklich nie auf."
+    n "Man, die hören ja wirklich nie auf."
     jump scenenachball
     
 label sceneunentschieden:
@@ -484,7 +484,7 @@ label sceneunentschieden:
     show karin go at left
     k "Oh...leider müssen wir jetzt Schluss machen!"
     k "Bald ist schon wieder Abholzeit."
-    k "Da bei beiden noch gleich viele Spieler im Spielfeld stehen, ist unentschieden!"
+    k "Da bei beiden noch gleich viele Spieler im Spielfeld stehen, ist Unentschieden!"
     show osport mad at center with moveinright
     show asport mad at rightish with moveinright
     o "Na warte! So leicht kommst du mir nicht davon."
@@ -494,7 +494,7 @@ label sceneunentschieden:
     with move
     o "Das gibt noch eine Revanche!"
     a "Worauf du dich verlassen kannst!"
-    n "Mann, die hören ja wirklich nie auf..."
+    n "Man, die hören ja wirklich nie auf..."
     jump scenenachball
     
     
@@ -506,7 +506,7 @@ label scenenachball:
     scene bg court
     show anja mad at leftish with moveinleft
     show octa mad at rightish with moveinright
-    o "Dohoch, und überhaupt! Du bist so schlecht Anja!"
+    o "Dohoch, und überhaupt! Du bist so schlecht, Anja!"
     a "Ich bin überhaupt nicht schlecht!"
     show octa vmad
     show anja vmad
@@ -532,7 +532,7 @@ label scenenachball:
             show anja madb2
             o "Ja, ja ich mach ja gleich."
             show octa shock at leftish with move
-            n "Man das sieht nicht gut aus."
+            n "Man, das sieht nicht gut aus."
             o "So…erstmal…"
             play sound treefall
             play sound grassbump
@@ -540,13 +540,13 @@ label scenenachball:
             o "Au…"
             show karin shock at slightright with moveinright
             k "Was ist denn hier los?"
-            k "Oh man Octa, was machst du denn?"
+            k "Oh man, Octa, was machst du denn?"
             o "Ich wollte doch nur…"
             show karin mad
-            k "Jetzt komm mal mit wir müssen das verarzten."
+            k "Jetzt komm mal mit, wir müssen das verarzten."
             show karin mad at rightish with move
             hide octa with moveoutright
-            k "Und du Anja kommst auch mal mit."
+            k "Und du Anja, kommst auch mal mit."
             show anja whatb2
             a "Aber…"
             k "Nix aber! Du kommst jetzt mit."
@@ -567,11 +567,11 @@ label scenenachball:
                 a "Schau sogar [name] kann das."
                 show anja madb2
                 show octa smug at right with move
-                o "Ja, aber jetzt wo ihr da oben seid kann ich ja nicht mehr hoch. Da ist nämlich überhaupt kein Platz für 3."
+                o "Ja, aber jetzt wo ihr da oben seid, kann ich ja nicht mehr hoch. Da ist nämlich überhaupt kein Platz für 3."
                 o "Sonst würde ich das natürlich machen."
                 show anja vmadb2
                 show octa talk
-                a "Ja ja was auch immer! Feigling!"
+                a "Ja ja, was auch immer! Feigling!"
                 a "Verzieh dich!"
                 show anja madb2
                 show octa mad
@@ -579,21 +579,21 @@ label scenenachball:
                 hide octa with moveoutright
                 n "Und weg ist sie…"
                 show anja vmadb2
-                a "Man die nervt! Bin ich froh, dass sie abgehauen ist."
+                a "Man, die nervt! Bin ich froh, dass sie abgehauen ist."
                 show anja whatb2
-                a "Und du… sag mal was sollte das?"
+                a "Und du… sag mal, was sollte das?"
                 
                 menu:
                     a "Warum hast du dich denn vorgedrängelt?"
                     
-                    "Na ich wollte halt hoch auf den Baum.":
+                    "Na, ich wollte halt hoch auf den Baum.":
                         $ anja_points -= 1
                         show anja vmadb2
-                        a "Ach lüg doch nicht!"
+                        a "Ach, lüg doch nicht!"
                         show anja madb2
-                        p "Was wieso?"
+                        p "Was, wieso?"
                         show anja vmadb2
-                        a "Du hast das doch nur gemacht damit sie sich nicht schlecht fühlt."
+                        a "Du hast das doch nur gemacht, damit sie sich nicht schlecht fühlt."
                         a "Weiß doch jeder, dass sie nicht klettert. Ich glaub sie hat Angst davor."
                         show anja madb2
                         p "Na gut, vielleicht."
@@ -609,7 +609,7 @@ label scenenachball:
                         show anja whatb2
                         a "Ach so! Das hatte ich mir irgendwie schon gedacht."
                         show anja happyb2
-                        a "Gut dass du nicht gelogen hast."
+                        a "Gut, dass du nicht gelogen hast."
                         show anja whatb2
                         a "So richtig versteh ich das ja nicht. Octavia nervt doch immer nur."
                         p"Ja aber…"
@@ -630,7 +630,7 @@ label scenenachball:
                 p "Ja, ich glaub schon."
                 show anja happyb2
                 show octa at rightish with move
-                a "Gut. Das hat ganz schön gekracht. Dachte schon du hättest dir was gebrochen."
+                a "Gut. Das hat ganz schön gekracht. Dachte schon, du hättest dir was gebrochen."
                 show octa at right with move
                 a "Aber egal. Dann kann ja jetzt Oc…"
                 hide octa with moveoutright
@@ -642,33 +642,33 @@ label scenenachball:
                 p "Hm…sieht so aus."
                 a "Typisch."
                 show anja whatb2
-                a "Und du… sag mal was soll das eigentlich?"
+                a "Und du… sag mal, was soll das eigentlich?"
                 
                 menu:
                     a "Warum hast du dich denn vorgedrängelt?"
                     
-                    "Na ich wollte halt hoch auf den Baum.":
+                    "Na, ich wollte halt hoch auf den Baum.":
                         $ anja_points -= 3
                         show anja vmadb2
-                        a "Ach lüg doch nicht!"
+                        a "Ach, lüg doch nicht!"
                         show anja madb2
-                        p "Was wieso?"
+                        p "Was, wieso?"
                         show anja vmadb2
                         a "Letzte Woche wolltest du auch nicht klettern. Und jetzt plötzlich…"
                         a "Das glaub ich nicht."
                         show anja madb2
                         p "Aber…"
                         show anja vmadb2
-                        a "Nix aber lügen ist blöd!"
+                        a "Nix, aber Lügen ist blöd!"
                         a "Weiß doch jeder, dass sie nicht klettert. Ich glaub sie hat Angst davor."
                         show anja madb2
                         p "Na gut, vielleicht."
                         show anja vmadb2
-                        a "Ja und deswegen hast du dich vorgedrängelt, damit sie nicht klettern muss."
+                        a "Ja, und deswegen hast du dich vorgedrängelt, damit sie nicht klettern muss."
                         a "Und weißt du was?"
                         a "Wenn du die blöde Octavia so magst, dann geh doch zu der statt rumzulügen!"
                         show anja madb2
-                        n "Ich geh besser. Sie ist echt sauer. Vielleicht hätte ich nicht lügen sollen, aber ich wollte doch nur dass sich Octa nicht weh tut…"
+                        n "Ich geh besser. Sie ist echt sauer. Vielleicht hätte ich nicht lügen sollen, aber ich wollte doch nur, dass sich Octa nicht weh tut…"
                         jump scenew2_6
                         
                     "Octavia hat mir leid getan...":
@@ -676,7 +676,7 @@ label scenenachball:
                         show anja whatb2
                         a "Ach so! Das hatte ich mir irgendwie schon gedacht."
                         show anja happyb2
-                        a "Gut dass du nicht gelogen hast."
+                        a "Gut, dass du nicht gelogen hast."
                         show anja whatb2
                         a "So richtig versteh ich das ja nicht. Octavia nervt doch immer nur."
                         p"Ja aber…"
@@ -687,9 +687,9 @@ label axolotl:
     show anja happyb2
     a "Weißt du eigentlich, dass der Lucas aus der Axolotl-Gruppe ein Handy bekommen hat?"
     p "Nö, wer ist Lu…"
-    a "Ich meine so eins von diesen wo man Spiele drauf spielen kann. Voll krass!"
+    a "Ich meine, so eins von diesen, wo man Spiele drauf spielen kann. Voll krass!"
     p "Ist das d…"
-    a "Zum Beispiel gibt es da so ein Spiel mit ‘ner Schlange und man muss irgendwie machen, dass die Schlange länger wird."
+    a "Zum Beispiel gibt es da so ein Spiel mit ner Schlange und man muss irgendwie machen, dass die Schlange länger wird."
     p "Aha, und wi…"
     a "Und man muss irgendwie auch seinem eigenen Schwanz ausweichen."
     n "Ob ich heute noch mal zu Wort komme…"
