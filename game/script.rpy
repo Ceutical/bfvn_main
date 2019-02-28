@@ -4911,6 +4911,7 @@ label scenew2_10:
                     p "Dann ist er ja fast so schlimm wie du!"
                     show anja jabber
                     a "Na warte! Das wirst du noch bereuen!"
+                    show anja hcarry
                     n "Anja schnappt sich jetzt doch tatsächlich ein Büschel Stroh und stopft es mir hinten ins T-Shirt rein."
                     p "Ahhh, unfair! Du hattest Vorsprung!"
                     n "Schnell schnappe ich mir auch ein bisschen Stroh und werfe es in Anjas Richtung."
@@ -4918,7 +4919,7 @@ label scenew2_10:
                     n "Fast alles davon bleibt in Anjas Haaren hängen. Sie sieht fast so aus wie ein Spaghettimonster."
                     show anja htalk
                     a "Ey, ich kann gar nicht mehr sehen. Ich bin bliiind!"
-                    show anja heu
+                    show anja hcarry2
                     n "Ich glaub, Anja kann wirklich nichts mehr sehen. So langsam wankt sie Richtung Treppe. Aber sie ist auch schon wieder ordentlich mit Heu bewaffnet."
                     n "Hoffentlich fällt sie nicht gleich die Treppe runter!"
                     
