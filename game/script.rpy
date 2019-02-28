@@ -604,6 +604,7 @@ label start:
     
     ##### Szene 1 - Prolog #####
 label scene1:
+    window auto
     scene bg grura with dissolve    
     
     python:
@@ -689,7 +690,7 @@ label childlike:
     play sound decke
     show bg bedroom2 with fade
     n "Nein… nicht die warme Decke…"
-    n "Man, muss alles so hell sein…"
+    n "Mann, muss alles so hell sein…"
     show bg bedroom with dissolve
     show mum talk with moveinright
     m "Guten Morgen mein kleiner Spatz!"
@@ -5185,7 +5186,7 @@ label scenew2_10:
                             menu:
                                 "Oh...danke!":
                                     $ eve_points += 2
-                                    $ powder == True
+                                    $ powder = True
                                     e "\"Aber wir können das gar nicht bezahlen\", sagte die Bardin."
                                     e "\"Keine Sorge!\", sagte der Händler. \"Das ist ein Geschenk. Wir Reisenden müssen zusammen halten.\" Er lächelte noch kurz komisch, drehte sich um und ging wieder weiter."
                                     
@@ -5626,7 +5627,7 @@ label scenew3_0:
     #$ renpy.pause ()
     #window auto
         
-    
+label endgame:
     return
 
 
