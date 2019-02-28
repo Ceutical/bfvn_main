@@ -58,7 +58,7 @@ label eves1:
     p "..."
     e "Du, [name]?"
     p "Ja?"
-    e "Hast du Lust \"Das Blaue Auge\" zu spielen, wenn wir bei der Hütte sind?"
+    e "Hast du Lust, \"Das Blaue Auge\" zu spielen, wenn wir bei der Hütte sind?"
     p "Na klar, gerne!"
     show eve happy2
     e "Super!"
@@ -95,11 +95,11 @@ label eves1:
     if pnpplay == False:
         p "...äh..."
         p "Wie genau funktioniert das eigentlich?"
-        e "Guck, das ist ganz einfach. Erst suchst du dir aus was für ein Wesen du sein willst."
-        p "Hm…mal sehen was zur Auswahl steht…"
+        e "Guck, das ist ganz einfach. Erst suchst du dir aus, was für ein Wesen du sein willst."
+        p "Hm…mal sehen, was zur Auswahl steht…"
         
         menu rassenwahl2:
-                p "Hm…mal sehen was zur Auswahl steht…"
+                p "Hm…mal sehen, was zur Auswahl steht…"
                 "Zwerg":
                     menu:
                         e "Ein bisschen ... simpel. Aber dafür total stark!"
@@ -143,7 +143,7 @@ label eves1:
                         "Doch was anderes...":
                             jump rassenwahl2
                     
-        e "…und dann wählst du deine Rolle. Das ist was du gut kannst."
+        e "…und dann wählst du deine Rolle. Das ist, was du gut kannst."
         n "Was für eine Rolle habe ich?"
 
             
@@ -183,7 +183,7 @@ label eves1:
                         $ pnpstr += 3
                         $ pnpdex += 1
                         $ pnpint += 1
-                        n "Mit meinem großen Schwert, hau ich alle um!"
+                        n "Mit meinem großen Schwert hau ich alle um!"
                              
                     "Doch was anderes...":
                         jump klassenwahl2
@@ -192,7 +192,7 @@ label eves1:
         p "Wieso nicht? Du weißt doch auch, was ich bin, also sag schon!"
         e "Ätschi-Bätsch! Das wirst du sehen, wenn wir spielen!"
         n "Wenn Evelynn mir nichts verrät, dann wird es nur noch spannender."
-        e "Und jetzt erzählen wir eine Geschichte und immer wenn du was machen willst, darfst du würfeln und dann sage ich dir was passiert!"
+        e "Und jetzt erzählen wir eine Geschichte und immer, wenn du was machen willst, darfst du würfeln und dann sage ich dir was passiert!"
     
     
     
@@ -206,7 +206,7 @@ label eves1:
     e "Unser Abenteuer beginnt  ganz in der Nähe des Königspalastes von Müramoor."
     e "Wir sind Helden, die gerufen wurden, und müssen uns in Richtung einer Stadt aufmachen!"
     e "Erst am frühen Morgen, als die Sonne gerade aufgeht, können wir die Stadtmauern von Burenia erblicken."
-    e "Wir machen dort kurz auf einem Hügel Rast um uns zu erholen und zu frühstücken."
+    e "Wir machen dort kurz auf einem Hügel Rast, um uns zu erholen und zu frühstücken."
     n "Evelynn erzählt total toll! Ich kann mir ganz genau vorstellen, wie die Stadt aussehen würde."
     scene bg castle with dissolve
     p "Alles voll bunt und fröhlich hier. Was ist denn das auf deinem Rücken?"
@@ -215,7 +215,7 @@ label eves1:
     p "Baden?"
     p "Und wieso Werkzeug? Kannst du damit bauen?"
     show eve pnpn
-    e "Nee, die kann mit Musik zaubern.."
+    e "Ne, die kann mit Musik zaubern.."
     p "Das ist auch cool."
     show eve pnpask
     e "Auch wenn es schön ist, hier ist nicht viel los. Außerdem sollen wir doch in die Stadt gehen und Abenteuer machen."
@@ -230,7 +230,7 @@ label eves2:
     show eve pnpask
     e "Also, die Helden aus meinen Büchern bekommen Aufträge meistens in Tavernen."
     p "Was ist denn eine Taverne?"
-    e "Sowas wie ein Restaurant wo sich Leute treffen. Da kann man Apfelsaft trinken und so."
+    e "Sowas wie ein Restaurant, wo sich Leute treffen. Da kann man Apfelsaft trinken und so."
     n "Die weiß so viel, sie hätte ein Zauberer sein sollen!"
     p "OK, dann fragen wir mal jemanden nach dem Weg dahin?"
     show eve pnpvhappy
@@ -241,7 +241,7 @@ label eves2:
     e "Können Sie mir sagen, wo wir die örtliche Taverne finden, gnädiger Herr?"
     n "Was ist los mit ihr?"
     show cat talk
-    "Passant" "Ähm, selbstverständlich, gnädiges Fräulein. Hinter dem Brunnen links und dann immer den Geruch nach."
+    "Passant" "Ähm, Selbstverständlich, gnädiges Fräulein. Hinter dem Brunnen links und dann immer den Geruch nach."
     "Passant" "Möchten Sie wohl dort ein Ständchen singen?"
     show cat n
     show eve pnpvhappy
@@ -275,7 +275,7 @@ label eves3:
     p "Na dann..."
     show eve pnpask at leftish with move
     show wirt n at rightish with moveinright
-    e "Seien Sie gegrüßt werter Herr, mein Freund und ich hier sind Abenteuerer und haben uns gefragt, ob Sie uns ein paar interessante Geschichten aus der Gegend erzählen können."
+    e "Seien Sie gegrüßt werter Herr, mein Freund und ich hier sind Abenteurer und haben uns gefragt, ob Sie uns ein paar interessante Geschichten aus der Gegend erzählen können."
     show wirt happy
     "Wirt" "Ihr seht mir aber ein bisschen jung aus für Abenteurer, aber wer bin ich um das zu hinterfragen?"
     "Wirt" "Aber selbstverständlich, hier ist immer viel los."
@@ -319,7 +319,7 @@ label eves3:
             p "Seht her! Mit meinen Oberarmen kann ich es mit jedem Monster aufnehmen! Und auch mit jedem Wirt!"
         
         "Den Wirt bedrohen" if pnpstr < 4:
-            p "Schau Wirt! Meine dicken Arme!"
+            p "Schau, Wirt! Meine dicken Arme!"
             show wirt happy
             "Wirt" "Da sind meine ja größer. Und ich steh den ganzen Tag nur hinter der Theke."
         
@@ -329,21 +329,21 @@ label eves3:
             p "Na? Beeindruckend, oder?"
         
         "Den Wirt aufmuntern" if pnpdex < 4:
-            p "Schau her wie mit den Krügen jongliere…"
+            p "Schau her, wie ich mit den Krügen jongliere…"
             p "Ups...sorry!"
             show wirt mad
             "Wirt" "Also wirklich! Die bezahlt ihr aber!"
-            e "Natürlich werter Herr! Es tut uns Leid."
+            e "Natürlich, werter Herr! Es tut uns leid."
         
             
     if secret == True:
         show wirt happy
         "Wirt" "Nun gut, Ihr habt mich überzeugt."
-        "Wirt" "Ist ja eigentlich nur ein Gerücht. Man sagt jedoch, dass es einen harten Panzer und unzählige Beine besitzt. Wenn es also eine weiche, unbepanzerte Stelle besitzt, dann sollte man wohl dort angreifen."
+        "Wirt" "Ist ja eigentlich nur ein Gerücht. Man sagt jedoch, dass es einen harten Panzer und unzählige Beine besitzt.. Wenn es also eine weiche, unbepanzerte Stelle besitzt, dann sollte man wohl dort angreifen."
         show eve pnpask
         e "Und wo genau ist diese Höhle von dem Monster?"
         show wirt talk
-        "Wirt" "Ich schätze, dass es hier irgendwo in der Nähe ist. Aber genau kann ich das auch nicht sagen, ich hör halt nur Manches."
+        "Wirt" "Ich schätze, dass es hier irgendwo in der Nähe ist. Aber genau kann ich das auch nicht sagen, ich hör halt nur manches."
         "Wirt" "Aber ich würde mir ein Lager in der Nähe suchen, wenn ich es auf die Stadt abgesehen hätte, etwa in dem Wald oder so."
         show eve pnpvhappy
         e "Vielen Dank!"
@@ -479,7 +479,7 @@ label eves4:
             
                
         "Laute spielen" if pnpint >= 4:
-            n "Fledermäuse sehen nicht, sondern hören nur hat mir Papa erzählt."
+            n "Fledermäuse sehen nicht, sondern hören nur, hat mir Papa erzählt."
             p "LOS EVELYNN, SING!"
             show eve pnpmad
             e "Was?"
@@ -568,7 +568,7 @@ label eves5:
     
     menu:
         "Die Pizza benutzen"  if pnpint >= 4:
-            n "Ich glaub ich habe Essen gehört! Vielleicht können wir sie damit ablenken..."
+            n "Ich glaub, ich habe Essen gehört! Vielleicht können wir sie damit ablenken..."
             hide pizzastueck with moveouttop
             p "FANG!"
             "Goblins" "Nicht das Essen!"
@@ -584,7 +584,7 @@ label eves5:
             
             
         "Die Pizza benutzen" if pnpint < 4:
-            n "Ich glaub ich habe Essen gehört!"
+            n "Ich glaub, ich habe Essen gehört!"
             hide pizzastueck with dissolve
             p "Nimm das! Voll ins Gesicht!"
             show goblin1 mad
@@ -755,15 +755,15 @@ label eveboss:
     scene bg gang with dissolve
     show eve pnpask at leftish with moveinleft
     e "Nichts."
-    p "Ich will nicht mehr, dass dauert jetzt schon lange. Wir müssen doch eh bald mit den anderen Kindern wieder heim. Ist doch eh alles komisch."
+    p "Ich will nicht mehr, das dauert jetzt schon lange. Wir müssen doch eh bald mit den anderen Kindern wieder heim. Ist doch eh alles komisch."
     show eve pnpsad
     e "Ich weiß nicht..."
     p "Hmmh?"
     show eve pnpask
     e "Ich kann daheim mit niemanden reden."
     p "Aber, du redest doch mit mir."
-    e "Aber nicht bei mir zu Hause. Ich will lieber hier bleiben. Hier darf ich wenigstens draußen spielen."
-    p "Aber, daheim ist es doch schön. Da kann man fernsehen, und hat seine Spielsachen."
+    e "Aber nicht bei mir Zuhause. Ich will lieber hier bleiben. Hier darf ich wenigstens draußen spielen."
+    p "Aber daheim ist es doch schön. Da kann man Fernsehen, und hat seine Spielsachen."
     play sound whoosh5
     show eve pnpmad
     e "Darf ich doch nicht! Meine Mama sagt immer, das macht dumm."
@@ -986,7 +986,7 @@ label evebossfightend:
         stop music
         scene bg hut with dissolve
         show eve mad
-        e "DU IDIOT MUSST MIR ALLES RUINIEREN!"
+        e "DU IDIOT, MUSST MIR ALLES RUINIEREN!"
         play music spookywald3 fadein 1.0
         show randy bug at rightish with moveinright
         r "Was macht ihr da?"
@@ -1010,7 +1010,7 @@ label evebossfightend:
         show mum nett
         m "Hey, Püpschen, ich rede mit dir!"
         emum "...ich hab dir gesagt, dass das keine gute Idee ist! Und jetzt sieh dich an, ganz eingedreckt bist du!"
-        edad "Hoffentlich hast du dir keine Zecke geholt. Das nächste Mal, bleibst du einfach lieber wieder Zuhause!"
+        edad "Hoffentlich hast du dir keine Zecke geholt. Das nächste Mal bleibst du einfach lieber wieder zu Hause!"
         e "..mh hm..."
         hide emum n
         hide edad n
@@ -1078,7 +1078,7 @@ label evebossfightend:
         r "Die Heidenau hat gesagt, wir sollen alle sofort wieder zurück kommen."
         p "Och mennö..."
         show randy bugshock
-        r "Und sie hat gesagt, wer trödelt muss die Badfliesen mit einer Zahnbürste sauberschrubben."
+        r "Und sie hat gesagt, wer trödelt muss die Badfliesen mit einer Zahnbürste sauber schrubben."
         show eve mad
         e "Jaja, wir packen ja schon zusammen."
         hide randy with moveoutright
@@ -1103,7 +1103,7 @@ label evebossfightend:
         e "Wie wäre es mit einer Fledermaus oder einer viel zu großen Pizza?"
         p "Hört sich doch toll an!"
         show eve shy2
-        e "Hör mal. Danke das du mit mir spielst, ich fühle mich wirklich gut."
+        e "Hör mal. Danke, dass du mit mir spielst, ich fühle mich wirklich gut."
         p "Mir hat es auch Spaß gemacht."
         e "Das wiederholen wir so schnell wie möglich."
         p "Dann aber bei mir und mit Randy!"
@@ -1126,7 +1126,7 @@ label evebossfightend:
         show mum nett
         m "Hey, Püpschen, ich rede mit dir!"
         emum "...ich hab dir gesagt, dass das keine gute Idee ist! Und jetzt sieh dich an, ganz eingedreckt bist du!"
-        edad "Hoffentlich hast du dir keine Zecke geholt. Das nächste Mal, bleibst du einfach lieber wieder Zuhause!"
+        edad "Hoffentlich hast du dir keine Zecke geholt. Das nächste Mal, bleibst du einfach lieber wieder zu Hause!"
         show eve mad
         e "..."
         e "Mir hat's Spaß gemacht."
@@ -1151,10 +1151,10 @@ label sceneevegood:
     play music GoodEnd fadein 1.0
     n "Der Wandertag ist jetzt schon 3 Wochen her. Bald bin ich groß genug und darf in die Schule!"
     n "Aber der Ausflug war wirklich lustig. Und Evelynn ist seit dem auch ganz anders."
-    n "Sie redet viel mehr, auch mit den Anderen. Und neulich haben wir sogar alle zusammen einen schwarzen Magier besiegt, der das ganze Königreich erobern wollte!"
+    n "Sie redet viel mehr, auch mit den anderen. Und neulich haben wir sogar alle zusammen einen schwarzen Magier besiegt, der das ganze Königreich erobern wollte!"
     n "Octavia sagt, dass wir das nur ihretwegen geschafft haben, aber Evelynn hat auch ganz viel gemacht."
     n "Eigentlich sogar fast alles, weil Octavia sich andauernd mit Anja streitet, ob Elfen oder Zwerge besser im Kämpfen sind."
-    n "Und einmal haben wir dann an einem Wochenende alle bei Evelynn Zuhause gespielt. Da gabs dann auch wieder Riesenpizza."
+    n "Und einmal haben wir dann an einem Wochenende alle bei Evelynn zu Hause gespielt. Da gabs dann auch wieder Riesenpizza."
     n "Und diesmal sogar ganz in echt!"
     window hide
     $ renpy.pause()
