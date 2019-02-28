@@ -573,6 +573,7 @@ label start:
             xalign 0.95 yalign 1.0
             linear 0.1 xalign 1.0
             
+            
         image partyfight:
             "images/CGs/mofpaanimation/mofpa1.png"
             pause 0.15
@@ -588,6 +589,9 @@ label start:
             pause 0.15
             repeat
 
+            
+            
+            
 
     ##### AFFINITY SYSTEM INITIATE #####
     $ octa_points = 0
@@ -1446,7 +1450,7 @@ label scene11:
             show anja vmadb2
             a "UGHHH!"
             show anja madb2
-            a "Hey. Du! [name]! Schoko oder Vanilleeis!? Verzüll mal."
+            a "Hey. Du! [name]! Schoko oder Vanilleeis!? Verzüll mal.."
             menu:
                 p "Ähm... Ich glaube ..."
                 
@@ -1466,7 +1470,7 @@ label scene11:
                     show randy vhappy
                     "???" "Ha! Siehst du, ist doch nur Geschmackssache! Selbst dein neuer Freund stimmt mir zu!"
                     a "Ich mein, ... ja ... also ... [name], fall mir doch nicht einfach in den Rücken!"
-                    a "Dafür kannst nird immernu nird hier hoch kraxeln."
+                    a "Dafür kannst immernu nird hier hoch kraxeln."
                     show randy mad
                     r "Ach, lass mich doch in Ruhe..."
                     hide randy with moveoutright
@@ -1519,7 +1523,7 @@ label scene11:
                     $ climber = False
                     p "Nein! Nein, nein! Ich ... ich guck mal wo dein Freund ist."
                     show anja madb2
-                    a "NA TOLL! Dann geh doch!"
+                    a "Dann schleich di doch!"
                     n "Verdammt jetzt ist sie sauer… Ich will doch bloß nicht auf diesen Baum. Da fall ich bestimmt nur runter."
                     jump scene12
                     
@@ -1550,7 +1554,7 @@ label scene11:
                     a "SAUBER!"
                     p "Ich glaubs nicht! Danke!"
             
-            
+ ########################################################STNAND RECHTSCHREIBKORREKTUR#################################################################################################################           
         "Wortlos gehen.":
             $ climber = False
             $ anja_points -= 3
@@ -1559,7 +1563,7 @@ label scene11:
             show anja madb2
             a "Hey! Was soll das? Wo willst du hin?"
             show anja vmadb2
-            a "Dann schleicht di doch!"
+            a "Dann schleich di doch"
             n "Verdammt jetzt ist sie sauer… Ich will doch bloß jetzt grad nicht mit ihr spielen."
             jump scene12
             
@@ -2076,7 +2080,7 @@ label scene15:
     show octa mad at leftish
     with fade
     o "Ich kann ihn 32 mal drehen bis er runterfällt."
-    a "A gschmarre! So schnell kann man nicht mal zählen."
+    a "A Gschmarre! So schnell kann man nicht mal zählen!"
     show octa smug
     o "Du vielleicht nicht. Ich kann das schon!"
     a "Lügnerin!"
@@ -2552,7 +2556,7 @@ label scene19f:
     a "2"
     a "1"
     a "Los!"
-    #JUMPER
+    #jumper
     show rparty vmad
     r "WAAAAH!"
     scene partyfight
@@ -3005,7 +3009,7 @@ label scene21:
     o "Ihr beide hattet ja echt mega Angst."
     o "Ihr seid ja wirklich erstarrt!"
     show aparty mad at slightleft with move
-    a "Sappererlot. Wieso machst du sowas!"
+    a "Sapperlot, wieso machst du sowas!"
     o "Ruhig, ist doch eine Monsterparty"
     a "Manchmal bist du echt a doofes Saumadl!"
     show oparty mad
@@ -4859,7 +4863,7 @@ label scenew2_10:
                     show anja mad
                     a "Auch Dinge wie Geister, die man vielleicht sogar gar nicht sehen kann."
                     show anja vmad
-                    a "Und die stibitzen immer die Socken aus der Maschine!"
+                    a "Und die stibitzen immer die Socken aus der Maschiene!"
                     
 
             show anja n
@@ -5623,7 +5627,8 @@ label scenew3_0:
     #scene cg selfiefriendo with fade
     #$ renpy.pause ()
     #window auto
+        
+    
+    return
 
-
-return
 
