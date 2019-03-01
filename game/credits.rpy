@@ -11,7 +11,7 @@ screen credits():
 
     add "#000"
 
-    frame at credits_scroll(25.0):
+    frame at credits_scroll(30.0):
         background None
             
 

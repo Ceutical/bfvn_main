@@ -355,7 +355,7 @@ label anjas_ending:
     show heidetalks 2 at left with moveinleft
     show heidetalks at rightish with move
     show anja mad at left with moveinleft
-     p "Da!"
+    p "Da!"
     p "Sie hat gestoppt."
     show anja what
     a "Ja, aber warum?"
