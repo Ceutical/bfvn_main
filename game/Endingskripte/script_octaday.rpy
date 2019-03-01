@@ -51,7 +51,7 @@ label octas_ending:
     o "Müssen wir unbedingt Pause machen?"
     show octa smug
     o "Ist doch echt nur noch ein ganz kleines Stück bis zur Hütte."
-    p "Na wenn die Karin das sagt dann..."
+    p "Na, wenn die Karin das sagt, dann..."
     show octa vmad
     o "Ist ja gut."
     show octa happy
@@ -78,8 +78,8 @@ label octas_ending:
     p "Ingwer tut meine Mama manchmal ins Essen."
     p "Und dann schmeckt das furchtbar scharf!"
     show octa smug
-    o "Ach jetzt hab dich nicht so."
-    p "Ne, das kann doch keiner essen!"
+    o "Ach, jetzt hab dich nicht so."
+    p "Ne, das kann doch Keiner essen!"
     o "Klar kann man das!"
     o "Hier..."
     o "Trau dich!"
@@ -101,12 +101,12 @@ label octas_ending:
             p "Das gehört verboten!"
             p "Essen darf nicht so scharf sein!"
             show octa mad
-            o "Ach, jetzt sei mal nicht so 'ne Memme!"
+            o "Ach, jetzt sei mal nicht so ne Memme!"
             
         
         "Nee, wirklich nicht.":
             show octa mad
-            o "Ach, jetzt sei mal nicht so 'ne Memme!"
+            o "Ach, jetzt sei mal nicht so ne Memme!"
             
     
     show octa smug
@@ -146,7 +146,7 @@ label octas_ending:
     p "Und Anja sowieso nicht."
     show octa vmad
     o "Ach ihr habt doch alle keine Ahnung."
-    p "Hier Randy!"
+    p "Hier, Randy!"
     p "Kannst die Hälfte von meinem Schinkenbrot haben."
     show randy bug
     r "Oh danke!"
@@ -175,8 +175,8 @@ label octas_ending:
     a "Was für eine Laus ist dem denn über die beleidigte Leberwurst gelaufen?"
     show octa talk
     o "Keine Ahnung..."
-    a "Und warum bist du so rot [name]?"
-    p "Also die Octavia die hat so..."
+    a "Und warum bist du so rot, [name]?"
+    p "Also die Octavia, die hat so..."
     show octa smug
     o "Weil er ne Memme ist!"
     p "Hey, bin ich nicht!"
@@ -196,6 +196,7 @@ label octas_ending:
     a "Sieht gar nicht so schlecht aus."
     o "Willst du ein Stück?"
     a "Ich weiß ja nicht. Ich mag scharf nicht so..."
+    
     menu:
         a "Ich weiß ja nicht. Ich mag scharf nicht so..."
         
@@ -307,14 +308,14 @@ label octas_ending:
     r "Karin."
     show karin go
     k "Ja Randy?"
-    r "Die Anja hat gesagt, dass es hier gar keine Eidechsen gibt. Dabei gibt es hier doch Eidechsen oder?"
+    r "Die Anja hat gesagt, dass es hier gar keine Eidechsen gibt. Dabei gibt es hier doch Eidechsen, oder?"
     show karin talk
     k "Äh, das weiß ich ehrlich gesagt nicht. Aber man kann ja suchen."
     show randy shock
     r "Aber, das ist doch ein Wald. Da muss es doch Eidechsen geben!"
     n "Moment, was hat das jetzt mit mir zu tun?"
     "???" "Also, ich war schon häufiger im Wald und hab noch keine gesehen."
-    n "Was ist denn jetzt."
+    n "Was ist denn jetzt?"
     show anja jabber at leftish
     show karin shock
     a "Aber ich hab mal eine Schlange gesehen."
@@ -323,14 +324,14 @@ label octas_ending:
     show octa talk
     o "Pssst... [name]"
     hide octa talk with moveoutright
-    o "Komm mal mit, ich will dir was Zeigen."
+    o "Komm mal mit, ich will dir was zeigen."
     n "Mir was zeigen?"
     a "Außerdem..."
     n "Na gut."
     scene bg bike with dissolve
     show octa smug at leftish with moveinleft
     o "Hier!"
-    p "Was hier?"
+    p "Was, hier?"
     show octa happy
     o "Na hier, der Hang!"
     p "Was ist so besonders an dem?"
@@ -352,33 +353,33 @@ label octas_ending:
     o "Jap."
     p "Hast du keinen Ärger bekommen?"
     show octa smug
-    o "Das bedeutet, die Wissen nichts davon."
-    p "Wow, dass ist mutig. Ich würde mich so etwas nicht trauen."
+    o "Das bedeutet, die wissen nichts davon."
+    p "Wow, das ist mutig. Ich würde mich so etwas nicht trauen."
     show octa talk
-    o "Nur Schade, dass ich mein Fahrrad nicht mitnehmen durfte."
+    o "Nur schade, dass ich mein Fahrrad nicht mitnehmen durfte."
     o "Ich hätte auch fahren können."
     p "Wie? So weit hättest du mit den Fahrrad fahren können?"
     show octa happy
     o "Nein, Moment."
     hide octa with moveoutright
     o "Siehst du das da?"
-    p "Der Weg von wo wir gekommen sind?"
+    p "Der Weg, von wo wir gekommen sind?"
     o "Nein, da weiter hinten die Straße."
     p "Nein."
     o "Egal, da unten wohne ich."
     p "Aaaah!"
     show octa talk at rightish with moveinright
-    o "Siehst du, dass hätte ich auch fahren können."
+    o "Siehst du, das hätte ich auch fahren können."
     o "So... und nun?"
     p "Hmmh, zurück zu den anderen da hinten?"
     show octa smug
-    o "Ne keine Lust, ich weiß dass es hier nicht so viel spannendes gibt."
+    o "Ne keine Lust, ich weiß, dass es hier nicht so viel spannendes gibt."
     p "Hmmmh."
     p "Hast du dein Playgear dabei?"
     show octa happy
     o "Klar, im Rucksack."
     p "Super, ich hab auch meins dabei."
-    p "Sag es nur nicht meiner Mama, die mag nicht dass ich damit spiele."
+    p "Sag es nur nicht meiner Mama, die mag nicht, dass ich damit spiele."
     show octa talk
     o "Na klar, Pfadfinderehrenwort."
     p "Wir sind aber noch keine Pfadfinder."
@@ -386,7 +387,7 @@ label octas_ending:
     o "Sagt man halt so."
     p "So, was wollte ich nochmal sagen?"
     show octa smug
-    p "Ach ja genau!"
+    p "Ach ja, genau!"
     
     if win == "yes":
         p "Du wolltest doch eine Revanche in Fighte Mon."
@@ -419,6 +420,7 @@ label octas_ending:
     
 label octas2:
     
+    
     jump startbattle2
     
 label endbattle2:
@@ -428,7 +430,7 @@ label endbattle2:
     if win2 == "yes" and win == "yes":
         show octa shock
         p "Yeah, schon wieder gewonnen!"
-        p "Dann bin ICH wohl der Beste Trainer."
+        p "Dann bin ICH wohl der beste Trainer."
         show octa mad
         o "Das war doch wieder nur Glück!"
         o "Außerdem ist das doch egal, ich wollte dir was zeigen und du kannst nichtmal richtig Fahrradfahren!"
@@ -438,14 +440,14 @@ label endbattle2:
         p "Klar kann ich das."
         show octa smug
         o "Dann beweis es doch. Fahr den Berg herunter!"
-        n "Mist, sie hat schon irgendwie recht... Ach was solls!"
+        n "Mist, sie hat schon irgendwie recht... Ach was soll's!"
         show octa shock
         p "Ich hab keine Angst!"
-        p "Den Berg fahr ich doch locker runter! Und schleer als du auch noch!"
+        p "Den Berg fahr ich doch locker runter! Und schneller als du auch noch!"
         
     elif win2 == "yes":
         p "Gewonnen!"
-        p "Dann bin ICH wohl der Beste Trainer."
+        p "Dann bin ICH wohl der beste Trainer."
         show octa smug
         o "War doch nur Glück!"
         show octa mad
@@ -460,7 +462,7 @@ label endbattle2:
         n "Mist, sie hat schon irgendwie recht... Ach was solls!"
         show octa shock
         p "Ich hab keine Angst!"
-        p "Den Berg fahr ich doch locker runter! Und schleer als du auch noch!"
+        p "Den Berg fahr ich doch locker runter! Und schneller als du auch noch!"
     
     else:
         p "Oh mist..."
@@ -468,7 +470,7 @@ label endbattle2:
         o "Hab dir doch gesagt, dass du verlierst."
         p "War aber mega knapp!"
         show octa talk
-        o "Gewonnen ist gewonnen!"
+        o "Gewonnen ist Gewonnen!"
         p "Ist ja nur Fighte Mon."
         show octa smug
         o "Schade nur, dass du auch kein Fahrrad fahren kannst."
@@ -477,10 +479,10 @@ label endbattle2:
         o "Und ein Angsthase bist du auch irgendwie."
         p "Lüg doch nicht!"
         show octa mad
-        o "Ich lüge doch nicht, du traust dich nichtmal den Berg runterzufahren!"
+        o "Ich lüge doch nicht, du traust dich nichtmal, den Berg runterzufahren!"
         show octa shock
         p "Ich hab keine Angst!"
-        p "Den Berg fahr ich doch locker runter! Und schleer als du auch noch!"
+        p "Den Berg fahr ich doch locker runter! Und schneller als du auch noch!"
     
     show octa vhappy
     o "Hahahaha"
@@ -501,7 +503,7 @@ label endbattle2:
     p "Aber wir kommen hier doch gar nicht mehr hin."
     show octa smug
     o "Ich hab dir doch gesagt, ich bin nicht weit weg."
-    o "Zu mir wird dich doch deine Mutter fahren oder?"
+    o "Zu mir wird dich doch deine Mutter fahren, oder?"
     p "Aber wir dürfen doch nicht alleine."
     show octa vmad
     o "Bist du wohl doch ein Angsthase?"
@@ -510,19 +512,19 @@ label endbattle2:
     p "Alles klar, dann bis Freitag!"
     "???" "[name]! Octavia!"
     show octa shock
-    p "Oh man, ich glaube wir sollten zurück!"
-    o "Ich glaub du hast Recht."
+    p "Oh man, ich glaube, wir sollten zurück!"
+    o "Ich glaub, du hast Recht."
 
 label octas3:
     scene bg hut with dissolve
     show karin shock
     k "Da seit ihr ja!"
-    p "Hey Karin."
-    k "Gott sei Dank! Wir haben schon überall nach euch gesucht! Ich dachte ich bekomme noch einen Herzinfakt!"
+    p "Hey, Karin."
+    k "Gott sei Dank! Wir haben schon überall nach euch gesucht! Ich dachte, ich bekomme noch einen Herzinfakt!"
     show karin mad
     k "Wieso haut ihr einfach ab?!"
     o "Aber..."
-    k "Nichts aber! Wisst ihr eigentlich was los ist, wenn ich das euren Eltern erzählen müsste?!"
+    k "Nichts aber! Wisst ihr eigentlich, was los ist, wenn ich das euren Eltern erzählen müsste?!"
     p "Entschuldigung."
     o "Ja. Tut uns echt leid."
     k "Seit nur froh, dass Frau Heidenau nichts mitbekommen hat."
@@ -547,16 +549,16 @@ label octas3:
     show mum n
     p "Mama?"
     show mum mad
-    m "Dein Vater hätte Eines, das für dich gemacht ist. Wir haben doch mal versucht dich zum fahren zu bringen."
+    m "Dein Vater hätte eines, dass für dich gemacht ist. Wir haben doch mal versucht, dich zum Fahren zu bringen."
     p "Oooh?"
     show mum nett
     m "Wieso aufeinmal das Interesse?"
     p "Ich will es einfach können."
     show mum talk
-    m "Dann ists ja gut!"
+    m "Dann ist's ja gut!"
     show mum n
     m "Aber jetzt erst einmal Essen fassen!"
-    p "Gutten Appetit."
+    p "Guten Appetit."
     scene bg black with dissolve
     n "Bis Freitag."
     n "Wie schaff ich das nur bis Freitag?"
@@ -578,7 +580,7 @@ label octas4:
     play sound cardoor1
     hide mum with dissolve
     n "Huch."
-    n "Was war das? Egal, erst mal in den Kindergarten."
+    n "Was war das? Egal, erstmal in den Kindergarten."
     scene bg court with dissolve
     show anja talk at leftish
     a "Die Farbe ist ja mega cool!"
@@ -587,7 +589,7 @@ label octas4:
     a "Von sowas hab ich schon mal gehört!"
     show octa talk at rightish with moveinright
     o "Na, was ist das denn?"
-    p "Na ein Fahrrad."
+    p "Na, ein Fahrrad."
     show octa mad
     o "Weiß ich doch, bin ja nicht doof!"
     show octa smug
@@ -600,9 +602,9 @@ label octas4:
     o "Doch!"
     show anja mad
     a "Gschmarre!"
-    o "Wohl Doch!"
-    a "Woher willst du wissen, wieviel ich von Fahrrädern weiß. Außerdem..."
-    n "ich fang wohl lieber mal mit den trainieren an. Die streiten wohl eh den ganzen Tag."
+    o "Wohl doch!"
+    a "Woher sollst du wissen, wieviel ich von Fahrrädern weiß. Außerdem..."
+    n "ich fang wohl lieber mal mit den Trainieren an. Die streiten wohl eh den ganzen Tag."
     scene tue with dissolve
 
 label octas5:
@@ -626,7 +628,7 @@ label octas5:
     show randy talk
     r "Also, ich brauch ja auch noch Stützräder."
     show louis talk
-    L "Weil ihr Zwei auch noch Babies seit."
+    L "Weil ihr zwei auch noch Babies seit."
     show randy mad
     r "HEY!"
     n "Louis nervt, der kann mir einfach keine richtige Hilfe geben."
@@ -647,7 +649,7 @@ label octas6:
     p "Ich probier doch schon!"
     show anja mad
     a "Schreien muss man auch nicht!"
-    a "Weißt du. Dir zu helfen macht keinen Spaß, ich gehe auf den Baum!"
+    a "Weißt du. Dir zu Helfen macht keinen Spaß, ich gehe auf den Baum!"
     hide anja with moveoutright
     p "Ich brauch auch gar keine Hilfe, denn ich schaffe es eh nicht!"
     n "Oh man, jetzt hab ich sie vergrault."
@@ -680,7 +682,7 @@ label octas6:
     o "Meine Mama hat mir mal erzählt, dass ihr der Skat-Abend keinen Spaß mehr macht."
     o "Sie gewinnt immer und früher war das nicht so."
     show octa talk
-    o "Da konnten ihre Freundinen auch gewinnen, die waren nämlich genau so gut."
+    o "Da konnten ihre Freundinnen auch gewinnen, die waren nämlich genauso gut."
     p "Ist doch gut, wenn sie immer gewinnt."
     o "Ja, aber weißt du."
     show octa happy
@@ -689,7 +691,7 @@ label octas6:
     show octa smug
     o "Kannst du auch nicht."
     show octa talk
-    o "Außerdem, sitz mal nicht so krumm."
+    o "Außerdem, sitz mal nicht so krurmm."
     menu:
         "Nach vorne lehnen":
             p "So?"
@@ -701,14 +703,14 @@ label octas6:
             o "Fast."
     p "Jetzt besser?"
     show octa happy
-    o "ich glaube schon, dass es jetzt richtig ist."
+    o "Ich glaube schon, dass es jetzt richtig ist."
     scene thr with dissolve
 
 label octas7:
     play sound cardoor1
     scene bg street with dissolve
     show mum n at leftish
-    p "Danke Mama. Du bist die beste!"
+    p "Danke Mama. Du bist die Beste!"
     m "Ja, ja... sei nur froh, dass ich dich hier her fahre und nicht Papa."
     m "In seinen ach so tollen Sportwagen würde dein Fahrrad nicht reinpassen."
     m "Aber ich muss dann mal los. Hab nen schönen Tag. Bis später!"
@@ -725,14 +727,14 @@ label octas7:
     
     scene bg flur with dissolve
     n "Endlich ist der Morgenkreis vorbei. Karin soll lieber weiter alleine turnen!"
-    n "Ich muss wichtigeres machen, ab in den Hof..."
+    n "Ich muss Wichtigeres machen, ab in den Hof..."
     show anja talk at leftish with moveinleft
     a "Hey [name]."
     p "Hey."
-    a "Warum hast dus denn so eilig?"
+    a "Warum hast du's denn so eilig?"
     p "Ich muss trainieren, Octavia wartet doch bestimmt schon."
     show anja mad
-    a "Ist doch egal ob die wartet."
+    a "Ist doch egal, ob die wartet."
     a "Warum hängst du überhaupt mit der ab?"
     p "Warum nicht?"
     a "Weil die a Saumadl is?!"
@@ -743,7 +745,7 @@ label octas7:
     a "Es sei denn..."
     n "???"
     a "DU WILLST OCTAVIA HEIRATEN!"
-    a "So richtig eklig mit nen Bussi und surwos."
+    a "So richtig eklig mit nem Bussi und surwos."
     p "Überhaupt nicht!"
     show anja happy
     a "Ha, Lügner. Man sieht es dir doch an!"
@@ -774,7 +776,7 @@ label octas7:
         "Gang runterschalten":
             p "So trete ich schneller."
             show octa mad
-            o "Ach du Blödmann, du trittst zwar schneller aber dein Fahrrad wird langsamer!"
+            o "Ach, du Blödmann, du trittst zwar schneller aber dein Fahrrad wird langsamer!"
             o "Gang hoch schalten für mehr Geschwindigkeit!"
     n "Ich glaub ich hab ne echte Chance morgen..."
     scene fri with dissolve
@@ -787,7 +789,7 @@ label octas8:
     o "Du hast auch echt gut mitgehalten."
     p "Du warst ja auch echt schnell, war schwer hinterher zu kommen."
     show octa happy
-    o "Kannst du eigentlich noch? Wegen dem herrauffahren?"
+    o "Kannst du eigentlich noch? Wegen dem Herrauffahren?"
     p "Mmmh. Ja, bin topfit!"
     show octa talk
     o "Gut, da drüben ist der Pfad. Den müssen wir hoch und dann runterfahren."
@@ -798,33 +800,33 @@ label octas8:
     show octa vhappy
     p "Aber..."
     show octa smug
-    o "Kein aber, du hast gesagt du gewinnst locker. Also streng dich mal an."
-    o "Ach übrigens, was bekomm ich egentlich wenn ich gewinne?"
+    o "Kein aber, du hast gesagt, du gewinnst locker. Also streng dich mal an."
+    o "Ach übrigens, was bekomm ich eigentlich, wenn ich gewinne?"
     p "Wie? Wieso solltest du was bekommen?"
     show octa talk
     o "Ist doch ein Rennen und wenn man solche gewinnt, dann bekommt man einen Preis."
     p "Was willst du denn?"
     o "Einen Pokal!"
     show octa happy
-    p "Ich hab aber keinen, ich glaub das ist auch zu teuer."
+    p "Ich hab aber keinen, ich glaub, das ist auch zu teuer."
     show octa shock
-    o "Oh stimmt ja. "
+    o "Oh, stimmt ja. "
     show octa talk
-    o "Wie wäre es denn wenn du allen erzählst, dass ich die beste im Radfahren bin?"
-    o "Und du hörst auf mich zu hinterfragen."
-    p "Und wenn ich gewinne?"
+    o "Wie wäre es denn, wenn du allen erzählst, dass ich die Beste im Radfahren bin?"
+    o "Und du hörst auf, mich zu hinterfragen."
+    p "Und, wenn ich gewinne?"
     show octa vhappy
     o "Tust du doch eh nicht."
     p "Aber wenn, dann will ich auch was." 
     show octa talk
-    o "Eine Hochzeit vielleicht?"
+    o "Eine Hochzeit, vielleicht?"
     n "..."
-    p "Das hast du von Anja oder?"
+    p "Das hast du von Anja, oder?"
     show octa shock
     o "Ist doch egal, nimmst du das als Preis?"
     p "Nur wenn ich nicht knutschen muss."
     show octa vhappy
-    o "Hahaha, als ob. Ja das kann ausfallen."
+    o "Hahaha, als ob. Ja, das kann ausfallen."
     show octa talk
     o "So, sind wir dann bereit?"
     p "Glaube schon."
@@ -853,15 +855,15 @@ label octas8:
         show obike nhelm with moveinright
         hide obike nhelm with moveoutleft
         o "Was?"
-        n "Nurnoch ein paar meter und..."
+        n "Nur noch ein paar Meter und..."
         p "ICH HABS GESCHAFFT! OH MEIN GOTT!"
         jump obikewin
     
     else:
         n "Dann los!"
-        n "Warte, wieso ist die so schnell. Hat die keine Angst hinzufliegen?"
+        n "Warte, wieso ist die so schnell? Hat die keine Angst, hinzufliegen?"
         n "Da unten in der Kurve komm ich vielleicht vorbei."
-        n "Nein, leider nicht... Eventuell wenn ich, nein dann Fall ich nur."
+        n "Nein, leider nicht... Eventuell wenn ich, nein, dann all ich nur."
         n "Das gibt's doch nicht."
         n "Die bekomm ich doch nie."
         o "JAAA!"
@@ -871,24 +873,24 @@ label octas8:
 
 label obikewin:
     p "Hast du das gesehen?"
-    p "Ich konnte das nur, weil du mir beigebracht hast wie ich schneller bin."
+    p "Ich konnte das nur, weil du mir beigebracht hast, wie ich schneller bin."
     p "Und in der Kurve dann. Hast du das gesehen!"
     show oschutz happy
     o "Ach..."
     p "Was ist denn?"
     o "Ich hab verloren. Ich hab tatsächlich verloren!" ### es gibt keine traurigen oder weinenden Gesichter gerade.
     p "Ach ja, tut mir leid..."
-    o "Ich habe Opa versprochen immer mein bestes zu geben und jetzt bist du besser als ich."
+    o "Ich habe Opa versprochen, immer mein Bestes zu geben und jetzt bist du besser als ich."
     p "Hast du doch."
     o "Aber es war nicht gut genug! Ich bin schlecht."
     p "War doch gut genug!"
     o "Wie, wie meinst du?"
-    p "Ohne deine Hilfe wüsste ich nicht wie der Gang funktioniert."
-    p "Ohne dich würde ich immernoch Stützräder verwenden."
-    p "Ohne dich hätte ich Angst gehabt vor dem Fallen."
+    p "Ohne deine Hilfe, wüsste ich nicht, wie der Gang funktioniert."
+    p "Ohne dich, würde ich immernoch Stützräder verwenden."
+    p "Ohne dich, hätte ich Angst gehabt vor dem Fallen."
     p "Was sagst du da eigentlich? Das hast du mir doch beigebracht!"
     o "Ich weiß, ist aber komisch."
-    p "Wie du weißt?"
+    p "Wie, du weißt?"
     o "Ich bin irgendwie froh darüber."
     p "Aber du weinst doch."
     o "Ich... Ich weiß auch nicht."
@@ -901,8 +903,8 @@ label obikewin:
     o "Aber diesmal mach ich dich fertig!"
     p "Ja, meine Frau."
     o "Ach du... du meintest das ernst."
-    p "Ist ja wohl mein Preis oder."
-    o "Ja, ja das hab ich gesagt."
+    p "Ist ja wohl mein Preis, oder."
+    o "Ja, ja, das hab ich gesagt."
     scene wedding with fade
     play music GoodEnd fadein 1.0
     n "Octavia ist wirklich cool, auch wenn sie mal nicht gewinnen will."
@@ -918,22 +920,22 @@ label obikewin:
     
 
 label obikeloss:
-    o "Yeah! Ich bin die schnellste!"
-    o "Hast du gesehen wie ich den Berg runtergerast bin?"
-    p "Ja du bist schnell."
+    o "Yeah! Ich bin die Schnellste!"
+    o "Hast du gesehen, wie ich den Berg runtergerast bin?"
+    p "Ja, du bist schnell."
     o "Und du langsam... Gaaanz laaangsam."
     o "Hast du dich überhaupt angestrengt?"
     p "Klar, war doch auch knapp."
     o "Vielleicht brauchst du doch wieder Stützräder!"
     p "Hey, das stimmt nicht!"
-    o "Na klar, du bist doch nur ein Baby das nichts kann."
+    o "Na klar, du bist doch nur ein Baby, das nichts kann."
     p "Ach echt?"
-    p "Du bist eine Oberzicke, die niemand hier mag. Die meisten bewundern dich nur wegen deinen Sachen und weil sie damit spielen wollen."
+    p "Du bist eine Oberzicke, die niemand hier mag. Die meisten bewundern dich nur, wegen deinen Sachen und weil sie damit spielen wollen."
     p "Niemand kann dich wirklich leiden. Doch ich mochte dich für ein bisschen."
     p "Und Mama hat auch immer gesagt, dass Angeber blöd sind.."
     o "Aber..."
     p "Ich mag dich auch nicht..."
-    o "Dann geh doch du Verlierer!"
+    o "Dann geh doch, du Verlierer!"
     p "Tschau, Nervenzicke!"
     scene octa badend with fade
     play music BadEnd fadein 1.0
