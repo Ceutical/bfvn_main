@@ -564,7 +564,7 @@ label anjas_ending:
     scene bg grura2
     show anja n at center
     with fade
-    aa "Hey, hey! Ich hab das Buch dabei!"
+    a "Hey, hey! Ich hab das Buch dabei!"
     a "Und du wirst nicht glauben, was man darin sieht!"
     a "Lass uns in die Ecke setzen, dann schauen wir es gemeinsam an!"
     p "Okay."

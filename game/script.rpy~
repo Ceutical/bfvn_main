@@ -5614,21 +5614,7 @@ label scenew3_0:
     
     
 
-    #window hide
-    #scene bg bedroom with fade
-    #nvln "Fabian Pfannmüller\nProduct Owner, Lead Writer"
-    #nvln "Kilian Petry\nLead Scenedesigner, Lead Coder"
-    #nvln "Frederik Haas\nSCRUM Master, Minigame Coder"
-    #nvln "Natalie Kuhrt\nLead Artist, Writer, Coder, Scenedesigner"
-    #nvln "Florian Menzel \ \ \ \ \ Sascha Fuchs\nWriter\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -- \ Writer, PR"
-    #nvln "Luca Pfeiffermann\nLead Sounddesigner"
-    #nvl clear
-    #nvln "Vielen Dank für's Spielen!"
-    #nvln "Euer Team von Baby's First Visual Novel"
-    #window hide
-    #scene cg selfiefriendo with fade
-    #$ renpy.pause ()
-    #window auto
+label endgame:
         
     
     return
