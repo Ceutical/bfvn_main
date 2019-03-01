@@ -91,5 +91,6 @@ label credits:
     show screen credits
     $ renpy.pause()
     hide screen credits
+    $ renpy.set_return_stack("") 
     jump endgame
 

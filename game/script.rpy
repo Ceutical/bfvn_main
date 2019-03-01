@@ -5618,8 +5618,8 @@ label scenew3_0:
     
     
 
-label endgame:
-        
+label endgame:   
+    
     
     return
 
