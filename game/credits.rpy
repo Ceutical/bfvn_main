@@ -24,7 +24,7 @@ screen credits():
             text "{b}Fabian \"Ceutical\" Pfannmüller{/b}\nProduct Owner, Lead Writer\n\n" at left
             text "{b}Frederik \"Flumpor\" Haas{/b}\nScrum Master, Coding, Minigames, Dialektmensch\n\n" at left
             text "{b}Kilian \"Raghnal\" Petry{/b}\nLead Scenedesigner, Lead Coder, Animator, Playtester\n\n" at left
-            text "{b}Natalie \"Illuminati{/b}\" Kuhrt\nLead Artist, Writer, Coder, Scenedesigner, Playtester\n\n" at left
+            text "{b}Natalie \"Illuminati{/b}\" Kuhrt\nLead Artist, Writer, Coder, Scenedesigner, Playtester, Lizenzberatung\n\n" at left
             text "{b}Florian Menzel{/b}\nWriter, Editor\n\n" at left
             text "{b}Sascha \"LeFuxi\" Fuchs{/b}\nWriter, PR\n\n" at left
             text "{b}Luca \"DuckEmoji\" Pfeiffermann{/b}\nLead Sounddesigner\n\n" at left
