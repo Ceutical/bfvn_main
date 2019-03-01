@@ -36,14 +36,14 @@ screen courthide():
 
 label suchen:
     
-    p "Ich will eh suchen, wenn ich euch finde wird Das lustig!"
+    p "Ich will eh suchen, wenn ich euch finde wird das lustig!"
     show randy happy
-    r "Alles klar wir haben einen Sucher!"
-    r "Also, du machst jetzt die Augen zu und zählst drei mal bis 20, dann darfst du die Augen wieder öffnen und Anfangen zu suchen."
+    r "Alles klar, wir haben einen Sucher!"
+    r "Also, du machst jetzt die Augen zu und zählst drei mal bis 20, dann darfst du die Augen wieder öffnen und anfangen zu suchen."
     r "Verstanden?"
     p "Ja schon."
     show randy talk
-    r "Ach ja, wenn du zu lange brauchst dann kommen wir hervor und du hast auch verloren."
+    r "Ach ja, wenn du zu lange brauchst, dann kommen wir hervor und du hast auch verloren."
     p "Na gut."
     scene bg black with dissolve
     hide randy
@@ -53,7 +53,7 @@ label suchen:
     n "Noch 2 mal!"
     n "1...2... 18...19...20"
     n "17...18...19 uuuund 20!"
-    p "Bereit oder nicht ich komme!"
+    p "Bereit oder nicht, ich komme!"
        
        
 label location:
@@ -68,8 +68,9 @@ label location:
         jump seekloser
     
     
-    n "Wo sollte ich wohl suchen? Sobald ich loslauf muss ich schnell sein!"
+    n "Wo sollte ich wohl suchen? Sobald ich loslauf, muss ich schnell sein!"
     menu:
+        n "Wo sollte ich wohl suchen? Sobald ich loslauf muss ich schnell sein!"
         "Gruppenraum" if grura == True:
             jump Gruppenraum
         "Flur" if flur == True:
@@ -106,7 +107,7 @@ label success_grura:
     n "Ich glaube, dass Kissen war vorher nicht da!"
     show randy shock at rightish
     p "Hab dich!"
-    r "Och menno, ich dachte ich bin hier sicher."
+    r "Och menno, ich dachte, ich bin hier sicher."
     p "Nicht sicher vor mir!"
     n "So, wo sind wohl die anderen?"
     hide randy
@@ -135,7 +136,7 @@ label success_flur:
     $ octa_points += 1
     $ anja_points += 2
     show octa shock
-    p "Octavia? Ich dachte du wolltest Papierflieger machen."
+    p "Octavia? Ich dachte, du wolltest Papierflieger machen."
     show octa smug
     o "Das kann ich doch schon. Aber was anderes, dachte nicht, dass du mich findest."
     p "Nun ja, ich muss weiter schauen."
@@ -180,7 +181,7 @@ label success_court:
     $ anja_points -= 1
     n "Da hinten hat etwas geraschelt."
     show anja what at leftish
-    a "Sappererlot, dachte nicht mir folgt jemand nach draußen."
+    a "Sappererlot, dachte nicht, mir folgt jemand nach draußen."
     p "Wusste doch, dass du dich hier aufhalten wirst."
     show anja happy
     a "Nun ja, da wurden wir eben..."
@@ -216,19 +217,19 @@ label seekwinner:
     a "Du hast uns echt alle erwischt!"
     p "Ja, irgendwie schon."
     show octa talk
-    o "War schon gut und so von dir, dass nächste mal will ich aber dich erwischen!"
+    o "War schon gut und so von dir, das nächste Mal will ich aber dich erwischen!"
     show randy talk
     show octa smug
     r "Du bist wirklich wahnsinnig gut!"
     show karin shock with moveinright
     show anja mad
     show randy mad
-    k "Tut mir leid Kinder!"
-    k "Was soll denn das [name], hörst du mich nicht?"
+    k "Tut mir leid, Kinder!"
+    k "Was soll denn das, [name], hörst du mich nicht?"
     k "Deine Mutter wartet schon auf dich!"
     k "Los, du kannst dich ja mittlerweile schon alleine anziehen!"
-    n "Hmmh, dann muss ich wohl laus."
-    p "Wenn meine mama wartet, dann tschau Leute."
+    n "Hmmh, dann muss ich wohl los."
+    p "Wenn meine Mama wartet, dann tschau Leute."
     o "Tschüss."
     a "Servus."
     r "Auf Wiedersehen."
@@ -239,7 +240,7 @@ label seekloser:
     $ octa_points -= 2
     show bg grura2
     n "Ich kann nicht mehr!"
-    p "So leute, ich gebe auf, ihr könnt aus euren verstecken!"
+    p "So Leute, ich gebe auf, ihr könnt aus euren Verstecken!"
     show randy talk at rightish
     show octa smug
     show anja jabber at leftish
@@ -251,12 +252,12 @@ label seekloser:
     show anja mad
     show randy mad
     show octa smug
-    k "Tut mir leid Kinder!"
-    k "Was soll denn das [name], hörst du mich nicht?"
+    k "Tut mir leid, Kinder!"
+    k "Was soll denn das, [name], hörst du mich nicht?"
     k "Deine Mutter wartet schon auf dich!"
     k "Los, du kannst dich ja mittlerweile schon alleine anziehen!"
-    n "Hmmh, dann muss ich wohl laus."
-    p "Wenn meine mama wartet, dann tschau Leute."
+    n "Hmmh, dann muss ich wohl los."
+    p "Wenn meine Mama wartet, dann tschau Leute."
     o "Tschüss."
     a "Servus."
     r "Auf Wiedersehen."

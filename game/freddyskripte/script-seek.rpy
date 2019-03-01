@@ -207,6 +207,7 @@ label Krankenzimmer:
     jump location    
 
 label seekwinner:
+    hide screen countdown
     $ seekwin = True
     $ octa_points += 1
     $ anja_points += 1
@@ -236,6 +237,7 @@ label seekwinner:
     jump scenew2_9
     
 label seekloser:
+    hide screen countdown
     $ seekloss = True
     $ octa_points -= 2
     show bg grura2

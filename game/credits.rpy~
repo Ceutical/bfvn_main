@@ -1,6 +1,6 @@
 transform credits_scroll(speed):
-    ypos 340
-    linear speed ypos -5070
+    ypos 360
+    linear speed ypos -5390
 
 ## Credits screen.
 
@@ -11,7 +11,7 @@ screen credits():
 
     add "#000"
 
-    frame at credits_scroll(25.0):
+    frame at credits_scroll(50.0):
         background None
             
 
@@ -22,32 +22,30 @@ screen credits():
             image "images/Backgrounds/bg titel.png"
             text "\n\n\n{b}Team:{/b}\nBaby's First Visual Novel\n\n" at left
             text "{b}Fabian \"Ceutical\" Pfannmüller{/b}\nProduct Owner, Lead Writer\n\n" at left
-            text "{b}Frederik \"Flumpor\" Haas{/b}\nScrum Master, Coding, Minigames, Dialektmensch\n\n" at left
-            text "{b}Kilian \"Raghnal\" Petry{/b}\nLead Scenedesigner, Lead Coder, Animator, Playtester\n\n" at left
-            text "{b}Natalie \"Illuminati{/b}\" Kuhrt\nLead Artist, Writer, Coder, Scenedesigner, Playtester\n\n" at left
+            text "{b}Frederik \"Flumpor\" Haas{/b}\nScrum Master, Coding, Minigames, Gamedesigner, Dialektmensch\n\n" at left
+            text "{b}Kilian \"Raghnal\" Petry{/b}\nLead Scenedesigner, Lead Coder, Animator, Playtester, Gamedesigner\n\n" at left
+            text "{b}Natalie \"Illuminati\" Kuhrt{/b}\nLead Artist, Writer, Coder, Scenedesigner, Playtester, Gamedesigner, Lizenzberatung\n\n" at left
             text "{b}Florian Menzel{/b}\nWriter, Editor\n\n" at left
             text "{b}Sascha \"LeFuxi\" Fuchs{/b}\nWriter, PR\n\n" at left
             text "{b}Luca \"DuckEmoji\" Pfeiffermann{/b}\nLead Sounddesigner\n\n" at left
             text "{b}Musik{/b}\n" at left
             text "Doug Maxwell - {b}Hollywood Traffic Jam{/b}\n" at left
-            text "Twin Musicom - {b}Video game Soldiers{/b}\n" at left
-            text "Twin Musicom - {b}Journey in the New World{/b}\n" at left
-            text "Twin Musicom - {b}8-Bit March{/b}\n" at left
-            text "Silent Partner - {b}Hemispheres{/b}\n"  at left
-            text "The 129ers - {b}We Can Hear You Big Eyes{/b}\n" at left 
-            text "Endless Love - {b}Natural{/b}\n" at left
-            text "Bad Snacks - {b}Kawaii!{/b}\n" at left
-            text "The Green Orbs - {b}Racing The Clock{/b}\n" at left
-            text "The Green Orbs - {b}Broccoli On My Plate{/b}\n" at left
-            text "The Green Orbs - {b}After School Jamboree{/b}\n" at left
             text "Chris Haugen - {b}Campfire Song{/b}\n" at left
             text "Dan Lebowitz - {b}Parkside{/b}\n" at left
-            text "Quincas Moreira - {b}Rainbow Forest{/b}\n" at left
-            text "Quincas Moreira - {b}Bubinga{/b}\n" at left
+            text "Endless Love - {b}Natural{/b}\n" at left
+            text "Silent Partner - {b}Hemispheres{/b}\n"  at left
             text "Sir Cubworth - {b}Magical Forest{/b}\n" at left
-            text "Emily A. Sprague - {b}Mind And Eye Journey{/b}\n" at left
-            text "The Whole Other - {b}Beyond The Lows{/b}\n" at left
-            text "{b}Alle Musikstücke sind aus der Youtube Audio Library:{/b}\nhttps://www.youtube.com/audiolibrary/music?ar=2n\n\n\n" at left
+            text "The Whole Other - {b}Beyond The Lows{/b}\n\n" at left
+            text "{b}Alle oben aufgezählten Musikstücke sind von der Youtube Audio Library:{/b}\nhttps://www.youtube.com/audiolibrary/music?ar=2\n\n" at left
+            text "Bad Snacks - {b}Kawaii!{/b}\nhttps://soundcloud.com/bad-snacks/kawaii\n" at left
+            text "Emily A. Sprague - {b}Mind And Eye Journey{/b}\nhttps://soundcloud.com/mlesprg\n" at left
+            text "Quincas Moreira - {b}Rainbow Forest{/b}\nQuincas Moreira - {b}Bubinga{/b}\nhttps://9tube.tv/channel/UCrZmIGWwmhX-XhWYqAio6aQ (Royalty Free Music)\n" at left
+            text "The 129ers - {b}We Can Hear You Big Eyes{/b}\nhttps://soundslibmp3.ru/download/cinema/we-can-hear-you-big-eyes\n" at left 
+            text "The Green Orbs - {b}Racing The Clock{/b}\nThe Green Orbs - {b}Broccoli On My Plate{/b}\nThe Green Orbs - {b}After School Jamboree{/b}\nhttps://muzlan.top/en/search/The+Green+Orbs\n" at left
+            text "{b}Creative Commons Attribution (https://creativecommons.org/licenses/by/3.0/)\n\n" at left
+            text "Twin Musicom - {b}Video game Soldiers{/b}\nCreative Commons Attribution (https://creativecommons.org/licenses/by/4.0/)\nhttp://www.twinmusicom.org/song/295/video-game-soldiers\n" at left
+            text "Twin Musicom - {b}8-Bit March{/b}\nCreative Commons Attribution (https://creativecommons.org/licenses/by/4.0/)\nhttp://www.twinmusicom.org/\n" at left
+            text "Twin Musicom - {b}Journey in the New World{/b}\nCreative Commons Attribution (https://creativecommons.org/licenses/by/4.0/)\nhttp://www.twinmusicom.org/song/258/journey-in-the-new-world\n\n\n" at left
             text "{b}SFX{/b}\n" at left
             text "{b}Kindergeräusche:{/b}\n{b}Ambience, Children Playing, Distant, A.wav{/b}\nInspectorJ (www.jshaw.co.uk)\nFreesound.org\nhttps://freesound.org/people/InspectorJ/sounds/398160/\n" at left
             text "{b}Katzenschnurren:{/b}\nhttps://www.youtube.com/audiolibrary_download?vid=2cbaacc1e00b220e\n" at left
@@ -63,7 +61,7 @@ screen credits():
             text "{b}Ast zerbricht:{/b}\nhttps://www.youtube.com/audiolibrary_download?vid=32084e5d652ed77c\n" at left
             text "{b}Goblingeräusche:{/b}\n{b}FUN MONSTER Jaja silly talk gibberish 10.wav{/b}\nArticulated Sounds (Sonniss.com)\nhttps://gamesounds.xyz/?dir=Sonniss.com%20-%20GDC%202018%20-%20Game%20Audio%20Bundle/Articulated%20Sounds%20-%20Fun%20Monsters\n\n{b}FUN MONSTER Wooly cartoony laugh talk gibberish.wav{/b}\nArticulated Sounds (Sonniss.com)\nhttps://gamesounds.xyz/?dir=Sonniss.com%20-%20GDC%202018%20-%20Game%20Audio%20Bundle/Articulated%20Sounds%20-%20Fun%20Monsters\n" at left
             text "{b}Fledermausgeräusch:{/b}\nBat.wav\nMike Koenig\nhttp://soundbible.com/1132-Bat.html\n" at left
-            text "{b}Licenses under Creative Commons:{/b} By Attribution 3.0 Licensen\n\n\n\n" at left
+            text "{b}Creative Commons Attribution (https://creativecommons.org/licenses/by/3.0/)\n\n\n\n" at left
             text "{b}Vielen Dank für's Spielen!{/b}\n\n\n\n\n\n\n\n\n\n\n\n"
             text "{b}The End.{/b}\n\n\n\n\n\n\n\n\n\n\n\n\n"
             text "{i}Linksklick oder Rechtsklick und Main Menu / Quit zum Beenden der Credits.{/i}"
