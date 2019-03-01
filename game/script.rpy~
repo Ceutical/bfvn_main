@@ -399,6 +399,7 @@ label start:
     $ win = "yes" ###variablenübernahme kein boolean
     $ skillpoints = 0 ### für octapfad
     $ credits = False
+    $ progamer = False
     
     
     init:
@@ -588,6 +589,7 @@ label start:
             "images/CGs/mofpaanimation/mofpa4.png"
             pause 0.15
             repeat
+            
 
             
             
@@ -3221,6 +3223,7 @@ label scenew2_2:
             o "Warte."
             o "Wie lange hast du das Spiel schon?"
             p "Erst seit Randys Geburtstag..."
+            label monstererklärung:
             o "Dann weißt du doch noch garnicht, wie man gegen andere Spieler kämpft!"
             menu:
                 o "Dann weißt du doch noch garnicht, wie man gegen andere Spieler kämpft!"
@@ -3229,32 +3232,33 @@ label scenew2_2:
                     o "Ach, na dann..."
                     
                 "Ähh...":
-                    label monstererklärung:
-                        if octaannoyed < 2:
-                            o "..."
-                            o "Dann lass es dir nochmal von der besten Ausbilderin erklären."
-                            o "Das läuft ein bisschen anders, als wenn du alleine spielst."
-                            o "Zuerst musst du natürlich ein Monster zum Kampf aussuchen."
-                            o "Und dann sagst du ihm, was es tun soll."
-                            o "\"Angriff\" ist Angreifen. Nicht so stark aber zuverlässig."
-                            o "\"Starker Angriff\" ist ein rücksichtloser Angriff. Der macht zwar mehr Schaden aber tut auch deinem Monster weh."
-                            o "\"Verteidigen\" heißt du bekommst von meinem nächsten Angriff weniger Schaden. Aber du greifst auch nicht an."
-                            o "Und mit \"Wechseln\" wechselst du dein Monster aus."
+                    if octaannoyed < 2:
+                        o "..."
+                        o "Dann lass es dir nochmal von der besten Ausbilderin erklären."
+                        o "Das läuft ein bisschen anders, als wenn du alleine spielst."
+                        o "Zuerst musst du natürlich ein Monster zum Kampf aussuchen."
+                        o "Und dann sagst du ihm, was es tun soll."
+                        o "\"Angriff\" ist Angreifen. Nicht so stark aber zuverlässig."
+                        o "\"Starker Angriff\" ist ein rücksichtloser Angriff. Der macht zwar mehr Schaden aber tut auch deinem Monster weh."
+                        o "\"Verteidigen\" heißt du bekommst von meinem nächsten Angriff weniger Schaden. Aber du greifst auch nicht an."
+                        o "Und mit \"Wechseln\" wechselst du dein Monster aus."
+                        o "Alles klar soweit?"
+                        menu:
                             o "Alles klar soweit?"
-                            menu:
-                                o "Alles klar soweit?"
-                                "Na klar!":
-                                    o "Na dann..."
+                            "Na klar!":
+                                o "Na dann..."
                                     
-                                "Nochmal von vorn...":
-                                    $ octaannoyed += 1
-                                    jump monstererklärung
-                        else:
-                            $ octa_points -= 1
-                            show octa mad
-                            o "Sag mal versuchst du hier eigentlich nur Zeit zu schinden?"
-                            o "Jetzt reicht es mir aber!"
+                            "Nochmal von vorn...":
+                                $ octaannoyed += 1
+                                jump monstererklärung
+                    else:
+                        $ octa_points -= 1
+                        show octa mad
+                        o "Sag mal versuchst du hier eigentlich nur Zeit zu schinden?"
+                        o "Jetzt reicht es mir aber!"
             o "LOS!"
+            if progamer == True:
+                jump startbattle2
             jump startbattle
             
             
@@ -5614,8 +5618,8 @@ label scenew3_0:
     
     
 
-label endgame:
-        
+label endgame:   
+    
     
     return
 

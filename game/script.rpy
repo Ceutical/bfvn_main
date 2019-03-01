@@ -660,26 +660,26 @@ label scene1:
             pre = "meine"
 
     ##### Szene 2 CHILD #####
-    menu:
-        "Was spielen?"
-        "Anjas Ende.":
-            stop music1
-            jump anjas_ending
+    #menu:
+        #"Was spielen?"
+        #"Anjas Ende.":
+            #stop music1
+            #jump anjas_ending
 
-        "Eves Ende.":
-            stop music1
-            jump eves_ending
+        #"Eves Ende.":
+            #stop music1
+            #jump eves_ending
             
-        "Octas Ende.":
-            stop music1
-            jump octas_ending
+        #"Octas Ende.":
+            #stop music1
+            #jump octas_ending
             
-        "Credits.":
-            stop music1
-            jump credits
+        #"Credits.":
+            #stop music1
+            #jump credits
             
-        "Normal.":
-            jump childlike
+        #"Normal.":
+            #jump childlike
             
 label childlike:
     scene mnd with fade

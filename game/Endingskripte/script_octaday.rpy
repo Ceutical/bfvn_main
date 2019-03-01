@@ -604,7 +604,13 @@ label octas4:
     o "Wohl doch!"
     a "Woher sollst du wissen, wieviel ich von Fahrrädern weiß. Außerdem..."
     n "ich fang wohl lieber mal mit den Trainieren an. Die streiten wohl eh den ganzen Tag."
-    scene tue with dissolve
+    scene bg black with fade
+    show tue with dissolve
+    $ renpy.pause(0.6, hard = True)
+    scene bg street
+    show louis really at leftish
+    show randy happy at rightish
+    with fade
 
 label octas5:
     L "Vorsicht! Du musst bremsen!"
@@ -617,9 +623,7 @@ label octas5:
             play sound bikebreak
             p "Gut, ging doch."
     
-    scene bg street with dissolve
-    show louis really at leftish
-    show randy happy at rightish
+    
     L "Du wackelst ja hin und her."
     L "Bleib doch mal gerade!"
     p "Versuch ich ja..."

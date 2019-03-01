@@ -407,6 +407,7 @@ label octas_ending:
         p "Das werden wir ja sehen!"
     
     else:
+        $ progamer = True
         p "Hast du Fighte Mon?"
         show octa happy
         o "Klar, ich hab sogar das neue!"
@@ -417,11 +418,9 @@ label octas_ending:
         show octa smug
         o "Ich bin nämlich die beste Trainerin der Welt!"
         p "Das werden wir ja sehen!"
+        o "Aber warte mal..."
     
-label octas2:
-    
-    
-    jump startbattle2
+
     
 label endbattle2:
     

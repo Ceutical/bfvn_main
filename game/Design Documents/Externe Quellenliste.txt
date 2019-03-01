@@ -1,0 +1,173 @@
+###################################################
+Team:
+###################################################
+Baby's First Visual Novel
+
+Fabian "Ceutical" Pfannmüller
+Product Owner, Lead Writer
+
+Frederik "Flumpor" Haas
+Scrum Master, Coding, Minigames, Gamedesigner, Dialektmensch
+
+Kilian "Raghnal" Petry
+Lead Scenedesigner, Lead Coder, Animator, Playtester, Gamedesigner
+
+Natalie "Illuminati" Kuhrt
+Lead Artist, Writer, Coder, Scenedesigner, Playtester, Gamedesigner, Lizenzberatung
+
+Florian Menzel
+Writer, Editor
+
+Sascha "LeFuxi" Fuchs
+Writer, PR
+
+Luca "DuckEmoji" Pfeiffermann
+Lead Sounddesigner
+
+
+###################################################
+Musik
+###################################################
+Doug Maxwell - Hollywood Traffic Jam
+
+Chris Haugen - Campfire Song
+
+Dan Lebowitz - Parkside
+
+Endless Love - Natural
+
+Silent Partner - Hemispheres
+
+Sir Cubworth - Magical Forest
+
+The Whole Other - Beyond The Lows
+
+Alle oben aufgezählten Musikstücke sind von der Youtube Audio Library:
+https://www.youtube.com/audiolibrary/music?ar=2
+
+Bad Snacks - Kawaii!
+https://soundcloud.com/bad-snacks/kawaii
+
+Emily A. Sprague - Mind And Eye Journey
+https://soundcloud.com/mlesprg
+
+Quincas Moreira - Rainbow Forest
+Quincas Moreira - Bubinga
+https://9tube.tv/channel/UCrZmIGWwmhX-XhWYqAio6aQ (Royalty Free Music)
+
+The 129ers - We Can Hear You Big Eyes
+https://soundslibmp3.ru/download/cinema/we-can-hear-you-big-eyes
+
+The Green Orbs - Racing The Clock
+The Green Orbs - Broccoli On My Plate
+The Green Orbs - After School Jamboree
+https://muzlan.top/en/search/The+Green+Orbs
+
+Creative Commons Attribution (https://creativecommons.org/licenses/by/3.0/)
+
+
+Twin Musicom - Video game Soldiers
+Creative Commons Attribution (https://creativecommons.org/licenses/by/4.0/)
+http://www.twinmusicom.org/song/295/video-game-soldiers
+
+Twin Musicom - 8-Bit March
+Creative Commons Attribution (https://creativecommons.org/licenses/by/4.0/)
+http://www.twinmusicom.org/
+
+Twin Musicom - Journey in the New World
+Creative Commons Attribution (https://creativecommons.org/licenses/by/4.0/)
+http://www.twinmusicom.org/song/258/journey-in-the-new-world
+
+
+###################################################
+SFX
+###################################################
+Kindergeräusche:
+Ambience, Children Playing, Distant, A.wav
+InspectorJ (www.jshaw.co.uk)
+Freesound.org
+https://freesound.org/people/InspectorJ/sounds/398160/
+
+Katzenschnurren:
+https://www.youtube.com/audiolibrary_download?vid=2cbaacc1e00b220e
+
+Hahnwecker:
+Rooster Calling, Close, A.wav
+InspectorJ (www.jshaw.co.uk)
+Freesound.org
+https://freesound.org/people/InspectorJ/sounds/439472/
+
+Regen:
+https://www.youtube.com/audiolibrary_download?vid=46ff000248dac484
+
+Fahrrad:
+https://www.youtube.com/audiolibrary_download?vid=8d296f5f763b76b4
+
+Fahrrad mit alter Kette:
+https://www.youtube.com/audiolibrary_download?vid=59a705aed0890b62
+
+Whoosh:
+https://www.youtube.com/audiolibrary_download?vid=29d6a8554d0758c9
+https://www.youtube.com/audiolibrary_download?vid=c90f630b33d69a38
+
+Straßenkulisse:
+Ambience, London Street, A.wav
+InspectorJ (www.jshaw.co.uk)
+Freesound.org
+https://freesound.org/people/InspectorJ/sounds/398159/
+
+Magie:
+https://www.youtube.com/audiolibrary_download?vid=e9eebea0804634e0
+another magic wand spell tinkle.flac
+Timbre
+https://freesound.org/people/Timbre/sounds/221683/
+
+SFX Magic
+renatalmar
+https://freesound.org/people/renatalmar/sounds/264981/
+
+Magic Strike.wav
+Aleks41
+https://freesound.org/people/Aleks41/sounds/406063/
+
+
+Kinderschrei:
+Child screaming in rage or horror (2), short.
+SoundBits Sound FX
+https://www.soundsnap.com/screams_shouts_human_child_020_wav
+
+A child screaming - Ahhh!
+SFX Bible
+https://www.soundsnap.com/node/51558
+
+Child screams
+SFX Source
+https://www.soundsnap.com/node/107654
+
+Wald Atmo:
+Khao Yai National Park, nightime forest atmosphere under deep canopy, very still with insects
+BBC Sound Effects
+http://bbcsfx.acropolis.org.uk/assets/07070189.wav
+
+Bamboo and reed forest wind through undergrowth with birds. San Martin de los Andes, Argentina.
+BBC Sound Effects
+http://bbcsfx.acropolis.org.uk/assets/07063061.wav
+
+Ast zerbricht:
+https://www.youtube.com/audiolibrary_download?vid=32084e5d652ed77c
+
+Goblingeräusche:
+FUN MONSTER Jaja silly talk gibberish 10.wav
+Articulated Sounds (Sonniss.com)
+https://gamesounds.xyz/?dir=Sonniss.com%20-%20GDC%202018%20-%20Game%20Audio%20Bundle/Articulated%20Sounds%20-%20Fun%20Monsters
+
+FUN MONSTER Wooly cartoony laugh talk gibberish.wav
+Articulated Sounds (Sonniss.com)
+https://gamesounds.xyz/?dir=Sonniss.com%20-%20GDC%202018%20-%20Game%20Audio%20Bundle/Articulated%20Sounds%20-%20Fun%20Monsters
+
+Fledermausgeräusch:
+Bat.wav
+Mike Koenig
+http://soundbible.com/1132-Bat.html
+
+Creative Commons Attribution (https://creativecommons.org/licenses/by/3.0/)

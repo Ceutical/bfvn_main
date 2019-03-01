@@ -87,7 +87,7 @@ label switch2:
                         with moveoutleft
                     elif active_a == "trex":
                         play sound pokout
-                        hide p1 dalmatrex
+                        hide p1 dalmaT-Rex
                         with moveoutleft
                     $ active_a = "fist"
                     play sound pokin
@@ -110,7 +110,7 @@ label switch2:
                         with moveoutleft
                     elif active_a == "trex":
                         play sound pokout
-                        hide p1 dalmatrex
+                        hide p1 dalmaT-Rex
                         with moveoutleft
                     $ active_a = "laser"
                     play sound pokin
@@ -133,11 +133,11 @@ label switch2:
                         with moveoutleft
                     elif active_a == "laser":
                         play sound pokout
-                        hide p1 dalmatrex
+                        hide p1 dalmaT-Rex
                         with moveoutleft
                     $ active_a = "trex"
                     play sound pokin
-                    show p1 dalmatrex at protagonist
+                    show p1 dalmaT-Rex at protagonist
                     with moveinleft
                     p "Los Dalma T-Rex!"
                     $ activeHP_a = HP_trex
@@ -199,7 +199,7 @@ label kampf2:
             jump switch2
         elif active_a == "trex":
             play sound pokout
-            hide p1 dalmatrex
+            hide p1 dalmaT-Rex
             with moveoutleft
             $ switchpoints += 1
             $ active_a = ""
@@ -278,9 +278,9 @@ label kampf2:
                 show p1 poklaser at protagonist with move
             else:
                 "DalmaT-Rex rüstet sich mit \"Knochenbiss\"!"
-                show p1 dalmatrex at pattack with move
+                show p1 dalmaT-Rex at pattack with move
                 play sound whoosh1
-                show p1 dalmatrex at protagonist with move 
+                show p1 dalmaT-Rex at protagonist with move 
             if (active_a, active_o) in advantage2:
                 $ randomnum = renpy.random.randint(50,70)
                 "Ein kritischer Treffer!"
@@ -335,9 +335,9 @@ label kampf2:
                 show p1 poklaser at protagonist with move
             else:
                 "DalmaT-Rex holt aus für \"Urknall\"!"
-                show p1 dalmatrex at pattack with move
+                show p1 dalmaT-Rex at pattack with move
                 play sound whoosh1
-                show p1 dalmatrex at protagonist with move                
+                show p1 dalmaT-Rex at protagonist with move                
             if (active_a, active_o) in advantage2:
                 $ randomnum = renpy.random.randint(70,90)
                 "Ein kritischer Treffer!"
